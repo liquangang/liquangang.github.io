@@ -3,18 +3,18 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 李全港_blog
-subtitle: 写想写的东西，做想做的事情
-description: mail: jiayouliquangang@163.com
+title: 做想做的事情
+subtitle: jiayouliquangang@gmail.com
+description: blog
 keywords:
-author: John Doe
+author: 李全港
 language:
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
-root: /
+url: https://liquangang.github.io/liquangang.github.io/
+root: /liquangang.github.io/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
