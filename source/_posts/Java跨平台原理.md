@@ -5,6 +5,6 @@ tags: 编程
 categories:
 - [Java, Java基础]
 ---
-## Java跨平台原理
+
 * 平台：指可以运行代码的操作系统
 * JVM：Java virtual machine，Java实现跨平台的软件

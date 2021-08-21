@@ -6,8 +6,6 @@ categories:
 - [Java, Java基础]
 ---
 
-# Java简介
-
 ## 计算机语言：人与计算机之间交流沟通的工具
 
 ## Java发展史
