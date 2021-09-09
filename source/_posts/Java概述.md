@@ -3,7 +3,7 @@ title: Java概述
 date: 2021-08-21 15:24:01
 tags: 编程
 categories:
-- [Java, Java基础]
+- [Java]
 ---
 
 ### 计算机语言

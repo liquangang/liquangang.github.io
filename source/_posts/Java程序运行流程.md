@@ -3,7 +3,7 @@ title: Java程序运行流程
 date: 2021-08-25 15:29:57
 tags: 编程
 categories:
-- [Java, Java基础]
+- [Java]
 ---
 
 ### Java运行流程

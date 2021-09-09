@@ -3,7 +3,7 @@ title: Java注释
 date: 2021-08-25 20:45:38
 tags: 编程
 categories:
-- [Java, Java基础]
+- [Java]
 ---
 ### 三种注释格式
 * 单行注释

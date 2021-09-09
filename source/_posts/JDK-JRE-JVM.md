@@ -3,7 +3,7 @@ title: JDK&JRE&JVM
 date: 2021-08-21 18:03:06
 tags: 编程
 categories:
-- [Java, Java基础]
+- [Java]
 ---
 
 * JDK（Java Development Kit：开发Java程序）：

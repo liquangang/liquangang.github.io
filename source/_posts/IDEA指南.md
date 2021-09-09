@@ -3,7 +3,7 @@ title: IDEA指南
 date: 2021-08-31 10:39:05
 tags: 编程
 categories:
-- [Java, Java基础]
+- [编程工具]
 ---
 
 ### IDEA简介

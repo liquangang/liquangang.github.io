@@ -3,7 +3,7 @@ title: Java内存分配
 date: 2021-08-31 11:14:46
 tags: 编程
 categories:
-- [Java, Java基础]
+- [Java]
 ---
 
 ### 内存区域、内存模型
@@ -127,6 +127,8 @@ categories:
             * JVM对该区域限制非常松，可选择不实现垃圾回收
             * 垃圾回收在该区域出现少，主要是回收运行时常量池和类元信息
             * 当方法区无法满足内存分配需求时，抛出OutOfMemoryError
+    * #### Runtime Constant Pool（运行时常量池）
+        
             
     
 
