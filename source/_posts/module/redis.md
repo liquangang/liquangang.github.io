@@ -3,7 +3,7 @@ title: redis
 date: 2021-09-09 11:04:25
 tags: 编程
 categories:
-- [工具软件]
+- [组件]
 ---
 
 ### 常用命令
