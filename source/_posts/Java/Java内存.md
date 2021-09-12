@@ -177,6 +177,14 @@ categories:
     * 监视器锁规则：对一个监视器锁的解锁，happens- before 于随后对这个监视器锁的加锁。
     * volatile 变量规则：对一个 volatile 域的写，happens- before 于任意后续对这个 volatile 域的读。
     * 传递性：如果 A happens- before B，且 B happens- before C，那么 A happens- before C。
+   
+## volatile
+* 作用：
+    * 保持变量的修改在多个线程间是同步的
+* 特点：
+    * 保证变量对所有线程都是可见的
+    * volatile变量在并发情况下由于Java的非原子化操作导致线程不安全，synchronized由于统一时间内只能由一个线程操作，所以是线程安全的
+    * 禁止指令重排序优化
     
 
     
