@@ -10,6 +10,8 @@ categories:
 * 截止到2021.08.31，是全世界最流行的Java集成开发环境
 
 ### tips
+#### 快捷键
+* ctrl + alt + v：快速生成方法返回值接收代码
 
 ### IDEA常见error
 #### Error: java: System Java Compiler was not found in classpath

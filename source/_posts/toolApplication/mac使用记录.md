@@ -1,5 +1,5 @@
 ---
-title: mac使用记录
+title: mac使用技巧
 date: 2021-09-25 12:28:45
 tags: 电脑使用技巧
 categories:
