@@ -12,6 +12,7 @@ categories:
 ### tips
 #### 快捷键
 * ctrl + alt + v：快速生成方法返回值接收代码
+* /** + enter：生成javaDoc注释
 
 ### IDEA常见error
 #### Error: java: System Java Compiler was not found in classpath
