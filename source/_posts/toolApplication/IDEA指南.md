@@ -29,3 +29,6 @@ categories:
     * Project language level，选SDK default
     * Modules > source > language level, 选Project default
 
+
+### IDEA 破解
+* [参考链接](https://www.cnblogs.com/vitual/p/11361406.html)
