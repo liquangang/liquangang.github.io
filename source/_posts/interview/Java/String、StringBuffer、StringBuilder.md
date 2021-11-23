@@ -35,48 +35,48 @@ categories:
     // false
     System.out.println(string1==string2);
     ```
-    
+
 ### StringBuffer：线程安全的可变字符串类
 * 使用场景：需要频繁变化且需要线程安全
 * 特点：
     * 每次变更都是在原来对象上去修改，不产生新对象
     * 大部分场景下性能比String好
     * 与StringBuffer基本相同，多了一个synchronized修饰，所以线程安全
-    
+
 ### StringBuilder：线程不安全的可变字符串类
 * 使用场景：不需要考虑线程安全问题场景，建议首选该类，然后是StringBuffer，然后是String
 * 特点：
     * 与StringBuffer类似，不产生新对象
     * 大部分场景性能比StringBuffer更好
-    
+
 ### string常见面试题
-1、下面这段代码的输出结果？
+#### 下面这段代码的输出结果？
 ```
     String a = "hello2"; 　　
     String b = "hello" + 2; 　　
     System.out.println((a == b));
 ```
-* 答：true, 编译期间"hello" + 2被优化为hello2，所以两个对象都指向了同一个常量地址
+* true, 编译期间"hello" + 2被优化为hello2，所以两个对象都指向了同一个常量地址
 
-2、下面这段代码输出结果？
+#### 下面这段代码输出结果？
 ```
     String a = "hello2"; 　  
     String b = "hello";       
     String c = b + 2;       
     System.out.println((a == c));
 ```
-* 答：false，因为有对象引用，所以c指向的地址是在堆中，而a和b都是指向了常量地址
+* false，因为有对象引用，所以c指向的地址是在堆中，而a和b都是指向了常量地址
 
-3、下面这段代码的输出结果？
+#### 下面这段代码的输出结果？
 ```
-String a = "hello2";   　 
+String a = "hello2";   　
 final String b = "hello";       
 String c = b + 2;      
 System.out.println((a == c));
 ```
-* 答：true，final变量会在编译期间替换成具体的值，即c="hello"+2，所以a和c指向了同一个常量地址
+* true，final变量会在编译期间替换成具体的值，即c="hello"+2，所以a和c指向了同一个常量地址
 
-4、下面这段代码的输出结果？
+#### 下面这段代码的输出结果？
 ```
 public class Main {
     public static void main(String[] args) {
@@ -85,15 +85,15 @@ public class Main {
         String c = b + 2;
         System.out.println((a == c));
     }
-     
+
     public static String getHello() {
         return "hello";
     }
 }
 ```
-* 答：false，b是通过调用方法赋值，调用方法需要在运行时执行，所以c保存的地址是在运行时确定，而a保存的地址在编译时已经确认
+* false，b是通过调用方法赋值，调用方法需要在运行时执行，所以c保存的地址是在运行时确定，而a保存的地址在编译时已经确认
 
-5、下面这段代码的输出结果？
+#### 下面这段代码的输出结果？
 ```
 public class Main {
     public static void main(String[] args) {
@@ -101,7 +101,7 @@ public class Main {
         String b =  new String("hello");
         String c =  new String("hello");
         String d = b.intern();
-         
+
         System.out.println(a==b);
         System.out.println(b==c);
         System.out.println(b==d);
@@ -109,12 +109,12 @@ public class Main {
     }
 }
 ```
-* 答：false、false、false、true，intern作用是运行时在常量池中查找，有返回一个该常量的引用，没有创建一个常量，然后返回一个该常量的引用
+* false、false、false、true，intern作用是运行时在常量池中查找，有返回一个该常量的引用，没有创建一个常量，然后返回一个该常量的引用
 
-6、String str = new String("abc")创建了哪些对象？
-* 答：类加载时创建了"abc"对象，代码执行时创建了str对象
+#### String str = new String("abc")创建了哪些对象？
+* 类加载时创建了"abc"对象，代码执行时创建了str对象
 
-7、下面这段代码1）和2）的区别是什么？
+#### 下面这段代码1）和2）的区别是什么？
 ```
 public class Main {
     public static void main(String[] args) {
@@ -124,7 +124,43 @@ public class Main {
     }
 }
 ```
-* 答：
-    * 1中只有一次append操作，2中有两次
-    * 1中的字符串会在编译期间被合并
-    * 1的效率比2高
+* 1中只有一次append操作，2中有两次
+* 1中的字符串会在编译期间被合并
+* 1的效率比2高
+
+#### String是不是基本数据类型?
+* 不是基本数据类型，继承Object
+
+
+#### String str="i"与 String str=new String(“i”)一样吗？
+* 不一样，str="i"会分配到常量池里面，new String(“i”)会创建一个新对象
+
+#### 如何将字符串反转？
+* 方案1：将字符串按字符放到栈中，然后从栈中输出
+* 方案2：StringBuffer 或 StringBuilder 的 reverse 成员方法
+* 方案3：利用toCharArray方法转化成数组，然后倒序输出
+* 方案4：利用 String 的 CharAt 方法倒序输出
+* 方案5：利用递归加二分实现
+```
+public String testStringReverse(String string) {
+        if (string.length() <= 1) {
+            System.out.println("----" + string + "-----");
+            return string;
+        }
+
+        String leftString = string.substring(0, string.length()/2);
+        String rightString = string.substring(string.length()/2, string.length());
+        String reverseString = testStringReverse(rightString) + testStringReverse(leftString);
+        System.out.println("====" + reverseString + "=====");
+        return reverseString;
+    }
+```
+
+#### String 类的常用方法都有那些？
+* public int length()
+* public boolean isEmpty()
+* public char charAt(int index)
+* public byte[] getBytes()
+* public boolean equals(Object anObject)
+* public String replace(char oldChar, char newChar)
+* public char[] toCharArray()
