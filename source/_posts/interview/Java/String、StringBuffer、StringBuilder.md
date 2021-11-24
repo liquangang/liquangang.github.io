@@ -157,10 +157,16 @@ public String testStringReverse(String string) {
 ```
 
 #### String 类的常用方法都有那些？
-* public int length()
-* public boolean isEmpty()
-* public char charAt(int index)
-* public byte[] getBytes()
-* public boolean equals(Object anObject)
-* public String replace(char oldChar, char newChar)
-* public char[] toCharArray()
+* 长度相关：
+  * public int length()
+* 数组相关：
+  * public byte[] getBytes()
+  * public char[] toCharArray()
+  * 按照regex分割为字符串数组：public String[] split(String regex)
+* 判断相关：
+  * public boolean isEmpty()
+  * public boolean equals(Object anObject)
+* 查找相关：
+  * public char charAt(int index)
+* 变更相关：
+  * public String replace(char oldChar, char newChar)
