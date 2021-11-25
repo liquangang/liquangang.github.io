@@ -15,7 +15,7 @@ categories:
     * stringBuilder：字符串操作比较多
     * stringBuffer：多线程且操作比较多
 
-### String：常量字符串类
+## String：常量字符串类
 * 使用场景：简单常量字符串
 * 特点：
     * 有新操作就会生成一个新对象
@@ -36,21 +36,21 @@ categories:
     System.out.println(string1==string2);
     ```
 
-### StringBuffer：线程安全的可变字符串类
+## StringBuffer：线程安全的可变字符串类
 * 使用场景：需要频繁变化且需要线程安全
 * 特点：
     * 每次变更都是在原来对象上去修改，不产生新对象
     * 大部分场景下性能比String好
     * 与StringBuffer基本相同，多了一个synchronized修饰，所以线程安全
 
-### StringBuilder：线程不安全的可变字符串类
+## StringBuilder：线程不安全的可变字符串类
 * 使用场景：不需要考虑线程安全问题场景，建议首选该类，然后是StringBuffer，然后是String
 * 特点：
     * 与StringBuffer类似，不产生新对象
     * 大部分场景性能比StringBuffer更好
 
-### string常见面试题
-#### 下面这段代码的输出结果？
+## string常见面试题
+### 下面这段代码的输出结果？
 ```
     String a = "hello2"; 　　
     String b = "hello" + 2; 　　
@@ -58,7 +58,7 @@ categories:
 ```
 * true, 编译期间"hello" + 2被优化为hello2，所以两个对象都指向了同一个常量地址
 
-#### 下面这段代码输出结果？
+### 下面这段代码输出结果？
 ```
     String a = "hello2"; 　  
     String b = "hello";       
@@ -67,7 +67,7 @@ categories:
 ```
 * false，因为有对象引用，所以c指向的地址是在堆中，而a和b都是指向了常量地址
 
-#### 下面这段代码的输出结果？
+### 下面这段代码的输出结果？
 ```
 String a = "hello2";   　
 final String b = "hello";       
@@ -76,7 +76,7 @@ System.out.println((a == c));
 ```
 * true，final变量会在编译期间替换成具体的值，即c="hello"+2，所以a和c指向了同一个常量地址
 
-#### 下面这段代码的输出结果？
+### 下面这段代码的输出结果？
 ```
 public class Main {
     public static void main(String[] args) {
@@ -93,7 +93,7 @@ public class Main {
 ```
 * false，b是通过调用方法赋值，调用方法需要在运行时执行，所以c保存的地址是在运行时确定，而a保存的地址在编译时已经确认
 
-#### 下面这段代码的输出结果？
+### 下面这段代码的输出结果？
 ```
 public class Main {
     public static void main(String[] args) {
@@ -111,10 +111,10 @@ public class Main {
 ```
 * false、false、false、true，intern作用是运行时在常量池中查找，有返回一个该常量的引用，没有创建一个常量，然后返回一个该常量的引用
 
-#### String str = new String("abc")创建了哪些对象？
+### String str = new String("abc")创建了哪些对象？
 * 类加载时创建了"abc"对象，代码执行时创建了str对象
 
-#### 下面这段代码1）和2）的区别是什么？
+### 下面这段代码1）和2）的区别是什么？
 ```
 public class Main {
     public static void main(String[] args) {
@@ -128,14 +128,14 @@ public class Main {
 * 1中的字符串会在编译期间被合并
 * 1的效率比2高
 
-#### String是不是基本数据类型?
+### String是不是基本数据类型?
 * 不是基本数据类型，继承Object
 
 
-#### String str="i"与 String str=new String(“i”)一样吗？
+### String str="i"与 String str=new String(“i”)一样吗？
 * 不一样，str="i"会分配到常量池里面，new String(“i”)会创建一个新对象
 
-#### 如何将字符串反转？
+### 如何将字符串反转？
 * 方案1：将字符串按字符放到栈中，然后从栈中输出
 * 方案2：StringBuffer 或 StringBuilder 的 reverse 成员方法
 * 方案3：利用toCharArray方法转化成数组，然后倒序输出
@@ -156,7 +156,7 @@ public String testStringReverse(String string) {
     }
 ```
 
-#### String 类的常用方法都有那些？
+### String 类的常用方法都有那些？
 * 长度相关：
   * public int length()
 * 数组相关：
