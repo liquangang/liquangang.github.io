@@ -1,9 +1,9 @@
 ---
 title: JDK、JRE、JVM
 date: 2021-11-22 22:35:05
-tags: 面试
+tags: Q&A
 categories:
-- [interview, interview-java]
+- [Q&A, Q&A-java]
 ---
 
 * JDK（Java Development Kit：开发Java程序）：

@@ -1,9 +1,9 @@
 ---
 title: final
 date: 2021-11-22 22:49:58
-tags: 面试
+tags: Q&A
 categories:
-- [interview, interview-java]
+- [Q&A, Q&A-java]
 ---
 
 ## final：用于修饰类、方法、数据，使其内存的内容不变
