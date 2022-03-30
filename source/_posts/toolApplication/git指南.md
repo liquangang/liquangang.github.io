@@ -16,6 +16,7 @@ categories:
 
 #### stash
 * git stash
+* git stash save "我是暂存名称"
 * git stash pop
 * git stash list
 * git stash clear
