@@ -29,3 +29,9 @@ categories:
 
 #### dif
 * git diff
+
+### branch
+* git branch -D [branchId]: 删除本地分支
+
+### checkout
+*  git checkout -b device_3-1-3_BRANCH origin/device_3-1-3_BRANCH: 拉取远程分支
