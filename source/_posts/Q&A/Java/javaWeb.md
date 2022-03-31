@@ -63,3 +63,20 @@ categories:
 |session：http会话开始到结束的时间|session|
 |request：http请求到结束的时间|request|
 |page：当前页面打开到关闭的时间|pageContext|
+
+### session 和 cookie 有什么区别？
+* cookie：是放在client上给server端做相关逻辑使用的，server会在response中返给client，server可以对cookie进行读写，比如可以使用cookie来保存用户信息，以便于server端校验用户信息
+* session：是放在server上，可以用来跟cookie的搭配做一些比如用户信息校验的逻辑
+* 区别：
+||cookie|session|
+|---|---|---|
+|存放位置|client|server|
+|容易|较小|较大|
+|安全性|较差|较强|
+
+### 说一下 session 的工作原理？
+* 简要说明：用户注册之后生成session，然后保存到内存或者硬盘中，供cookie过来之后的校验
+* 举例：比如用户登录校验这种，用户登录成功后，server将待seesionId的cookie返回给client，当client发起新的请求时，将cookie发送给server，然后server使用cookie和seesion进行用户登录校验，比如可以匹配一下seesionId这种方式验证
+
+### 如果客户端禁止 cookie 能实现 session 还能用吗？
+* 当然能用，cookie只是一个保存信息的数据结构而已，我们可以自己设计另一个跟cookie功能一致的东西，办法很多，根据场景选择即可，比如此时client只保存一个sessionid给server做用户登录校验即可
