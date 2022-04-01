@@ -65,11 +65,9 @@ categories:
 |page：当前页面打开到关闭的时间|pageContext|
 
 ### session 和 cookie 有什么区别？
-* cookie：是放在client上给server端做相关逻辑使用的，server会在response中返给client，server可以对cookie进行读写，比如可以使用cookie来保存用户信息，以便于server端校验用户信息
-* session：是放在server上，可以用来跟cookie的搭配做一些比如用户信息校验的逻辑
-* 区别：
 ||cookie|session|
 |---|---|---|
+|简介|是放在client上给server端做相关逻辑使用的，server会在response中返给client，server可以对cookie进行读写，比如可以使用cookie来保存用户信息，以便于server端校验用户信息|是放在server上，可以用来跟cookie的搭配做一些比如用户信息校验的逻辑|
 |存放位置|client|server|
 |容易|较小|较大|
 |安全性|较差|较强|
@@ -80,3 +78,41 @@ categories:
 
 ### 如果客户端禁止 cookie 能实现 session 还能用吗？
 * 当然能用，cookie只是一个保存信息的数据结构而已，我们可以自己设计另一个跟cookie功能一致的东西，办法很多，根据场景选择即可，比如此时client只保存一个sessionid给server做用户登录校验即可
+
+### spring mvc 和 struts 的区别是什么？
+||spring mvc|struts|
+|---|---|---|
+|简介|spring MVC是一个web开发框架，本质上相当于servlet，方便开发者更高效的开发web应用|是一个web开发框架，基于servlet与MVC设计模式实现|
+|机制|spring mvc的入口是servlet|入口是filter|
+|性能|较好，基于方法设计，粒度更细|较差，基于类设计，每收到一个请求，都会实例一个action|
+|参数传递|形参传递，方法之间是独立的|可以使用属性接收参数|
+|设计思想|在servlet上进行拓展，AOP|OOP|
+|开发效率|高|低|
+|配置量|接近0|较多|
+|拦截器实现机制|AOP方式，方法级别拦截|自己的interceptor机制，类级别拦截|
+|Ajax支持|继承了Ajax，使用@ResponseBody即可实现|拦截器中继承了Ajax，在action中处理时必须安装插件或者写代码集成进去，使用较为不方便|
+|验证机制|支持JSR303（一种参数校验规范），处理简单|繁琐|
+
+### 如何避免 sql 注入？
+* 定义：输入数据中包含非法sql语句，且此sql语句被非法执行
+* 避免策略：
+  * 过滤输入内容，校验字符串
+  * 参数化查询
+  * 安全测试、安全审计（CR）
+  * 避免使用动态sql
+  * 数据库重要数据加密
+  * 数据库权限控制
+  * 避免数据库直接跟用户产生交互
+
+### 什么是 XSS 攻击，如何避免？
+* 定义：又称CSS，全称Cross Site Script（跨站脚本攻击），即输入一段HTML来攻击应用
+* 避免策略：
+  * 对输入、输出进行过滤、转义处理
+  * 对HTML标签、CSS属性复制的地方进行校验
+
+### 什么是 CSRF 攻击，如何避免？
+* 定义：全称Cross Site Request Forgery（跨站请求伪造），即攻击者盗用身份，发送恶意请求
+* 避免策略：
+  * 阻止不明外域访问，比如验证请求地址等策略
+  * 关键操作添加验证码
+  * 增加token、cookie校验策略
