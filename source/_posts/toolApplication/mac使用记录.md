@@ -11,6 +11,12 @@ categories:
 * 问题原因：可能是已经安装过导致
 * 解决方法：删除电脑上lghub相关的文件，需要从Macintosh HD目录开始搜索
 
+### 文件已损坏，***
+* [参考文章](https://www.macwk.com/article/macos-file-damage)
+
+### iphone 链接 mac 闪断问题
+* [参考文章](https://blog.csdn.net/weixin_43971980/article/details/113804704)
+
 ## 系统技巧
 ### 横向滑动技巧
 * shift+鼠标滚动
