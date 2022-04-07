@@ -103,5 +103,5 @@ theme: maupassant
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/liquangang/liquangang.github.io.git
+  repo: https://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@github.com/liquangang/liquangang.github.io.git
   branch: master
