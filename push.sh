@@ -4,3 +4,4 @@ git commit -m "博客文章更新";
 git push;
 hexo g;
 hexo d;
+hexo clean;
