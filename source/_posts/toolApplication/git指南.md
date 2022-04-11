@@ -37,3 +37,6 @@ categories:
 
 ### checkout
 *  git checkout -b device_3-1-3_BRANCH origin/device_3-1-3_BRANCH: 拉取远程分支
+
+### 取消追踪某些文件
+
