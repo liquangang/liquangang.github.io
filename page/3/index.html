@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>静</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="记录知识、思考">
+<meta property="og:type" content="website">
+<meta property="og:title" content="静">
+<meta property="og:url" content="https://liquangang.github.io/page/3/index.html">
+<meta property="og:site_name" content="静">
+<meta property="og:description" content="记录知识、思考">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="不懂">
+<meta property="article:tag" content="编程、思维方式、知识">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">静</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://liquangang.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Q&amp;A/Java/面向对象、面向过程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/11/22/Q&A/Java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E3%80%81%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/" class="article-date">
+  <time datetime="2021-11-22T14:22:10.000Z" itemprop="datePublished">2021-11-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/22/Q&A/Java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E3%80%81%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/">面向对象、面向过程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="面向对象：将数据和操作方法放到一起，作为一个相互依存的整体-对象，对象是人对具体事务抽象出来的概念"><a href="#面向对象：将数据和操作方法放到一起，作为一个相互依存的整体-对象，对象是人对具体事务抽象出来的概念" class="headerlink" title="面向对象：将数据和操作方法放到一起，作为一个相互依存的整体-对象，对象是人对具体事务抽象出来的概念"></a>面向对象：将数据和操作方法放到一起，作为一个相互依存的整体-对象，对象是人对具体事务抽象出来的概念</h2><h3 id="对象：有自己独特个性的任何事物"><a href="#对象：有自己独特个性的任何事物" class="headerlink" title="对象：有自己独特个性的任何事物"></a>对象：有自己独特个性的任何事物</h3><ul>
+<li>特点：<ul>
+<li>继承：子类继承父类属性和方法</li>
+<li>封装：将不需要外接知道的内容隐藏起来，优点是实现了”高内聚、低耦合”；隐藏实现细节；对成员变量实现更精确控制  </li>
+<li>多态：一种行为具有多种表现形式，存在条件：继承、重写、父类引用指向子类对象</li>
+</ul>
+</li>
+<li>模板：类</li>
+<li>组成：属性、方法</li>
+</ul>
+<h3 id="优缺点："><a href="#优缺点：" class="headerlink" title="优缺点："></a>优缺点：</h3><ul>
+<li><p>优：</p>
+<ul>
+<li>适合大型系统</li>
+<li>易复用</li>
+<li>易拓展</li>
+<li>易维护</li>
+<li>低耦合</li>
+</ul>
+</li>
+<li><p>缺：</p>
+<ul>
+<li>较抽象</li>
+<li>性能差</li>
+</ul>
+</li>
+</ul>
+<h2 id="面向过程：与面向对象相反，要按照执行过程自己实现所有功能细节"><a href="#面向过程：与面向对象相反，要按照执行过程自己实现所有功能细节" class="headerlink" title="面向过程：与面向对象相反，要按照执行过程自己实现所有功能细节"></a>面向过程：与面向对象相反，要按照执行过程自己实现所有功能细节</h2><h3 id="优缺点：-1"><a href="#优缺点：-1" class="headerlink" title="优缺点："></a>优缺点：</h3><ul>
+<li>优：<ul>
+<li>适合小型系统</li>
+<li>易理解</li>
+<li>性能好</li>
+</ul>
+</li>
+<li>缺：<ul>
+<li>不适合大型系统</li>
+<li>难复用</li>
+<li>难拓展</li>
+<li>难维护</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E3%80%81%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/" data-id="cl1wbdhg80042f8d42oofelou" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-dataStructure/栈" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/11/15/dataStructure/%E6%A0%88/" class="article-date">
+  <time datetime="2021-11-15T02:16:31.000Z" itemprop="datePublished">2021-11-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/15/dataStructure/%E6%A0%88/">栈</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
+<li>一种特殊线性表</li>
+</ul>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>只允许在表尾删除、插入</li>
+</ul>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line"># -*- coding: UTF-8 -*-</span><br><span class="line"></span><br><span class="line">class StackTest(object):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.items = []</span><br><span class="line"></span><br><span class="line">    def is_empty(self):</span><br><span class="line">        return self.items == []</span><br><span class="line"></span><br><span class="line">    def push(self, item):</span><br><span class="line">        self.items.append(item)</span><br><span class="line"></span><br><span class="line">    def pop(self):</span><br><span class="line">        self.items.pop();</span><br><span class="line"></span><br><span class="line">    def peek(self):</span><br><span class="line">        return self.items[len(self.items) - 1]</span><br><span class="line"></span><br><span class="line">    def size(self):</span><br><span class="line">        return len(self.items)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def reverseArrayItem(array):</span><br><span class="line">    stackTest = StackTest()</span><br><span class="line"></span><br><span class="line">    for item in array:</span><br><span class="line">        stackTest.push(item)</span><br><span class="line"></span><br><span class="line">    while stackTest.size() &gt; 0:</span><br><span class="line">        print(stackTest.peek())</span><br><span class="line">        stackTest.pop()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    tmpArray = [1, 2, 3]</span><br><span class="line">    reverseArrayItem(tmpArray)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2021/11/15/dataStructure/%E6%A0%88/" data-id="cl1wbdhfo001zf8d48atm2e3j" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-dataStructure/队列" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/11/14/dataStructure/%E9%98%9F%E5%88%97/" class="article-date">
+  <time datetime="2021-11-14T14:07:48.000Z" itemprop="datePublished">2021-11-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/14/dataStructure/%E9%98%9F%E5%88%97/">队列</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
+<li>一种特殊线性表</li>
+</ul>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>只允许表头删除，表尾插入</li>
+</ul>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line"># -*- coding: UTF-8 -*-</span><br><span class="line"></span><br><span class="line">class Queue:</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.items = []</span><br><span class="line"></span><br><span class="line">    def enqueue(self, item):</span><br><span class="line">        self.items.append(item)</span><br><span class="line"></span><br><span class="line">    def peek(self):</span><br><span class="line">        item = self.items[0]</span><br><span class="line">        self.dequeue()</span><br><span class="line">        return item</span><br><span class="line"></span><br><span class="line">    def dequeue(self):</span><br><span class="line">        return self.items.pop(0)</span><br><span class="line"></span><br><span class="line">    def empty(self):</span><br><span class="line">        return self.size() == 0</span><br><span class="line"></span><br><span class="line">    def size(self):</span><br><span class="line">        return len(self.items)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def sendMessage(array):</span><br><span class="line">    messageQueue = Queue()</span><br><span class="line"></span><br><span class="line">    for item in array:</span><br><span class="line">        messageQueue.enqueue(item)</span><br><span class="line"></span><br><span class="line">    while messageQueue.empty() is False:</span><br><span class="line">        print(&quot;发送&quot; + messageQueue.peek())</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    array = [&quot;消息1&quot;, &quot;消息2&quot;, &quot;消息3&quot;]</span><br><span class="line">    sendMessage(array)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2021/11/14/dataStructure/%E9%98%9F%E5%88%97/" data-id="cl1wbdhfp0023f8d42zqo827l" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/多态" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/11/04/Java/%E5%A4%9A%E6%80%81/" class="article-date">
+  <time datetime="2021-11-03T17:30:39.000Z" itemprop="datePublished">2021-11-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/04/Java/%E5%A4%9A%E6%80%81/">多态</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="多态前提"><a href="#多态前提" class="headerlink" title="多态前提"></a>多态前提</h3><ul>
+<li>有继承或实现关系</li>
+<li>有方法重写</li>
+<li>有父类引用指向子类对象</li>
+</ul>
+<h3 id="多态访问成员变量、成员方法特点"><a href="#多态访问成员变量、成员方法特点" class="headerlink" title="多态访问成员变量、成员方法特点"></a>多态访问成员变量、成员方法特点</h3><ul>
+<li>只能访问声明类型内有的成员变量和成员方法，比如Person p = new Student(); 此时p只能调用Person中有的成员变量和成员方法</li>
+</ul>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><ul>
+<li>优点：可以动态的调用子类重写方法</li>
+<li>缺点：不能使用子类特有变量、方法</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2021/11/04/Java/%E5%A4%9A%E6%80%81/" data-id="cl1wbdhfa000sf8d4g3mh7gtg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/java-package" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/10/21/Java/java-package/" class="article-date">
+  <time datetime="2021-10-21T12:06:46.000Z" itemprop="datePublished">2021-10-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/10/21/Java/java-package/">java-package</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h3><ul>
+<li>示例：package:com.liquangang</li>
+</ul>
+<h3 id="单独执行文件中无包名文件"><a href="#单独执行文件中无包名文件" class="headerlink" title="单独执行文件中无包名文件"></a>单独执行文件中无包名文件</h3><ul>
+<li>示例：java com.liquangang.HelloWorld</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2021/10/21/Java/java-package/" data-id="cl1wbdhf7000jf8d4cxrldmyh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/json" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/10/11/Java/json/" class="article-date">
+  <time datetime="2021-10-11T11:02:23.000Z" itemprop="datePublished">2021-10-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/10/11/Java/json/">json</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><ul>
+<li>获取json串中的key、value：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">public static void testReadJson() &#123;</span><br><span class="line">        try</span><br><span class="line">        &#123;</span><br><span class="line">            String heartbeatString = FileUtil.readJsonFile(</span><br><span class="line">                    &quot;/Users/liquangang/work/chengfeng2.0/baidu/face-link/face-link-deviceSimulation/src/test/java/com/baidu/facelink/websocket/testJson/Heartbeat.json&quot;);</span><br><span class="line">            JsonParser p = new JsonParser();</span><br><span class="line">            JsonElement e = p.parse(heartbeatString);</span><br><span class="line">            jsonTree(e, new JsonKeyAndValueHandle() &#123;</span><br><span class="line">                @Override</span><br><span class="line">                public void handleKey(String key) &#123;</span><br><span class="line">                    System.out.println(key);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                @Override</span><br><span class="line">                public void handleValue(JsonElement e) &#123;</span><br><span class="line">                    System.out.println(e.toString());</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                @Override</span><br><span class="line">                public void handleKeyAndValue(Map.Entry&lt;String, JsonElement&gt; en) &#123;</span><br><span class="line">                    if (en.getKey().equals(&quot;deviceId&quot;)) &#123;</span><br><span class="line">                        en.setValue(new Gson().toJsonTree(&quot;DMCM020AYC21E00252&quot;));</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    if (en.getKey().equals(&quot;appId&quot;)) &#123;</span><br><span class="line">                        en.setValue(new Gson().toJsonTree(&quot;692805283478&quot;));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        catch(Exception e)</span><br><span class="line">        &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void jsonTree(JsonElement e, JsonKeyAndValueHandle jsonKeyAndValueHandle)</span><br><span class="line">    &#123;</span><br><span class="line">        if (e.isJsonNull())</span><br><span class="line">        &#123;</span><br><span class="line">            jsonKeyAndValueHandle.handleValue(e);</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (e.isJsonPrimitive())</span><br><span class="line">        &#123;</span><br><span class="line">            jsonKeyAndValueHandle.handleValue(e);</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (e.isJsonArray())</span><br><span class="line">        &#123;</span><br><span class="line">            JsonArray ja = e.getAsJsonArray();</span><br><span class="line">            if (null != ja)</span><br><span class="line">            &#123;</span><br><span class="line">                for (JsonElement ae : ja)</span><br><span class="line">                &#123;</span><br><span class="line">                    jsonTree(ae, jsonKeyAndValueHandle);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (e.isJsonObject())</span><br><span class="line">        &#123;</span><br><span class="line">            Set&lt;Map.Entry&lt;String, JsonElement&gt;&gt; es = e.getAsJsonObject().entrySet();</span><br><span class="line">            for (Map.Entry&lt;String, JsonElement&gt; en : es)</span><br><span class="line">            &#123;</span><br><span class="line">                jsonKeyAndValueHandle.handleKey(en.getKey());</span><br><span class="line">                jsonKeyAndValueHandle.handleKeyAndValue(en);</span><br><span class="line">                jsonTree(en.getValue(), jsonKeyAndValueHandle);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public interface JsonKeyAndValueHandle &#123;</span><br><span class="line">        void handleKey(String key);</span><br><span class="line">        void handleValue(JsonElement e);</span><br><span class="line">        void handleKeyAndValue(Map.Entry&lt;String, JsonElement&gt; en);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2021/10/11/Java/json/" data-id="cl1wbdhf9000mf8d46k2h7wcl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/继承" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/10/10/Java/%E7%BB%A7%E6%89%BF/" class="article-date">
+  <time datetime="2021-10-10T07:26:55.000Z" itemprop="datePublished">2021-10-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/10/10/Java/%E7%BB%A7%E6%89%BF/">继承</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="利弊"><a href="#利弊" class="headerlink" title="利弊"></a>利弊</h3><ul>
+<li>利<ul>
+<li>代码复用性</li>
+<li>代码可维护性</li>
+</ul>
+</li>
+<li>弊<ul>
+<li>削弱子类独立性</li>
+<li>类之间耦合性大</li>
+</ul>
+</li>
+</ul>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>子类任何构造方法均调动父类无参构造方法，目的是为了完成父类对象的创建与初始化，保证子类使用父类属性与方法不会出错，相当于默认调用了super()</li>
+<li>子类重写方法访问权限需要大于等于父类方法</li>
+<li>单继承</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2021/10/10/Java/%E7%BB%A7%E6%89%BF/" data-id="cl1wbdhff0017f8d4b8830grj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/Java-String" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/09/25/Java/Java-String/" class="article-date">
+  <time datetime="2021-09-25T09:26:30.000Z" itemprop="datePublished">2021-09-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/25/Java/Java-String/">Java-String</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><ul>
+<li>特点：<ul>
+<li>效果上相当于字符数组（char[]），实际上底层原理是字节数组（byte[]）</li>
+</ul>
+</li>
+</ul>
+<h2 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h2><ul>
+<li>不同构造方法特点<ul>
+<li>使用””方法创建的对象实际指向的是同一个内存地址</li>
+<li>使用new创建的对象即时字符换内容相同，对象指向的内存地址也不同</li>
+</ul>
+</li>
+</ul>
+<h2 id="字符串比较"><a href="#字符串比较" class="headerlink" title="字符串比较"></a>字符串比较</h2><ul>
+<li>==（实际都是比较变量保存的值是否相同）<ul>
+<li>基本数据类型是比较值</li>
+<li>引用类型比较的是地址值</li>
+</ul>
+</li>
+</ul>
+<h2 id="StringBuilder"><a href="#StringBuilder" class="headerlink" title="StringBuilder"></a>StringBuilder</h2><ul>
+<li>特点：<ul>
+<li>去掉字符串拼接过程中构造新对象的行为（解决浪费内存空间且耗时的问题）</li>
+<li>内容可变</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2021/09/25/Java/Java-String/" data-id="cl1wbdhep0001f8d44sjv1qqm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/Java类" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/09/25/Java/Java%E7%B1%BB/" class="article-date">
+  <time datetime="2021-09-25T09:13:23.000Z" itemprop="datePublished">2021-09-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/25/Java/Java%E7%B1%BB/">Java类</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2021/09/25/Java/Java%E7%B1%BB/" data-id="cl1wbdhf5000cf8d4btrn0ivt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-toolApplication/mac使用记录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/09/25/toolApplication/mac%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/" class="article-date">
+  <time datetime="2021-09-25T04:28:45.000Z" itemprop="datePublished">2021-09-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">mac使用技巧</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/25/toolApplication/mac%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/">mac使用技巧</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="应用问题"><a href="#应用问题" class="headerlink" title="应用问题"></a>应用问题</h2><h3 id="g-hub（罗技出品）卡在”正在初始化”问题"><a href="#g-hub（罗技出品）卡在”正在初始化”问题" class="headerlink" title="g hub（罗技出品）卡在”正在初始化”问题"></a>g hub（罗技出品）卡在”正在初始化”问题</h3><ul>
+<li>问题原因：可能是已经安装过导致</li>
+<li>解决方法：删除电脑上lghub相关的文件，需要从Macintosh HD目录开始搜索</li>
+</ul>
+<h3 id="文件已损坏，"><a href="#文件已损坏，" class="headerlink" title="文件已损坏，***"></a>文件已损坏，***</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.macwk.com/article/macos-file-damage">参考文章</a></li>
+</ul>
+<h3 id="iphone-链接-mac-闪断问题"><a href="#iphone-链接-mac-闪断问题" class="headerlink" title="iphone 链接 mac 闪断问题"></a>iphone 链接 mac 闪断问题</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43971980/article/details/113804704">参考文章</a></li>
+</ul>
+<h2 id="系统技巧"><a href="#系统技巧" class="headerlink" title="系统技巧"></a>系统技巧</h2><h3 id="横向滑动技巧"><a href="#横向滑动技巧" class="headerlink" title="横向滑动技巧"></a>横向滑动技巧</h3><ul>
+<li>shift+鼠标滚动</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2021/09/25/toolApplication/mac%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/" data-id="cl1wbdhft002gf8d49xfx93ga" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" rel="tag">电脑使用技巧</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/">Q&A</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/codeStyle/">codeStyle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">mac使用技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BD%BF%E7%94%A8/">区块链使用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%BA%94%E7%94%A8/">工具应用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E8%84%9A%E6%9C%AC/">工具脚本</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%84%E4%BB%B6/">组件</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag">博客搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" rel="tag">电脑使用技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" rel="tag">脚本工具</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Q-A/" style="font-size: 16.67px;">Q&A</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 10px;">区块链</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13.33px;">博客搭建</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">电脑使用技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 20px;">编程</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">脚本工具</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/12/Q&A/Java/%E7%BD%91%E7%BB%9C/">网络</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/06/Q&A/Java/%E5%BC%82%E5%B8%B8/">异常</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/28/Q&A/Java/javaWeb/">javaWeb</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/25/Q&A/Java/%E5%AF%B9%E8%B1%A1%E6%8B%B7%E8%B4%9D/">对象拷贝</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/24/Q&A/Java/%E5%8F%8D%E5%B0%84/">反射</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 不懂<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
