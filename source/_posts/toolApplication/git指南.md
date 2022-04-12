@@ -39,4 +39,12 @@ categories:
 *  git checkout -b device_3-1-3_BRANCH origin/device_3-1-3_BRANCH: 拉取远程分支
 
 ### 取消追踪某些文件
+* git rm -rf --cached 文件名或者文件夹
+* .gitignore里面去掉，本地没有的在.git同级目录下创建即可，然后把需要取消追踪的文件或者文件夹写进去
+* add/commit/push
+
+### 确定追踪某些文件 
+* git rm -rf --cached 文件或者文件夹
+* add/commit/push
+
 
