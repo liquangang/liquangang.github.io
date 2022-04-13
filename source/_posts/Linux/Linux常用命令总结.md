@@ -15,6 +15,9 @@ categories:
 * 模糊匹配aaaa开头的文件并在这些文件中查找xxx关键字：cat aaaa*.log | grep xxx
 * 模糊匹配aaaa开头的文件并在这些文件中查找xxx关键字统计出现次数：cat aaaa*.log | grep xxx -c 
 
+### nohup
+* 后台执行命令：nohup 你的命令 &
+
 
 
 
