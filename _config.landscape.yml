@@ -27,10 +27,15 @@ archive_type: 'monthly'
 show_count: false
 
 # Miscellaneous
-google_analytics:
-gauges_analytics:
-favicon: /favicon.png
-twitter:
-google_plus:
-fb_admins:
-fb_app_id:
+#google_analytics:
+#gauges_analytics:
+#favicon: /favicon.png
+#twitter:
+#google_plus:
+#fb_admins:
+#fb_app_id:
+
+local_search:
+  enable: true  #搜索开关
+  location: "right: 50px;top: 10px;" #搜索框位置top/left/bottom/right
+  facade: ""  #搜索框样式

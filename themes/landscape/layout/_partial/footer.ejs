@@ -1,4 +1,7 @@
 <footer id="footer">
+  <%- partial('_partial/search') %> # 引入search.ejs,这个文件的作用是生成搜索框并启用搜索输入
+  <%- js('js/load') %> # 引入load.js，这个文件的作用是加载search.xml
+  <%- js('js/search') %> # 引入search.js，这个文件的作用是解析search.xml
   <% if (theme.sidebar === 'bottom'){ %>
     <%- partial('_partial/sidebar') %>
   <% } %>
