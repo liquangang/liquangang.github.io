@@ -37,5 +37,5 @@ show_count: false
 
 local_search:
   enable: true  #搜索开关
-  location: "right: 100px;top: 10px;" #搜索框位置top/left/bottom/right
+  location: "right: 25px;top: 10px;" #搜索框位置top/left/bottom/right
   facade: ""  #搜索框样式

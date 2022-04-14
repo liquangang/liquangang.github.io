@@ -1,16 +1,19 @@
 <% if(theme.local_search.enable) { %>
+  <%- js('js/load') %>
+  <%- js('js/search') %>
   <span class="local-search local-search-google local-search-plugin" style="<%- theme.local_search.location %>;position:absolute;z-index:2;">
       <input type="search" placeholder="站内搜索" id="local-search-input" class="local-search-input-cls" style="<%- theme.local_search.facade %>">
+      <script type="text/javascript" id="local.search.active">
+          var inputArea = document.querySelector("#local-search-input");
+          inputArea.onclick = function () {
+              getSearchFile();
+              this.onclick = null
+          }
+          inputArea.onkeydown = function () {
+              if (event.keyCode == 13) return false
+          }
+      </script>
       <div id="local-search-result" class="local-search-result-cls"></div>
   </span>
-  <script type="text/javascript" id="local.search.active">
-      var inputArea = document.querySelector("#local-search-input");
-      inputArea.onclick = function () {
-          getSearchFile();
-          this.onclick = null
-      }
-      inputArea.onkeydown = function () {
-          if (event.keyCode == 13) return false
-      }
-  </script>
+
 <% } %>
