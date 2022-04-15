@@ -14,12 +14,10 @@
 <meta property="og:site_name" content="静">
 <meta property="og:description" content="记录知识、思考">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="不懂">
+<meta property="article:author" content="帝王之心">
 <meta property="article:tag" content="编程、思维方式、知识">
 <meta name="twitter:card" content="summary">
   
-  
-    <link rel="icon" href="/favicon.png">
   
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
@@ -33,6 +31,30 @@
   <div id="container">
     <div id="wrap">
       <header id="header">
+  
+  
+<script src="/js/load.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  <span class="local-search local-search-google local-search-plugin" style="right: 25px;top: 10px;;position:absolute;z-index:2;">
+      <input type="search" placeholder="站内搜索" id="local-search-input" class="local-search-input-cls" style="">
+      <script type="text/javascript" id="local.search.active">
+          var inputArea = document.querySelector("#local-search-input");
+          inputArea.onclick = function () {
+              getSearchFile();
+              this.onclick = null
+          }
+          inputArea.onkeydown = function () {
+              if (event.keyCode == 13) return false
+          }
+      </script>
+      <div id="local-search-result" class="local-search-result-cls"></div>
+  </span>
+
+
+
   <div id="banner"></div>
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
@@ -52,7 +74,6 @@
       </nav>
       <nav id="sub-nav">
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://liquangang.github.io"></form>
@@ -60,8 +81,64 @@
     </div>
   </div>
 </header>
+
       <div class="outer">
         <section id="main">
+  
+    <article id="post-codeStyle/代码规范" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/08/26/codeStyle/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" class="article-date">
+  <time datetime="2021-08-26T13:10:44.000Z" itemprop="datePublished">2021-08-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/codeStyle/">codeStyle</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/26/codeStyle/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/">代码规范</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><h3 id="标识符命名"><a href="#标识符命名" class="headerlink" title="标识符命名"></a>标识符命名</h3><ul>
+<li>小驼峰命名法<ul>
+<li>示例：studentName</li>
+<li>适用：函数命名、变量命名、常量命名</li>
+</ul>
+</li>
+<li>大驼峰命名法<ul>
+<li>示例：StudentName</li>
+<li>适用：类命名、接口命名<h3 id="类定义"><a href="#类定义" class="headerlink" title="类定义"></a>类定义</h3></li>
+</ul>
+</li>
+<li>类变量默认使用private</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2021/08/26/codeStyle/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" data-id="cl20ab5oe001r2ld47s1k8c3k" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Java/关键字、标识符" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -128,7 +205,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/08/26/Java/%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%81%E6%A0%87%E8%AF%86%E7%AC%A6/" data-id="cl1wbf6nb000tpwd432wp242f" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/08/26/Java/%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%81%E6%A0%87%E8%AF%86%E7%AC%A6/" data-id="cl20ab5o1000p2ld443jg27kd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
@@ -245,7 +322,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/08/26/Java/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" data-id="cl1wbf6ne0012pwd4el9l23ly" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/08/26/Java/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" data-id="cl20ab5o4000y2ld4crr0b1ax" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
@@ -304,7 +381,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/08/25/Java/Java%E6%B3%A8%E9%87%8A/" data-id="cl1wbf6n4000apwd4d46gdlln" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/08/25/Java/Java%E6%B3%A8%E9%87%8A/" data-id="cl20ab5ns00062ld48objfc5j" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
@@ -355,7 +432,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/08/25/Java/Java%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%B5%81%E7%A8%8B/" data-id="cl1wbf6n5000cpwd4fpme135t" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/08/25/Java/Java%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%B5%81%E7%A8%8B/" data-id="cl20ab5nv000a2ld4crn37lxt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
@@ -423,13 +500,13 @@
 <li>git remove -v: 查看当前origin配置</li>
 <li>git remote remove origin：移除origin配置</li>
 <li>git remove -v：再次查看origin配置</li>
-<li>git remote add origin https://你的<a href="mailto:&#x74;&#x6f;&#x6b;&#x65;&#x6e;&#x40;&#x67;&#x69;&#116;&#104;&#117;&#98;&#x2e;&#99;&#111;&#109;">&#x74;&#x6f;&#x6b;&#x65;&#x6e;&#x40;&#x67;&#x69;&#116;&#104;&#117;&#98;&#x2e;&#99;&#111;&#109;</a>/liquangang/liquangang.github.io.git</li>
+<li>git remote add origin https://你的<a href="mailto:&#116;&#111;&#x6b;&#x65;&#110;&#64;&#103;&#x69;&#x74;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#109;">&#116;&#111;&#x6b;&#x65;&#110;&#64;&#103;&#x69;&#x74;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#109;</a>/liquangang/liquangang.github.io.git</li>
 <li>git remote -v：查看是否修改成功</li>
 </ul>
 </li>
 </ul>
 <h4 id="hexo-d-推动失败"><a href="#hexo-d-推动失败" class="headerlink" title="hexo d 推动失败"></a>hexo d 推动失败</h4><ul>
-<li>一种可能：依然是git配置问题，需要修改_config.yml文件中的git配置（deploy-&gt;repo），此处与git的正常配置一样，即设置origin（举例：https://你的<a href="mailto:&#x74;&#111;&#107;&#x65;&#110;&#x40;&#x67;&#105;&#116;&#x68;&#117;&#98;&#46;&#99;&#x6f;&#109;">&#x74;&#111;&#107;&#x65;&#110;&#x40;&#x67;&#105;&#116;&#x68;&#117;&#98;&#46;&#99;&#x6f;&#109;</a>/liquangang/liquangang.github.io.git）</li>
+<li>一种可能：依然是git配置问题，需要修改_config.yml文件中的git配置（deploy-&gt;repo），此处与git的正常配置一样，即设置origin（举例：https://你的<a href="mailto:&#116;&#111;&#x6b;&#101;&#110;&#64;&#103;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#x6d;">&#116;&#111;&#x6b;&#101;&#110;&#64;&#103;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#x6d;</a>/liquangang/liquangang.github.io.git）</li>
 <li>另一种可能: 代码库地址配置的是http格式，换成ssh格式，然后重新配置一遍ssh key就行了（伤心&amp;激动，搞了好久，一直在搞http格式的，一直没成功，不过我觉得http的也行，因为之前我用的就是http格式，不知道这次为什么不行了，总之现在确定ssh形式可以）</li>
 </ul>
 <h4 id="hexo-clean-等提示-node-sass问题"><a href="#hexo-clean-等提示-node-sass问题" class="headerlink" title="hexo clean 等提示 node-sass问题"></a>hexo clean 等提示 node-sass问题</h4><ul>
@@ -448,6 +525,18 @@
 <h4 id="Node-Sass-could-not-find-a-binding-for-your-current-environment"><a href="#Node-Sass-could-not-find-a-binding-for-your-current-environment" class="headerlink" title="Node Sass could not find a binding for your current environment"></a>Node Sass could not find a binding for your current environment</h4><ul>
 <li>node跟npm的版本不对应问题，尝试重新安装即可</li>
 </ul>
+<h4 id="sudo-cnpm-install-hexo-renderer-sass-–save-执行失败"><a href="#sudo-cnpm-install-hexo-renderer-sass-–save-执行失败" class="headerlink" title="sudo cnpm install hexo-renderer-sass –save 执行失败"></a>sudo cnpm install hexo-renderer-sass –save 执行失败</h4><ul>
+<li>删除目录下的package.json 重试即可</li>
+</ul>
+<h4 id="显示can-not-get"><a href="#显示can-not-get" class="headerlink" title="显示can not get /"></a>显示can not get /</h4><ul>
+<li>执行sudo cnpm install 即可</li>
+</ul>
+<h4 id="Cannot-read-properties-of-undefined-reading-‘enable’"><a href="#Cannot-read-properties-of-undefined-reading-‘enable’" class="headerlink" title="Cannot read properties of undefined (reading ‘enable’)"></a>Cannot read properties of undefined (reading ‘enable’)</h4><ul>
+<li>删除主题git文件，重新clone一份</li>
+</ul>
+<h4 id="hexo-landscape-主题-本地搜索功能"><a href="#hexo-landscape-主题-本地搜索功能" class="headerlink" title="hexo landscape 主题 本地搜索功能"></a>hexo landscape 主题 本地搜索功能</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://franktianyirenjian.github.io/2020/05/01/hexo%E5%9C%A8landscape%E4%B8%BB%E9%A2%98%E4%B8%8B%E6%B7%BB%E5%8A%A0%E6%9C%AC%E5%9C%B0%E6%90%9C%E7%B4%A2/">参考文章</a></li>
+</ul>
 <h3 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h3><h4 id="如何保存原始文章："><a href="#如何保存原始文章：" class="headerlink" title="如何保存原始文章："></a>如何保存原始文章：</h4><ul>
 <li>目前笔者采用的方式是，在github上新建一个专门用来保存原始文章的分支，然后将原始文章push到这个分支上</li>
 <li>push脚本：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo clean;</span><br><span class="line">git add .;</span><br><span class="line">git commit -m &quot;博客文章更新&quot;;</span><br><span class="line">git push;</span><br><span class="line">hexo g;</span><br><span class="line">hexo d;</span><br><span class="line">hexo clean;</span><br></pre></td></tr></table></figure></li>
@@ -456,7 +545,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/08/24/blogTutorial/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" data-id="cl1wbf6nl001opwd4hc4ucrnb" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/08/24/blogTutorial/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" data-id="cl20ab5oe001o2ld42ah27v2u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag">博客搭建</a></li></ul>
@@ -513,7 +602,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/08/21/Java/JDK-JRE-JVM/" data-id="cl1wbf6mq0001pwd4h278hkbp" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/08/21/Java/JDK-JRE-JVM/" data-id="cl20ab5nd00002ld465nnch66" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
@@ -559,7 +648,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/08/21/Java/Java%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%8E%9F%E7%90%86/" data-id="cl1wbf6n7000jpwd4c3focqr1" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/08/21/Java/Java%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%8E%9F%E7%90%86/" data-id="cl20ab5nx000g2ld4f9hya082" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
@@ -617,7 +706,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/08/21/Java/Java%E6%A6%82%E8%BF%B0/" data-id="cl1wbf6n10006pwd49l9vc79y" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/08/21/Java/Java%E6%A6%82%E8%BF%B0/" data-id="cl20ab5nn00052ld4czdgchb6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
@@ -686,6 +775,10 @@
       <ul>
         
           <li>
+            <a href="/2022/04/14/Q&A/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+          </li>
+        
+          <li>
             <a href="/2022/04/12/Q&A/Java/%E7%BD%91%E7%BB%9C/">网络</a>
           </li>
         
@@ -701,10 +794,6 @@
             <a href="/2022/03/25/Q&A/Java/%E5%AF%B9%E8%B1%A1%E6%8B%B7%E8%B4%9D/">对象拷贝</a>
           </li>
         
-          <li>
-            <a href="/2022/03/24/Q&A/Java/%E5%8F%8D%E5%B0%84/">反射</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -717,11 +806,12 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2022 不懂<br>
+      &copy; 2022 帝王之心<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
+
     </div>
     <nav id="mobile-nav">
   
