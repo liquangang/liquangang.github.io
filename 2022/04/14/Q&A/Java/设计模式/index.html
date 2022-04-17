@@ -15,7 +15,7 @@
 <meta property="og:description" content="说一下你熟悉的设计模式？参考文章 参考文章  设计模式介绍创建型模式   设计模式名称 简介 优点 缺点 应用场景    抽象工厂模式 创建一系列对象时，无需指定具体类，工厂方法模式的改良 同一工厂生产的产品互相匹配；避免与某一具体产品的耦合；符合单一职责原则，代码易于维护；符合开闭原则，增加新产品变体时无需修改代码 需要编写的类较多，代码复杂度较高 同一类对象，但是表现不同时，比如同一个butt">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-14T08:46:21.000Z">
-<meta property="article:modified_time" content="2022-04-15T10:24:58.458Z">
+<meta property="article:modified_time" content="2022-04-17T15:38:06.133Z">
 <meta property="article:author" content="帝王之心">
 <meta property="article:tag" content="Q&amp;A">
 <meta name="twitter:card" content="summary">
@@ -232,7 +232,21 @@
 </thead>
 <tbody><tr>
 <td>责任链模式</td>
-<td></td>
+<td>允许将请求沿着处理者链进行发送，每个处理者都可以处理或者发送给下一个处理者</td>
+<td>可以控制处理顺序； <br />单一这则原则，每个处理者的工作内容可以隔离以解耦；<br />开闭原则，新的处理者不影响已有处理者</td>
+<td>部分请求可能未被处理</td>
+<td>程序需要使用不同方式处理不同类型的请求，并且不知道这些请求的顺序时；<br />当一个事务需要多个处理者时；所需处理者和顺序在运行时会改变时</td>
+</tr>
+<tr>
+<td>迭代器模式</td>
+<td>能够在不知道集合底层数据结构（列表、栈、树）的情况下，对集合进行遍历</td>
+<td>单一职责原则，迭代类与其他业务代码没有没有耦合；<br />开闭原则，新增集合和迭代器时，不需要更改已有代码；<br />可以方便的控制遍历状态</td>
+<td>不适合简单遍历；<br />对于某些特殊集合，简单遍历会比迭代器遍历效率更高</td>
+<td>当需要隐藏集合复杂性或者保证安全性时；<br />需要减少重复遍历代码时；<br />希望遍历不同的甚至无法预知的数据结构时</td>
+</tr>
+<tr>
+<td>备忘录模式</td>
+<td>允许在不暴露对象细节的情况下保存和回复对象状态</td>
 <td></td>
 <td></td>
 <td></td>
@@ -242,7 +256,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/14/Q&A/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-id="cl20ab5oz003y2ld4808pe0so" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/04/14/Q&A/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-id="cl23goum90041v3d4fdyu9qal" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
