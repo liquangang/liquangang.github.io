@@ -20,6 +20,9 @@ categories:
 ### Tomcat是什么？
 * Tomcat是集合了Servlet、JSP、Java WebSocket等多种网络服务功能的一个更大的java web 服务器，并且还具有可视化配置页面等功能
 
+### struts是什么
+* 即struts web，是一个开源框架，对java servlet API进行了拓展，增加了model、view、controller层，提高java web应用开发效率
+
 ### Apache是什么？
 * 是一个web服务功能集合，全称Apache HTTP Server，只支持HTTP服务
 
