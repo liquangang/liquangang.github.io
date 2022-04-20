@@ -15,7 +15,7 @@
 <meta property="og:description" content="说一下你熟悉的设计模式？参考文章 参考文章  设计模式介绍创建型模式   设计模式名称 简介 优点 缺点 应用场景    抽象工厂模式 创建一系列对象时，无需指定具体类，工厂方法模式的改良 同一工厂生产的产品互相匹配；避免与某一具体产品的耦合；符合单一职责原则，代码易于维护；符合开闭原则，增加新产品变体时无需修改代码 需要编写的类较多，代码复杂度较高 同一类对象，但是表现不同时，比如同一个butt">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-14T08:46:21.000Z">
-<meta property="article:modified_time" content="2022-04-17T15:38:06.133Z">
+<meta property="article:modified_time" content="2022-04-20T16:11:21.690Z">
 <meta property="article:author" content="帝王之心">
 <meta property="article:tag" content="Q&amp;A">
 <meta name="twitter:card" content="summary">
@@ -247,16 +247,71 @@
 <tr>
 <td>备忘录模式</td>
 <td>允许在不暴露对象细节的情况下保存和回复对象状态</td>
-<td></td>
-<td></td>
-<td></td>
+<td>在不破坏对象封装的前提下，创建对象快照；<br />原发器状态记录维护的好的话，可以简化原发器代码</td>
+<td>备忘录多会消耗更多内存；<br />负责人必须跟踪完整的原发器生命周期才能正确销毁弃用的备忘录；<br />大部分动态编程语言（PHP、Python等）不能保证备忘录状态不被修改</td>
+<td>当需要创建对象状态快照来回复对象之前的状态时；<br />当访问对象会导致封装被突破时</td>
+</tr>
+<tr>
+<td>状态模式</td>
+<td>对象内部状态变化时能改变其行为，看上去就像是对象所属类发生变化一样</td>
+<td>单一职责原则，特定状态的代码在特定类中；<br />开闭原则，新增状态不影响已有状态；<br />可以消除臃肿的条件语句</td>
+<td>不适合状态机比较少的情况</td>
+<td>对象在不同状态下有不同行为，同时状态多且频繁切换；<br />当相似状态和机遇条件的状态机转换中存在许多重复代码时</td>
+</tr>
+<tr>
+<td>模板方法模式</td>
+<td>超类中定义算法框架，子类在框架下可以重写算法的特定步骤</td>
+<td>允许重写算法的某个部分；<br />可以将重复的算法步骤整合到超类中</td>
+<td>维护困难；<br />如果子类抑制父类默认步骤，会违反里式替换原则（子类可拓展父类功能，但不能替换父类原有功能）</td>
+<td>只调整算法的某个特定步骤时；<br />多个算法只有细微之处不一样时</td>
+</tr>
+<tr>
+<td>命令模式</td>
+<td>可以将请求装换为一个包含请求信息的独立对象·，然后利用该对象可以实现各种操作</td>
+<td>单一职责原则，解耦触发和执行的代码；<br />开闭原则，不修改客户端代码的情况下创建新的命令；<br />可以实现操作的撤销、恢复、延迟执行、组合等需求</td>
+<td>代码复杂度增加</td>
+<td>通过操作来参数化对象；<br />将操作进行队列化管理、远程执行等擦搜做时；<br />实现操作回滚功能</td>
+</tr>
+<tr>
+<td>中介者模式</td>
+<td>使用中介者将对象之间的合作进行管理</td>
+<td>单一职责原则，可以将耦合关系集中到中介者当中；<br />开闭原则，无需更改组建即可增加新中中介者；<br />减轻耦合；<br />更方便的复用组件</td>
+<td>随着中介者内部逻辑的增多，可能会变得难以管理且功能过多</td>
+<td>当一些对象与其他对象紧密结合以至难以修改时；<br />当某个对象由于与其他对象耦合度过高导致无法复用时；<br />替代一些仅具备简单功能的子类</td>
+</tr>
+<tr>
+<td>观察者模式</td>
+<td>定义一种订阅机制，当被订阅的内容发生变化时，会通知订阅该内容的对象</td>
+<td>开闭原则，新订阅类不影响被订阅类；<br />在运行时建立对象之间的联系</td>
+<td>订阅者通知顺序时随机的</td>
+<td>当一个对象的某些行为需要收到监控时；<br />当某些逻辑需要依赖某个对象的一些内容的变化时</td>
+</tr>
+<tr>
+<td>策略模式</td>
+<td>定义一系列算法，并将其放入独立的类中，以使算法的对象可以相互替换</td>
+<td>可以在运行时切换算法；<br />可以将算法的实现与使用剥离开；<br />可以使用组合代替继承；<br />开闭原则，新增策略不需要修改原有策略</td>
+<td>不适合算法不变的情况；<br />代码复杂度提升</td>
+<td>类中有多个算法变体，并能够在运行时切换算法时；<br />有许多尽在执行某些行为时略有不同的相似类时；<br />算法在上下文的实现中不失特别重要，可以使用该模式剥离业务逻辑与算法；<br />当类中使用了复杂的条件运算符以在同一算法的不同变体中切换时</td>
+</tr>
+<tr>
+<td>访问者模式</td>
+<td>将算法与访问者隔离开</td>
+<td>开闭原则，不影响已有行为；<br />单一职责原则，可以将同一行为的不用版本放到同一个类中；<br />访问者对象可以在访问时可以收集一些有用的信息</td>
+<td>每次在元素层次中添加或者移除时一个类时，都需要更新所有访问者；<br />访问者可能无法访问对象的私有变量、方法</td>
+<td>对一个复杂对象结构的所有元素进行访问时；<br />清理辅助行为的业务逻辑；<br />当某个行为仅在类层次结构中有意义，在其他类中没有意义时</td>
 </tr>
 </tbody></table>
-<h2 id="简单工厂和抽象工厂有什么区别？"><a href="#简单工厂和抽象工厂有什么区别？" class="headerlink" title="简单工厂和抽象工厂有什么区别？"></a>简单工厂和抽象工厂有什么区别？</h2>
+<h2 id="简单工厂和抽象工厂有什么区别？"><a href="#简单工厂和抽象工厂有什么区别？" class="headerlink" title="简单工厂和抽象工厂有什么区别？"></a>简单工厂和抽象工厂有什么区别？</h2><h3 id="三种模式介绍："><a href="#三种模式介绍：" class="headerlink" title="三种模式介绍："></a>三种模式介绍：</h3><ul>
+<li>工厂模式；有实体类、创建对应实体的工厂类（一个实体类对应一个工厂类）组成，当增加新实体时，需要增加新的实体类和新的该实体类对应的工厂类即可</li>
+<li>简单工厂模式：由实体类和一个工厂类组成，当新增实体类时，需要增加一个实体类，并且在唯一的工厂类里面进行修改，增加新实体的创建逻辑</li>
+<li>抽象工厂模式：将一个产品进行更细致的划分，将该产品的共同点抽象成一个类，然后其细分特点单独实现实体类，且实现该实体类对应的工厂类<h3 id="三者特点"><a href="#三者特点" class="headerlink" title="三者特点"></a>三者特点</h3></li>
+<li>常用简单工厂模式，工厂模式代码量较大，抽象工厂模式适合业务复杂、较大的情况</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/14/Q&A/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-id="cl23goum90041v3d4fdyu9qal" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/04/14/Q&A/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-id="cl27scujj00424ed48g564b9m" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -266,6 +321,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2022/04/18/Q&A/Java/Spring/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Spring
+        
+      </div>
+    </a>
   
   
     <a href="/2022/04/12/Q&A/Java/%E7%BD%91%E7%BB%9C/" id="article-nav-older" class="article-nav-link-wrap">
@@ -328,6 +392,10 @@
       <ul>
         
           <li>
+            <a href="/2022/04/18/Q&A/Java/Spring/">Spring</a>
+          </li>
+        
+          <li>
             <a href="/2022/04/14/Q&A/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
           </li>
         
@@ -341,10 +409,6 @@
         
           <li>
             <a href="/2022/03/28/Q&A/Java/javaWeb/">javaWeb</a>
-          </li>
-        
-          <li>
-            <a href="/2022/03/25/Q&A/Java/%E5%AF%B9%E8%B1%A1%E6%8B%B7%E8%B4%9D/">对象拷贝</a>
           </li>
         
       </ul>
