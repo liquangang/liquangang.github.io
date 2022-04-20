@@ -63,9 +63,20 @@ categories:
 ## spring 自动装配 bean 有哪些方式？
 ### 自动装备定义
 * Spring IOC容易将创建和配置好的bean赋值到需要调用这些bean的调用者
+
 ### 自动装备方式
 * default：默认方式，与no相同
 * no：不自动装配，会根据ref参数完成装配
 * byName：根据名称进行装配
 * byType：根据类型进行装配
 * constructor：根据构造函数进行装配
+
+## spring 事务实现方式有哪些？
+### 什么是事务
+* 事务即一组需要执行的操作，这些操作作为一个整体，要么全都成功，要么全都失败
+* 特性：原子性（Atomiciy）、一致性（Consistency）、隔离性（Isolation）、持久性（Durability），简称ACID
+### Spring事务实现方式
+* 声明式事务：
+  * 基于XML配置文件的方式
+  * 基于注解（@Transaction）的方式
+* 手动编码实现事务
