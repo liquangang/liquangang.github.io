@@ -75,6 +75,7 @@ categories:
 ### 什么是事务
 * 事务即一组需要执行的操作，这些操作作为一个整体，要么全都成功，要么全都失败
 * 特性：原子性（Atomiciy）、一致性（Consistency）、隔离性（Isolation）、持久性（Durability），简称ACID
+
 ### Spring事务实现方式
 * 声明式事务：
   * 基于XML配置文件的方式
