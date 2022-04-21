@@ -81,3 +81,67 @@ categories:
   * 基于XML配置文件的方式
   * 基于注解（@Transaction）的方式
 * 手动编码实现事务
+
+## 说一下 spring 的事务隔离？
+### 事务隔离特性
+|特性|特性描述|
+|---|---|
+|原子性|强调事务的不可分割|
+|一致性|事务执行前后数据的完整性保持一致|
+|隔离性|一个事务的执行不应受到其他事务的影响|
+|持久性|事务执行结束，数据就持久化到数据库里|
+
+### 事务隔离为了解决的问题
+|要解决的问题|问题描述|
+|---|---|
+|脏读|表示一个事务能读取到另一个未提交的事务中的数据|
+|幻读|一个事务由于另一个事务insert数据造成多次查询数据不一致|
+|不可重复读|一个事务由于另一个事务update导致多次查到的记录不一致|
+
+### spring事务隔离级别
+|级别|级别描述|能否避免脏读|能否避免幻读|能否避免不可重复读|
+|---|---|---|---|---|
+|DEFAULT，默认|使用数据默认的隔离级别，mysql默认可重复读，oracle默认已提交读|mysql能，oracle能|mysql否，oracle否|mysql能，oracle否|
+|READ UNCOMMITED 即未提交读|三种问题都有可能发生|否|否|否|
+|READ COMMITED， 即已提交读|能避免脏读，但是不可重复读和幻读依然有可能发生|能|否|否|
+|REPEATABLE READ， 即可重复读|可以避免脏读和不可重复读，但是幻读依然可以发生|能|否|能|
+|SERIALIZABLE, 即串行化|避免所有问题|能|能|能|
+
+## spring mvc 有哪些组件？
+### 核心部分：
+|组成部分|作用|对应类|
+|---|---|---|
+|Model|业务模型：处理业务请求|Handler|
+|View|视图：渲染视图|实现类、jsp等|
+|Controller|前段控制器：接收请求，响应结果|DispatcherServlet|
+
+### 三大组件：
+|组件名称|作用|
+|---|---|
+|HandlerMapping（处理器映射器）|将URL和处理器进行映射，可以根据URL找到对应的处理器|
+|HandlerAdapter（处理器适配器）|适配并执行响应的处理器|
+|ViewResolver（视图解析器）|根据视图名称，解析成一个视图对象|
+
+## 说一下 spring mvc 运行流程？
+* 前端发出请求，DispatcherServlet收到请求
+* DispatcherServlet向HandlerMapping请求，获取到HandlerExecutionChan，该对象存储着处理器信息
+* DispatcherServlet使用HandlerExecutionChan向HandlerAdapter请求，让其适配处理器并让处理器完成请求处理
+* HandlerAdapter适配处理器，并告诉Handler完成请求处理
+* Handler处理完成后，返回ModelAndView给HandlerAdapter，然后返回给DispatcherServlet
+* DispatcherServlet使用ModelAndView向ViewResolve请求解析视图，ViewResolve返回视图对象
+* DispatcherServlet使用视图对象向View请求其完成渲染，View将渲染好的视图返回给DispatcherServlet
+* DispatcherServlet将响应返回给前端
+
+## @RequestMapping 的作用是什么？
+### 作用
+* 用来处理请求的映射，可用于类或者方法上，用于类上，表示类中所有的接口都以类配置中的路径为父路径
+
+### 包含属性
+* value：指定请求地址
+* method：指定请求类型，post或者get等
+* consumes：指定请求内容处理类型（Content-Type）
+* produces：指定返回的内容类型，请求方指定返回数据类型，返回数据类型与此项配置值相同时，参会返回成功
+* params：指定请求地址中包含的参数
+* headers：指定request中必须包含某些指定的header值，才允许请求
+
+## @Autowired 的作用是什么？
