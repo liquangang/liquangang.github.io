@@ -169,3 +169,54 @@ categories:
 * 为微服务spring cloud提供了基础，是微服务构建变得很简单
 * spring boot可以整合各种各样的框架，并可以很好地集成
 * 活跃的社区论坛，以及丰富的开发文档
+
+## spring boot 核心配置文件是什么？
+* application.yml
+* bootstrap.properties
+
+## spring boot 配置文件有哪几种类型？它们有什么区别？
+||application.yml|bootstrap.properties|
+|---|---|---|
+|加载方式|spring boot自动从classpath中加载|spring boot会自动从classspath中加载|
+|文件内容格式|key：value|key=value|
+|加载顺序|整体文件加载后于bootstrap，内部配置项加载也有先后顺序|先于application|
+|可配置项功能|应用级别，是当前应用的配置文件|系统级别，用来加载外部配置，比如配置中心的配置信息|
+
+## spring boot 有哪些方式可以实现热部署？
+* 模板热部署
+* 使用调试模式debug实现热部署
+* spring-boot-devtools
+* spring loaded
+* JRebel
+|热部署方式|部署方式|特点|
+|---|---|---|
+|模板热部署|在application或者bootstrap中关闭模板引擎的缓存即可||
+|debug模式|运行时使用debug模式即可|1、最简单快速；<br/>2、无法对配置文件、方法名称改变、在增加类及方法进行热部署，使用范围有限|
+|spring-boot-devtools|在spring boot中添加依赖即可实现，在pom.xml添加spring-boot-devtools依赖|1、作用范围广；<br/>2、使用重启策略实现，相当于手动帮你点了手动重启；<br/>3、默认关闭模板缓存|
+|Spring Loaded|在run configuration中配置|1、与debug类似，作用范围有限；<br/>2、不依赖debug模式，正常情况下即可生效|
+|JRebel|通过插件安装支持|1、收费；<br/>2、最好的java热部署工具|
+
+## jpa 和 hibernate 有什么区别？
+||JPA|Hibernate|Spring Data Jpa|
+|---|---|---|---|
+|简介|全称Java Persistence API，是一套ORM（对象关系映射）规范，可以理解为是一套接口|是JPA的一种实现|是对JPA和Hibernate进行了二次封装，将Spring与JPA进行更好的结合|
+
+## 什么是 spring cloud？
+|||
+|---|---|
+|简介|一系列框架的有序集合，提供了分布式系统开发的一站式解决方案|
+|诞生目的|为开发者提供一套简单易懂、易部署、易维护的分布式系统开发工具包|
+|特点|1、基于spring boot；<br/>2、没有重复造轮子，将各家成熟的、经得住考验的各种框架结合|
+
+
+## spring cloud 断路器的作用是什么？
+* 当某个服务单元发生故障后，通过断路器的监控，向调用方返回一个错误响应，而不是长时间的等待，避免线程因服务故障长时间占用资源不释放，避免故障蔓延
+
+## spring cloud 的核心组件有哪些？
+|组件|简介|
+|---|---|
+|Eureka|微服务注册管理中心|
+|Ribbon|客户端负载均衡|
+|Hystrix|断路器，用来处理服务故障|
+|Fegin|用于简化微服务之间的调用|
+|Zuul|网关，一系列的过滤器|
