@@ -85,6 +85,324 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Q&amp;A/Java/对象拷贝" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/03/25/Q&A/Java/%E5%AF%B9%E8%B1%A1%E6%8B%B7%E8%B4%9D/" class="article-date">
+  <time datetime="2022-03-25T08:28:18.000Z" itemprop="datePublished">2022-03-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/25/Q&A/Java/%E5%AF%B9%E8%B1%A1%E6%8B%B7%E8%B4%9D/">对象拷贝</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="为什么要使用克隆？"><a href="#为什么要使用克隆？" class="headerlink" title="为什么要使用克隆？"></a>为什么要使用克隆？</h3><ul>
+<li>想对一个对象进行处理，但是又想保留原有数据进行其他操作，此时需要对原有数据进行克隆</li>
+</ul>
+<h3 id="如何实现对象克隆？"><a href="#如何实现对象克隆？" class="headerlink" title="如何实现对象克隆？"></a>如何实现对象克隆？</h3><ul>
+<li>克隆：<ul>
+<li>浅克隆：只克隆对象里面的基本数据类型</li>
+<li>深克隆：克隆对象里面的所有属性</li>
+</ul>
+</li>
+<li>实现：浅克隆只需要本类实现Cloneable接口（该接口有个clone方法，需要调用super.clone实现）即可，深克隆需要对象所属的类以及对象引用的所有对象对应的类都实现Cloneable接口</li>
+<li>深拷贝代码示例：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">class Address  &#123;</span><br><span class="line">    private String add;</span><br><span class="line">    public String getAdd() &#123;</span><br><span class="line">        return add;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setAdd(String add) &#123;</span><br><span class="line">        this.add = add;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Student implements Cloneable &#123;</span><br><span class="line">    private int number;</span><br><span class="line"></span><br><span class="line">    private Address addr;</span><br><span class="line"></span><br><span class="line">    public Address getAddr() &#123;</span><br><span class="line">        return addr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setAddr(Address addr) &#123;</span><br><span class="line">        this.addr = addr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getNumber() &#123;</span><br><span class="line">        return number;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setNumber(int number) &#123;</span><br><span class="line">        this.number = number;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Object clone() &#123;</span><br><span class="line">        Student stu = null;</span><br><span class="line">        try&#123;</span><br><span class="line">            stu = (Student)super.clone();</span><br><span class="line">        &#125;catch(CloneNotSupportedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        return stu;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Test</span><br><span class="line">public void testCopy() &#123;</span><br><span class="line">    Address addr = new Address();</span><br><span class="line">    addr.setAdd(&quot;杭州市&quot;);</span><br><span class="line">    Student stu1 = new Student();</span><br><span class="line">    stu1.setNumber(123);</span><br><span class="line">    stu1.setAddr(addr);</span><br><span class="line"></span><br><span class="line">    Student stu2 = (Student)stu1.clone();</span><br><span class="line"></span><br><span class="line">    System.out.println(&quot;学生1:&quot; + stu1.getNumber() + &quot;,地址:&quot; + stu1.getAddr().getAdd());</span><br><span class="line">    System.out.println(&quot;学生2:&quot; + stu2.getNumber() + &quot;,地址:&quot; + stu2.getAddr().getAdd());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="深拷贝和浅拷贝区别是什么？"><a href="#深拷贝和浅拷贝区别是什么？" class="headerlink" title="深拷贝和浅拷贝区别是什么？"></a>深拷贝和浅拷贝区别是什么？</h3><ul>
+<li>浅拷贝只支持基本数据类型的拷贝，深拷贝全都支持，所以浅拷贝之后的引用类型还是同一个地址</li>
+</ul>
+<h3 id="如何解决多层克隆问题？"><a href="#如何解决多层克隆问题？" class="headerlink" title="如何解决多层克隆问题？"></a>如何解决多层克隆问题？</h3><ul>
+<li>先序列化，在反序列化</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2022/03/25/Q&A/Java/%E5%AF%B9%E8%B1%A1%E6%8B%B7%E8%B4%9D/" data-id="cl3099frn0043qzd4fdbh26ca" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Q&amp;A/Java/反射" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/03/24/Q&A/Java/%E5%8F%8D%E5%B0%84/" class="article-date">
+  <time datetime="2022-03-24T11:17:28.000Z" itemprop="datePublished">2022-03-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/24/Q&A/Java/%E5%8F%8D%E5%B0%84/">反射</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是反射？"><a href="#什么是反射？" class="headerlink" title="什么是反射？"></a>什么是反射？</h3><ul>
+<li>定义：即Reflection，意思是在程序运行期间拿到对象的所有信息</li>
+<li>作用：为了解决在运行期间，对某个对象一无所知的情况下，调用其方法</li>
+</ul>
+<h3 id="什么是-java-序列化？什么情况下需要序列化？"><a href="#什么是-java-序列化？什么情况下需要序列化？" class="headerlink" title="什么是 java 序列化？什么情况下需要序列化？"></a>什么是 java 序列化？什么情况下需要序列化？</h3><ul>
+<li>名词定义：<ul>
+<li>序列化：将java对象转换成字节流的过程</li>
+<li>反序列化：将字节流转换成java对象的过程</li>
+</ul>
+</li>
+<li>序列化场景：<ul>
+<li>将java对象持久化</li>
+<li>在网络中传输java对象</li>
+</ul>
+</li>
+</ul>
+<h3 id="动态代理是什么？有哪些应用？"><a href="#动态代理是什么？有哪些应用？" class="headerlink" title="动态代理是什么？有哪些应用？"></a>动态代理是什么？有哪些应用？</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.yukx.com/jing/article/details/1453.html">参考文章</a></li>
+<li>代理：代理类与委托类具有相同接口，即代理类需要实现委托类规定的接口，跟OC delegate一样，代理类按照委托类的规定做一些预处理，事后处理等操作</li>
+<li>代理分类：<ul>
+<li>静态代理：使用自己创建的特定代理类，即需要实际编写代理类，在编译器就确定好代理类的情况</li>
+<li>动态代理：运行时动态创建代理类，实现只需要编写好某个被代理方法的处理逻辑即可</li>
+</ul>
+</li>
+<li>应用场景：<ul>
+<li>编写一些三方工具库，比如spring AOP、RPC</li>
+<li>想在已有行为执行前后添加逻辑</li>
+</ul>
+</li>
+</ul>
+<h3 id="怎么实现动态代理？"><a href="#怎么实现动态代理？" class="headerlink" title="怎么实现动态代理？"></a>怎么实现动态代理？</h3><ul>
+<li>实现过程（以示例举例）：<br>1、创建接口类（Person接口）、被代理类（Student）、被代理方法处理类（StuInvocationHandler<T>，该类中加入新增逻辑），<br>2、创建一个被代理对象，创建被代理方法处理类的对象，然后使用该对象创建一个代理对象，然后使用代理对象调用代理方法即可</li>
+</ul>
+<ul>
+<li>代码示例：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">import org.junit.jupiter.api.Test;</span><br><span class="line"></span><br><span class="line">import java.lang.reflect.InvocationHandler;</span><br><span class="line">import java.lang.reflect.Method;</span><br><span class="line">import java.lang.reflect.Proxy;</span><br><span class="line"></span><br><span class="line">public class MyTest &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /** * 创建Person接口</span><br><span class="line">     * @author Gonjan</span><br><span class="line">     */</span><br><span class="line">    public interface Person &#123;</span><br><span class="line">        //上交班费</span><br><span class="line">        void giveMoney();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public class Student implements Person &#123;</span><br><span class="line">        private String name;</span><br><span class="line">        public Student(String name) &#123;</span><br><span class="line">            this.name = name;</span><br><span class="line">        &#125;</span><br><span class="line">        @Override</span><br><span class="line">        public void giveMoney() &#123;</span><br><span class="line">            System.out.println(name + &quot;上交班费50元&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public class StuInvocationHandler&lt;T&gt; implements InvocationHandler &#123;</span><br><span class="line">        //invocationHandler持有的被代理对象</span><br><span class="line">        T target;</span><br><span class="line">        public StuInvocationHandler(T target) &#123;</span><br><span class="line">            this.target = target;</span><br><span class="line">        &#125;</span><br><span class="line">        /**</span><br><span class="line">         * proxy:代表动态代理对象</span><br><span class="line">         * method：代表正在执行的方法</span><br><span class="line">         * args：代表调用目标方法时传入的实参</span><br><span class="line">         */</span><br><span class="line">        @Override</span><br><span class="line">        public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;</span><br><span class="line">            System.out.println(&quot;代理执行&quot; +method.getName() + &quot;方法&quot;);</span><br><span class="line">            //代理过程中插入监测方法,计算该方法耗时</span><br><span class="line">            System.out.println(&quot;我是在被代理方法执行前的部分&quot;);</span><br><span class="line">            Object result = method.invoke(target, args);</span><br><span class="line">            System.out.println(&quot;我是在被代理方法执行后的部分&quot;);</span><br><span class="line">            return result;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void testMyCode() &#123;</span><br><span class="line">        //创建一个实例对象，这个对象是被代理的对象</span><br><span class="line">        Person zhangsan = new Student(&quot;张三&quot;);</span><br><span class="line">        //创建一个与代理对象相关联的InvocationHandler</span><br><span class="line">        InvocationHandler stuHandler = new StuInvocationHandler&lt;Person&gt;(zhangsan);</span><br><span class="line">        //创建一个代理对象stuProxy来代理zhangsan，代理对象的每个执行方法都会替换执行Invocation中的invoke方法</span><br><span class="line">        Person stuProxy = (Person) Proxy.newProxyInstance(Person.class.getClassLoader(),</span><br><span class="line">                new Class&lt;?&gt;[]&#123;Person.class&#125;, stuHandler);</span><br><span class="line">        //代理执行上交班费的方法</span><br><span class="line">        stuProxy.giveMoney();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2022/03/24/Q&A/Java/%E5%8F%8D%E5%B0%84/" data-id="cl3099frl003vqzd43uihcpwz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-toolApplication/git指南" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/03/11/toolApplication/git%E6%8C%87%E5%8D%97/" class="article-date">
+  <time datetime="2022-03-11T03:50:59.000Z" itemprop="datePublished">2022-03-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%BA%94%E7%94%A8/">工具应用</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/11/toolApplication/git%E6%8C%87%E5%8D%97/">git指南</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><h4 id="常用流程"><a href="#常用流程" class="headerlink" title="常用流程"></a>常用流程</h4><ul>
+<li>git pull</li>
+<li>git add .; git add [filename]</li>
+<li>git commit -m “”; git commit –amend</li>
+<li>git push</li>
+<li>git status: 查看本次修改</li>
+</ul>
+<h4 id="stash"><a href="#stash" class="headerlink" title="stash"></a>stash</h4><ul>
+<li>git stash</li>
+<li>git stash save “我是暂存名称”</li>
+<li>git stash pop</li>
+<li>git stash list</li>
+<li>git stash clear</li>
+<li>git stash drop [stashId]: 删除某个暂存</li>
+<li>git stash apply [stashId]: 使用某个暂存</li>
+</ul>
+<h4 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h4><ul>
+<li>git reset –soft 想撤回到的commit：撤回commit</li>
+<li>git log: 查看commit 记录</li>
+</ul>
+<h4 id="dif"><a href="#dif" class="headerlink" title="dif"></a>dif</h4><ul>
+<li>git diff</li>
+</ul>
+<h3 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h3><ul>
+<li>git branch -D [branchId]: 删除本地分支</li>
+<li>git checkout -b 分支名：切换，如没有，就新建然后切换</li>
+<li></li>
+</ul>
+<h3 id="checkout"><a href="#checkout" class="headerlink" title="checkout"></a>checkout</h3><ul>
+<li> git checkout -b device_3-1-3_BRANCH origin/device_3-1-3_BRANCH: 拉取远程分支</li>
+</ul>
+<h3 id="取消追踪某些文件"><a href="#取消追踪某些文件" class="headerlink" title="取消追踪某些文件"></a>取消追踪某些文件</h3><ul>
+<li>git rm -rf –cached 文件名或者文件夹</li>
+<li>.gitignore里面去掉，本地没有的在.git同级目录下创建即可，然后把需要取消追踪的文件或者文件夹写进去</li>
+<li>add/commit/push</li>
+</ul>
+<h3 id="确定追踪某些文件"><a href="#确定追踪某些文件" class="headerlink" title="确定追踪某些文件"></a>确定追踪某些文件</h3><ul>
+<li>git rm -rf –cached 文件或者文件夹</li>
+<li>add/commit/push</li>
+</ul>
+<h3 id="取消文件修改"><a href="#取消文件修改" class="headerlink" title="取消文件修改"></a>取消文件修改</h3><ul>
+<li>注意需要在add钱使用：git checkout 文件名</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2022/03/11/toolApplication/git%E6%8C%87%E5%8D%97/" data-id="cl3099fr7002bqzd45ra64o8j" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-toolScript/上传图书到kindle" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/02/17/toolScript/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E4%B9%A6%E5%88%B0kindle/" class="article-date">
+  <time datetime="2022-02-17T08:28:59.000Z" itemprop="datePublished">2022-02-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%B7%A5%E5%85%B7%E8%84%9A%E6%9C%AC/">工具脚本</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/17/toolScript/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E4%B9%A6%E5%88%B0kindle/">上传图书到kindle</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="配置以及获取相关信息"><a href="#配置以及获取相关信息" class="headerlink" title="配置以及获取相关信息"></a>配置以及获取相关信息</h3><ul>
+<li>登录<a target="_blank" rel="noopener" href="https://www.amazon.cn/gp/digital/fiona/manage?ref_=hp_ss_qs_v3_dv_dc#/home/settings/payment">该页面</a>，然后在“个人文档设置”部分，增加自己使用发送电子书的邮箱到“”已认可的发件人电子邮箱列表”，该部分邮箱即为下文脚本中的发送邮箱</li>
+<li>获取要发送到的邮箱，该邮箱跟上面的添加邮箱在同一个页面上，在“〖发送至Kindle〗电子邮箱”部分，该部分邮箱即为下文脚本中的接收邮箱</li>
+<li>到发送邮箱里面开启SMTP服务器，此处我使用的是163，该部分请自行百度</li>
+</ul>
+<h3 id="示例脚本"><a href="#示例脚本" class="headerlink" title="示例脚本"></a>示例脚本</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">import os</span><br><span class="line">import smtplib  # 导入PyEmail</span><br><span class="line"># 发送字符串的邮件</span><br><span class="line">from email import encoders</span><br><span class="line">from email.mime.application import MIMEApplication</span><br><span class="line">from email.mime.base import MIMEBase</span><br><span class="line">from email.mime.text import MIMEText</span><br><span class="line"># 需要 MIMEMultipart 类</span><br><span class="line">from email.mime.multipart import MIMEMultipart</span><br><span class="line"></span><br><span class="line">SENDER = &quot;fasongyouxiang@163.com&quot; # 发送邮箱</span><br><span class="line">RECEIVE = &quot;jiehsouyouxiang1@kindle.cn;jiehsouyouxiang2@kindle.cn&quot; # 接收邮箱，多个用分号隔开</span><br><span class="line">PASSWORD = &quot;youxiangmima&quot; #邮箱密码</span><br><span class="line">SERVER = &quot;smtp.163.com&quot; # smtp服务地址</span><br><span class="line">SERVER_PORT = 994 # smtp服务器端口</span><br><span class="line"></span><br><span class="line"># 邮件构建</span><br><span class="line"></span><br><span class="line">def send(file_path):</span><br><span class="line"></span><br><span class="line">    print(&quot;开始发送：&quot;, file_path)</span><br><span class="line">    message = MIMEMultipart()</span><br><span class="line">    message[&#x27;From&#x27;] = SENDER  # 发送方</span><br><span class="line">    message[&#x27;To&#x27;] = RECEIVE  # 接收方</span><br><span class="line"></span><br><span class="line">    # 构建邮件附件</span><br><span class="line">    part = MIMEApplication(open(file_path, &#x27;rb&#x27;).read())</span><br><span class="line">    part.add_header(&#x27;Content-Disposition&#x27;, &#x27;attachment&#x27;, filename=get_last_filename(file_path))</span><br><span class="line">    message.attach(part)</span><br><span class="line"></span><br><span class="line">    smtp = smtplib.SMTP_SSL(SERVER, SERVER_PORT)  # 实例化smtp服务器</span><br><span class="line">    smtp.login(SENDER, PASSWORD)  # 发件人登录</span><br><span class="line">    smtp.sendmail(SENDER, [RECEIVE], message.as_string())  # as_string 对 message 的消息进行了封装</span><br><span class="line">    smtp.close()</span><br><span class="line">    print(&quot;发送邮件成功：&quot;, file_path)</span><br><span class="line"></span><br><span class="line">def get_last_filename(filename):</span><br><span class="line">    return filename[filename.rindex(&#x27;/&#x27;) + 1: len(filename)]</span><br><span class="line"></span><br><span class="line">def send_to_kindle():</span><br><span class="line">    dir = os.walk(r&quot;./ebook&quot;)</span><br><span class="line">    for path, dir_list, file_list in dir:</span><br><span class="line">        for file_name in file_list:</span><br><span class="line">            if &quot;DS_Store&quot; not in file_name:</span><br><span class="line">                send(&quot;./ebook/&quot; + file_name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__==&#x27;__main__&#x27;:</span><br><span class="line">    send_to_kindle()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2022/02/17/toolScript/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E4%B9%A6%E5%88%B0kindle/" data-id="cl3099fr9002lqzd494wpf71q" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" rel="tag">脚本工具</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blockchain/数字货币私钥保存方案设计" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/02/08/blockchain/%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E7%A7%81%E9%92%A5%E4%BF%9D%E5%AD%98%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1/" class="article-date">
+  <time datetime="2022-02-08T08:25:55.000Z" itemprop="datePublished">2022-02-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BD%BF%E7%94%A8/">区块链使用</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/08/blockchain/%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E7%A7%81%E9%92%A5%E4%BF%9D%E5%AD%98%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1/">数字货币私钥保存方案设计</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="方案设计描述（此处只讨论保存到互联网中）"><a href="#方案设计描述（此处只讨论保存到互联网中）" class="headerlink" title="方案设计描述（此处只讨论保存到互联网中）"></a>方案设计描述（此处只讨论保存到互联网中）</h3><ul>
+<li>保存私钥：<br>1、使用RSA方案对钱包私钥进行加密获得钱包私钥密文<br>2、将RSA私钥和钱包私钥密文对应的文件压缩成zip文件，并设置密码<br>3、然后将RSA私钥和钱包私钥密文分别保存到不用的地方</li>
+<li>获取私钥：<br>1、找到RSA私钥和钱包私钥密文<br>2、找到解zip密码，解压获得两个文件<br>3、将解密后的文件地址复制到代码中，运行获得明文</li>
+</ul>
+<h3 id="RSA加解密示例代码"><a href="#RSA加解密示例代码" class="headerlink" title="RSA加解密示例代码"></a>RSA加解密示例代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br></pre></td><td class="code"><pre><span class="line">from binascii import b2a_hex, a2b_hex</span><br><span class="line"></span><br><span class="line">import rsa as rsa</span><br><span class="line">from Crypto.Cipher import AES</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">AES加密部分</span><br><span class="line">使用AES ECB模式，16位AES_KEY</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">class AESUtil(object):</span><br><span class="line">    AES_KEY = &quot;XewGlSGidrB+REgf&quot;</span><br><span class="line"></span><br><span class="line">    def add_to_16(self, text):</span><br><span class="line">        if len(text.encode(&#x27;utf-8&#x27;)) % 16:</span><br><span class="line">            add = 16 - (len(text.encode(&#x27;utf-8&#x27;)) % 16)</span><br><span class="line">        else:</span><br><span class="line">            add = 0</span><br><span class="line">        text = text + (&#x27;\0&#x27; * add)</span><br><span class="line">        return text.encode(&#x27;utf-8&#x27;)</span><br><span class="line"></span><br><span class="line">    # 加密函数</span><br><span class="line">    def encrypt(self, text, aes_key):</span><br><span class="line"></span><br><span class="line">        cryptos = AES.new(aes_key.encode(&#x27;utf-8&#x27;), AES.MODE_ECB)</span><br><span class="line">        cipher_text = cryptos.encrypt(self.add_to_16(text))</span><br><span class="line">        # 因为AES加密后的字符串不一定是ascii字符集的，输出保存可能存在问题，所以这里转为16进制字符串</span><br><span class="line">        return b2a_hex(cipher_text)</span><br><span class="line"></span><br><span class="line">    # 解密后，去掉补足的空格用strip() 去掉</span><br><span class="line">    def decrypt(self, text, aes_key):</span><br><span class="line">        cryptos = AES.new(aes_key.encode(&#x27;utf-8&#x27;), AES.MODE_ECB)</span><br><span class="line">        plain_text = cryptos.decrypt(a2b_hex(text))</span><br><span class="line">        return bytes.decode(plain_text).rstrip(&#x27;\0&#x27;)</span><br><span class="line"></span><br><span class="line">    # 生成随机密钥</span><br><span class="line">    def get_random_aes_key(self, n=16):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        获取密钥 n 密钥长度</span><br><span class="line">        :return:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        c_length = int(n)</span><br><span class="line">        source = &#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&#x27;</span><br><span class="line">        length = len(source) - 1</span><br><span class="line">        result = &#x27;&#x27;</span><br><span class="line">        for i in range(c_length):</span><br><span class="line">            import random</span><br><span class="line">            result += source[random.randint(0, length)]</span><br><span class="line">        return result</span><br><span class="line"></span><br><span class="line">def test_aes():</span><br><span class="line">    print(&quot;aes加解密测试&quot;)</span><br><span class="line">    aesUtil = AESUtil()</span><br><span class="line">    aes_key = aesUtil.get_random_aes_key()</span><br><span class="line">    print(&quot;随机aeskey&quot;, aes_key)</span><br><span class="line">    encrypt_text = aesUtil.encrypt(&quot;aes加解密测试&quot;, aes_key)</span><br><span class="line">    print(&quot;aes加密：&quot;, encrypt_text)</span><br><span class="line">    decrypt_text = aesUtil.decrypt(encrypt_text, aes_key)</span><br><span class="line">    print(&quot;aes解密：&quot;, decrypt_text)</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">RSA加密部分</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">PUBLIC_KEY_PATH = &#x27;./rsa_public_key.pem&#x27;  # 公钥</span><br><span class="line">PRIVATE_KEY_PATH = &#x27;./rsa_private_key.pem&#x27;  # 私钥</span><br><span class="line"></span><br><span class="line">class RSAUtil(object):</span><br><span class="line"></span><br><span class="line">    def create_rsa_pri_pub_key(self):</span><br><span class="line">        (public_key, private_key) = rsa.newkeys(1024)</span><br><span class="line">        public_key = public_key.save_pkcs1()</span><br><span class="line">        private_key = private_key.save_pkcs1()</span><br><span class="line">        return (public_key, private_key)</span><br><span class="line"></span><br><span class="line">    def encrypt(self, public_key, text):</span><br><span class="line">        return rsa.encrypt(text.encode(&#x27;utf8&#x27;), public_key)</span><br><span class="line"></span><br><span class="line">    def decrypt(self, private_key, text):</span><br><span class="line">        return rsa.decrypt(text, private_key).decode()</span><br><span class="line"></span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    传入多个path，将加密数据保存到对应path，并保存秘钥到对应path</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    def encrypt_save_text_with_path(self, text, private_key_path, text_path):</span><br><span class="line">        (public_key, private_key) = self.create_rsa_pri_pub_key()</span><br><span class="line">        with open(private_key_path, &quot;wb&quot;) as f:</span><br><span class="line">            f.write(private_key)</span><br><span class="line"></span><br><span class="line">        tmp_rsa_public_key_path = &quot;./rsa_public.pem&quot;</span><br><span class="line">        with open(tmp_rsa_public_key_path, &quot;wb&quot;) as f:</span><br><span class="line">            f.write(public_key)</span><br><span class="line"></span><br><span class="line">        public_key = rsa.PublicKey.load_pkcs1(open(tmp_rsa_public_key_path).read())</span><br><span class="line"></span><br><span class="line">        encrypt_text = self.encrypt(public_key, text)</span><br><span class="line"></span><br><span class="line">        with open(text_path, &quot;wb&quot;) as f:</span><br><span class="line">            f.write(encrypt_text)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    传入多个path，将加密数据解密获得明文</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    def decrypt_text_with_path(self, private_key_path, text_path):</span><br><span class="line">        private_key = rsa.PrivateKey.load_pkcs1(open(private_key_path).read())</span><br><span class="line"></span><br><span class="line">        with open(text_path, &quot;rb&quot;) as f:</span><br><span class="line">            encrypt_text = f.read()</span><br><span class="line"></span><br><span class="line">        return self.decrypt(private_key, encrypt_text)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">rsa+aes</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">class RSAAESUtil(object):</span><br><span class="line"></span><br><span class="line">    def get_rsa_aes_key(self):</span><br><span class="line">        aes_util = AESUtil()</span><br><span class="line">        rsa_util = RSAUtil()</span><br><span class="line"></span><br><span class="line">        aes_key = aes_util.get_random_aes_key()</span><br><span class="line">        (rsa_public_key, rsa_private_key) = rsa_util.get_rsa_pub_pri_key(PUBLIC_KEY_PATH, PRIVATE_KEY_PATH)</span><br><span class="line">        return (aes_key, rsa_public_key, rsa_private_key)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    def encrypt(self, text, aes_key, rsa_public_key):</span><br><span class="line">        aes_util = AESUtil()</span><br><span class="line">        rsa_util = RSAUtil()</span><br><span class="line"></span><br><span class="line">        # 加密</span><br><span class="line">        encrypt_text = aes_util.encrypt(text, aes_key)</span><br><span class="line">        encrypt_aes_key = rsa_util.encrypt(rsa_public_key, aes_key)</span><br><span class="line">        return (encrypt_text, encrypt_aes_key)</span><br><span class="line"></span><br><span class="line">    def decrypty(self, rsa_private_key, encrypt_text, encrypt_aes_key):</span><br><span class="line">        aes_util = AESUtil()</span><br><span class="line">        rsa_util = RSAUtil()</span><br><span class="line">        aes_key = rsa_util.decrypt(rsa_private_key, encrypt_aes_key)</span><br><span class="line">        return aes_util.decrypt(encrypt_text, aes_key)</span><br><span class="line"></span><br><span class="line">def test_rsa_aes():</span><br><span class="line">    print(&quot;rsa_aes加解密测试&quot;)</span><br><span class="line">    rsa_aes_util = RSAAESUtil()</span><br><span class="line"></span><br><span class="line">    # 生成秘钥</span><br><span class="line">    (aes_key, rsa_public_key, rsa_private_key) = rsa_aes_util.get_rsa_aes_key()</span><br><span class="line"></span><br><span class="line">    # 加密</span><br><span class="line">    (encrypt_text, encrypt_aes_key) = rsa_aes_util.encrypt(&quot;rsa_aes加解密测试&quot;, aes_key, rsa_public_key)</span><br><span class="line">    print(&quot;rsa_aes加密：&quot;, encrypt_text)</span><br><span class="line">    print(&quot;rsa_aes加密后的aes_key&quot;, encrypt_aes_key)</span><br><span class="line"></span><br><span class="line">    # 解密</span><br><span class="line">    decrypt_text = rsa_aes_util.decrypty(rsa_private_key, encrypt_text, encrypt_aes_key)</span><br><span class="line">    print(&quot;rsa_aes解密：&quot;, decrypt_text)</span><br><span class="line"></span><br><span class="line">BTC_RSA_PRIVATE_KEY_PATH = &quot;./btc_rsa_private_key.pem&quot;</span><br><span class="line">BTC_RSA_PUBLIC_KEY_PATH = &quot;./btc_rsa_public_key.pem&quot;</span><br><span class="line"></span><br><span class="line">ETH_RSA_PRIVATE_KEY_PATH = &quot;./eth_rsa_private_key.pem&quot;</span><br><span class="line">ETH_RSA_PUBLIC_KEY_PATH = &quot;./eth_rsa_public_key.pem&quot;</span><br><span class="line"></span><br><span class="line">BTC_ENCRYPT_TEXT_PATH = &quot;./btc_encrypt_text.txt&quot;</span><br><span class="line">ETH_ENCRYPT_TEXT_PATH = &quot;./eth_encrypt_text.txt&quot;</span><br><span class="line"></span><br><span class="line">def test_rsa_solution():</span><br><span class="line">    rsa_util = RSAUtil()</span><br><span class="line"></span><br><span class="line">    btc_text = &quot;我是比特币私钥&quot;</span><br><span class="line">    eth_text = &quot;我是以太坊私钥&quot;</span><br><span class="line"></span><br><span class="line">    rsa_util.encrypt_save_text_with_path(btc_text, BTC_RSA_PRIVATE_KEY_PATH, BTC_ENCRYPT_TEXT_PATH)</span><br><span class="line">    print(rsa_util.decrypt_text_with_path(BTC_RSA_PRIVATE_KEY_PATH, BTC_ENCRYPT_TEXT_PATH))</span><br><span class="line"></span><br><span class="line">    rsa_util.encrypt_save_text_with_path(eth_text, ETH_RSA_PRIVATE_KEY_PATH, ETH_ENCRYPT_TEXT_PATH)</span><br><span class="line">    print(rsa_util.decrypt_text_with_path(ETH_RSA_PRIVATE_KEY_PATH, ETH_ENCRYPT_TEXT_PATH))</span><br><span class="line"></span><br><span class="line">def get_key(private_key_path, encrypt_text_path):</span><br><span class="line">    rsa_util = RSAUtil()</span><br><span class="line">    print(rsa_util.decrypt_text_with_path(private_key_path, encrypt_text_path))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    test_rsa_solution()</span><br><span class="line">    get_key(BTC_RSA_PRIVATE_KEY_PATH, BTC_ENCRYPT_TEXT_PATH)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2022/02/08/blockchain/%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E7%A7%81%E9%92%A5%E4%BF%9D%E5%AD%98%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1/" data-id="cl3099fr2001oqzd496ogh621" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-toolApplication/PyCharm指南" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2022/01/30/toolApplication/PyCharm%E6%8C%87%E5%8D%97/" class="article-date">
@@ -126,7 +444,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/01/30/toolApplication/PyCharm%E6%8C%87%E5%8D%97/" data-id="cl295t1x0002aged4fas2fged" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/01/30/toolApplication/PyCharm%E6%8C%87%E5%8D%97/" data-id="cl3099fr8002fqzd41ctkgcy7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
@@ -691,7 +1009,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/01/17/Q&A/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" data-id="cl295t1xd003kged4gju4huzd" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/01/17/Q&A/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" data-id="cl3099frm003yqzd4bj883o6m" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -917,7 +1235,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/12/06/Q&A/Java/%E5%AE%B9%E5%99%A8/" data-id="cl295t1xc003hged47krv33r0" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/12/06/Q&A/Java/%E5%AE%B9%E5%99%A8/" data-id="cl3099frm0041qzd42oke1h57" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1157,7 +1475,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/29/Q&A/Java/IO%E6%B5%81/" data-id="cl295t1x4002pged4eddd7ked" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/11/29/Q&A/Java/IO%E6%B5%81/" data-id="cl3099frc002vqzd48w886xt4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1216,390 +1534,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/25/Q&A/Java/%E6%8E%A5%E5%8F%A3/" data-id="cl295t1xg003vged44pulfq7b" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Q&amp;A/Java/重写、重载" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/11/25/Q&A/Java/%E9%87%8D%E5%86%99%E3%80%81%E9%87%8D%E8%BD%BD/" class="article-date">
-  <time datetime="2021-11-25T07:17:59.000Z" itemprop="datePublished">2021-11-25</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/25/Q&A/Java/%E9%87%8D%E5%86%99%E3%80%81%E9%87%8D%E8%BD%BD/">重写、重载</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="重写：子类重写父类方法，壳不变，瓤变"><a href="#重写：子类重写父类方法，壳不变，瓤变" class="headerlink" title="重写：子类重写父类方法，壳不变，瓤变"></a>重写：子类重写父类方法，壳不变，瓤变</h2><h2 id="重载：同一个类中方法名一样，返回值、参数不一样"><a href="#重载：同一个类中方法名一样，返回值、参数不一样" class="headerlink" title="重载：同一个类中方法名一样，返回值、参数不一样"></a>重载：同一个类中方法名一样，返回值、参数不一样</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/25/Q&A/Java/%E9%87%8D%E5%86%99%E3%80%81%E9%87%8D%E8%BD%BD/" data-id="cl295t1xi0043ged48jqxg8b0" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Q&amp;A/Java/抽象类、抽象方法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/11/24/Q&A/Java/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E3%80%81%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95/" class="article-date">
-  <time datetime="2021-11-24T11:26:50.000Z" itemprop="datePublished">2021-11-24</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/24/Q&A/Java/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E3%80%81%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95/">抽象类、抽象方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="抽象方法：没有方法体的方法，且必须被abstract修饰"><a href="#抽象方法：没有方法体的方法，且必须被abstract修饰" class="headerlink" title="抽象方法：没有方法体的方法，且必须被abstract修饰"></a>抽象方法：没有方法体的方法，且必须被abstract修饰</h2><ul>
-<li>作用：为了让子类继承来实现属于子类的方法体</li>
-<li>特点：<ul>
-<li>缺省默认为public方法，必须为public或者protected方法，如果是private，子类便无法实现该方法</li>
-<li>对应的类一定是抽象类</li>
-<li>没有方法体，只有一个大括号</li>
-<li>构造方法不能声明为抽象方法</li>
-</ul>
-</li>
-</ul>
-<h2 id="抽象类：没有足够的信息来描述一个对象的类"><a href="#抽象类：没有足够的信息来描述一个对象的类" class="headerlink" title="抽象类：没有足够的信息来描述一个对象的类"></a>抽象类：没有足够的信息来描述一个对象的类</h2><ul>
-<li>作用：将一些共有的属性和方法进行抽取整合成一个类，用来给其他类继承，然后子类重写抽象方法来实现子类自己的方法体</li>
-<li>特点：<ul>
-<li>一定用abstract修饰</li>
-<li>不一定包含抽象方法，但有抽象方法的一定是抽象类</li>
-<li>不能被实例化</li>
-<li>只能通过继承的方式来直接使用到抽象类</li>
-<li>子类必须重写自己继承的抽象类的全部抽象方法，如果不想全部重写，那必须自己为抽象类</li>
-<li>只有抽象类的非抽象子类才能实例化</li>
-</ul>
-</li>
-</ul>
-<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><h3 id="抽象类必须要有抽象方法吗？"><a href="#抽象类必须要有抽象方法吗？" class="headerlink" title="抽象类必须要有抽象方法吗？"></a>抽象类必须要有抽象方法吗？</h3><ul>
-<li>非必须</li>
-</ul>
-<h3 id="抽象类与普通类的异同"><a href="#抽象类与普通类的异同" class="headerlink" title="抽象类与普通类的异同"></a>抽象类与普通类的异同</h3><ul>
-<li>异：<ul>
-<li>抽象类不能被实例化，普通类可以</li>
-<li>子类继承抽象类时必须实现抽象方法，除非声明自己也是抽象类，普通类方法重写非必须</li>
-<li>抽象类需要使用abstract修饰</li>
-<li>抽象方法不能被private修饰</li>
-</ul>
-</li>
-<li>同：除了异都是同，比如都可以包含成员方法、成员变量等</li>
-</ul>
-<h3 id="抽象类能使用-final-修饰吗？"><a href="#抽象类能使用-final-修饰吗？" class="headerlink" title="抽象类能使用 final 修饰吗？"></a>抽象类能使用 final 修饰吗？</h3><ul>
-<li>不能，因为抽象类只有被继承才能发挥价值，而被final修饰的类不能被继承</li>
-</ul>
-<h3 id="接口和抽象类异同？"><a href="#接口和抽象类异同？" class="headerlink" title="接口和抽象类异同？"></a>接口和抽象类异同？</h3><ul>
-<li>同：<ul>
-<li>都不能被实例化</li>
-<li>接口的实现类和抽象类的子类只有实现了接口和抽象类要求实现的抽象方法才能被实例化</li>
-</ul>
-</li>
-<li>异：<ul>
-<li>接口用interface声明、抽象类用abstract修饰，接口实现类用implements来声明实现某个接口，抽象类的子类用extends来继承抽象类</li>
-<li>抽象类中的抽象方法不能被private修饰</li>
-<li>子类继承抽象类，必须实现抽象方法，否则需要声明自己为抽象类</li>
-<li>都可以有成员方法、成员变量，但是接口变量默认被public static final修饰，接口方法只能是default method、static method或者被public abstract修饰</li>
-<li>子类只能继承一个抽象类，但可以使用接口实现多继承</li>
-<li>接口强调实现，抽象类强调类型、归属、多态的意思</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/24/Q&A/Java/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E3%80%81%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95/" data-id="cl295t1xg003yged4c7ft5al5" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Q&amp;A/Java/Math静态方法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/11/22/Q&A/Java/Math%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/" class="article-date">
-  <time datetime="2021-11-22T14:53:54.000Z" itemprop="datePublished">2021-11-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/22/Q&A/Java/Math%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/">Math静态方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>round：返回四舍五入值，如-1.5返回-1</li>
-<li>ceil：返回小数所在两整数间较大值，如-1.5返回-1</li>
-<li>tail：返回小数所在两整数间较小值，如-1.5返回-2</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/Math%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/" data-id="cl295t1x6002vged48a4b32m0" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Q&amp;A/Java/String、StringBuffer、StringBuilder" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/11/22/Q&A/Java/String%E3%80%81StringBuffer%E3%80%81StringBuilder/" class="article-date">
-  <time datetime="2021-11-22T14:50:43.000Z" itemprop="datePublished">2021-11-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/22/Q&A/Java/String%E3%80%81StringBuffer%E3%80%81StringBuilder/">String、StringBuffer、StringBuilder</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="String、StringBuffer、StringBuilder"><a href="#String、StringBuffer、StringBuilder" class="headerlink" title="String、StringBuffer、StringBuilder"></a>String、StringBuffer、StringBuilder</h2><h3 id="相关结论"><a href="#相关结论" class="headerlink" title="相关结论"></a>相关结论</h3><ul>
-<li>字符串直接相加（”a” + “b”）性能高，间接相加（str1 + str2）性能低</li>
-<li>多数场景下执行效率：StringBuilder &gt; StringBuffer &gt; String</li>
-<li>使用场景：<ul>
-<li>string：简单字符串直接相加且改动少</li>
-<li>stringBuilder：字符串操作比较多</li>
-<li>stringBuffer：多线程且操作比较多</li>
-</ul>
-</li>
-</ul>
-<h2 id="String：常量字符串类"><a href="#String：常量字符串类" class="headerlink" title="String：常量字符串类"></a>String：常量字符串类</h2><ul>
-<li>使用场景：简单常量字符串</li>
-<li>特点：<ul>
-<li>有新操作就会生成一个新对象</li>
-<li>性能较差</li>
-<li>被final修饰，不能被继承</li>
-<li>下面的情况，两个string对象指向同一个地址，JVM会优先查找常量池中有没有，有的话直接将已存在的地址赋值给新对象<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String string1 = &quot;111&quot;;</span><br><span class="line">String string2 = &quot;111&quot;;</span><br><span class="line">// true</span><br><span class="line">System.out.println(string1==string2);</span><br></pre></td></tr></table></figure></li>
-<li>下面的情况，两个string对象是新开辟的内存空间，所以不相等<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String string1 = new String(&quot;111&quot;);</span><br><span class="line">String string2 = new String(&quot;222&quot;);</span><br><span class="line">// false</span><br><span class="line">System.out.println(string1==string2);</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h2 id="StringBuffer：线程安全的可变字符串类"><a href="#StringBuffer：线程安全的可变字符串类" class="headerlink" title="StringBuffer：线程安全的可变字符串类"></a>StringBuffer：线程安全的可变字符串类</h2><ul>
-<li>使用场景：需要频繁变化且需要线程安全</li>
-<li>特点：<ul>
-<li>每次变更都是在原来对象上去修改，不产生新对象</li>
-<li>大部分场景下性能比String好</li>
-<li>与StringBuffer基本相同，多了一个synchronized修饰，所以线程安全</li>
-</ul>
-</li>
-</ul>
-<h2 id="StringBuilder：线程不安全的可变字符串类"><a href="#StringBuilder：线程不安全的可变字符串类" class="headerlink" title="StringBuilder：线程不安全的可变字符串类"></a>StringBuilder：线程不安全的可变字符串类</h2><ul>
-<li>使用场景：不需要考虑线程安全问题场景，建议首选该类，然后是StringBuffer，然后是String</li>
-<li>特点：<ul>
-<li>与StringBuffer类似，不产生新对象</li>
-<li>大部分场景性能比StringBuffer更好</li>
-</ul>
-</li>
-</ul>
-<h2 id="string常见面试题"><a href="#string常见面试题" class="headerlink" title="string常见面试题"></a>string常见面试题</h2><h3 id="下面这段代码的输出结果？"><a href="#下面这段代码的输出结果？" class="headerlink" title="下面这段代码的输出结果？"></a>下面这段代码的输出结果？</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String a = &quot;hello2&quot;; 　　</span><br><span class="line">String b = &quot;hello&quot; + 2; 　　</span><br><span class="line">System.out.println((a == b));</span><br></pre></td></tr></table></figure>
-<ul>
-<li>true, 编译期间”hello” + 2被优化为hello2，所以两个对象都指向了同一个常量地址</li>
-</ul>
-<h3 id="下面这段代码输出结果？"><a href="#下面这段代码输出结果？" class="headerlink" title="下面这段代码输出结果？"></a>下面这段代码输出结果？</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String a = &quot;hello2&quot;; 　  </span><br><span class="line">String b = &quot;hello&quot;;       </span><br><span class="line">String c = b + 2;       </span><br><span class="line">System.out.println((a == c));</span><br></pre></td></tr></table></figure>
-<ul>
-<li>false，因为有对象引用，所以c指向的地址是在堆中，而a和b都是指向了常量地址</li>
-</ul>
-<h3 id="下面这段代码的输出结果？-1"><a href="#下面这段代码的输出结果？-1" class="headerlink" title="下面这段代码的输出结果？"></a>下面这段代码的输出结果？</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String a = &quot;hello2&quot;;   　</span><br><span class="line">final String b = &quot;hello&quot;;       </span><br><span class="line">String c = b + 2;      </span><br><span class="line">System.out.println((a == c));</span><br></pre></td></tr></table></figure>
-<ul>
-<li>true，final变量会在编译期间替换成具体的值，即c=”hello”+2，所以a和c指向了同一个常量地址</li>
-</ul>
-<h3 id="下面这段代码的输出结果？-2"><a href="#下面这段代码的输出结果？-2" class="headerlink" title="下面这段代码的输出结果？"></a>下面这段代码的输出结果？</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        String a = &quot;hello2&quot;;</span><br><span class="line">        final String b = getHello();</span><br><span class="line">        String c = b + 2;</span><br><span class="line">        System.out.println((a == c));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static String getHello() &#123;</span><br><span class="line">        return &quot;hello&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>false，b是通过调用方法赋值，调用方法需要在运行时执行，所以c保存的地址是在运行时确定，而a保存的地址在编译时已经确认</li>
-</ul>
-<h3 id="下面这段代码的输出结果？-3"><a href="#下面这段代码的输出结果？-3" class="headerlink" title="下面这段代码的输出结果？"></a>下面这段代码的输出结果？</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        String a = &quot;hello&quot;;</span><br><span class="line">        String b =  new String(&quot;hello&quot;);</span><br><span class="line">        String c =  new String(&quot;hello&quot;);</span><br><span class="line">        String d = b.intern();</span><br><span class="line"></span><br><span class="line">        System.out.println(a==b);</span><br><span class="line">        System.out.println(b==c);</span><br><span class="line">        System.out.println(b==d);</span><br><span class="line">        System.out.println(a==d);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>false、false、false、true，intern作用是运行时在常量池中查找，有返回一个该常量的引用，没有创建一个常量，然后返回一个该常量的引用</li>
-</ul>
-<h3 id="String-str-new-String-“abc”-创建了哪些对象？"><a href="#String-str-new-String-“abc”-创建了哪些对象？" class="headerlink" title="String str = new String(“abc”)创建了哪些对象？"></a>String str = new String(“abc”)创建了哪些对象？</h3><ul>
-<li>类加载时创建了”abc”对象，代码执行时创建了str对象</li>
-</ul>
-<h3 id="下面这段代码1）和2）的区别是什么？"><a href="#下面这段代码1）和2）的区别是什么？" class="headerlink" title="下面这段代码1）和2）的区别是什么？"></a>下面这段代码1）和2）的区别是什么？</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        String str1 = &quot;I&quot;;</span><br><span class="line">        //str1 += &quot;love&quot;+&quot;java&quot;;        1)</span><br><span class="line">        //str1 = str1+&quot;love&quot;+&quot;java&quot;;    2)      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>1中只有一次append操作，2中有两次</li>
-<li>1中的字符串会在编译期间被合并</li>
-<li>1的效率比2高</li>
-</ul>
-<h3 id="String是不是基本数据类型"><a href="#String是不是基本数据类型" class="headerlink" title="String是不是基本数据类型?"></a>String是不是基本数据类型?</h3><ul>
-<li>不是基本数据类型，继承Object</li>
-</ul>
-<h3 id="String-str-”i”与-String-str-new-String-“i”-一样吗？"><a href="#String-str-”i”与-String-str-new-String-“i”-一样吗？" class="headerlink" title="String str=”i”与 String str=new String(“i”)一样吗？"></a>String str=”i”与 String str=new String(“i”)一样吗？</h3><ul>
-<li>不一样，str=”i”会分配到常量池里面，new String(“i”)会创建一个新对象</li>
-</ul>
-<h3 id="如何将字符串反转？"><a href="#如何将字符串反转？" class="headerlink" title="如何将字符串反转？"></a>如何将字符串反转？</h3><ul>
-<li>方案1：将字符串按字符放到栈中，然后从栈中输出</li>
-<li>方案2：StringBuffer 或 StringBuilder 的 reverse 成员方法</li>
-<li>方案3：利用toCharArray方法转化成数组，然后倒序输出</li>
-<li>方案4：利用 String 的 CharAt 方法倒序输出</li>
-<li>方案5：利用递归加二分实现<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public String testStringReverse(String string) &#123;</span><br><span class="line">        if (string.length() &lt;= 1) &#123;</span><br><span class="line">            System.out.println(&quot;----&quot; + string + &quot;-----&quot;);</span><br><span class="line">            return string;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        String leftString = string.substring(0, string.length()/2);</span><br><span class="line">        String rightString = string.substring(string.length()/2, string.length());</span><br><span class="line">        String reverseString = testStringReverse(rightString) + testStringReverse(leftString);</span><br><span class="line">        System.out.println(&quot;====&quot; + reverseString + &quot;=====&quot;);</span><br><span class="line">        return reverseString;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="String-类的常用方法都有那些？"><a href="#String-类的常用方法都有那些？" class="headerlink" title="String 类的常用方法都有那些？"></a>String 类的常用方法都有那些？</h3><ul>
-<li>长度相关：<ul>
-<li>public int length()</li>
-</ul>
-</li>
-<li>数组相关：<ul>
-<li>public byte[] getBytes()</li>
-<li>public char[] toCharArray()</li>
-<li>按照regex分割为字符串数组：public String[] split(String regex)</li>
-</ul>
-</li>
-<li>判断相关：<ul>
-<li>public boolean isEmpty()</li>
-<li>public boolean equals(Object anObject)</li>
-</ul>
-</li>
-<li>查找相关：<ul>
-<li>public char charAt(int index)</li>
-</ul>
-</li>
-<li>变更相关：<ul>
-<li>public String replace(char oldChar, char newChar)</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/String%E3%80%81StringBuffer%E3%80%81StringBuilder/" data-id="cl295t1x70031ged4eksu890p" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Q&amp;A/Java/final" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/11/22/Q&A/Java/final/" class="article-date">
-  <time datetime="2021-11-22T14:49:58.000Z" itemprop="datePublished">2021-11-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/22/Q&A/Java/final/">final</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="final：用于修饰类、方法、数据，使其内存的内容不变"><a href="#final：用于修饰类、方法、数据，使其内存的内容不变" class="headerlink" title="final：用于修饰类、方法、数据，使其内存的内容不变"></a>final：用于修饰类、方法、数据，使其内存的内容不变</h2><ul>
-<li>类：该类不能被继承</li>
-<li>方法：该方法不能被重写。与private有相同功能</li>
-<li>数据：<ul>
-<li>基本数据类型、String：其值不能修改，String在修改时会重新创建一个对象，即其内存中的地址会指向新的对象，所以String被final修饰时，其值不能修改</li>
-<li>引用数据类型：该引用地址不能变，但地址指向的对象内部的变量可以变</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/final/" data-id="cl295t1x80033ged4hrlj2duy" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/11/25/Q&A/Java/%E6%8E%A5%E5%8F%A3/" data-id="cl3099frq004kqzd455bb8q6g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1615,7 +1550,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -1655,7 +1590,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li></ul>
     </div>
   </div>
 
@@ -1668,23 +1603,23 @@
       <ul>
         
           <li>
-            <a href="/2022/04/18/Q&A/Java/Spring/">Spring</a>
+            <a href="/2022/05/10/Q&A/Java/Zookeeper/">Zookeeper</a>
           </li>
         
           <li>
-            <a href="/2022/04/14/Q&A/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+            <a href="/2022/05/09/Q&A/Java/Kafka/">Kafka</a>
           </li>
         
           <li>
-            <a href="/2022/04/12/Q&A/Java/%E7%BD%91%E7%BB%9C/">网络</a>
+            <a href="/2022/05/06/Q&A/Java/RabbitMQ/">RabbitMQ</a>
           </li>
         
           <li>
-            <a href="/2022/04/06/Q&A/Java/%E5%BC%82%E5%B8%B8/">异常</a>
+            <a href="/2022/04/27/Q&A/Java/MyBatis/">MyBatis</a>
           </li>
         
           <li>
-            <a href="/2022/03/28/Q&A/Java/javaWeb/">javaWeb</a>
+            <a href="/2022/04/24/Q&A/Java/Hibernate/">Hibernate</a>
           </li>
         
       </ul>

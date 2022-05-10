@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Zookeeper | 静</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="zookeeper 是什么？一个分布式的、开源的分布式应用程序协调服务，是google chubby的开源实现，是hadoop和hbase的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等 zookeeper都有哪些功能？   功能点 功能介绍    集群管理 监控集群节点状态、运行请求等   主节点选举 即主节点挂掉之后从备用节点开始新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Zookeeper">
+<meta property="og:url" content="https://liquangang.github.io/2022/05/10/Q&A/Java/Zookeeper/index.html">
+<meta property="og:site_name" content="静">
+<meta property="og:description" content="zookeeper 是什么？一个分布式的、开源的分布式应用程序协调服务，是google chubby的开源实现，是hadoop和hbase的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等 zookeeper都有哪些功能？   功能点 功能介绍    集群管理 监控集群节点状态、运行请求等   主节点选举 即主节点挂掉之后从备用节点开始新">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-05-10T10:07:28.000Z">
+<meta property="article:modified_time" content="2022-05-10T14:35:24.126Z">
+<meta property="article:author" content="帝王之心">
+<meta property="article:tag" content="Q&amp;A">
+<meta name="twitter:card" content="summary">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  
+  
+<script src="/js/load.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  <span class="local-search local-search-google local-search-plugin" style="right: 25px;top: 10px;;position:absolute;z-index:2;">
+      <input type="search" placeholder="站内搜索" id="local-search-input" class="local-search-input-cls" style="">
+      <script type="text/javascript" id="local.search.active">
+          var inputArea = document.querySelector("#local-search-input");
+          inputArea.onclick = function () {
+              getSearchFile();
+              this.onclick = null
+          }
+          inputArea.onkeydown = function () {
+              if (event.keyCode == 13) return false
+          }
+      </script>
+      <div id="local-search-result" class="local-search-result-cls"></div>
+  </span>
+
+
+
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">静</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://liquangang.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Q&amp;A/Java/Zookeeper" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/05/10/Q&A/Java/Zookeeper/" class="article-date">
+  <time datetime="2022-05-10T10:07:28.000Z" itemprop="datePublished">2022-05-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Zookeeper
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="zookeeper-是什么？"><a href="#zookeeper-是什么？" class="headerlink" title="zookeeper 是什么？"></a>zookeeper 是什么？</h2><p>一个分布式的、开源的分布式应用程序协调服务，是google chubby的开源实现，是hadoop和hbase的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等</p>
+<h2 id="zookeeper都有哪些功能？"><a href="#zookeeper都有哪些功能？" class="headerlink" title="zookeeper都有哪些功能？"></a>zookeeper都有哪些功能？</h2><table>
+<thead>
+<tr>
+<th>功能点</th>
+<th>功能介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>集群管理</td>
+<td>监控集群节点状态、运行请求等</td>
+</tr>
+<tr>
+<td>主节点选举</td>
+<td>即主节点挂掉之后从备用节点开始新一轮主节点的选举，使用zookeeper可以协助完成该过程</td>
+</tr>
+<tr>
+<td>分布式锁</td>
+<td>zookeeper提供两种锁：<br/>1、独占锁：只有一个线程使用资源<br/>2、共享锁：多个线程可读，一个线程可写</td>
+</tr>
+<tr>
+<td>命名服务</td>
+<td>客户端根据命名服务中制定的名字可以更方便的获取资源、服务地址、提供者等信息</td>
+</tr>
+</tbody></table>
+<h2 id="zookeeper-有几种部署模式？"><a href="#zookeeper-有几种部署模式？" class="headerlink" title="zookeeper 有几种部署模式？"></a>zookeeper 有几种部署模式？</h2><table>
+<thead>
+<tr>
+<th>部署模式</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单机部署</td>
+<td>一台机器上机器上运行</td>
+</tr>
+<tr>
+<td>集群部署</td>
+<td>多台机器上运行</td>
+</tr>
+<tr>
+<td>伪集群部署</td>
+<td>一台机器上部署多个实例运行</td>
+</tr>
+</tbody></table>
+<h2 id="zookeeper-怎么保证主从节点的状态同步？"><a href="#zookeeper-怎么保证主从节点的状态同步？" class="headerlink" title="zookeeper 怎么保证主从节点的状态同步？"></a>zookeeper 怎么保证主从节点的状态同步？</h2><h3 id="通过原子广播机制实现实现节点间的状态同步，该机制依赖zab协议。"><a href="#通过原子广播机制实现实现节点间的状态同步，该机制依赖zab协议。" class="headerlink" title="通过原子广播机制实现实现节点间的状态同步，该机制依赖zab协议。"></a>通过<strong>原子广播机制</strong>实现实现节点间的状态同步，该机制依赖zab协议。</h3><h3 id="zab协议两种模式介绍"><a href="#zab协议两种模式介绍" class="headerlink" title="zab协议两种模式介绍"></a>zab协议两种模式介绍</h3><table>
+<thead>
+<tr>
+<th>模式</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>恢复（选主）模式</td>
+<td>当主节点崩溃时，会进入该模式，首先重新选出主节点，然后其他节点会与新主节点完成同步</td>
+</tr>
+<tr>
+<td>广播（同步）模式</td>
+<td>即主节点发生变化时，向其他节点广播以完成同步</td>
+</tr>
+</tbody></table>
+<h2 id="集群中为什么要有主节点？"><a href="#集群中为什么要有主节点？" class="headerlink" title="集群中为什么要有主节点？"></a>集群中为什么要有主节点？</h2><p>在分布式环境中，有些业务只需要一个节点完成处理，其他节点共享该处理结果即可，这样可以减少运算资源消耗，提升效率，所以就需要设置一个主节点实现该需求</p>
+<h2 id="集群中有-3-台服务器，其中一个节点宕机，这个时候-zookeeper-还可以使用吗？"><a href="#集群中有-3-台服务器，其中一个节点宕机，这个时候-zookeeper-还可以使用吗？" class="headerlink" title="集群中有 3 台服务器，其中一个节点宕机，这个时候 zookeeper 还可以使用吗？"></a>集群中有 3 台服务器，其中一个节点宕机，这个时候 zookeeper 还可以使用吗？</h2><p>可以继续使用，奇数个节点的集群只要没超过一半节点宕机就可以继续正常对外提供服务</p>
+<h2 id="说一下-zookeeper-的通知机制？"><a href="#说一下-zookeeper-的通知机制？" class="headerlink" title="说一下 zookeeper 的通知机制？"></a>说一下 zookeeper 的通知机制？</h2><p>客户端会对znode建立一个watcher事件，当znode发生变化时，这些客户端会受到zookeeper的通知，然后就可以根据该通知进行相关业务处理</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2022/05/10/Q&A/Java/Zookeeper/" data-id="cl3099frg003dqzd4cm0c4e92" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/05/09/Q&A/Java/Kafka/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Kafka</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/">Q&A</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/codeStyle/">codeStyle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">mac使用技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BD%BF%E7%94%A8/">区块链使用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%BA%94%E7%94%A8/">工具应用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E8%84%9A%E6%9C%AC/">工具脚本</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%84%E4%BB%B6/">组件</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag">博客搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" rel="tag">电脑使用技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" rel="tag">脚本工具</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Q-A/" style="font-size: 16.67px;">Q&A</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 10px;">区块链</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13.33px;">博客搭建</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">电脑使用技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 20px;">编程</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">脚本工具</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/10/Q&A/Java/Zookeeper/">Zookeeper</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/09/Q&A/Java/Kafka/">Kafka</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/06/Q&A/Java/RabbitMQ/">RabbitMQ</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/27/Q&A/Java/MyBatis/">MyBatis</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/24/Q&A/Java/Hibernate/">Hibernate</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 帝王之心<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -15,7 +15,7 @@
 <meta property="og:description" content="为什么要使用 spring？一句话概括 省去很多非业务层代码的研发工作，提高javaweb应用开发效率详解 基于POJO的轻量级和最小侵入式编程；POJO（Plain Ordinary Java Object）即简单Java对象，spring竭力避免污染你的代码，尽量解除我们的代码与spring之间的耦合。具备非侵入式变成的思想，耦合低，代码污染小 通过依赖注入和面向接口编程实现松耦合：降低模块内">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-18T11:31:33.000Z">
-<meta property="article:modified_time" content="2022-04-21T15:28:56.054Z">
+<meta property="article:modified_time" content="2022-04-30T07:18:20.546Z">
 <meta property="article:author" content="帝王之心">
 <meta property="article:tag" content="Q&amp;A">
 <meta name="twitter:card" content="summary">
@@ -371,7 +371,7 @@
 <li>作用：完成IOC或者ID的自动装配流程</li>
 <li>修饰对象：类成员变量、方法、构造函数</li>
 </ul>
-<h2 id="什么是spring-boot？"><a href="#什么是spring-boot？" class="headerlink" title="什么是spring boot？"></a>什么是spring boot？</h2><table>
+<h1 id="Soring-boot"><a href="#Soring-boot" class="headerlink" title="Soring boot"></a>Soring boot</h1><h2 id="什么是spring-boot？"><a href="#什么是spring-boot？" class="headerlink" title="什么是spring boot？"></a>什么是spring boot？</h2><table>
 <thead>
 <tr>
 <th></th>
@@ -391,7 +391,7 @@
 <td>使用了特定方式配置，使开发人员不再需要定义样板化的配置</td>
 </tr>
 </tbody></table>
-<h2 id="为什么要用-spring-boot？"><a href="#为什么要用-spring-boot？" class="headerlink" title="为什么要用 spring boot？"></a>为什么要用 spring boot？</h2><h3 id="当然是因为使用spring-boot比单纯使用spring有很多优势"><a href="#当然是因为使用spring-boot比单纯使用spring有很多优势" class="headerlink" title="当然是因为使用spring boot比单纯使用spring有很多优势"></a>当然是因为使用spring boot比单纯使用spring有很多优势</h3><ul>
+<h2 id="为什么要用-spring-boot？或者说使用spring-boot的优势"><a href="#为什么要用-spring-boot？或者说使用spring-boot的优势" class="headerlink" title="为什么要用 spring boot？或者说使用spring boot的优势"></a>为什么要用 spring boot？或者说使用spring boot的优势</h2><ul>
 <li>简化配置，不需要太多的xml配置文件</li>
 <li>基于spring进行构建，是开发者快速入门，门槛低</li>
 <li>spring boot可以独立创建应用，不需要依赖各种web应用容器</li>
@@ -401,11 +401,152 @@
 <li>spring boot可以整合各种各样的框架，并可以很好地集成</li>
 <li>活跃的社区论坛，以及丰富的开发文档</li>
 </ul>
+<h2 id="spring-boot-核心配置文件是什么？"><a href="#spring-boot-核心配置文件是什么？" class="headerlink" title="spring boot 核心配置文件是什么？"></a>spring boot 核心配置文件是什么？</h2><ul>
+<li>application.yml</li>
+<li>bootstrap.properties</li>
+</ul>
+<h2 id="spring-boot-配置文件有哪几种类型？它们有什么区别？"><a href="#spring-boot-配置文件有哪几种类型？它们有什么区别？" class="headerlink" title="spring boot 配置文件有哪几种类型？它们有什么区别？"></a>spring boot 配置文件有哪几种类型？它们有什么区别？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>application.yml</th>
+<th>bootstrap.properties</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>加载方式</td>
+<td>spring boot自动从classpath中加载</td>
+<td>spring boot会自动从classspath中加载</td>
+</tr>
+<tr>
+<td>文件内容格式</td>
+<td>key：value</td>
+<td>key=value</td>
+</tr>
+<tr>
+<td>加载顺序</td>
+<td>整体文件加载后于bootstrap，内部配置项加载也有先后顺序</td>
+<td>先于application</td>
+</tr>
+<tr>
+<td>可配置项功能</td>
+<td>应用级别，是当前应用的配置文件</td>
+<td>系统级别，用来加载外部配置，比如配置中心的配置信息</td>
+</tr>
+</tbody></table>
+<h2 id="spring-boot-有哪些方式可以实现热部署？"><a href="#spring-boot-有哪些方式可以实现热部署？" class="headerlink" title="spring boot 有哪些方式可以实现热部署？"></a>spring boot 有哪些方式可以实现热部署？</h2><ul>
+<li>模板热部署</li>
+<li>使用调试模式debug实现热部署</li>
+<li>spring-boot-devtools</li>
+<li>spring loaded</li>
+<li>JRebel<table>
+<thead>
+<tr>
+<th>热部署方式</th>
+<th>部署方式</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>模板热部署</td>
+<td>在application或者bootstrap中关闭模板引擎的缓存即可</td>
+<td></td>
+</tr>
+<tr>
+<td>debug模式</td>
+<td>运行时使用debug模式即可</td>
+<td>1、最简单快速；<br/>2、无法对配置文件、方法名称改变、在增加类及方法进行热部署，使用范围有限</td>
+</tr>
+<tr>
+<td>spring-boot-devtools</td>
+<td>在spring boot中添加依赖即可实现，在pom.xml添加spring-boot-devtools依赖</td>
+<td>1、作用范围广；<br/>2、使用重启策略实现，相当于手动帮你点了手动重启；<br/>3、默认关闭模板缓存</td>
+</tr>
+<tr>
+<td>Spring Loaded</td>
+<td>在run configuration中配置</td>
+<td>1、与debug类似，作用范围有限；<br/>2、不依赖debug模式，正常情况下即可生效</td>
+</tr>
+<tr>
+<td>JRebel</td>
+<td>通过插件安装支持</td>
+<td>1、收费；<br/>2、最好的java热部署工具</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h2 id="jpa-和-hibernate-有什么区别？"><a href="#jpa-和-hibernate-有什么区别？" class="headerlink" title="jpa 和 hibernate 有什么区别？"></a>jpa 和 hibernate 有什么区别？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>JPA</th>
+<th>Hibernate</th>
+<th>Spring Data Jpa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>简介</td>
+<td>全称Java Persistence API，是一套ORM（对象关系映射）规范，可以理解为是一套接口</td>
+<td>是JPA的一种实现</td>
+<td>是对JPA和Hibernate进行了二次封装，将Spring与JPA进行更好的结合</td>
+</tr>
+</tbody></table>
+<h1 id="Spring-cloud"><a href="#Spring-cloud" class="headerlink" title="Spring cloud"></a>Spring cloud</h1><h2 id="什么是-spring-cloud？"><a href="#什么是-spring-cloud？" class="headerlink" title="什么是 spring cloud？"></a>什么是 spring cloud？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>简介</td>
+<td>一系列框架的有序集合，提供了分布式系统开发的一站式解决方案</td>
+</tr>
+<tr>
+<td>诞生目的</td>
+<td>为开发者提供一套简单易懂、易部署、易维护的分布式系统开发工具包</td>
+</tr>
+<tr>
+<td>特点</td>
+<td>1、基于spring boot；<br/>2、没有重复造轮子，将各家成熟的、经得住考验的各种框架结合</td>
+</tr>
+</tbody></table>
+<h2 id="spring-cloud-断路器的作用是什么？"><a href="#spring-cloud-断路器的作用是什么？" class="headerlink" title="spring cloud 断路器的作用是什么？"></a>spring cloud 断路器的作用是什么？</h2><ul>
+<li>当某个服务单元发生故障后，通过断路器的监控，向调用方返回一个错误响应，而不是长时间的等待，避免线程因服务故障长时间占用资源不释放，避免故障蔓延</li>
+</ul>
+<h2 id="spring-cloud-的核心组件有哪些？"><a href="#spring-cloud-的核心组件有哪些？" class="headerlink" title="spring cloud 的核心组件有哪些？"></a>spring cloud 的核心组件有哪些？</h2><table>
+<thead>
+<tr>
+<th>组件</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Eureka</td>
+<td>微服务注册管理中心</td>
+</tr>
+<tr>
+<td>Ribbon</td>
+<td>客户端负载均衡</td>
+</tr>
+<tr>
+<td>Hystrix</td>
+<td>断路器，用来处理服务故障</td>
+</tr>
+<tr>
+<td>Fegin</td>
+<td>用于简化微服务之间的调用</td>
+</tr>
+<tr>
+<td>Zuul</td>
+<td>网关，一系列的过滤器</td>
+</tr>
+</tbody></table>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/18/Q&A/Java/Spring/" data-id="cl295t1x6002yged4921hd25c" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/04/18/Q&A/Java/Spring/" data-id="cl3099fre0033qzd40r5qd2d1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -415,6 +556,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2022/04/24/Q&A/Java/Hibernate/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hibernate
+        
+      </div>
+    </a>
   
   
     <a href="/2022/04/14/Q&A/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
@@ -464,7 +614,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li></ul>
     </div>
   </div>
 
@@ -477,23 +627,23 @@
       <ul>
         
           <li>
-            <a href="/2022/04/18/Q&A/Java/Spring/">Spring</a>
+            <a href="/2022/05/10/Q&A/Java/Zookeeper/">Zookeeper</a>
           </li>
         
           <li>
-            <a href="/2022/04/14/Q&A/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+            <a href="/2022/05/09/Q&A/Java/Kafka/">Kafka</a>
           </li>
         
           <li>
-            <a href="/2022/04/12/Q&A/Java/%E7%BD%91%E7%BB%9C/">网络</a>
+            <a href="/2022/05/06/Q&A/Java/RabbitMQ/">RabbitMQ</a>
           </li>
         
           <li>
-            <a href="/2022/04/06/Q&A/Java/%E5%BC%82%E5%B8%B8/">异常</a>
+            <a href="/2022/04/27/Q&A/Java/MyBatis/">MyBatis</a>
           </li>
         
           <li>
-            <a href="/2022/03/28/Q&A/Java/javaWeb/">javaWeb</a>
+            <a href="/2022/04/24/Q&A/Java/Hibernate/">Hibernate</a>
           </li>
         
       </ul>
