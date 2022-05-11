@@ -5,17 +5,17 @@
   
 
   
-  <title>对象拷贝 | 静</title>
+  <title>MySql | 静</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为什么要使用克隆？ 想对一个对象进行处理，但是又想保留原有数据进行其他操作，此时需要对原有数据进行克隆  如何实现对象克隆？ 克隆： 浅克隆：只克隆对象里面的基本数据类型 深克隆：克隆对象里面的所有属性   实现：浅克隆只需要本类实现Cloneable接口（该接口有个clone方法，需要调用super.clone实现）即可，深克隆需要对象所属的类以及对象引用的所有对象对应的类都实现Cloneabl">
+  <meta name="description" content="数据库的三范式是什么？   范式 简介    第一范式 强调表的每一列的原子性，即数据库表的每一列都是不可分割的原子数据项   第二范式 要求实体的属性完全依赖主关键字，不能存在只依赖主关键字一部分的属性   第三范式 任何非主属性不依赖其他非主属性   一张自增表里面总共有 7 条数据，删除了最后 2 条数据，重启 mysql 数据库，又插入了一条数据，此时 id 是几？1、如果设置表类型为My">
 <meta property="og:type" content="article">
-<meta property="og:title" content="对象拷贝">
-<meta property="og:url" content="https://liquangang.github.io/2022/03/25/Q&A/Java/%E5%AF%B9%E8%B1%A1%E6%8B%B7%E8%B4%9D/index.html">
+<meta property="og:title" content="MySql">
+<meta property="og:url" content="https://liquangang.github.io/2022/05/11/Q&A/Java/MySql/index.html">
 <meta property="og:site_name" content="静">
-<meta property="og:description" content="为什么要使用克隆？ 想对一个对象进行处理，但是又想保留原有数据进行其他操作，此时需要对原有数据进行克隆  如何实现对象克隆？ 克隆： 浅克隆：只克隆对象里面的基本数据类型 深克隆：克隆对象里面的所有属性   实现：浅克隆只需要本类实现Cloneable接口（该接口有个clone方法，需要调用super.clone实现）即可，深克隆需要对象所属的类以及对象引用的所有对象对应的类都实现Cloneabl">
+<meta property="og:description" content="数据库的三范式是什么？   范式 简介    第一范式 强调表的每一列的原子性，即数据库表的每一列都是不可分割的原子数据项   第二范式 要求实体的属性完全依赖主关键字，不能存在只依赖主关键字一部分的属性   第三范式 任何非主属性不依赖其他非主属性   一张自增表里面总共有 7 条数据，删除了最后 2 条数据，重启 mysql 数据库，又插入了一条数据，此时 id 是几？1、如果设置表类型为My">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-03-25T08:28:18.000Z">
-<meta property="article:modified_time" content="2022-04-12T14:26:32.185Z">
+<meta property="article:published_time" content="2022-05-11T04:06:44.000Z">
+<meta property="article:modified_time" content="2022-05-11T15:35:43.381Z">
 <meta property="article:author" content="帝王之心">
 <meta property="article:tag" content="Q&amp;A">
 <meta name="twitter:card" content="summary">
@@ -85,10 +85,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-Q&amp;A/Java/对象拷贝" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Q&amp;A/Java/MySql" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/03/25/Q&A/Java/%E5%AF%B9%E8%B1%A1%E6%8B%B7%E8%B4%9D/" class="article-date">
-  <time datetime="2022-03-25T08:28:18.000Z" itemprop="datePublished">2022-03-25</time>
+    <a href="/2022/05/11/Q&A/Java/MySql/" class="article-date">
+  <time datetime="2022-05-11T04:06:44.000Z" itemprop="datePublished">2022-05-11</time>
 </a>
     
   <div class="article-category">
@@ -103,7 +103,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      对象拷贝
+      MySql
     </h1>
   
 
@@ -111,29 +111,126 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="为什么要使用克隆？"><a href="#为什么要使用克隆？" class="headerlink" title="为什么要使用克隆？"></a>为什么要使用克隆？</h3><ul>
-<li>想对一个对象进行处理，但是又想保留原有数据进行其他操作，此时需要对原有数据进行克隆</li>
-</ul>
-<h3 id="如何实现对象克隆？"><a href="#如何实现对象克隆？" class="headerlink" title="如何实现对象克隆？"></a>如何实现对象克隆？</h3><ul>
-<li>克隆：<ul>
-<li>浅克隆：只克隆对象里面的基本数据类型</li>
-<li>深克隆：克隆对象里面的所有属性</li>
-</ul>
-</li>
-<li>实现：浅克隆只需要本类实现Cloneable接口（该接口有个clone方法，需要调用super.clone实现）即可，深克隆需要对象所属的类以及对象引用的所有对象对应的类都实现Cloneable接口</li>
-<li>深拷贝代码示例：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">class Address  &#123;</span><br><span class="line">    private String add;</span><br><span class="line">    public String getAdd() &#123;</span><br><span class="line">        return add;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setAdd(String add) &#123;</span><br><span class="line">        this.add = add;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Student implements Cloneable &#123;</span><br><span class="line">    private int number;</span><br><span class="line"></span><br><span class="line">    private Address addr;</span><br><span class="line"></span><br><span class="line">    public Address getAddr() &#123;</span><br><span class="line">        return addr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setAddr(Address addr) &#123;</span><br><span class="line">        this.addr = addr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getNumber() &#123;</span><br><span class="line">        return number;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setNumber(int number) &#123;</span><br><span class="line">        this.number = number;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Object clone() &#123;</span><br><span class="line">        Student stu = null;</span><br><span class="line">        try&#123;</span><br><span class="line">            stu = (Student)super.clone();</span><br><span class="line">        &#125;catch(CloneNotSupportedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        return stu;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Test</span><br><span class="line">public void testCopy() &#123;</span><br><span class="line">    Address addr = new Address();</span><br><span class="line">    addr.setAdd(&quot;杭州市&quot;);</span><br><span class="line">    Student stu1 = new Student();</span><br><span class="line">    stu1.setNumber(123);</span><br><span class="line">    stu1.setAddr(addr);</span><br><span class="line"></span><br><span class="line">    Student stu2 = (Student)stu1.clone();</span><br><span class="line"></span><br><span class="line">    System.out.println(&quot;学生1:&quot; + stu1.getNumber() + &quot;,地址:&quot; + stu1.getAddr().getAdd());</span><br><span class="line">    System.out.println(&quot;学生2:&quot; + stu2.getNumber() + &quot;,地址:&quot; + stu2.getAddr().getAdd());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="深拷贝和浅拷贝区别是什么？"><a href="#深拷贝和浅拷贝区别是什么？" class="headerlink" title="深拷贝和浅拷贝区别是什么？"></a>深拷贝和浅拷贝区别是什么？</h3><ul>
-<li>浅拷贝只支持基本数据类型的拷贝，深拷贝全都支持，所以浅拷贝之后的引用类型还是同一个地址</li>
-</ul>
-<h3 id="如何解决多层克隆问题？"><a href="#如何解决多层克隆问题？" class="headerlink" title="如何解决多层克隆问题？"></a>如何解决多层克隆问题？</h3><ul>
-<li>先序列化，在反序列化</li>
-</ul>
+        <h2 id="数据库的三范式是什么？"><a href="#数据库的三范式是什么？" class="headerlink" title="数据库的三范式是什么？"></a>数据库的三范式是什么？</h2><table>
+<thead>
+<tr>
+<th>范式</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第一范式</td>
+<td>强调表的每一列的原子性，即数据库表的每一列都是不可分割的原子数据项</td>
+</tr>
+<tr>
+<td>第二范式</td>
+<td>要求实体的属性完全依赖主关键字，不能存在只依赖主关键字一部分的属性</td>
+</tr>
+<tr>
+<td>第三范式</td>
+<td>任何非主属性不依赖其他非主属性</td>
+</tr>
+</tbody></table>
+<h2 id="一张自增表里面总共有-7-条数据，删除了最后-2-条数据，重启-mysql-数据库，又插入了一条数据，此时-id-是几？"><a href="#一张自增表里面总共有-7-条数据，删除了最后-2-条数据，重启-mysql-数据库，又插入了一条数据，此时-id-是几？" class="headerlink" title="一张自增表里面总共有 7 条数据，删除了最后 2 条数据，重启 mysql 数据库，又插入了一条数据，此时 id 是几？"></a>一张自增表里面总共有 7 条数据，删除了最后 2 条数据，重启 mysql 数据库，又插入了一条数据，此时 id 是几？</h2><p>1、如果设置表类型为MyISAM，id就是8，该类型下，mysql会在数据文件中持久化主键最大id，所以重启之后最大主键依然是7<br>2、如果设置表类型为InnoDB，id就是6，该类型下，mysql只在内存中保存主键最大id，重启会丢失，重启之后从表中重新加载到内存当中的最大主键是5<br>3、如果删除的是中间的数据，那么id是相同的，都是8</p>
+<h2 id="如何获取当前数据库版本？"><a href="#如何获取当前数据库版本？" class="headerlink" title="如何获取当前数据库版本？"></a>如何获取当前数据库版本？</h2><p>select version()</p>
+<h2 id="说一下-ACID-是什么？"><a href="#说一下-ACID-是什么？" class="headerlink" title="说一下 ACID 是什么？"></a>说一下 ACID 是什么？</h2><h4 id="即数据库写表过程中，为保证事务正确可靠，确立的四个特性"><a href="#即数据库写表过程中，为保证事务正确可靠，确立的四个特性" class="headerlink" title="即数据库写表过程中，为保证事务正确可靠，确立的四个特性"></a>即数据库写表过程中，为保证事务正确可靠，确立的四个特性</h4><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Atomicity（原子性）</td>
+<td>一个事务的所有操作要么全部完成，要么全部不完成，即恢复到事务执行前的样子，即事务不可分割、不可约简</td>
+</tr>
+<tr>
+<td>Consistency（一致性）</td>
+<td>事务执行过程中，数据库完整性不会被破坏，即写入的数据必须符合预设约束、触发器、级联回滚等</td>
+</tr>
+<tr>
+<td>Isolation（事务隔离）</td>
+<td>数据库允许多个事务同时进行读写，隔离性是为了保证并发执行时数据一致。事务隔离分为不同级别：读未提交（Read uncommitted）、读提交（Read committed）、可重复读（Repeatable read）、串行化（Serializable）</td>
+</tr>
+<tr>
+<td>Durability（持久性）</td>
+<td>事务执行成功后对数据的修改是永远生效的，即便系统异常也不会丢失</td>
+</tr>
+</tbody></table>
+<h2 id="char-和-varchar-的区别是什么？"><a href="#char-和-varchar-的区别是什么？" class="headerlink" title="char 和 varchar 的区别是什么？"></a>char 和 varchar 的区别是什么？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>char(n)：固定长度字符类型，占用部分或者全部空间，剩余空间使用空字节占用，即总长度固定</th>
+<th>varchar(n)：可变长度字符类型，即数据会占用与自身长度相同的空间，再加上一个表示该数据长度的字节，这两部分即整体的长度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>效率</td>
+<td>高</td>
+<td>低</td>
+</tr>
+<tr>
+<td>占用空间</td>
+<td>高</td>
+<td>低</td>
+</tr>
+<tr>
+<td>使用场景</td>
+<td>存储固定长度</td>
+<td>存储可变长度的</td>
+</tr>
+</tbody></table>
+<h2 id="float-和-double-的区别是什么？"><a href="#float-和-double-的区别是什么？" class="headerlink" title="float 和 double 的区别是什么？"></a>float 和 double 的区别是什么？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>float</th>
+<th>double</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>存储十进制数长度</td>
+<td>8位</td>
+<td>16位</td>
+</tr>
+<tr>
+<td>内存占用</td>
+<td>4字节</td>
+<td>8字节</td>
+</tr>
+</tbody></table>
+<h2 id="mysql-的内连接、左连接、右连接有什么区别？"><a href="#mysql-的内连接、左连接、右连接有什么区别？" class="headerlink" title="mysql 的内连接、左连接、右连接有什么区别？"></a>mysql 的内连接、左连接、右连接有什么区别？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>内连接</th>
+<th>左连接</th>
+<th>右连接</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>关键字</td>
+<td>inner join</td>
+<td>left join</td>
+<td>right join</td>
+</tr>
+<tr>
+<td>作用</td>
+<td>把匹配的关联数据全部查出来</td>
+<td>左边的表全部查出来，右边的表查出来符合条件的数据</td>
+<td>右边的表全部查出来，左边的表查出来符合条件的数据</td>
+</tr>
+</tbody></table>
+<h2 id="mysql-索引是怎么实现的？"><a href="#mysql-索引是怎么实现的？" class="headerlink" title="mysql 索引是怎么实现的？"></a>mysql 索引是怎么实现的？</h2><h3 id="索引简介"><a href="#索引简介" class="headerlink" title="索引简介"></a>索引简介</h3><p>满足某种特定查找算法的数据结构，这些数据结构会以某种方式指向数据，以实现高效查询</p>
+<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>目前主流的数据库引擎都采用B+树实现，性能与二分法类似</p>
+<h2 id="怎么验证-mysql-的索引是否满足需求？"><a href="#怎么验证-mysql-的索引是否满足需求？" class="headerlink" title="怎么验证 mysql 的索引是否满足需求？"></a>怎么验证 mysql 的索引是否满足需求？</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>使用explain查看sql是如何执行查询语句的，从而分析索引是否满足需求</p>
+<h3 id="explain语句示例"><a href="#explain语句示例" class="headerlink" title="explain语句示例"></a>explain语句示例</h3><p>explain select * from table where type=1;</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/03/25/Q&A/Java/%E5%AF%B9%E8%B1%A1%E6%8B%B7%E8%B4%9D/" data-id="cl31qupwq0044dvd4h4oefiwp" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/11/Q&A/Java/MySql/" data-id="cl31qupwg0036dvd4075g6jn4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -144,19 +241,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2022/03/28/Q&A/Java/javaWeb/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          javaWeb
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/03/24/Q&A/Java/%E5%8F%8D%E5%B0%84/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/05/10/Q&A/Java/Zookeeper/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">反射</div>
+      <div class="article-nav-title">Zookeeper</div>
     </a>
   
 </nav>

@@ -85,6 +85,163 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Q&amp;A/Java/MySql" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/05/11/Q&A/Java/MySql/" class="article-date">
+  <time datetime="2022-05-11T04:06:44.000Z" itemprop="datePublished">2022-05-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/11/Q&A/Java/MySql/">MySql</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="数据库的三范式是什么？"><a href="#数据库的三范式是什么？" class="headerlink" title="数据库的三范式是什么？"></a>数据库的三范式是什么？</h2><table>
+<thead>
+<tr>
+<th>范式</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第一范式</td>
+<td>强调表的每一列的原子性，即数据库表的每一列都是不可分割的原子数据项</td>
+</tr>
+<tr>
+<td>第二范式</td>
+<td>要求实体的属性完全依赖主关键字，不能存在只依赖主关键字一部分的属性</td>
+</tr>
+<tr>
+<td>第三范式</td>
+<td>任何非主属性不依赖其他非主属性</td>
+</tr>
+</tbody></table>
+<h2 id="一张自增表里面总共有-7-条数据，删除了最后-2-条数据，重启-mysql-数据库，又插入了一条数据，此时-id-是几？"><a href="#一张自增表里面总共有-7-条数据，删除了最后-2-条数据，重启-mysql-数据库，又插入了一条数据，此时-id-是几？" class="headerlink" title="一张自增表里面总共有 7 条数据，删除了最后 2 条数据，重启 mysql 数据库，又插入了一条数据，此时 id 是几？"></a>一张自增表里面总共有 7 条数据，删除了最后 2 条数据，重启 mysql 数据库，又插入了一条数据，此时 id 是几？</h2><p>1、如果设置表类型为MyISAM，id就是8，该类型下，mysql会在数据文件中持久化主键最大id，所以重启之后最大主键依然是7<br>2、如果设置表类型为InnoDB，id就是6，该类型下，mysql只在内存中保存主键最大id，重启会丢失，重启之后从表中重新加载到内存当中的最大主键是5<br>3、如果删除的是中间的数据，那么id是相同的，都是8</p>
+<h2 id="如何获取当前数据库版本？"><a href="#如何获取当前数据库版本？" class="headerlink" title="如何获取当前数据库版本？"></a>如何获取当前数据库版本？</h2><p>select version()</p>
+<h2 id="说一下-ACID-是什么？"><a href="#说一下-ACID-是什么？" class="headerlink" title="说一下 ACID 是什么？"></a>说一下 ACID 是什么？</h2><h4 id="即数据库写表过程中，为保证事务正确可靠，确立的四个特性"><a href="#即数据库写表过程中，为保证事务正确可靠，确立的四个特性" class="headerlink" title="即数据库写表过程中，为保证事务正确可靠，确立的四个特性"></a>即数据库写表过程中，为保证事务正确可靠，确立的四个特性</h4><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Atomicity（原子性）</td>
+<td>一个事务的所有操作要么全部完成，要么全部不完成，即恢复到事务执行前的样子，即事务不可分割、不可约简</td>
+</tr>
+<tr>
+<td>Consistency（一致性）</td>
+<td>事务执行过程中，数据库完整性不会被破坏，即写入的数据必须符合预设约束、触发器、级联回滚等</td>
+</tr>
+<tr>
+<td>Isolation（事务隔离）</td>
+<td>数据库允许多个事务同时进行读写，隔离性是为了保证并发执行时数据一致。事务隔离分为不同级别：读未提交（Read uncommitted）、读提交（Read committed）、可重复读（Repeatable read）、串行化（Serializable）</td>
+</tr>
+<tr>
+<td>Durability（持久性）</td>
+<td>事务执行成功后对数据的修改是永远生效的，即便系统异常也不会丢失</td>
+</tr>
+</tbody></table>
+<h2 id="char-和-varchar-的区别是什么？"><a href="#char-和-varchar-的区别是什么？" class="headerlink" title="char 和 varchar 的区别是什么？"></a>char 和 varchar 的区别是什么？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>char(n)：固定长度字符类型，占用部分或者全部空间，剩余空间使用空字节占用，即总长度固定</th>
+<th>varchar(n)：可变长度字符类型，即数据会占用与自身长度相同的空间，再加上一个表示该数据长度的字节，这两部分即整体的长度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>效率</td>
+<td>高</td>
+<td>低</td>
+</tr>
+<tr>
+<td>占用空间</td>
+<td>高</td>
+<td>低</td>
+</tr>
+<tr>
+<td>使用场景</td>
+<td>存储固定长度</td>
+<td>存储可变长度的</td>
+</tr>
+</tbody></table>
+<h2 id="float-和-double-的区别是什么？"><a href="#float-和-double-的区别是什么？" class="headerlink" title="float 和 double 的区别是什么？"></a>float 和 double 的区别是什么？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>float</th>
+<th>double</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>存储十进制数长度</td>
+<td>8位</td>
+<td>16位</td>
+</tr>
+<tr>
+<td>内存占用</td>
+<td>4字节</td>
+<td>8字节</td>
+</tr>
+</tbody></table>
+<h2 id="mysql-的内连接、左连接、右连接有什么区别？"><a href="#mysql-的内连接、左连接、右连接有什么区别？" class="headerlink" title="mysql 的内连接、左连接、右连接有什么区别？"></a>mysql 的内连接、左连接、右连接有什么区别？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>内连接</th>
+<th>左连接</th>
+<th>右连接</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>关键字</td>
+<td>inner join</td>
+<td>left join</td>
+<td>right join</td>
+</tr>
+<tr>
+<td>作用</td>
+<td>把匹配的关联数据全部查出来</td>
+<td>左边的表全部查出来，右边的表查出来符合条件的数据</td>
+<td>右边的表全部查出来，左边的表查出来符合条件的数据</td>
+</tr>
+</tbody></table>
+<h2 id="mysql-索引是怎么实现的？"><a href="#mysql-索引是怎么实现的？" class="headerlink" title="mysql 索引是怎么实现的？"></a>mysql 索引是怎么实现的？</h2><h3 id="索引简介"><a href="#索引简介" class="headerlink" title="索引简介"></a>索引简介</h3><p>满足某种特定查找算法的数据结构，这些数据结构会以某种方式指向数据，以实现高效查询</p>
+<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>目前主流的数据库引擎都采用B+树实现，性能与二分法类似</p>
+<h2 id="怎么验证-mysql-的索引是否满足需求？"><a href="#怎么验证-mysql-的索引是否满足需求？" class="headerlink" title="怎么验证 mysql 的索引是否满足需求？"></a>怎么验证 mysql 的索引是否满足需求？</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>使用explain查看sql是如何执行查询语句的，从而分析索引是否满足需求</p>
+<h3 id="explain语句示例"><a href="#explain语句示例" class="headerlink" title="explain语句示例"></a>explain语句示例</h3><p>explain select * from table where type=1;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2022/05/11/Q&A/Java/MySql/" data-id="cl31qupwg0036dvd4075g6jn4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Q&amp;A/Java/Zookeeper" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2022/05/10/Q&A/Java/Zookeeper/" class="article-date">
@@ -179,7 +336,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/10/Q&A/Java/Zookeeper/" data-id="cl3099frg003dqzd4cm0c4e92" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/10/Q&A/Java/Zookeeper/" data-id="cl31qupwk003kdvd41wbf3f2e" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -226,7 +383,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/09/Q&A/Java/Kafka/" data-id="cl3099frc002yqzd4h36t42z0" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/09/Q&A/Java/Kafka/" data-id="cl31qupwe002xdvd4gcts4taq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -370,7 +527,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/06/Q&A/Java/RabbitMQ/" data-id="cl3099frf0037qzd48e5vf6uh" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/06/Q&A/Java/RabbitMQ/" data-id="cl31qupwh0039dvd4369zexn8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -601,7 +758,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/27/Q&A/Java/MyBatis/" data-id="cl3099frf003aqzd45g52ew5z" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/04/27/Q&A/Java/MyBatis/" data-id="cl31qupwf0032dvd448zxbirx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -773,7 +930,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/24/Q&A/Java/Hibernate/" data-id="cl3099fra002pqzd45x2cgj0h" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/04/24/Q&A/Java/Hibernate/" data-id="cl31qupwb002mdvd4e45i5ze0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1246,7 +1403,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/18/Q&A/Java/Spring/" data-id="cl3099fre0033qzd40r5qd2d1" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/04/18/Q&A/Java/Spring/" data-id="cl31qupwi003ddvd439611vmx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1484,7 +1641,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/14/Q&A/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-id="cl3099frp004dqzd461wbfbzn" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/04/14/Q&A/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-id="cl31qupwt004jdvd4cub49vm7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1908,7 +2065,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/12/Q&A/Java/%E7%BD%91%E7%BB%9C/" data-id="cl3099frq004iqzd4fonygb4b" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/04/12/Q&A/Java/%E7%BD%91%E7%BB%9C/" data-id="cl31qupws004gdvd4eqclegew" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -2100,313 +2257,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/06/Q&A/Java/%E5%BC%82%E5%B8%B8/" data-id="cl3099frn0047qzd4cunxcyjp" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Q&amp;A/Java/javaWeb" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/03/28/Q&A/Java/javaWeb/" class="article-date">
-  <time datetime="2022-03-28T08:25:19.000Z" itemprop="datePublished">2022-03-28</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/28/Q&A/Java/javaWeb/">javaWeb</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="servlet是什么？"><a href="#servlet是什么？" class="headerlink" title="servlet是什么？"></a>servlet是什么？</h3><ul>
-<li>是一个java web应用服务器，servlet就是一个java官方封装好的HTTP应用服务器功能集合（也可以说规范，比如实现了识别http请求，复用TCP连接等底层操作），即是一个Java官方提供的HTTP服务器功能集合或者规范，方便我们基于此进行应用服务的开发，将精力集中在业务层的编码中即可</li>
-<li>诞生的原因或者目的：方便开发者快速开发java web服务，为java web服务提供一套规范</li>
-</ul>
-<h3 id="jsp是什么？"><a href="#jsp是什么？" class="headerlink" title="jsp是什么？"></a>jsp是什么？</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1252599548343744/1266262958498784">参考文章</a></li>
-<li>是一个java web应用服务器，全称Java server Pages</li>
-<li>样子是一个html文件，然后里面内嵌着java代码，用来实现动态网页的开发，这种方式更适合前后端融合的形式，一个人编写比较方便</li>
-<li>用来开发动态网页应用的一种方式，静态网页之中包含java代码，以实现动态响应能力</li>
-<li>实际运行时会被编译成servlet，本质是servlet的另一种形式</li>
-</ul>
-<h3 id="Tomcat是什么？"><a href="#Tomcat是什么？" class="headerlink" title="Tomcat是什么？"></a>Tomcat是什么？</h3><ul>
-<li>Tomcat是集合了Servlet、JSP、Java WebSocket等多种网络服务功能的一个更大的java web 服务器，并且还具有可视化配置页面等功能</li>
-</ul>
-<h3 id="struts是什么"><a href="#struts是什么" class="headerlink" title="struts是什么"></a>struts是什么</h3><ul>
-<li>即struts web，是一个开源框架，对java servlet API进行了拓展，增加了model、view、controller层，提高java web应用开发效率</li>
-</ul>
-<h3 id="Apache是什么？"><a href="#Apache是什么？" class="headerlink" title="Apache是什么？"></a>Apache是什么？</h3><ul>
-<li>是一个web服务功能集合，全称Apache HTTP Server，只支持HTTP服务</li>
-</ul>
-<h3 id="Nginx是什么？"><a href="#Nginx是什么？" class="headerlink" title="Nginx是什么？"></a>Nginx是什么？</h3><ul>
-<li>一款轻量级web服务器，跟Apache核心功能类似，都是HTTP服务器，特点是更适合高并发场景等</li>
-</ul>
-<h3 id="正向代理、反向代理"><a href="#正向代理、反向代理" class="headerlink" title="正向代理、反向代理"></a>正向代理、反向代理</h3><ul>
-<li>正向代理：VPN即正向代理，即代理会真的替代客户端发请求，而非转发，此时客户端的请求是被整整替代的，所以正向代理，代理的是客户端</li>
-<li>反向代理：即代理只是转发请求，并没有代理客户端发请求，然后服务器响应，此时服务器被代理</li>
-<li>总结：正向代理，即客户端被代理的情况，反向代理是服务端被代理的情况</li>
-</ul>
-<h3 id="jsp-和-servlet-有什么区别？"><a href="#jsp-和-servlet-有什么区别？" class="headerlink" title="jsp 和 servlet 有什么区别？"></a>jsp 和 servlet 有什么区别？</h3><table>
-<thead>
-<tr>
-<th></th>
-<th>jsp</th>
-<th>servlet</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>本质</td>
-<td>jsp本质就是servlet，是servlet的一种简易实现方式，或者说是servlet的拓展，JVM只能识别java代码，是web服务器将jsp代码编译成java代码</td>
-<td>servlet是java官方提供你的一套http服务器功能集合，或者说一种http服务器规范，方便开发者快速开发应用服务，将精力集中在业务上</td>
-</tr>
-<tr>
-<td>适用场景</td>
-<td>jsp是在HTML中包含了java代码，所以本身包含可视化页面，更容易实现动态网页应用</td>
-<td>servlet内部更多地是各种逻辑层，没有可视化相关的内容，更适合做逻辑层、控制层等</td>
-</tr>
-<tr>
-<td>特点</td>
-<td>jsp侧重于可视化部分</td>
-<td>servlet侧重于逻辑控制部分</td>
-</tr>
-<tr>
-<td>诞生目的</td>
-<td>简化servlet的使用，使servlet跟HTML更好的结合起来，更好的实现java web应用</td>
-<td>为开发者提供java web应用服务开发的规范或者工具，提高开发者效率</td>
-</tr>
-</tbody></table>
-<h3 id="jsp-有哪些内置对象？作用分别是什么？"><a href="#jsp-有哪些内置对象？作用分别是什么？" class="headerlink" title="jsp 有哪些内置对象？作用分别是什么？"></a>jsp 有哪些内置对象？作用分别是什么？</h3><table>
-<thead>
-<tr>
-<th>jsp内置对象名称</th>
-<th>对应servlet类</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>request</td>
-<td>javax.servlet.http.HttpServletRequest</td>
-<td>client请求信息，http协议头信息、cookie、请求参数等</td>
-</tr>
-<tr>
-<td>response</td>
-<td>javax.servlet.http.HttpServletResponse</td>
-<td>server响应client请求，返回信息</td>
-</tr>
-<tr>
-<td>pageContent</td>
-<td>javax.servlet.jsp.PageContext</td>
-<td>页面上下文</td>
-</tr>
-<tr>
-<td>session</td>
-<td>javax.servlet.http.HttpSession</td>
-<td>client与server之间的会话</td>
-</tr>
-<tr>
-<td>application</td>
-<td>javax.servlet.ServletContext</td>
-<td>获取服务端应用生命周期信息</td>
-</tr>
-<tr>
-<td>out</td>
-<td>javax.servlet.jsp.JspWriter</td>
-<td>server给client传输内容的输出流</td>
-</tr>
-<tr>
-<td>config</td>
-<td>javax.servlet.ServletConfig</td>
-<td>初始化是，jsp引擎向jsp页面传递的信息</td>
-</tr>
-<tr>
-<td>page</td>
-<td>java.lang.Object</td>
-<td>指向jsp页面本身</td>
-</tr>
-<tr>
-<td>exception</td>
-<td>java.lang.Throwable</td>
-<td>页面异常对象</td>
-</tr>
-</tbody></table>
-<h3 id="说一下-jsp-的-4-种作用域？"><a href="#说一下-jsp-的-4-种作用域？" class="headerlink" title="说一下 jsp 的 4 种作用域？"></a>说一下 jsp 的 4 种作用域？</h3><ul>
-<li>作用域：即信息共享范围，类似于public、private这种</li>
-<li>四种作用域介绍：<table>
-<thead>
-<tr>
-<th>作用域范围</th>
-<th>信息传递类</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>application：即服务启动到停止的时间</td>
-<td>ServletContext</td>
-</tr>
-<tr>
-<td>session：http会话开始到结束的时间</td>
-<td>session</td>
-</tr>
-<tr>
-<td>request：http请求到结束的时间</td>
-<td>request</td>
-</tr>
-<tr>
-<td>page：当前页面打开到关闭的时间</td>
-<td>pageContext</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<h3 id="session-和-cookie-有什么区别？"><a href="#session-和-cookie-有什么区别？" class="headerlink" title="session 和 cookie 有什么区别？"></a>session 和 cookie 有什么区别？</h3><table>
-<thead>
-<tr>
-<th></th>
-<th>cookie</th>
-<th>session</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>简介</td>
-<td>是放在client上给server端做相关逻辑使用的，server会在response中返给client，server可以对cookie进行读写，比如可以使用cookie来保存用户信息，以便于server端校验用户信息</td>
-<td>是放在server上，可以用来跟cookie的搭配做一些比如用户信息校验的逻辑</td>
-</tr>
-<tr>
-<td>存放位置</td>
-<td>client</td>
-<td>server</td>
-</tr>
-<tr>
-<td>容易</td>
-<td>较小</td>
-<td>较大</td>
-</tr>
-<tr>
-<td>安全性</td>
-<td>较差</td>
-<td>较强</td>
-</tr>
-</tbody></table>
-<h3 id="说一下-session-的工作原理？"><a href="#说一下-session-的工作原理？" class="headerlink" title="说一下 session 的工作原理？"></a>说一下 session 的工作原理？</h3><ul>
-<li>简要说明：用户注册之后生成session，然后保存到内存或者硬盘中，供cookie过来之后的校验</li>
-<li>举例：比如用户登录校验这种，用户登录成功后，server将待seesionId的cookie返回给client，当client发起新的请求时，将cookie发送给server，然后server使用cookie和seesion进行用户登录校验，比如可以匹配一下seesionId这种方式验证</li>
-</ul>
-<h3 id="如果客户端禁止-cookie-能实现-session-还能用吗？"><a href="#如果客户端禁止-cookie-能实现-session-还能用吗？" class="headerlink" title="如果客户端禁止 cookie 能实现 session 还能用吗？"></a>如果客户端禁止 cookie 能实现 session 还能用吗？</h3><ul>
-<li>当然能用，cookie只是一个保存信息的数据结构而已，我们可以自己设计另一个跟cookie功能一致的东西，办法很多，根据场景选择即可，比如此时client只保存一个sessionid给server做用户登录校验即可</li>
-</ul>
-<h3 id="spring-mvc-和-struts-的区别是什么？"><a href="#spring-mvc-和-struts-的区别是什么？" class="headerlink" title="spring mvc 和 struts 的区别是什么？"></a>spring mvc 和 struts 的区别是什么？</h3><table>
-<thead>
-<tr>
-<th></th>
-<th>spring mvc</th>
-<th>struts</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>简介</td>
-<td>spring MVC是一个web开发框架，本质上相当于servlet，方便开发者更高效的开发web应用</td>
-<td>是一个web开发框架，基于servlet与MVC设计模式实现</td>
-</tr>
-<tr>
-<td>机制</td>
-<td>spring mvc的入口是servlet</td>
-<td>入口是filter</td>
-</tr>
-<tr>
-<td>性能</td>
-<td>较好，基于方法设计，粒度更细</td>
-<td>较差，基于类设计，每收到一个请求，都会实例一个action</td>
-</tr>
-<tr>
-<td>参数传递</td>
-<td>形参传递，方法之间是独立的</td>
-<td>可以使用属性接收参数</td>
-</tr>
-<tr>
-<td>设计思想</td>
-<td>在servlet上进行拓展，AOP</td>
-<td>OOP</td>
-</tr>
-<tr>
-<td>开发效率</td>
-<td>高</td>
-<td>低</td>
-</tr>
-<tr>
-<td>配置量</td>
-<td>接近0</td>
-<td>较多</td>
-</tr>
-<tr>
-<td>拦截器实现机制</td>
-<td>AOP方式，方法级别拦截</td>
-<td>自己的interceptor机制，类级别拦截</td>
-</tr>
-<tr>
-<td>Ajax支持</td>
-<td>继承了Ajax，使用@ResponseBody即可实现</td>
-<td>拦截器中继承了Ajax，在action中处理时必须安装插件或者写代码集成进去，使用较为不方便</td>
-</tr>
-<tr>
-<td>验证机制</td>
-<td>支持JSR303（一种参数校验规范），处理简单</td>
-<td>繁琐</td>
-</tr>
-</tbody></table>
-<h3 id="如何避免-sql-注入？"><a href="#如何避免-sql-注入？" class="headerlink" title="如何避免 sql 注入？"></a>如何避免 sql 注入？</h3><ul>
-<li>定义：输入数据中包含非法sql语句，且此sql语句被非法执行</li>
-<li>避免策略：<ul>
-<li>过滤输入内容，校验字符串</li>
-<li>参数化查询</li>
-<li>安全测试、安全审计（CR）</li>
-<li>避免使用动态sql</li>
-<li>数据库重要数据加密</li>
-<li>数据库权限控制</li>
-<li>避免数据库直接跟用户产生交互</li>
-</ul>
-</li>
-</ul>
-<h3 id="什么是-XSS-攻击，如何避免？"><a href="#什么是-XSS-攻击，如何避免？" class="headerlink" title="什么是 XSS 攻击，如何避免？"></a>什么是 XSS 攻击，如何避免？</h3><ul>
-<li>定义：又称CSS，全称Cross Site Script（跨站脚本攻击），即输入一段HTML来攻击应用</li>
-<li>避免策略：<ul>
-<li>对输入、输出进行过滤、转义处理</li>
-<li>对HTML标签、CSS属性复制的地方进行校验</li>
-</ul>
-</li>
-</ul>
-<h3 id="什么是-CSRF-攻击，如何避免？"><a href="#什么是-CSRF-攻击，如何避免？" class="headerlink" title="什么是 CSRF 攻击，如何避免？"></a>什么是 CSRF 攻击，如何避免？</h3><ul>
-<li>定义：全称Cross Site Request Forgery（跨站请求伪造），即攻击者盗用身份，发送恶意请求</li>
-<li>避免策略：<ul>
-<li>阻止不明外域访问，比如验证请求地址等策略</li>
-<li>关键操作添加验证码</li>
-<li>增加token、cookie校验策略</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/03/28/Q&A/Java/javaWeb/" data-id="cl3099frj003oqzd41jva8cze" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/04/06/Q&A/Java/%E5%BC%82%E5%B8%B8/" data-id="cl31qupwq0048dvd45vee1pde" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -2475,6 +2326,10 @@
       <ul>
         
           <li>
+            <a href="/2022/05/11/Q&A/Java/MySql/">MySql</a>
+          </li>
+        
+          <li>
             <a href="/2022/05/10/Q&A/Java/Zookeeper/">Zookeeper</a>
           </li>
         
@@ -2488,10 +2343,6 @@
         
           <li>
             <a href="/2022/04/27/Q&A/Java/MyBatis/">MyBatis</a>
-          </li>
-        
-          <li>
-            <a href="/2022/04/24/Q&A/Java/Hibernate/">Hibernate</a>
           </li>
         
       </ul>
