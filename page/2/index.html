@@ -85,6 +85,198 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Q&amp;A/Java/异常" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/04/06/Q&A/Java/%E5%BC%82%E5%B8%B8/" class="article-date">
+  <time datetime="2022-04-06T14:39:41.000Z" itemprop="datePublished">2022-04-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/04/06/Q&A/Java/%E5%BC%82%E5%B8%B8/">异常</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="系统抛异常的方式"><a href="#系统抛异常的方式" class="headerlink" title="系统抛异常的方式"></a>系统抛异常的方式</h3><ul>
+<li>throw</li>
+<li>throws</li>
+<li>系统自动抛异常</li>
+</ul>
+<h3 id="throw-与-throws-的区别"><a href="#throw-与-throws-的区别" class="headerlink" title="throw 与 throws 的区别"></a>throw 与 throws 的区别</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>throw</th>
+<th>throws</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>作用</td>
+<td>表示当前代码块抛出的一个异常</td>
+<td>表示当前方法可能抛出的一个或多个异常，声明要抛出的异常类型｜</td>
+</tr>
+<tr>
+<td>使用位置</td>
+<td>方法中</td>
+<td>方法名中</td>
+</tr>
+<tr>
+<td>处理位置</td>
+<td>方法中、调用该方法的方法中</td>
+<td>调用该方法的方法中</td>
+</tr>
+<tr>
+<td>特点</td>
+<td>执行到这一行，就是一定有异常，表示一定</td>
+<td>不一定真的产生这些异常，表达可能行</td>
+</tr>
+</tbody></table>
+<h3 id="final、finally、finalize-有什么区别？"><a href="#final、finally、finalize-有什么区别？" class="headerlink" title="final、finally、finalize 有什么区别？"></a>final、finally、finalize 有什么区别？</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>final</th>
+<th>finally</th>
+<th>finalize</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>作用</td>
+<td>使修饰内容不发生变化，使被修饰的内容只读</td>
+<td>配合try、catch完成异常处理的一部分流程，表示该部分最后且一定会执行，即使catch中return了，经常用来释放资源</td>
+<td>是object的方法之一，作用是协助gcc释放资源</td>
+</tr>
+<tr>
+<td>修饰内容</td>
+<td>修饰变量、方法、类</td>
+<td>无</td>
+<td>无</td>
+</tr>
+<tr>
+<td>修饰内容特点</td>
+<td>被修饰内容不可变，类不能被继承、方法不能被重写，变量内容不能变（变量值不变或者引用不变）</td>
+<td>无</td>
+<td>无</td>
+</tr>
+</tbody></table>
+<h3 id="try-catch-finally-中哪个部分可以省略？"><a href="#try-catch-finally-中哪个部分可以省略？" class="headerlink" title="try-catch-finally 中哪个部分可以省略？"></a>try-catch-finally 中哪个部分可以省略？</h3><ul>
+<li>catch和finally都可以省略，但是不能同时省略</li>
+</ul>
+<h3 id="try-catch-finally-中，如果-catch-中-return-了，finally-还会执行吗？"><a href="#try-catch-finally-中，如果-catch-中-return-了，finally-还会执行吗？" class="headerlink" title="try-catch-finally 中，如果 catch 中 return 了，finally 还会执行吗？"></a>try-catch-finally 中，如果 catch 中 return 了，finally 还会执行吗？</h3><ul>
+<li>return之前会先执行finally，具体执行情况如下<ul>
+<li>finally中有return：此处会覆盖try与catch中的返回值</li>
+<li>finally中没有return：<ul>
+<li>返回值是基本数据类型：由于返回值已经存储在栈中了，所以finally中的改变是无效的</li>
+<li>返回值是引用类型：finally中对引用的操作会生效</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>不会执行的情况： <ul>
+<li>没有进入try</li>
+<li>强制退出程序</li>
+<li>守护线程被终止</li>
+</ul>
+</li>
+</ul>
+<h3 id="常见的异常类有哪些？"><a href="#常见的异常类有哪些？" class="headerlink" title="常见的异常类有哪些？"></a>常见的异常类有哪些？</h3><table>
+<thead>
+<tr>
+<th>异常名称</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NullPointerException</td>
+<td>空指针</td>
+</tr>
+<tr>
+<td>SQLException</td>
+<td>数据库访问异常</td>
+</tr>
+<tr>
+<td>IndexOutOfBoundsException</td>
+<td>数组越界</td>
+</tr>
+<tr>
+<td>NumberFormatException</td>
+<td>字符串转数值类型异常</td>
+</tr>
+<tr>
+<td>FileNotFoundException</td>
+<td>打开文件失败</td>
+</tr>
+<tr>
+<td>IOException</td>
+<td>I/O异常</td>
+</tr>
+<tr>
+<td>ClassCastException</td>
+<td>强制类型转换异常</td>
+</tr>
+<tr>
+<td>ArrayStoreException</td>
+<td>向数组中存入错误类型对象时的异常</td>
+</tr>
+<tr>
+<td>IllegalArgumentException</td>
+<td>无效参数</td>
+</tr>
+<tr>
+<td>ArithmeticException</td>
+<td>运算异常</td>
+</tr>
+<tr>
+<td>NegativeArraySizeException</td>
+<td>创建长度为负的数组异常</td>
+</tr>
+<tr>
+<td>NoSuchMethodException</td>
+<td>找不到方法</td>
+</tr>
+<tr>
+<td>SecurityException</td>
+<td>存在安全侵犯</td>
+</tr>
+<tr>
+<td>UnsupportedOperationException</td>
+<td>不支持的操作</td>
+</tr>
+<tr>
+<td>RuntimeException</td>
+<td>运行时异常父类</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2022/04/06/Q&A/Java/%E5%BC%82%E5%B8%B8/" data-id="cl3aaetmm004a7kd410ch2zc2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Q&amp;A/Java/javaWeb" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2022/03/28/Q&A/Java/javaWeb/" class="article-date">
@@ -379,7 +571,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/03/28/Q&A/Java/javaWeb/" data-id="cl346uohh003q5pd40aqr1482" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/03/28/Q&A/Java/javaWeb/" data-id="cl3aaetmj003t7kd450ig0w32" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -439,7 +631,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/03/25/Q&A/Java/%E5%AF%B9%E8%B1%A1%E6%8B%B7%E8%B4%9D/" data-id="cl346uohl00445pd49mpj1hm3" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/03/25/Q&A/Java/%E5%AF%B9%E8%B1%A1%E6%8B%B7%E8%B4%9D/" data-id="cl3aaetmm00487kd46icm7fcz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -517,7 +709,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/03/24/Q&A/Java/%E5%8F%8D%E5%B0%84/" data-id="cl346uohj003w5pd4buuua76p" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/03/24/Q&A/Java/%E5%8F%8D%E5%B0%84/" data-id="cl3aaetmk003y7kd4bl5010yn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -602,7 +794,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/03/11/toolApplication/git%E6%8C%87%E5%8D%97/" data-id="cl346uoh5002h5pd4fobbb8ox" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/03/11/toolApplication/git%E6%8C%87%E5%8D%97/" data-id="cl3aaetm3002a7kd438ygbubz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
@@ -650,7 +842,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/02/17/toolScript/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E4%B9%A6%E5%88%B0kindle/" data-id="cl346uoh0001z5pd429ppgzce" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/02/17/toolScript/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E4%B9%A6%E5%88%B0kindle/" data-id="cl3aaetm6002k7kd42rrueqve" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" rel="tag">脚本工具</a></li></ul>
@@ -697,7 +889,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/02/08/blockchain/%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E7%A7%81%E9%92%A5%E4%BF%9D%E5%AD%98%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1/" data-id="cl346uogu001g5pd4gm014e4p" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/02/08/blockchain/%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E7%A7%81%E9%92%A5%E4%BF%9D%E5%AD%98%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1/" data-id="cl3aaetlu001g7kd474tx95k5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a></li></ul>
@@ -750,7 +942,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/01/30/toolApplication/PyCharm%E6%8C%87%E5%8D%97/" data-id="cl346uoh4002e5pd48kgs2pi9" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/01/30/toolApplication/PyCharm%E6%8C%87%E5%8D%97/" data-id="cl3aaetm200277kd4gxuz15ge" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
@@ -1315,7 +1507,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/01/17/Q&A/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" data-id="cl346uohj003y5pd41ed9c9af" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/01/17/Q&A/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" data-id="cl3aaetmk00427kd42kxae6pt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1541,247 +1733,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/12/06/Q&A/Java/%E5%AE%B9%E5%99%A8/" data-id="cl346uohk00425pd4ctokfyy9" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Q&amp;A/Java/IO流" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/11/29/Q&A/Java/IO%E6%B5%81/" class="article-date">
-  <time datetime="2021-11-29T07:35:40.000Z" itemprop="datePublished">2021-11-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/29/Q&A/Java/IO%E6%B5%81/">IO流</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1461049">资料1</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.kancloud.cn/imnotdown1019/java_core_full/1012272">资料2</a></li>
-</ul>
-<h2 id="概念解释"><a href="#概念解释" class="headerlink" title="概念解释"></a>概念解释</h2><ul>
-<li>IO模型、IO方法：即实现IO所采用的方式，BIO、NIO、AIO是Java官方支持的三种方式，比如读写文件、进程间交互等有IO操作的都可以使用官方支持的三种方式</li>
-</ul>
-<h2 id="IO流特点"><a href="#IO流特点" class="headerlink" title="IO流特点"></a>IO流特点</h2><ul>
-<li>最基础的是字节</li>
-<li>单向</li>
-<li>顺序读写</li>
-<li>由InputStream、Writer、OutputStream、Reader四个基类为基础组成，Writer实际上是自带解码的OutputStream，Reader实际上是自带编码的OutputStream</li>
-</ul>
-<h2 id="IO流分类"><a href="#IO流分类" class="headerlink" title="IO流分类"></a>IO流分类</h2><h3 id="按数据流向分（以内存为基准）："><a href="#按数据流向分（以内存为基准）：" class="headerlink" title="按数据流向分（以内存为基准）："></a>按数据流向分（以内存为基准）：</h3><ul>
-<li>输入流：InputStream、Reader，即从其他位置输入到内存</li>
-<li>输出流：OutputStream、Writer，即从内存输出给其他设备</li>
-</ul>
-<h3 id="按数据类型分："><a href="#按数据类型分：" class="headerlink" title="按数据类型分："></a>按数据类型分：</h3><ul>
-<li>字节流</li>
-<li>字符流</li>
-</ul>
-<h3 id="按角色分："><a href="#按角色分：" class="headerlink" title="按角色分："></a>按角色分：</h3><ul>
-<li>节点流：可以从/向一个IO设备读/写数据的流，也称为低级流、主要流</li>
-<li>高级流：用于对一个已存在的流进行连接和封装，通过封装后的流来实现数据的读/写</li>
-</ul>
-<h3 id="按功能分："><a href="#按功能分：" class="headerlink" title="按功能分："></a>按功能分：</h3><ul>
-<li>缓冲流：对应Buffer开头的那部分缓冲流泪，作用是增加一层缓冲，提高读写速度</li>
-<li>转换流：对应InputStreamReader、OutputStreamWriter，作用是对字符和字节进行转换</li>
-<li>序列化流：对应ObjectOutputStream、ObjectInputStream，作用是将一个对象序列化成文件，将序列化文件反序列化成对象</li>
-<li>打印流：对应PrintStream、PrintWriter，作用是打印各种东西</li>
-</ul>
-<h2 id="IO流现有类"><a href="#IO流现有类" class="headerlink" title="IO流现有类"></a>IO流现有类</h2><h3 id="按数据类型分：-1"><a href="#按数据类型分：-1" class="headerlink" title="按数据类型分："></a>按数据类型分：</h3><ul>
-<li>字节流：可用于任何类型的数据<ul>
-<li>InputStream（从其他位置输入内存）<ul>
-<li>FileInputStream</li>
-<li>FilterInputStram<ul>
-<li>BufferedInputStream</li>
-<li>DataInputStream</li>
-<li>PushbackInputStream</li>
-</ul>
-</li>
-<li>ObjectInputStream</li>
-<li>PipedInputStream</li>
-<li>ByteArrayInputStream</li>
-</ul>
-</li>
-<li>OutputStream（从内存输出到其他位置）<ul>
-<li>FileOutputStream</li>
-<li>FilterOutputStream<ul>
-<li>BufferedOutputSteam</li>
-<li>DataOutputStream</li>
-<li>PrintStream</li>
-</ul>
-</li>
-<li>ObjectOutputStream</li>
-<li>PipedOutputStream</li>
-<li>ByteArrayOutputStream</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>字符流：只能处理字符或字符串<ul>
-<li>Writer（从内存中把数据写入到其他位置）<ul>
-<li>BufferedWriter</li>
-<li>StringWriter</li>
-<li>PipedWriter</li>
-<li>CharArrayWriter</li>
-<li>FilterWriter</li>
-<li>OutputStreamWriter<ul>
-<li>FileWriter</li>
-</ul>
-</li>
-<li>PrintWriter</li>
-</ul>
-</li>
-<li>Reader（从其他位置把数据读到内存）<ul>
-<li>BufferedReader</li>
-<li>StringReader</li>
-<li>PipedReader</li>
-<li>CharArrayReader</li>
-<li>FilterReader<ul>
-<li>PushbackReader</li>
-</ul>
-</li>
-<li>InputStreamReader<ul>
-<li>FileReader</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="按功能分：-1"><a href="#按功能分：-1" class="headerlink" title="按功能分："></a>按功能分：</h3><ul>
-<li><p>处理流：</p>
-<ul>
-<li>缓冲操作类<ul>
-<li>BufferedInputStream</li>
-<li>BufferedOutputSteam</li>
-<li>BufferedWriter</li>
-<li>BufferedReader</li>
-</ul>
-</li>
-<li>基本数据类型操作类<ul>
-<li>DataInputStream</li>
-<li>DataOutputStream</li>
-</ul>
-</li>
-<li>对象序列化操作类<ul>
-<li>ObjectInputStream</li>
-<li>ObjectOutputStream</li>
-</ul>
-</li>
-<li>转换操作类<ul>
-<li>InputStreamReader</li>
-<li>OutputStreamWriter</li>
-</ul>
-</li>
-<li>打印操作类<ul>
-<li>PrintStream</li>
-<li>PrintWriter</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>节点流</p>
-<ul>
-<li>文件操作类<ul>
-<li>FileInputStream</li>
-<li>FileOutputStream</li>
-<li>FileReader</li>
-<li>FileWriter</li>
-</ul>
-</li>
-<li>管道操作类<ul>
-<li>PipedInputStream</li>
-<li>PipedOutputStream</li>
-<li>PipedReader</li>
-<li>PipedWriter</li>
-</ul>
-</li>
-<li>数组操作类<ul>
-<li>ByteArrayInputStream</li>
-<li>ByteArrayOutputStream</li>
-<li>CharArrayReader</li>
-<li>CharArrayWriter</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="Java支持的IO模型（即Java官方支持的IO方法）"><a href="#Java支持的IO模型（即Java官方支持的IO方法）" class="headerlink" title="Java支持的IO模型（即Java官方支持的IO方法）"></a>Java支持的IO模型（即Java官方支持的IO方法）</h2><h3 id="BIO（Blocking-I-O）：同步且阻塞IO模式，同步且阻塞的实现IO处理"><a href="#BIO（Blocking-I-O）：同步且阻塞IO模式，同步且阻塞的实现IO处理" class="headerlink" title="BIO（Blocking I/O）：同步且阻塞IO模式，同步且阻塞的实现IO处理"></a>BIO（Blocking I/O）：同步且阻塞IO模式，同步且阻塞的实现IO处理</h3><ul>
-<li>使用场景：适合连接数较少且固定架构的情况</li>
-<li>特点：编程简单，不需要过多考虑系统过载、限流等问题；并发能力差，资源占用高，不能承受十万甚至百万级连接</li>
-</ul>
-<h3 id="NIO（Non-Blocking-New-I-O）：同步非阻塞IO模型，client多个连接server开一个线程进行处理，客户端的请求会注册到多路复用器上，server会轮询多路复用器，发现请求后就进行处理"><a href="#NIO（Non-Blocking-New-I-O）：同步非阻塞IO模型，client多个连接server开一个线程进行处理，客户端的请求会注册到多路复用器上，server会轮询多路复用器，发现请求后就进行处理" class="headerlink" title="NIO（Non-Blocking/New I/O）：同步非阻塞IO模型，client多个连接server开一个线程进行处理，客户端的请求会注册到多路复用器上，server会轮询多路复用器，发现请求后就进行处理"></a>NIO（Non-Blocking/New I/O）：同步非阻塞IO模型，client多个连接server开一个线程进行处理，客户端的请求会注册到多路复用器上，server会轮询多路复用器，发现请求后就进行处理</h3><ul>
-<li>使用场景：适合高负载、高并发场景，适合连接数目多且连接比较短的情况</li>
-<li>实现NIO的三部分：<ul>
-<li>缓冲区Buffer：NIO基于块进行数据处理，这些数据块通过Buffer的实现类来进行读取，Buffer（接口）实现类有ByteBuffer、IntBuffer等</li>
-<li>通道Channel：通过Channel实现数据的读写，通道是全双工，可同时读写，channel（接口）实现类有FileChannel、DatagramChannel、SocketChannel、ServerSocketChannel等</li>
-<li>多路复用器Selector：轮询注册在其上的channel，如果某个channel发出读写请求并处于就绪状态，会被其轮询到，然后通过selectionKey可以获取到就绪的channel集合，然后进行后续IO操作，<ul>
-<li>Selector只能管理非阻塞channel，所以阻塞的FileChannel不能被其管理</li>
-<li>监听事件注册：serviceSocketChannel.register(selector, SelectionKey.OP_ACCEPT)</li>
-<li>监听事件：<ul>
-<li>OP_ACCEPT：接受就绪，ServiceSocketChannel使用</li>
-<li>OP_READ：读取就绪，SocketChannel使用</li>
-<li>OP_WRITE：写入就绪，SocketChannel使用</li>
-<li>OP_CONNECT：连接就绪，SocketChannel使用</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="AIO（Asynchronous-I-O）：也就是NIO2，异步非阻塞IO模型，多个有效的client请求才启动server多个线程，特点是系统处理完才通知server去创建线程处理"><a href="#AIO（Asynchronous-I-O）：也就是NIO2，异步非阻塞IO模型，多个有效的client请求才启动server多个线程，特点是系统处理完才通知server去创建线程处理" class="headerlink" title="AIO（Asynchronous I/O）：也就是NIO2，异步非阻塞IO模型，多个有效的client请求才启动server多个线程，特点是系统处理完才通知server去创建线程处理"></a>AIO（Asynchronous I/O）：也就是NIO2，异步非阻塞IO模型，多个有效的client请求才启动server多个线程，特点是系统处理完才通知server去创建线程处理</h3><ul>
-<li>使用场景：适合高负载、高并发场景，适用于连接数多且时间长的场景</li>
-<li>特点：基于事件和回调机制实现；不会阻塞，当后台处理完成时，系统会通知相应线程继续操作</li>
-</ul>
-<h3 id="IO模型总结"><a href="#IO模型总结" class="headerlink" title="IO模型总结"></a>IO模型总结</h3><ul>
-<li>同步阻塞：一个线程，顺序执行</li>
-<li>同步非阻塞：一个线程，顺序执行，遇到暂时没执行结果的行，先跳过执行后面的，然后通过某种方式比如轮询来查看无执行结果行的结果</li>
-<li>异步阻塞：一个线程中异步执行多个任务，其中一个任务执行时，其他任务需要阻塞等待</li>
-<li>异步非阻塞：有多个线程执行任务，所有的线程互不干预，各自干各自的活</li>
-</ul>
-<h2 id="相关问题"><a href="#相关问题" class="headerlink" title="相关问题"></a>相关问题</h2><h3 id="Files常用方法"><a href="#Files常用方法" class="headerlink" title="Files常用方法"></a>Files常用方法</h3><ul>
-<li>exists()：检测文件路径是否存在</li>
-<li>createFile()：创建文件</li>
-<li>createDirectory()：创建目录</li>
-<li>delete()：删除文件或目录</li>
-<li>copy()：复制文件</li>
-<li>move()：移动文件</li>
-<li>size()：查看文件个数</li>
-<li>read()：读取文件</li>
-<li>write()：写入文件</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/29/Q&A/Java/IO%E6%B5%81/" data-id="cl346uoh7002r5pd4cr4j4178" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/12/06/Q&A/Java/%E5%AE%B9%E5%99%A8/" data-id="cl3aaetml00447kd45h8fefqx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1828,7 +1780,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Q-A/" style="font-size: 16.67px;">Q&A</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 10px;">区块链</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13.33px;">博客搭建</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">电脑使用技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 20px;">编程</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">脚本工具</a>
+      <a href="/tags/Q-A/" style="font-size: 20px;">Q&A</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 10px;">区块链</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 15px;">博客搭建</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">电脑使用技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 20px;">编程</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">脚本工具</a>
     </div>
   </div>
 
@@ -1850,6 +1802,10 @@
       <ul>
         
           <li>
+            <a href="/2022/05/16/Q&A/Java/JVM/">JVM</a>
+          </li>
+        
+          <li>
             <a href="/2022/05/11/Q&A/Java/MySql/">MySql</a>
           </li>
         
@@ -1863,10 +1819,6 @@
         
           <li>
             <a href="/2022/05/06/Q&A/Java/RabbitMQ/">RabbitMQ</a>
-          </li>
-        
-          <li>
-            <a href="/2022/04/27/Q&A/Java/MyBatis/">MyBatis</a>
           </li>
         
       </ul>

@@ -85,6 +85,176 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Q&amp;A/Java/JVM" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/05/16/Q&A/Java/JVM/" class="article-date">
+  <time datetime="2022-05-16T11:17:59.000Z" itemprop="datePublished">2022-05-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/16/Q&A/Java/JVM/">JVM</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JVM组成部分及作用"><a href="#JVM组成部分及作用" class="headerlink" title="JVM组成部分及作用"></a>JVM组成部分及作用</h2><table>
+<thead>
+<tr>
+<th>组成部分</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>类加载器（classLoader）</td>
+<td>将编译好的java字节码（class文件）加载到内存中</td>
+</tr>
+<tr>
+<td>运行时数据区（Runtime Data Area）</td>
+<td>用来存放java字节码文件</td>
+</tr>
+<tr>
+<td>执行引擎（Execution Engine）</td>
+<td>将字节码翻译成底层系统指令，即将jvm指令集翻译成操作系统指令集，可以理解为java字节码解释器，然后交给cpu去执行</td>
+</tr>
+<tr>
+<td>本地库接口（Native Interface）</td>
+<td>字节码翻译成底层系统指令的过程中会调用一些功能接口，比如驱动，这些接口即本地库接口</td>
+</tr>
+</tbody></table>
+<h2 id="JVM-Runtime-Data-Area组成"><a href="#JVM-Runtime-Data-Area组成" class="headerlink" title="JVM Runtime Data Area组成"></a>JVM Runtime Data Area组成</h2><h3 id="按照数据生命周期分类"><a href="#按照数据生命周期分类" class="headerlink" title="按照数据生命周期分类"></a>按照数据生命周期分类</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>特点</th>
+<th>组成</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>线程共享数据</td>
+<td>创建jvm时创建，jvm退出时销毁</td>
+<td>虚拟机栈、本地方法栈、程序计数器</td>
+</tr>
+<tr>
+<td>线程私有</td>
+<td>创建线程时创建，线程退出时销毁</td>
+<td>方法区、堆</td>
+</tr>
+</tbody></table>
+<h3 id="按数据作用分类"><a href="#按数据作用分类" class="headerlink" title="按数据作用分类"></a>按数据作用分类</h3><h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://urlify.cn/3iARve">https://urlify.cn/3iARve</a><h4 id="分区介绍"><a href="#分区介绍" class="headerlink" title="分区介绍"></a>分区介绍</h4><table>
+<thead>
+<tr>
+<th>区域</th>
+<th>简介</th>
+<th>保存内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>方法区（Method Area）</td>
+<td>1、线程共享<br/>2、jvm启动时创建<br/>3、存储类信息（类名称、方法信息、字段信息），静态变量、常量以及编译后的代码等<br/>4、内存不够时会抛出OutOfMemoryError</td>
+<td>类信息（类名称、方法信息、字段信息）<br/>静态变量、常量<br/>编译后代码</td>
+</tr>
+<tr>
+<td>堆（Heap）</td>
+<td>1、是jvm管理的内存中最大的一快<br/>2、jvm启动时创建，线程共享<br/>3、 主要包含类实例及数组<br/>4、申请内存大于可分配内存，抛出outOfMemoryError</td>
+<td>类实例<br/>数组</td>
+</tr>
+<tr>
+<td>Java虚拟机栈（JVM Stacks）</td>
+<td>1、每个线程对应一个，线程私有，创建线程时创建<br/>2、一个方法对应一个栈帧，调用时压入，完成时弹出</td>
+<td>方法运行时保存数据</td>
+</tr>
+<tr>
+<td>程序计数器（The pc register）</td>
+<td>1、线程私有<br/>2、如果是native方法，程序计数器中的空间未定义，非native方法，该空间会保存jvm指令地址</td>
+<td>jvm指令</td>
+</tr>
+<tr>
+<td>本地方法栈（Native Method Stacks）</td>
+<td>1、执行本地方法，即非java API</td>
+<td>本地方法</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h2 id="堆栈区别"><a href="#堆栈区别" class="headerlink" title="堆栈区别"></a>堆栈区别</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>堆（Heap）</th>
+<th>栈（JVM Stacks）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>存储数据</td>
+<td>类实例、数组</td>
+<td>方法内的局部变量</td>
+</tr>
+<tr>
+<td>更新速度</td>
+<td>慢，实例被引用就一直在</td>
+<td>快，因为局部变量变化很快，方法运行结束后就弹出栈</td>
+</tr>
+<tr>
+<td>回收</td>
+<td>依靠GC回收</td>
+<td>使用完立即回收，方法运行结束即弹出栈，释放空间</td>
+</tr>
+</tbody></table>
+<h2 id="队列、栈是什么，区别？"><a href="#队列、栈是什么，区别？" class="headerlink" title="队列、栈是什么，区别？"></a>队列、栈是什么，区别？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>队列</th>
+<th>栈</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>相同点</td>
+<td>保存数据的数据结构</td>
+<td>保存数据的数据结构</td>
+</tr>
+<tr>
+<td>不同点</td>
+<td>元素先进先出</td>
+<td>元素先进后出</td>
+</tr>
+</tbody></table>
+<h2 id="什么是双亲委派模型"><a href="#什么是双亲委派模型" class="headerlink" title="什么是双亲委派模型"></a>什么是双亲委派模型</h2><p>类加载时，类加载器会先委派给父类加载器完成加载动作，每一层的都是如此，当父类的类加载器无法完成时，子类加载器才会尝试加载类</p>
+<h2 id="类加载执行过程"><a href="#类加载执行过程" class="headerlink" title="类加载执行过程"></a>类加载执行过程</h2><p>1、加载：根据查找路径找到class文件并导入<br>2、检查：检查已加载class文件正确性<br>3、准备：给类中的静态变量分配空间<br>4、解析：jvm将符号引用替换成直接引用，即将标示替换为指向真实的内存地址<br>5、初始化：对静态变量和静态代码块执行初始化工作</p>
+<h2 id="如何判断对象可以回收"><a href="#如何判断对象可以回收" class="headerlink" title="如何判断对象可以回收"></a>如何判断对象可以回收</h2><p>1、引用计数器：当引用计数器值为0时，可以回收，该方式会存在循环引用问题<br>2、可达性分析：当一个对象到GC roots都没有任何引用链相连时，可以回收</p>
+<h2 id="java中有哪些引用类型"><a href="#java中有哪些引用类型" class="headerlink" title="java中有哪些引用类型"></a>java中有哪些引用类型</h2><p>1、强引用<br>2、弱引用<br>3、软引用<br>4、虚引用（幽灵引用/幻影引用）</p>
+<h2 id="JVM垃圾回收算法"><a href="#JVM垃圾回收算法" class="headerlink" title="JVM垃圾回收算法"></a>JVM垃圾回收算法</h2><p>1、标记-清除算法<br>2、标记-整理算法<br>3、复制算法<br>4、分带算法</p>
+<h2 id="jvm垃圾回收期"><a href="#jvm垃圾回收期" class="headerlink" title="jvm垃圾回收期"></a>jvm垃圾回收期</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2022/05/16/Q&A/Java/JVM/" data-id="cl3aaetm9002x7kd4996s3yv8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Q&amp;A/Java/MySql" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2022/05/11/Q&A/Java/MySql/" class="article-date">
@@ -362,7 +532,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/11/Q&A/Java/MySql/" data-id="cl346uohb00365pd46246co5y" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/11/Q&A/Java/MySql/" data-id="cl3aaetmd00397kd47ya0btfo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -468,7 +638,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/10/Q&A/Java/Zookeeper/" data-id="cl346uohg003k5pd496s0c2js" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/10/Q&A/Java/Zookeeper/" data-id="cl3aaetmi003q7kd4dpyhc7y1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -515,7 +685,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/09/Q&A/Java/Kafka/" data-id="cl346uoh9002x5pd43fepf0yq" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/09/Q&A/Java/Kafka/" data-id="cl3aaetma002z7kd40vkldsbn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -659,7 +829,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/06/Q&A/Java/RabbitMQ/" data-id="cl346uohc00395pd42wo16mno" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/06/Q&A/Java/RabbitMQ/" data-id="cl3aaetme003d7kd446pl5lfg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -890,7 +1060,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/27/Q&A/Java/MyBatis/" data-id="cl346uoha00325pd45mqu4bsn" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/04/27/Q&A/Java/MyBatis/" data-id="cl3aaetmc00367kd4frdcen3h" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1062,7 +1232,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/24/Q&A/Java/Hibernate/" data-id="cl346uoh6002m5pd418eze0k3" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/04/24/Q&A/Java/Hibernate/" data-id="cl3aaetm7002m7kd4exeyhs9x" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1535,7 +1705,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/18/Q&A/Java/Spring/" data-id="cl346uohd003d5pd44fq06vm4" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/04/18/Q&A/Java/Spring/" data-id="cl3aaetmf003g7kd46a4p84y9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1773,7 +1943,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/14/Q&A/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-id="cl346uohp004j5pd47lmtap83" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/04/14/Q&A/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-id="cl3aaetmo004j7kd48z79enof" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -2197,199 +2367,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/12/Q&A/Java/%E7%BD%91%E7%BB%9C/" data-id="cl346uoho004g5pd43kro6t4c" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Q&amp;A/Java/异常" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/04/06/Q&A/Java/%E5%BC%82%E5%B8%B8/" class="article-date">
-  <time datetime="2022-04-06T14:39:41.000Z" itemprop="datePublished">2022-04-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/06/Q&A/Java/%E5%BC%82%E5%B8%B8/">异常</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="系统抛异常的方式"><a href="#系统抛异常的方式" class="headerlink" title="系统抛异常的方式"></a>系统抛异常的方式</h3><ul>
-<li>throw</li>
-<li>throws</li>
-<li>系统自动抛异常</li>
-</ul>
-<h3 id="throw-与-throws-的区别"><a href="#throw-与-throws-的区别" class="headerlink" title="throw 与 throws 的区别"></a>throw 与 throws 的区别</h3><table>
-<thead>
-<tr>
-<th></th>
-<th>throw</th>
-<th>throws</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>作用</td>
-<td>表示当前代码块抛出的一个异常</td>
-<td>表示当前方法可能抛出的一个或多个异常，声明要抛出的异常类型｜</td>
-</tr>
-<tr>
-<td>使用位置</td>
-<td>方法中</td>
-<td>方法名中</td>
-</tr>
-<tr>
-<td>处理位置</td>
-<td>方法中、调用该方法的方法中</td>
-<td>调用该方法的方法中</td>
-</tr>
-<tr>
-<td>特点</td>
-<td>执行到这一行，就是一定有异常，表示一定</td>
-<td>不一定真的产生这些异常，表达可能行</td>
-</tr>
-</tbody></table>
-<h3 id="final、finally、finalize-有什么区别？"><a href="#final、finally、finalize-有什么区别？" class="headerlink" title="final、finally、finalize 有什么区别？"></a>final、finally、finalize 有什么区别？</h3><table>
-<thead>
-<tr>
-<th></th>
-<th>final</th>
-<th>finally</th>
-<th>finalize</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>作用</td>
-<td>使修饰内容不发生变化，使被修饰的内容只读</td>
-<td>配合try、catch完成异常处理的一部分流程，表示该部分最后且一定会执行，即使catch中return了，经常用来释放资源</td>
-<td>是object的方法之一，作用是协助gcc释放资源</td>
-</tr>
-<tr>
-<td>修饰内容</td>
-<td>修饰变量、方法、类</td>
-<td>无</td>
-<td>无</td>
-</tr>
-<tr>
-<td>修饰内容特点</td>
-<td>被修饰内容不可变，类不能被继承、方法不能被重写，变量内容不能变（变量值不变或者引用不变）</td>
-<td>无</td>
-<td>无</td>
-</tr>
-</tbody></table>
-<h3 id="try-catch-finally-中哪个部分可以省略？"><a href="#try-catch-finally-中哪个部分可以省略？" class="headerlink" title="try-catch-finally 中哪个部分可以省略？"></a>try-catch-finally 中哪个部分可以省略？</h3><ul>
-<li>catch和finally都可以省略，但是不能同时省略</li>
-</ul>
-<h3 id="try-catch-finally-中，如果-catch-中-return-了，finally-还会执行吗？"><a href="#try-catch-finally-中，如果-catch-中-return-了，finally-还会执行吗？" class="headerlink" title="try-catch-finally 中，如果 catch 中 return 了，finally 还会执行吗？"></a>try-catch-finally 中，如果 catch 中 return 了，finally 还会执行吗？</h3><ul>
-<li>return之前会先执行finally，具体执行情况如下<ul>
-<li>finally中有return：此处会覆盖try与catch中的返回值</li>
-<li>finally中没有return：<ul>
-<li>返回值是基本数据类型：由于返回值已经存储在栈中了，所以finally中的改变是无效的</li>
-<li>返回值是引用类型：finally中对引用的操作会生效</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>不会执行的情况： <ul>
-<li>没有进入try</li>
-<li>强制退出程序</li>
-<li>守护线程被终止</li>
-</ul>
-</li>
-</ul>
-<h3 id="常见的异常类有哪些？"><a href="#常见的异常类有哪些？" class="headerlink" title="常见的异常类有哪些？"></a>常见的异常类有哪些？</h3><table>
-<thead>
-<tr>
-<th>异常名称</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>NullPointerException</td>
-<td>空指针</td>
-</tr>
-<tr>
-<td>SQLException</td>
-<td>数据库访问异常</td>
-</tr>
-<tr>
-<td>IndexOutOfBoundsException</td>
-<td>数组越界</td>
-</tr>
-<tr>
-<td>NumberFormatException</td>
-<td>字符串转数值类型异常</td>
-</tr>
-<tr>
-<td>FileNotFoundException</td>
-<td>打开文件失败</td>
-</tr>
-<tr>
-<td>IOException</td>
-<td>I/O异常</td>
-</tr>
-<tr>
-<td>ClassCastException</td>
-<td>强制类型转换异常</td>
-</tr>
-<tr>
-<td>ArrayStoreException</td>
-<td>向数组中存入错误类型对象时的异常</td>
-</tr>
-<tr>
-<td>IllegalArgumentException</td>
-<td>无效参数</td>
-</tr>
-<tr>
-<td>ArithmeticException</td>
-<td>运算异常</td>
-</tr>
-<tr>
-<td>NegativeArraySizeException</td>
-<td>创建长度为负的数组异常</td>
-</tr>
-<tr>
-<td>NoSuchMethodException</td>
-<td>找不到方法</td>
-</tr>
-<tr>
-<td>SecurityException</td>
-<td>存在安全侵犯</td>
-</tr>
-<tr>
-<td>UnsupportedOperationException</td>
-<td>不支持的操作</td>
-</tr>
-<tr>
-<td>RuntimeException</td>
-<td>运行时异常父类</td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/06/Q&A/Java/%E5%BC%82%E5%B8%B8/" data-id="cl346uohl00485pd4atj4109u" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/04/12/Q&A/Java/%E7%BD%91%E7%BB%9C/" data-id="cl3aaetmn004g7kd48qavgk6r" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -2436,7 +2414,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Q-A/" style="font-size: 16.67px;">Q&A</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 10px;">区块链</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13.33px;">博客搭建</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">电脑使用技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 20px;">编程</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">脚本工具</a>
+      <a href="/tags/Q-A/" style="font-size: 20px;">Q&A</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 10px;">区块链</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 15px;">博客搭建</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">电脑使用技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 20px;">编程</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">脚本工具</a>
     </div>
   </div>
 
@@ -2458,6 +2436,10 @@
       <ul>
         
           <li>
+            <a href="/2022/05/16/Q&A/Java/JVM/">JVM</a>
+          </li>
+        
+          <li>
             <a href="/2022/05/11/Q&A/Java/MySql/">MySql</a>
           </li>
         
@@ -2471,10 +2453,6 @@
         
           <li>
             <a href="/2022/05/06/Q&A/Java/RabbitMQ/">RabbitMQ</a>
-          </li>
-        
-          <li>
-            <a href="/2022/04/27/Q&A/Java/MyBatis/">MyBatis</a>
           </li>
         
       </ul>
