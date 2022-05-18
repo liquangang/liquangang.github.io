@@ -15,7 +15,7 @@
 <meta property="og:description" content="JVM组成部分及作用   组成部分 作用    类加载器（classLoader） 将编译好的java字节码（class文件）加载到内存中   运行时数据区（Runtime Data Area） 用来存放java字节码文件   执行引擎（Execution Engine） 将字节码翻译成底层系统指令，即将jvm指令集翻译成操作系统指令集，可以理解为java字节码解释器，然后交给cpu去执行   本">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-05-16T11:17:59.000Z">
-<meta property="article:modified_time" content="2022-05-17T15:04:51.426Z">
+<meta property="article:modified_time" content="2022-05-18T11:20:10.227Z">
 <meta property="article:author" content="帝王之心">
 <meta property="article:tag" content="Q&amp;A">
 <meta name="twitter:card" content="summary">
@@ -236,14 +236,251 @@
 </tbody></table>
 <h2 id="什么是双亲委派模型"><a href="#什么是双亲委派模型" class="headerlink" title="什么是双亲委派模型"></a>什么是双亲委派模型</h2><p>类加载时，类加载器会先委派给父类加载器完成加载动作，每一层的都是如此，当父类的类加载器无法完成时，子类加载器才会尝试加载类</p>
 <h2 id="类加载执行过程"><a href="#类加载执行过程" class="headerlink" title="类加载执行过程"></a>类加载执行过程</h2><p>1、加载：根据查找路径找到class文件并导入<br>2、检查：检查已加载class文件正确性<br>3、准备：给类中的静态变量分配空间<br>4、解析：jvm将符号引用替换成直接引用，即将标示替换为指向真实的内存地址<br>5、初始化：对静态变量和静态代码块执行初始化工作</p>
-<h2 id="如何判断对象可以回收"><a href="#如何判断对象可以回收" class="headerlink" title="如何判断对象可以回收"></a>如何判断对象可以回收</h2><p>1、引用计数器：当引用计数器值为0时，可以回收，该方式会存在循环引用问题<br>2、可达性分析：当一个对象到GC roots都没有任何引用链相连时，可以回收</p>
-<h2 id="java中有哪些引用类型"><a href="#java中有哪些引用类型" class="headerlink" title="java中有哪些引用类型"></a>java中有哪些引用类型</h2><p>1、强引用<br>2、弱引用<br>3、软引用<br>4、虚引用（幽灵引用/幻影引用）</p>
-<h2 id="JVM垃圾回收算法"><a href="#JVM垃圾回收算法" class="headerlink" title="JVM垃圾回收算法"></a>JVM垃圾回收算法</h2><p>1、标记-清除算法<br>2、标记-整理算法<br>3、复制算法<br>4、分带算法</p>
-<h2 id="jvm垃圾回收期"><a href="#jvm垃圾回收期" class="headerlink" title="jvm垃圾回收期"></a>jvm垃圾回收期</h2>
+<h2 id="如何判断对象可以回收"><a href="#如何判断对象可以回收" class="headerlink" title="如何判断对象可以回收"></a>如何判断对象可以回收</h2><table>
+<thead>
+<tr>
+<th>判断方式</th>
+<th>判断逻辑</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>引用计数器</td>
+<td>当引用计数器值为0时，可以回收，该方式会存在循环引用问题</td>
+</tr>
+<tr>
+<td>可达性分析</td>
+<td>当一个对象到GC roots都没有任何引用链相连时，可以回收</td>
+</tr>
+</tbody></table>
+<h2 id="java中有哪些引用类型"><a href="#java中有哪些引用类型" class="headerlink" title="java中有哪些引用类型"></a>java中有哪些引用类型</h2><table>
+<thead>
+<tr>
+<th>引用类型</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>强引用（Strong Reference）</td>
+<td>默认引用方式，只要强引用在，强引用对象内存空间就不会被回收</td>
+</tr>
+<tr>
+<td>软引用（Soft Reference）</td>
+<td>只有在内存不足时，软引用对象才会被回收</td>
+</tr>
+<tr>
+<td>软引用（Weak Reference）</td>
+<td>只要垃圾回收执行，弱引用对象就会被回收</td>
+</tr>
+<tr>
+<td>虚引用（幽灵引用/幻影引用）</td>
+<td>跟踪垃圾回收活动，当GC检测到虚引用对象时，会将该引用放到ReferenceQueue中，由程序员自己调用ReferenceQueue.pull()移除引用之后，GC才会回收该对象占用内存，即回收由程序员控制</td>
+</tr>
+</tbody></table>
+<h2 id="JVM垃圾回收算法"><a href="#JVM垃圾回收算法" class="headerlink" title="JVM垃圾回收算法"></a>JVM垃圾回收算法</h2><table>
+<thead>
+<tr>
+<th>算法</th>
+<th>简介</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标记-清除算法（Mark-Sweep）</td>
+<td>先对存活对象进行标记，然后清除未被标记对象</td>
+<td>实现简单，不需要移动对象</td>
+<td>内存碎片化严重</td>
+</tr>
+<tr>
+<td>标记-整理算法（Mark-Compact）</td>
+<td>先标记存活对象，然后将存活对象移动到内存一端，然后将端边界外的内存回收</td>
+<td>解决了标记-清理算法的内存碎片化问题，相对复制算法更节约内存</td>
+<td>仍需要移动对象，一定程度上降低了效率</td>
+</tr>
+<tr>
+<td>复制算法（Copying）</td>
+<td>将内存一分为二，当垃圾回收时，将存活对象复制到另一半内存中，然后清理当前一般内存</td>
+<td>按顺序分配内存即可，实现简单，运行高效，不用考虑内存碎片</td>
+<td>可用内存缩小，对象存活率高时需要频繁复制</td>
+</tr>
+<tr>
+<td>分带算法</td>
+<td>大部分JVM采取方案，根据对象生命周期划分到不同内存区域，一般分为新生代（每次垃圾回收时有大量垃圾需要回收）、老生代（每次垃圾回收时只有少量对象被回收），新生代采取复制算法，老生代采用Mark-Compact算法</td>
+<td>目前问题最少</td>
+<td>实现复杂</td>
+</tr>
+</tbody></table>
+<h2 id="JVM垃圾回收器"><a href="#JVM垃圾回收器" class="headerlink" title="JVM垃圾回收器"></a>JVM垃圾回收器</h2><table>
+<thead>
+<tr>
+<th>垃圾回收器</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Serial</td>
+<td>最早的单线程串行垃圾回收器</td>
+</tr>
+<tr>
+<td>Serial Old</td>
+<td>Serial垃圾回收器的老年版本，同样是单线程，可以作为CMS垃圾回收器的备选方案</td>
+</tr>
+<tr>
+<td>ParNew</td>
+<td>是Serial的多线程版本</td>
+</tr>
+<tr>
+<td>Parallel</td>
+<td>类似ParNew是多线程，但吞吐量优先，可以牺牲等待时间换取吞吐量，采用复制算法进行垃圾回收</td>
+</tr>
+<tr>
+<td>Parallel Old</td>
+<td>Parallel的老生代版本，使用标记-整理算法进行垃圾回收</td>
+</tr>
+<tr>
+<td>CMS</td>
+<td>以获得最短停顿时间为目标的垃圾回收器，适用B/S（（Browser/Server，浏览器/服务器模式））系统</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>一种兼顾吞吐量和停顿时间的GC实现，JDK9之后的默认GC选项</td>
+</tr>
+</tbody></table>
+<h2 id="详细介绍CMS垃圾回收器"><a href="#详细介绍CMS垃圾回收器" class="headerlink" title="详细介绍CMS垃圾回收器"></a>详细介绍CMS垃圾回收器</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>全称</td>
+<td>Concurrent Mark-Sweep</td>
+</tr>
+<tr>
+<td>特点</td>
+<td>以牺牲吞吐量来获得最短停顿时间</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>要求响应速度的服务应用</td>
+</tr>
+<tr>
+<td>开启方式</td>
+<td>启动JVM参数中加上”-XX:+UseConcMarkSweepGC”来指定使用CMS</td>
+</tr>
+<tr>
+<td>使用垃圾回收算法</td>
+<td>标记-清除</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>由于使用标记-清除算法，所以会产生大量内存碎片</td>
+</tr>
+<tr>
+<td>剩余内存不足处理逻辑</td>
+<td>系统会出现Concurrent Mode Failure。临时CMS会采用Serial Old回收器完成垃圾回收，此时性能会降低</td>
+</tr>
+</tbody></table>
+<h2 id="新生代垃圾回收器和老生代垃圾回收器有哪些，区别"><a href="#新生代垃圾回收器和老生代垃圾回收器有哪些，区别" class="headerlink" title="新生代垃圾回收器和老生代垃圾回收器有哪些，区别"></a>新生代垃圾回收器和老生代垃圾回收器有哪些，区别</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>新生代回收器</th>
+<th>老生代回收器</th>
+<th>永久代</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对应垃圾回收器</td>
+<td>Serial、ParNew、Parallel Scavenge</td>
+<td>Serial Old、Parallel Old、CMS</td>
+<td>G1</td>
+</tr>
+<tr>
+<td>采用算法</td>
+<td>复制算法</td>
+<td>标记-整理算法</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="分代垃圾回收器如何工作"><a href="#分代垃圾回收器如何工作" class="headerlink" title="分代垃圾回收器如何工作"></a>分代垃圾回收器如何工作</h2><h3 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h3><ul>
+<li>新生代（默认占用1/3内存空间）<ul>
+<li>Eden(默认占用8/10内存空间)</li>
+<li>To Survivor(默认占用1/10内存空间)</li>
+<li>From Survivor(默认占用1/10内存空间)</li>
+</ul>
+</li>
+<li>老生代（默认占用2/3内存空间）<h3 id="新生代分区工作逻辑"><a href="#新生代分区工作逻辑" class="headerlink" title="新生代分区工作逻辑"></a>新生代分区工作逻辑</h3>1、将Eden和From Survivor中存活的对象放到To Survivor中<br>2、清空Eden和From Survivor分区<br>3、To Survivor和From Survivor相互切换，新生代分区采用复制算法，所以二者会切换<h3 id="老生代分区工作逻辑"><a href="#老生代分区工作逻辑" class="headerlink" title="老生代分区工作逻辑"></a>老生代分区工作逻辑</h3>1、当老生代占用空间达到某个值时会触发垃圾回收，一般使用标记-整理算法<br>2、每当在From Survivor和To Survivor移动时都存活的对象，年龄就+1，当年龄达到15（默认值15）时，升级为老年代。大对象会直接进入老年代</li>
+</ul>
+<h2 id="JVM调优工具"><a href="#JVM调优工具" class="headerlink" title="JVM调优工具"></a>JVM调优工具</h2><h3 id="使用JDK自带的一些监控工具来调优，JDK常用调优工具介绍"><a href="#使用JDK自带的一些监控工具来调优，JDK常用调优工具介绍" class="headerlink" title="使用JDK自带的一些监控工具来调优，JDK常用调优工具介绍"></a>使用JDK自带的一些监控工具来调优，JDK常用调优工具介绍</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>jconsole</th>
+<th>jvisualvm</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>工具位置</td>
+<td>JDK的bin目录下</td>
+<td>JDK的bin目录下</td>
+</tr>
+<tr>
+<td>作用</td>
+<td>用于对JVM中的内存、线程和类等进行监控</td>
+<td>JDK自带的全能分析工具，可以分析：内存快照、线程快照、程序死锁、监控内存变化、垃圾回收器变化等</td>
+</tr>
+</tbody></table>
+<h2 id="常用JVM调优参数"><a href="#常用JVM调优参数" class="headerlink" title="常用JVM调优参数"></a>常用JVM调优参数</h2><table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-Xms2g</td>
+<td>初始化堆大小为2g</td>
+</tr>
+<tr>
+<td>-Xmx2g</td>
+<td>堆最大内存为2g</td>
+</tr>
+<tr>
+<td>-XX:NewRatio=4</td>
+<td>设置新生代和老年代内存大小比例为1:4</td>
+</tr>
+<tr>
+<td>-XX:SurvivorRatio=8</td>
+<td>设置新生代Edon和Survivor内存大小比例为8:2</td>
+</tr>
+<tr>
+<td>-XX:+UseParNewGC</td>
+<td>指定使用ParNew+Serial Old垃圾回收器组合</td>
+</tr>
+<tr>
+<td>-XX:UseParallelOldGC</td>
+<td>指定使用ParNew+ParNew Old垃圾回收器组合</td>
+</tr>
+<tr>
+<td>-XX:+UseConcMarkSweepGC</td>
+<td>指定使用CMS+Serial Old垃圾回收器组合</td>
+</tr>
+<tr>
+<td>-XX:PrintGC</td>
+<td>开启打印GC信息</td>
+</tr>
+<tr>
+<td>-XX:+PrintGCDetails</td>
+<td>打印GC详细信息</td>
+</tr>
+</tbody></table>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/16/Q&A/Java/JVM/" data-id="cl3aaetm9002x7kd4996s3yv8" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/16/Q&A/Java/JVM/" data-id="cl3bhtuo5002tu3d48rai8wgd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
