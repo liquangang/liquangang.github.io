@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>JavaQAList | 静</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、Java基础  解释下什么是面向对象？面向对象和面向过程的区别？ 面向对象的三大特性？分别解释下？ JDK、JRE、JVM 三者之间的关系？ 重载和重写的区别？ Java 中是否可以重写一个 private 或者 static 方法？ 构造方法有哪些特性？ 在 Java 中定义一个不做事且没有参数的构造方法有什么作用？ Java 中创建对象的几种方式？ 抽象类和接口有什么区别？ 静态变量和实例">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaQAList">
+<meta property="og:url" content="https://liquangang.github.io/2022/05/19/Q&A/Java/JavaQAList/index.html">
+<meta property="og:site_name" content="静">
+<meta property="og:description" content="一、Java基础  解释下什么是面向对象？面向对象和面向过程的区别？ 面向对象的三大特性？分别解释下？ JDK、JRE、JVM 三者之间的关系？ 重载和重写的区别？ Java 中是否可以重写一个 private 或者 static 方法？ 构造方法有哪些特性？ 在 Java 中定义一个不做事且没有参数的构造方法有什么作用？ Java 中创建对象的几种方式？ 抽象类和接口有什么区别？ 静态变量和实例">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-05-19T12:27:28.000Z">
+<meta property="article:modified_time" content="2022-05-19T12:27:49.148Z">
+<meta property="article:author" content="帝王之心">
+<meta property="article:tag" content="Q&amp;A">
+<meta name="twitter:card" content="summary">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  
+  
+<script src="/js/load.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  <span class="local-search local-search-google local-search-plugin" style="right: 25px;top: 10px;;position:absolute;z-index:2;">
+      <input type="search" placeholder="站内搜索" id="local-search-input" class="local-search-input-cls" style="">
+      <script type="text/javascript" id="local.search.active">
+          var inputArea = document.querySelector("#local-search-input");
+          inputArea.onclick = function () {
+              getSearchFile();
+              this.onclick = null
+          }
+          inputArea.onkeydown = function () {
+              if (event.keyCode == 13) return false
+          }
+      </script>
+      <div id="local-search-result" class="local-search-result-cls"></div>
+  </span>
+
+
+
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">静</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://liquangang.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Q&amp;A/Java/JavaQAList" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/05/19/Q&A/Java/JavaQAList/" class="article-date">
+  <time datetime="2022-05-19T12:27:28.000Z" itemprop="datePublished">2022-05-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaQAList
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、Java基础</p>
+<ol>
+<li>解释下什么是面向对象？面向对象和面向过程的区别？</li>
+<li>面向对象的三大特性？分别解释下？</li>
+<li>JDK、JRE、JVM 三者之间的关系？</li>
+<li>重载和重写的区别？</li>
+<li>Java 中是否可以重写一个 private 或者 static 方法？</li>
+<li>构造方法有哪些特性？</li>
+<li>在 Java 中定义一个不做事且没有参数的构造方法有什么作用？</li>
+<li>Java 中创建对象的几种方式？</li>
+<li>抽象类和接口有什么区别？</li>
+<li>静态变量和实例变量的区别？</li>
+<li>12、short s1 = 1；s1 = s1 + 1；有什么错？那么 short s1 = 1; s1 += 1；呢？有没有错误？</li>
+<li>Integer 和 int 的区别？</li>
+<li>装箱和拆箱的区别</li>
+<li>switch 语句能否作用在 byte 上，能否作用在 long 上，能否作用在 String 上？</li>
+<li>16、final、finally、finalize 的区别</li>
+<li>== 和 equals 的区别？</li>
+<li>两个对象的 hashCode() 相同，则 equals() 也一定为 true 吗？</li>
+<li>为什么重写 equals() 就一定要重写 hashCode() 方法？</li>
+<li>&amp; 和 &amp;&amp; 的区别？</li>
+<li>Java 中的参数传递时传值呢？还是传引用？</li>
+<li>Java 中的 Math.round(-1.5) 等于多少？</li>
+<li>如何实现对象的克隆？</li>
+<li>深克隆和浅克隆的区别？</li>
+<li>什么是 Java 的序列化，如何实现 Java 的序列化？</li>
+<li>什么情况下需要序列化？</li>
+<li>Java 的泛型是如何工作的 ? 什么是类型擦除 ?</li>
+<li>什么是泛型中的限定通配符和非限定通配符 ?</li>
+<li>List 和 List 之间有什么区别 ?</li>
+<li>Java 中的反射是什么意思？有哪些应用场景？</li>
+<li>反射的优缺点？</li>
+<li>Java 中的动态代理是什么？有哪些应用？</li>
+<li>怎么实现动态代理？</li>
+<li>static 关键字的作用？</li>
+<li>super 关键字的作用？</li>
+<li>字节和字符的区别？</li>
+<li>String 为什么要设计为不可变类？</li>
+<li>String、StringBuilder、StringBuffer 的区别？</li>
+<li>String 字符串修改实现的原理？</li>
+<li>String str = “i” 与 String str = new String(“i”) 一样吗？</li>
+<li>String 类的常用方法都有那些？</li>
+<li>final 修饰 StringBuffer 后还可以 append 吗？</li>
+<li>Java 中的 IO 流的分类？说出几个你熟悉的实现类？</li>
+<li>字节流和字符流有什么区别？</li>
+<li>BIO、NIO、AIO 有什么区别？</li>
+</ol>
+<p>二、Java异常</p>
+<ol>
+<li>finally 块中的代码什么时候被执行？</li>
+<li>finally 是不是一定会被执行到？</li>
+<li>try-catch-finally 中，如果 catch 中 return 了，finally 还会执行吗？</li>
+<li>try-catch-finally 中那个部分可以省略？</li>
+<li>Error 和 Exception 的区别？</li>
+<li>运行时异常与受检异常有何异同？</li>
+<li>throw 和 throws 的区别？</li>
+<li>常见的异常类有哪些？</li>
+<li>主线程可以捕获到子线程的异常吗？</li>
+</ol>
+<p>三、Java集合</p>
+<ol>
+<li>Java 中常用的容器有哪些？</li>
+<li>ArrayList 和 LinkedList 的区别？</li>
+<li>ArrayList 实现 RandomAccess 接口有何作用？为何 LinkedList 却没实现这个接口？</li>
+<li>ArrayList 的扩容机制？</li>
+<li>Array 和 ArrayList 有何区别？什么时候更适合用 Array？</li>
+<li>HashMap 的实现原理/底层数据结构？JDK1.7 和 JDK1.8</li>
+<li>HashMap 的 put 方法的执行过程？</li>
+<li>HashMap 的 get 方法的执行过程？</li>
+<li>HashMap 的 resize 方法的执行过程？</li>
+<li>HashMap 的 size 为什么必须是 2 的整数次方？</li>
+<li>HashMap 多线程死循环问题？</li>
+<li>HashMap 的 get 方法能否判断某个元素是否在 map 中？</li>
+<li>HashMap 与 HashTable 的区别是什么？</li>
+<li>HashMap 与 ConcurrentHashMap 的区别是什么?</li>
+<li>HashTable 和 ConcurrentHashMap 的区别？</li>
+<li>ConcurrentHashMap 的实现原理是什么？</li>
+<li>HashSet 的实现原理？</li>
+<li>HashSet 怎么保证元素不重复的？</li>
+<li>LinkedHashMap 的实现原理?</li>
+<li>Iterator 怎么使用？有什么特点？</li>
+<li>Iterator 和 ListIterator 有什么区别？</li>
+<li>Iterator 和 Enumeration 接口的区别？</li>
+<li>fail-fast 与 fail-safe 有什么区别？</li>
+<li>Collection 和 Collections 有什么区别？</li>
+</ol>
+<p>四、Java并发</p>
+<ol>
+<li>并行和并发有什么区别？</li>
+<li>线程和进程的区别？</li>
+<li>守护线程是什么？</li>
+<li>创建线程的几种方式？</li>
+<li>Runnable 和 Callable 有什么区别？</li>
+<li>线程状态及转换？</li>
+<li>sleep() 和 wait() 的区别？</li>
+<li>线程的 run() 和 start() 有什么区别？</li>
+<li>在 Java 程序中怎么保证多线程的运行安全？</li>
+<li>Java 线程同步的几种方法？</li>
+<li>Thread.interrupt() 方法的工作原理是什么？</li>
+<li>谈谈对 ThreadLocal 的理解？</li>
+<li>在哪些场景下会使用到 ThreadLocal？</li>
+<li>说一说自己对于 synchronized 关键字的了解？</li>
+<li>如何在项目中使用 synchronized 的？</li>
+<li>说说 JDK1.6 之后的 synchronized 关键字底层做了哪些优化，可以详细介绍一下这些优化吗？</li>
+<li>谈谈 synchronized 和 ReenTrantLock 的区别？</li>
+<li>synchronized 和 volatile 的区别是什么？</li>
+<li>谈一下你对 volatile 关键字的理解？</li>
+<li>说下对 ReentrantReadWriteLock 的理解？</li>
+<li>说下对悲观锁和乐观锁的理解？</li>
+<li>乐观锁常见的两种实现方式是什么？</li>
+<li>乐观锁的缺点有哪些？</li>
+<li>CAS 和 synchronized 的使用场景？</li>
+<li>简单说下对 Java 中的原子类的理解？</li>
+<li>atomic 的原理是什么？</li>
+<li>说下对同步器 AQS 的理解？</li>
+<li>AQS 的原理是什么？</li>
+<li>AQS 对资源的共享模式有哪些？</li>
+<li>AQS 底层使用了模板方法模式，你能说出几个需要重写的方法吗？</li>
+<li>说下对信号量 Semaphore 的理解？</li>
+<li>CountDownLatch 和 CyclicBarrier 有什么区别？</li>
+<li>说下对线程池的理解？为什么要使用线程池？</li>
+<li>创建线程池的参数有哪些？</li>
+<li>如何创建线程池？</li>
+<li>线程池中的的线程数一般怎么设置？需要考虑哪些问题？</li>
+<li>执行 execute() 方法和 submit() 方法的区别是什么呢？</li>
+<li>说下对 Fork和Join 并行计算框架的理解？</li>
+<li>JDK 中提供了哪些并发容器？</li>
+<li>谈谈对 CopyOnWriteArrayList 的理解？</li>
+<li>谈谈对 BlockingQueue 的理解？分别有哪些实现类？</li>
+<li>谈谈对 ConcurrentSkipListMap 的理解？</li>
+</ol>
+<p>五、Java JVM</p>
+<ol>
+<li>说一下 Jvm 的主要组成部分？及其作用？</li>
+<li>谈谈对运行时数据区的理解？</li>
+<li>堆和栈的区别是什么？</li>
+<li>堆中存什么？栈中存什么？</li>
+<li>为什么要把堆和栈区分出来呢？栈中不是也可以存储数据吗？</li>
+<li>Java 中的参数传递时传值呢？还是传引用？</li>
+<li>Java 对象的大小是怎么计算的？</li>
+<li>对象的访问定位的两种方式？</li>
+<li>判断垃圾可以回收的方法有哪些？</li>
+<li>垃圾回收是从哪里开始的呢？</li>
+<li>被标记为垃圾的对象一定会被回收吗？</li>
+<li>谈谈对 Java 中引用的了解？</li>
+<li>谈谈对内存泄漏的理解？</li>
+<li>内存泄露的根本原因是什么？</li>
+<li>举几个可能发生内存泄漏的情况？</li>
+<li>尽量避免内存泄漏的方法？</li>
+<li>常用的垃圾收集算法有哪些？</li>
+<li>为什么要采用分代收集算法？</li>
+<li>分代收集下的年轻代和老年代应该采用什么样的垃圾回收算法？</li>
+<li>什么是浮动垃圾？</li>
+<li>什么是内存碎片？如何解决？</li>
+<li>常用的垃圾收集器有哪些？</li>
+<li>谈谈你对 CMS 垃圾收集器的理解？</li>
+<li>谈谈你对 G1 收集器的理解？</li>
+<li>说下你对垃圾回收策略的理解/垃圾回收时机？</li>
+<li>谈谈你对内存分配的理解？大对象怎么分配？空间分配担保？</li>
+<li>说下你用过的 JVM 监控工具？</li>
+<li>如何利用监控工具调优？</li>
+<li>JVM 的一些参数？</li>
+<li>谈谈你对类文件结构的理解？有哪些部分组成？</li>
+<li>谈谈你对类加载机制的了解？</li>
+<li>类加载各阶段的作用分别是什么？</li>
+<li>有哪些类加载器？分别有什么作用？</li>
+<li>类与类加载器的关系?</li>
+<li>谈谈你对双亲委派模型的理解？工作过程？为什么要使用</li>
+<li>怎么实现一个自定义的类加载器？需要注意什么？</li>
+<li>怎么打破双亲委派模型？</li>
+<li>有哪些实际场景是需要打破双亲委派模型的？</li>
+<li>谈谈你对编译期优化和运行期优化的理解？</li>
+<li>为何 HotSpot 虚拟机要使用解释器与编译器并存的架构？</li>
+<li>说下你对 Java 内存模型的理解？</li>
+<li>内存间的交互操作有哪些？需要满足什么规则？</li>
+</ol>
+<p>六、SSM框架</p>
+<ol>
+<li>使用 Spring 框架的好处是什么？</li>
+<li>解释下什么是 AOP？</li>
+<li>AOP 的代理有哪几种方式？</li>
+<li>怎么实现 JDK 动态代理？</li>
+<li>AOP 的基本概念：切面、连接点、切入点等？</li>
+<li>通知类型（Advice）型（Advice）有哪些？</li>
+<li>谈谈你对 IOC 的理解？</li>
+<li>Bean 的生命周期？</li>
+<li>Bean 的作用域?</li>
+<li>Spring 中的单例 Bean 的线程安全问题了解吗？</li>
+<li>谈谈你对 Spring 中的事物的理解？</li>
+<li>Spring 中的事务隔离级别？</li>
+<li>Spring 中的事物传播行为？</li>
+<li>Spring 常用的注入方式有哪些？</li>
+<li>Spring 框架中用到了哪些设计模式？</li>
+<li>ApplicationContext 通常的实现有哪些?</li>
+<li>谈谈你对 MVC 模式的理解？</li>
+<li>SpringMVC 的工作原理/执行流程？</li>
+<li>SpringMVC 的核心组件有哪些？</li>
+<li>SpringMVC 常用的注解有哪些？</li>
+<li>@RequestMapping 的作用是什么？</li>
+<li>如何解决 POST 请求中文乱码问题，GET 的又如何处理呢？</li>
+<li>SpringMVC 的控制器是不是单例模式，如果是会有什么问题，怎么解决？</li>
+<li>SpringMVC 怎么样设定重定向和转发的？</li>
+<li>SpringMVC 里面拦截器是怎么写的？</li>
+<li>SpringMVC 和 Struts2 的区别有哪些?</li>
+<li>谈谈你对 MyBatis 的理解？</li>
+<li>MyBaits 的优缺点有哪些？</li>
+<li>MyBatis 与 Hibernate 有哪些不同？</li>
+<li>MyBatis 中 #{} 和 ${}的区别是什么？</li>
+<li>MyBatis 是如何进行分页的？分页插件的原理是什么？</li>
+<li>MyBatis 有几种分页方式？</li>
+<li>MyBatis 逻辑分页和物理分页的区别是什么？</li>
+<li>MyBatis 是否支持延迟加载？如果支持，它的实现原理是什么？</li>
+<li>说一下 MyBatis 的一级缓存和二级缓存？</li>
+<li>Mybatis 有哪些执行器（Executor）？</li>
+<li>MyBatis 动态 SQL 是做什么的？都有哪些动态 SQL？能简述一下动态 SQL的执行原理不？</li>
+</ol>
+<p>七、MySQL</p>
+<ol>
+<li>请说下你对 MySQL 架构的了解？</li>
+<li>一条 SQL 语句在数据库框架中的执行流程？</li>
+<li>数据库的三范式是什么？</li>
+<li>char 和 varchar 的区别？</li>
+<li>varchar(10) 和 varchar(20) 的区别？</li>
+<li>谈谈你对索引的理解？</li>
+<li>索引的底层使用的是什么数据结构？</li>
+<li>谈谈你对 B+ 树的理解？</li>
+<li>为什么 InnoDB 存储引擎选用 B+ 树而不是 B 树呢？</li>
+<li>谈谈你对聚簇索引的理解？</li>
+<li>谈谈你对哈希索引的理解？</li>
+<li>谈谈你对覆盖索引的认识？</li>
+<li>索引的分类？</li>
+<li>谈谈你对最左前缀原则的理解？</li>
+<li>怎么知道创建的索引有没有被使用到？或者说怎么才可以知道这条语句运行很慢的原因?</li>
+<li>什么情况下索引会失效？即查询不走索引？</li>
+<li>查询性能的优化方法？</li>
+<li>InnoDB 和 MyISAM 的比较？</li>
+<li>谈谈你对水平切分和垂直切分的理解？</li>
+<li>主从复制中涉及到哪三个线程？</li>
+<li>主从同步的延迟原因及解决办法？</li>
+<li>谈谈你对数据库读写分离的理解？</li>
+<li>请你描述下事务的特性？</li>
+<li>谈谈你对事务隔离级别的理解？</li>
+<li>解释下什么叫脏读、不可重复读和幻读？</li>
+<li>MySQL 默认的隔离级别是什么？</li>
+<li>谈谈你对MVCC 的了解？</li>
+<li>说一下 MySQL 的行锁和表锁？</li>
+<li>InnoDB 存储引擎的锁的算法有哪些？</li>
+<li>MySQL 问题排查都有哪些手段？</li>
+<li>MySQL 数据库 CPU 飙升到 500% 的话他怎么处理？</li>
+</ol>
+<p>八、Redis</p>
+<ol>
+<li>谈下你对 Redis 的了解？</li>
+<li>Redis 一般都有哪些使用场景？</li>
+<li>Redis 有哪些常见的功能？</li>
+<li>Redis 支持的数据类型有哪些？</li>
+<li>Redis 为什么这么快？</li>
+<li>什么是缓存穿透？怎么解决？</li>
+<li>什么是缓存雪崩？该如何解决？</li>
+<li>怎么保证缓存和数据库数据的一致性？</li>
+<li>Redis 持久化有几种方式？</li>
+<li>Redis 怎么实现分布式锁？</li>
+<li>Redis 淘汰策略有哪些？</li>
+<li>Redis 常见性能问题和解决方案？</li>
+</ol>
+<p>九、计算机网络</p>
+<ol>
+<li>为什么需要三次握手？两次不行？</li>
+<li>为什么需要四次挥手？三次不行？</li>
+<li>TCP与UDP有哪些区别？各自应用场景？</li>
+<li>HTTP1.0，1.1，2.0 的版本区别</li>
+<li>POST和GET有哪些区别？各自应用场景？</li>
+<li>HTTP 哪些常用的状态码及使用场景？</li>
+<li>HTTP状态码301和302的区别，都有哪些用途？</li>
+<li>在交互过程中如果数据传送完了，还不想断开连接怎么办，怎么维持？</li>
+<li>HTTP 如何实现长连接？在什么时候会超时？</li>
+<li>TCP 如何保证有效传输及拥塞控制原理</li>
+<li>IP地址有哪些分类？</li>
+<li>GET请求中URL编码的意义</li>
+<li>什么是SQL 注入？举个例子？</li>
+<li>谈一谈 XSS 攻击，举个例子？</li>
+<li>讲一下网络五层模型，每一层的职责？</li>
+<li>简单说下 HTTPS 和 HTTP 的区别</li>
+<li>对称加密与非对称加密的区别</li>
+<li>简单说下每一层对应的网络协议有哪些？</li>
+<li>ARP 协议的工作原理？</li>
+<li>TCP 的主要特点是什么？</li>
+<li>UDP 的主要特点是什么？</li>
+<li>TCP 和 UDP 分别对应的常见应用层协议有哪些？</li>
+<li>为什么 TIME-WAIT 状态必须等待 2MSL 的时间呢？</li>
+<li>保活计时器的作用？</li>
+<li>TCP 协议是如何保证可靠传输的？</li>
+<li>谈谈你对停止等待协议的理解？</li>
+<li>谈谈你对 ARQ 协议的理解？</li>
+<li>谈谈你对滑动窗口的了解？</li>
+<li>谈下你对流量控制的理解？</li>
+<li>谈下你对 TCP 拥塞控制的理解？使用了哪些算法？</li>
+<li>什么是粘包？</li>
+<li>TCP 黏包是怎么产生的？</li>
+<li>怎么解决拆包和粘包？</li>
+<li>forward 和 redirect 的区别？</li>
+<li>HTTP 方法有哪些？</li>
+<li>在浏览器中输入 URL 地址到显示主页的过程？</li>
+<li>DNS 的解析过程？</li>
+<li>谈谈你对域名缓存的了解？</li>
+<li>谈下你对 HTTP 长连接和短连接的理解？分别应用于哪些场景？</li>
+<li>HTTPS 的工作过程？</li>
+<li>HTTP 和 HTTPS 的区别？</li>
+<li>HTTPS 的优缺点？</li>
+<li>什么是数字签名？</li>
+<li>什么是数字证书？</li>
+<li>Cookie 和 Session 有什么区别？</li>
+</ol>
+<p>十、操作系统</p>
+<ol>
+<li>简单说下你对并发和并行的理解？</li>
+<li>同步、异步、阻塞、非阻塞的概念</li>
+<li>进程和线程的基本概念</li>
+<li>进程与线程的区别？</li>
+<li>为什么有了进程，还要有线程呢？</li>
+<li>进程的状态转换</li>
+<li>进程间的通信方式有哪些？</li>
+<li>进程的调度算法有哪些？</li>
+<li>什么是死锁？</li>
+<li>产生死锁的原因？</li>
+<li>死锁产生的必要条件？</li>
+<li>解决死锁的基本方法？</li>
+<li>怎么预防死锁？</li>
+<li>怎么避免死锁？</li>
+<li>怎么解除死锁？</li>
+<li>什么是缓冲区溢出？有什么危害？</li>
+<li>分页与分段的区别？</li>
+<li>物理地址、逻辑地址、虚拟内存的概念</li>
+<li>页面置换算法有哪些？</li>
+<li>谈谈你对动态链接库和静态链接库的理解？</li>
+<li>外中断和异常有什么区别？</li>
+<li>一个程序从开始运行到结束的完整过程，你能说出来多少？</li>
+<li>什么是用户态和内核态</li>
+<li>用户态和内核态是如何切换的？</li>
+<li>进程终止的方式</li>
+<li>守护进程、僵尸进程和孤儿进程</li>
+<li>如何避免僵尸进程？</li>
+<li>介绍一下几种典型的锁？</li>
+<li>常见内存分配内存错误</li>
+<li>内存交换中，被换出的进程保存在哪里？</li>
+<li>原子操作的是如何实现的</li>
+<li>抖动你知道是什么吗？它也叫颠簸现象</li>
+</ol>
+<p>十一、消息队列与分布式</p>
+<ol>
+<li>消息队列的基本作用？</li>
+<li>消息队列的优缺点有哪些？</li>
+<li>如何保证消息队列的高可用？</li>
+<li>如何保证消息不被重复消费？或者说，如何保证消息消费的幂等性？</li>
+<li>如何保证消息的可靠性传输？或者说，如何处理消息丢失的问题？</li>
+<li>如何保证消息的顺序性？</li>
+<li>大量消息在 MQ 里长时间积压，该如何解决？</li>
+<li>MQ 中的消息过期失效了怎么办？</li>
+<li>RabbitMQ 有哪些重要的角色？</li>
+<li>RabbitMQ 有哪些重要的组件？</li>
+<li>RabbitMQ 有几种广播类型？</li>
+<li>Kafka 可以脱离 zookeeper 单独使用吗？为什么？</li>
+<li>Kafka 有几种数据保留的策略？</li>
+<li>Kafka 的分区策略有哪些？</li>
+<li>谈下你对 Zookeeper 的认识？</li>
+<li>Zookeeper 都有哪些功能？</li>
+<li>谈下你对 ZAB 协议的了解？</li>
+<li>Zookeeper 怎么保证主从节点的状态同步？</li>
+<li>Zookeeper 有几种部署模式？</li>
+<li>说一下 Zookeeper 的通知机制？</li>
+<li>集群中为什么要有主节点？</li>
+<li>集群中有 3 台服务器，其中一个节点宕机，这个时候 Zookeeper 还可以使用吗？</li>
+<li>说一下两阶段提交和三阶段提交的过程？分别有什么问题？</li>
+<li>Zookeeper 宕机如何处理？</li>
+<li>说下四种类型的数据节点 Znode？</li>
+<li>Zookeeper 和 Dubbo 的关系？</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2022/05/19/Q&A/Java/JavaQAList/" data-id="cl3d0ffn7002zaqd4elvdgnxt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/05/19/Q&A/Java/Java%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Java基础</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/">Q&A</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/codeStyle/">codeStyle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">mac使用技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BD%BF%E7%94%A8/">区块链使用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%BA%94%E7%94%A8/">工具应用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E8%84%9A%E6%9C%AC/">工具脚本</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%84%E4%BB%B6/">组件</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag">博客搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" rel="tag">电脑使用技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" rel="tag">脚本工具</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Q-A/" style="font-size: 20px;">Q&A</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 10px;">区块链</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13.33px;">博客搭建</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">电脑使用技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 16.67px;">编程</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">脚本工具</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/19/Q&A/Java/JavaQAList/">JavaQAList</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/19/Q&A/Java/Java%E5%9F%BA%E7%A1%80/">Java基础</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/16/Q&A/Java/JVM/">JVM</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/11/Q&A/Java/MySql/">MySql</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/10/Q&A/Java/Zookeeper/">Zookeeper</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 帝王之心<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
