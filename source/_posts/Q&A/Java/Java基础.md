@@ -31,3 +31,35 @@ categories:
 
 ## Math.round(-1.5) 结果
 * Math.round()作用是四舍五入取整，所以结果-1
+
+## String属于基础数据类型吗？
+不属于，string是引用类型，是对象，基础数据类型是byte、boolean、char、short、int、long、float、double
+
+## java中操作字符串的类，它们的区别
+||String|StringBuffer|StringBuilder|
+|---|---|---|---|
+|是否可变|不可变|可变|可变|
+|线程安全|安全|安全|不安全|
+|性能|高|较低|较高|
+|使用场景|使用字符串常量时|多线程编辑字符串|单线程编辑字符串|
+
+## String str = "i" 和String str = new String("i") 一样吗？
+不一样，String str = "i" str指向的是常量池中的某块内存，String str = new String("i") 中的str指向的堆内存的某块区域
+
+## 字符串反转
+1、倒序遍历向另一个字符串中写
+2、使用StringBuffer和StringBuilder中的reverse方法
+
+## String类常用方法
+|常用方法|作用|
+|indexOf()|返回指定字符索引|
+|charAt()|返回指定索引处字符|
+|replace()|替换字符串|
+|trim()|去除字符串两端空白|
+|split()|分割字符串|
+|getBytes()|返回字符数组|
+|length()|字符串长度|
+|toLowerCase()|转换小写字母|
+|toUpperCase()|转换大写字母|
+|subString()|截取字符串|
+|equals()|判断字符串内容是否相同|
