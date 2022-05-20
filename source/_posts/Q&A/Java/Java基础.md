@@ -52,6 +52,7 @@ categories:
 
 ## String类常用方法
 |常用方法|作用|
+|---|---|
 |indexOf()|返回指定字符索引|
 |charAt()|返回指定索引处字符|
 |replace()|替换字符串|
