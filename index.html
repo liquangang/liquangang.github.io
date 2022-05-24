@@ -492,7 +492,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/19/Q&A/Java/JavaQAList/" data-id="cl3eefn3p002x11d49bh45j2e" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/19/Q&A/Java/JavaQAList/" data-id="cl3k7r3io00303bd4dyaramf5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -587,6 +587,10 @@
 </tr>
 </thead>
 <tbody><tr>
+<td>总结</td>
+<td>final即最终的意思，即被修饰的内容不能变，如果被修饰的是一个引用，那就是引用不能变，但引用的对象可以变</td>
+</tr>
+<tr>
 <td>类</td>
 <td>不能被继承</td>
 </tr>
@@ -691,11 +695,106 @@
 <td>判断字符串内容是否相同</td>
 </tr>
 </tbody></table>
+<h2 id="什么是抽象类"><a href="#什么是抽象类" class="headerlink" title="什么是抽象类"></a>什么是抽象类</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>简介</td>
+<td>包含抽象方法或者被abstract修饰的类，由于抽象方法没有方法体，所以没有足够信息描述类属性的类</td>
+</tr>
+<tr>
+<td>作用</td>
+<td>把一些列关联的必须实现的抽象方法集合到一个抽象类中，用来让子类实现相关的方法体，保证所有子类具有相同的功能</td>
+</tr>
+<tr>
+<td>特点</td>
+<td>1、被abstract修饰<br/>2、不一定包含抽象方法<br/>3、不能被实例化<br/>4、只能通过使用实现子类来使用<br/>5、非抽象子类必须实现全部抽象方法</td>
+</tr>
+</tbody></table>
+<h2 id="什么是抽象方法"><a href="#什么是抽象方法" class="headerlink" title="什么是抽象方法"></a>什么是抽象方法</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>简介</td>
+<td>被abstract修饰的方法，不包含方法实现的</td>
+</tr>
+<tr>
+<td>作用</td>
+<td>为了被子类继承后自己实现方法体</td>
+</tr>
+<tr>
+<td>特点</td>
+<td>1、只能被public或者protected修饰，默认public<br/>2、对应的类一定是抽象类<br/>3、不能声明构造方法为抽象方法<br/>4、没有方法体</td>
+</tr>
+</tbody></table>
+<h2 id="抽象类必须要有抽象方法吗？"><a href="#抽象类必须要有抽象方法吗？" class="headerlink" title="抽象类必须要有抽象方法吗？"></a>抽象类必须要有抽象方法吗？</h2><p>抽象类不必须有抽象方法，但是有抽象方法的类一定是抽象类</p>
+<h2 id="普通类、抽象类区别？"><a href="#普通类、抽象类区别？" class="headerlink" title="普通类、抽象类区别？"></a>普通类、抽象类区别？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>普通类</th>
+<th>抽象类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>是否包含抽象方法</td>
+<td>不能</td>
+<td>可能包含，不要求一定包含</td>
+</tr>
+<tr>
+<td>是否可以实例化</td>
+<td>可以</td>
+<td>不能</td>
+</tr>
+</tbody></table>
+<h2 id="抽象类能使用-final-修饰吗？"><a href="#抽象类能使用-final-修饰吗？" class="headerlink" title="抽象类能使用 final 修饰吗？"></a>抽象类能使用 final 修饰吗？</h2><p>不能，final修饰的类不能被继承，而抽象类本身不能被实例化，必须要被子类继承才能实例化使用，被final修饰之后就没用了，按照关键字的要求的话，就无法使用该抽象类了，所以final跟抽象类本身就存在矛盾</p>
+<h2 id="接口、抽象类区别"><a href="#接口、抽象类区别" class="headerlink" title="接口、抽象类区别"></a>接口、抽象类区别</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>接口</th>
+<th>抽象类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>实现关键字</td>
+<td>implement</td>
+<td>extentds</td>
+</tr>
+<tr>
+<td>构造函数</td>
+<td>不能包含</td>
+<td>可以有，注意抽象方法不能写实现</td>
+</tr>
+<tr>
+<td>main方法</td>
+<td>不能有</td>
+<td>可以有</td>
+</tr>
+<tr>
+<td>其他类实现区别</td>
+<td>可以实现多个接口</td>
+<td>只能继承一个抽象类</td>
+</tr>
+<tr>
+<td>方法默认访问权限</td>
+<td>默认与允许public，不允许private、protected</td>
+<td>默认protected，允许protected和public，非抽象方法与正常类相同，抽象方法不允许private</td>
+</tr>
+</tbody></table>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/19/Q&A/Java/Java%E5%9F%BA%E7%A1%80/" data-id="cl3eefn3q003211d4gmx24cfz" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/19/Q&A/Java/Java%E5%9F%BA%E7%A1%80/" data-id="cl3k7r3ip00333bd45gok9481" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -866,7 +965,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/13/Q&A/Java/Redis/" data-id="cl3eefn3u003h11d4ay1x2psc" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/13/Q&A/Java/Redis/" data-id="cl3k7r3iu003m3bd46z6x9fdg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1155,7 +1254,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/11/Q&A/Java/MySql/" data-id="cl3eefn3t003e11d4bojshrx9" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/11/Q&A/Java/MySql/" data-id="cl3k7r3is003f3bd4bg633uvn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1261,7 +1360,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/10/Q&A/Java/Zookeeper/" data-id="cl3eefn3x003t11d445510xcn" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/10/Q&A/Java/Zookeeper/" data-id="cl3k7r3iw003x3bd48vej2brg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1308,7 +1407,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/09/Q&A/Java/Kafka/" data-id="cl3eefn3q003411d4elllgt3x" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/09/Q&A/Java/Kafka/" data-id="cl3k7r3iq00353bd44zn7a0nx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1452,7 +1551,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/06/Q&A/Java/RabbitMQ/" data-id="cl3eefn3u003k11d4d2qlfpk2" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/06/Q&A/Java/RabbitMQ/" data-id="cl3k7r3it003j3bd4fnkmcy80" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1683,7 +1782,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/27/Q&A/Java/MyBatis/" data-id="cl3eefn3r003911d43mzs06ug" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/04/27/Q&A/Java/MyBatis/" data-id="cl3k7r3ir003c3bd4chya16i4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1855,7 +1954,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/24/Q&A/Java/Hibernate/" data-id="cl3eefn3m002k11d4hc9a67vp" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/04/24/Q&A/Java/Hibernate/" data-id="cl3k7r3im002r3bd4flfmbeua" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -2328,7 +2427,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/18/Q&A/Java/Spring/" data-id="cl3eefn3v003n11d4cidiem4v" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/04/18/Q&A/Java/Spring/" data-id="cl3k7r3iv003q3bd4fmrkalme" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -2375,7 +2474,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Q-A/" style="font-size: 20px;">Q&A</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 10px;">区块链</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13.33px;">博客搭建</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">电脑使用技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 16.67px;">编程</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">脚本工具</a>
+      <a href="/tags/Q-A/" style="font-size: 20px;">Q&A</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 10px;">区块链</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 15px;">博客搭建</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">电脑使用技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 20px;">编程</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">脚本工具</a>
     </div>
   </div>
 
