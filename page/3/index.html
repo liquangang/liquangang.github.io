@@ -638,7 +638,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/01/17/Q&A/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" data-id="cl3n15rcq0042jnd44i1nfq5p" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/01/17/Q&A/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" data-id="cl3rkrjep0041u1d40u6zgszf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -676,37 +676,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="容器简介"><a href="#容器简介" class="headerlink" title="容器简介"></a>容器简介</h2><ul>
-<li>作用：持有和增删对象</li>
-<li>分类：<ul>
-<li>Collection：一个独立元素组成的队列，这些元素都遵守一个或多个相同的规则</li>
-<li>Map：一组由成对的“键值对”组成的对象</li>
-</ul>
-</li>
-</ul>
-<h2 id="Collection：一个接口，定义了对集合对象操作的通用方法"><a href="#Collection：一个接口，定义了对集合对象操作的通用方法" class="headerlink" title="Collection：一个接口，定义了对集合对象操作的通用方法"></a>Collection：一个接口，定义了对集合对象操作的通用方法</h2><h3 id="介绍："><a href="#介绍：" class="headerlink" title="介绍："></a>介绍：</h3><ul>
-<li>java.util.Collection是一个接口，定义了对集合对象操作的一些通用方法</li>
-<li>java本身没有直接提供Collection的实现类，而是提供了Collection的接口子类，比如List和Set</li>
-<li>关联类：Collections，一个都是静态方法的工具类，且该类不能被实例化（构造方法私有了）</li>
-</ul>
-<h3 id="组成类："><a href="#组成类：" class="headerlink" title="组成类："></a>组成类：</h3><ul>
-<li>List<ul>
-<li>LinkedList</li>
-<li>ArrayList</li>
-<li>Vector<ul>
-<li>Stack</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Set<ul>
-<li>HashSet</li>
-<li>TreeSet</li>
-<li>LinkedHashSet</li>
-</ul>
-</li>
-</ul>
-<h3 id="Collection主要方法："><a href="#Collection主要方法：" class="headerlink" title="Collection主要方法："></a>Collection主要方法：</h3><ul>
+        <h3 id="Collection主要方法："><a href="#Collection主要方法：" class="headerlink" title="Collection主要方法："></a>Collection主要方法：</h3><ul>
 <li>boolean addObject(Object o): 添加元素到集合</li>
 <li>boolean removeObject(Object o): 从集合中删除某个元素</li>
 <li>int size(): 集合中元素数量</li>
@@ -860,11 +830,128 @@
 </ul>
 </li>
 </ul>
+<h2 id="容器有哪些类"><a href="#容器有哪些类" class="headerlink" title="容器有哪些类"></a>容器有哪些类</h2><ul>
+<li>Collection：元素是独立对象<ul>
+<li>List：有序集合，元素可重复<ul>
+<li>ArrayList：数组实现，可动态修改</li>
+<li>LinkedList：链表实现，可动态修改</li>
+<li>Vector：同步版本的ArrayList<ul>
+<li>Stack：先进后出Vector，就是标准的栈</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Queue：先进先出的队列<ul>
+<li>LinkedList：同时也实现了Queue接口</li>
+<li>PriorityQueue：优先级队列</li>
+</ul>
+</li>
+<li>Set：元素不可重复<ul>
+<li>HashSet：按照哈希算法存取数据，且用于去重</li>
+<li>TreeSet：使用红黑树存取数据</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Map：元素是键值对<ul>
+<li>HashMap: 哈希方式进行存取</li>
+<li>TreeMap：红黑树进行存取</li>
+</ul>
+</li>
+</ul>
+<h2 id="Collection和Collections区别"><a href="#Collection和Collections区别" class="headerlink" title="Collection和Collections区别"></a>Collection和Collections区别</h2><p>Collection是一个接口类，Collections是一个工具类</p>
+<h2 id="List、Set、Map区别"><a href="#List、Set、Map区别" class="headerlink" title="List、Set、Map区别"></a>List、Set、Map区别</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>List</th>
+<th>Set</th>
+<th>Map</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>本身存在形式</td>
+<td>接口</td>
+<td>接口</td>
+<td>接口</td>
+</tr>
+<tr>
+<td>继承关系</td>
+<td>Collection</td>
+<td>Collection</td>
+<td>无</td>
+</tr>
+<tr>
+<td>常见实现类</td>
+<td>ArrayList、LinkedList等</td>
+<td>HashSet、TreeSet等</td>
+<td>HashMap、TreeMap等</td>
+</tr>
+<tr>
+<td>元素</td>
+<td>可重复独立元素</td>
+<td>不可重复独立元素</td>
+<td>不可重复键值对</td>
+</tr>
+</tbody></table>
+<h2 id="HashMap和HashTable区别"><a href="#HashMap和HashTable区别" class="headerlink" title="HashMap和HashTable区别"></a>HashMap和HashTable区别</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>HashMap</th>
+<th>HashTable</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>简介</td>
+<td>map实现</td>
+<td>map实现</td>
+</tr>
+<tr>
+<td>方法差别</td>
+<td>有contains方法</td>
+<td>没有contains方法，多了containKey和containValue方法</td>
+</tr>
+<tr>
+<td>同步&amp;线程安全</td>
+<td>非同步，效率略高，线程不安全</td>
+<td>同步，线程安全</td>
+</tr>
+<tr>
+<td>是否允许null</td>
+<td>允许</td>
+<td>不允许</td>
+</tr>
+</tbody></table>
+<h2 id="HashMap、TreeMap区别"><a href="#HashMap、TreeMap区别" class="headerlink" title="HashMap、TreeMap区别"></a>HashMap、TreeMap区别</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>HashMap</th>
+<th>TreeMap</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>简介</td>
+<td>哈希实现的map</td>
+<td>红黑树实现的map</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>适合插入、删除、定位元素</td>
+<td>适合遍历元素</td>
+</tr>
+<tr>
+<td>线程安全</td>
+<td>都是非线线程安全</td>
+<td></td>
+</tr>
+</tbody></table>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/12/06/Q&A/Java/%E5%AE%B9%E5%99%A8/" data-id="cl3n15rcr0046jnd49gvd05lp" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/12/06/Q&A/Java/%E5%AE%B9%E5%99%A8/" data-id="cl3rkrjeq0045u1d4hln87vcx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -923,7 +1010,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/25/Q&A/Java/%E6%8E%A5%E5%8F%A3/" data-id="cl3n15rdd006jjnd4ccxx4bw6" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/11/25/Q&A/Java/%E6%8E%A5%E5%8F%A3/" data-id="cl3rkrjet004du1d4gvyc4fxo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -965,7 +1052,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/25/Q&A/Java/%E9%87%8D%E5%86%99%E3%80%81%E9%87%8D%E8%BD%BD/" data-id="cl3n15rde006ojnd4hcfehx0i" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/11/25/Q&A/Java/%E9%87%8D%E5%86%99%E3%80%81%E9%87%8D%E8%BD%BD/" data-id="cl3rkrjex004lu1d4g8r7546m" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1012,7 +1099,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/Math%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/" data-id="cl3n15rci0034jnd4alyehl89" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/Math%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/" data-id="cl3rkrjed0031u1d41z4bflu8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1159,7 +1246,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/String%E3%80%81StringBuffer%E3%80%81StringBuilder/" data-id="cl3n15rcn003ojnd4d3q859oe" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/String%E3%80%81StringBuffer%E3%80%81StringBuilder/" data-id="cl3rkrjel003mu1d44hqe20wo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1225,7 +1312,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/%E5%8F%8C%E7%AD%89%E5%8F%B7%E3%80%81equals%E3%80%81hashCode%E5%8C%BA%E5%88%AB/" data-id="cl3n15rcp003xjnd4hlexcp5g" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/%E5%8F%8C%E7%AD%89%E5%8F%B7%E3%80%81equals%E3%80%81hashCode%E5%8C%BA%E5%88%AB/" data-id="cl3rkrjeo003wu1d43ty512wm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1282,7 +1369,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/JDK%E3%80%81JRE%E3%80%81JVM/" data-id="cl3n15rce002rjnd40dd9hl2j" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/JDK%E3%80%81JRE%E3%80%81JVM/" data-id="cl3rkrje9002pu1d41bt49fh6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1366,7 +1453,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E3%80%81%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/" data-id="cl3n15rdf006qjnd49cn68ew4" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E3%80%81%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/" data-id="cl3rkrjey004nu1d4cqlo42sr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1414,7 +1501,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/15/dataStructure/%E6%A0%88/" data-id="cl3n15rc6001vjnd43yoyanke" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/11/15/dataStructure/%E6%A0%88/" data-id="cl3rkrjdu001uu1d49lvehjal" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
