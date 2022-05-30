@@ -638,7 +638,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/01/17/Q&A/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" data-id="cl3rkrjep0041u1d40u6zgszf" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/01/17/Q&A/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" data-id="cl3skuk2a00418vd40gbq3rj4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -676,161 +676,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Collection主要方法："><a href="#Collection主要方法：" class="headerlink" title="Collection主要方法："></a>Collection主要方法：</h3><ul>
-<li>boolean addObject(Object o): 添加元素到集合</li>
-<li>boolean removeObject(Object o): 从集合中删除某个元素</li>
-<li>int size(): 集合中元素数量</li>
-<li>boolean contains(Object o): 查找集合中是否包含某个元素</li>
-<li>boolean isEmpty：判断集合中是否为空</li>
-<li>Iterator iterator(): 返回一个迭代器</li>
-<li>boolean containsAll(Collection c): 判断是否包含另一个集合中的全部元素</li>
-<li>boolean addAll(Collection c)：将另一个集合里面的所有元素添加到当前集合中</li>
-<li>void clear(): 删除集合中所有元素</li>
-<li>void removeAll(Collection c)：从当前集合中删除c中的所有元素</li>
-<li>void retainAll(Collection c)：从当前集合中删除c中没有的元素</li>
-</ul>
-<h3 id="List：一个继承Collection的接口类，表示有序集合，可精确控制每个元素的插入位置，可使用索引访问元素，类似数组"><a href="#List：一个继承Collection的接口类，表示有序集合，可精确控制每个元素的插入位置，可使用索引访问元素，类似数组" class="headerlink" title="List：一个继承Collection的接口类，表示有序集合，可精确控制每个元素的插入位置，可使用索引访问元素，类似数组"></a>List：一个继承Collection的接口类，表示有序集合，可精确控制每个元素的插入位置，可使用索引访问元素，类似数组</h3><ul>
-<li>数组和list区别：<ul>
-<li>数组是静态的，即长度固定，且所有元素保存在一块连续的内存区域中，list的长度可变</li>
-<li>数组是多维，list的实现类ArrayList是一维</li>
-<li>数组是java中最基本的数据结构，没有类对应，list本身是一个接口类，list有实现类ArrayList等，即ArrayList功能比Array多</li>
-<li>list的实现类ArrayList即基于数组实现</li>
-</ul>
-</li>
-<li>实现类：ArrayList、LinkedList、Vector、Stack</li>
-<li>LinkedList（链表）：即java的链表，有单向和双向链表<ul>
-<li>特点：相比ArrayList，适合增删操作，不适合修改和查找</li>
-<li>使用场景：适合通过循环迭代使用某些元素，适合在表中任意位置增删元素</li>
-<li>注意：LinkedList没有同步方法，多线程访问时需要自己实现访问同步，使用Collections.synchronizedList可以创建一个同步list解决</li>
-</ul>
-</li>
-<li>ArrayList（可变数组）：即java的可变数组<ul>
-<li>特点：非同步，跟LinkedList一样</li>
-<li>使用场景：适合快速访问任一元素，适合在表尾执行增删操作</li>
-</ul>
-</li>
-<li>Vector：类似ArrayList，但是是同步的</li>
-<li>Stack：继承Vector，即先进后出的堆</li>
-</ul>
-<h3 id="Set：不包含重复元素的Collection，最多有一个null元素"><a href="#Set：不包含重复元素的Collection，最多有一个null元素" class="headerlink" title="Set：不包含重复元素的Collection，最多有一个null元素"></a>Set：不包含重复元素的Collection，最多有一个null元素</h3><ul>
-<li>实现类：HashSet、LinkedHashSet、TreeSet</li>
-<li>HashSet：基于HashMap实现，一个不包含重复元素的无序集合，非线程安全</li>
-<li>TreeSet：基于TreeMap实现，一个有序不包含重复元素的集合</li>
-<li>LinkedHashSet：继承于HashSet，一个按照插入顺序排序的有序且不包含重复元素的集合</li>
-</ul>
-<h2 id="Map：一组key-value集合"><a href="#Map：一组key-value集合" class="headerlink" title="Map：一组key-value集合"></a>Map：一组key-value集合</h2><h3 id="组成类"><a href="#组成类" class="headerlink" title="组成类"></a>组成类</h3><ul>
-<li>HashMap</li>
-<li>TreeMap</li>
-<li>HashTable</li>
-<li>WeakHashMap</li>
-<li>ConcurrentHashMap</li>
-<li>LinkedHashMap</li>
-</ul>
-<h3 id="主要方法"><a href="#主要方法" class="headerlink" title="主要方法"></a>主要方法</h3><ul>
-<li>boolean equals(Object o)：比较两个对象是否相等</li>
-<li>boolean remove(Object o)：删除对象</li>
-<li>put: 向map中添加key-value</li>
-<li>size：map中key-value个数</li>
-</ul>
-<h3 id="ConcurrentHashMap、HashTable：与HashMap类似，可同步访问，key、value均不能为null，官方已淘汰HashTable，使用ConcurrentHashMap"><a href="#ConcurrentHashMap、HashTable：与HashMap类似，可同步访问，key、value均不能为null，官方已淘汰HashTable，使用ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap、HashTable：与HashMap类似，可同步访问，key、value均不能为null，官方已淘汰HashTable，使用ConcurrentHashMap"></a>ConcurrentHashMap、HashTable：与HashMap类似，可同步访问，key、value均不能为null，官方已淘汰HashTable，使用ConcurrentHashMap</h3><h3 id="HashMap-非同步，无序，允许key、value为null的map"><a href="#HashMap-非同步，无序，允许key、value为null的map" class="headerlink" title="HashMap: 非同步，无序，允许key、value为null的map"></a>HashMap: 非同步，无序，允许key、value为null的map</h3><h3 id="WeakHashMap：类似HashMap，对key是弱引用，当key未被引用时，GC可回收"><a href="#WeakHashMap：类似HashMap，对key是弱引用，当key未被引用时，GC可回收" class="headerlink" title="WeakHashMap：类似HashMap，对key是弱引用，当key未被引用时，GC可回收"></a>WeakHashMap：类似HashMap，对key是弱引用，当key未被引用时，GC可回收</h3><h3 id="TreeMap：依据比较规则对key进行排序的map"><a href="#TreeMap：依据比较规则对key进行排序的map" class="headerlink" title="TreeMap：依据比较规则对key进行排序的map"></a>TreeMap：依据比较规则对key进行排序的map</h3><h3 id="LinkedHashMap：一个有序的HashMap"><a href="#LinkedHashMap：一个有序的HashMap" class="headerlink" title="LinkedHashMap：一个有序的HashMap"></a>LinkedHashMap：一个有序的HashMap</h3><h2 id="相关面试题"><a href="#相关面试题" class="headerlink" title="相关面试题"></a>相关面试题</h2><h3 id="Collection-和-Collections-有什么区别"><a href="#Collection-和-Collections-有什么区别" class="headerlink" title="Collection 和 Collections 有什么区别"></a>Collection 和 Collections 有什么区别</h3><ul>
-<li>Collection是一个接口，给集合操作提供一些基础功能方法，Collections是一个均为静态方法的集合工具类，两者均不能实例化</li>
-</ul>
-<h3 id="List、Set、Map-之间的区别是什么？"><a href="#List、Set、Map-之间的区别是什么？" class="headerlink" title="List、Set、Map 之间的区别是什么？"></a>List、Set、Map 之间的区别是什么？</h3><ul>
-<li>List和Set是集合，是一堆元素按照一定规则或者无规则的容器，Map内部的元素形式是Key-value</li>
-<li>List内部元素是可以重复的，Set内部元素不能重复，Map内部Key不能重复，value可以重复</li>
-<li>List和Set都继承Collection，Map没有父接口类</li>
-</ul>
-<h3 id="HashMap-和-HashTable-有什么区别？"><a href="#HashMap-和-HashTable-有什么区别？" class="headerlink" title="HashMap 和 HashTable 有什么区别？"></a>HashMap 和 HashTable 有什么区别？</h3><ul>
-<li>HashTable官方已经淘汰，使用非常相似的ConcurrentHashMap替代</li>
-<li>HashTable是线程安全，支持同步访问，HashMap不支持同步访问，其他方面就比较像</li>
-</ul>
-<h3 id="如何决定使用-HashMap-还是-TreeMap？"><a href="#如何决定使用-HashMap-还是-TreeMap？" class="headerlink" title="如何决定使用 HashMap 还是 TreeMap？"></a>如何决定使用 HashMap 还是 TreeMap？</h3><ul>
-<li>需要根据key进行排序的情况下使用TreeMap，其余情况下建议HashMap，HashMap性能较好</li>
-</ul>
-<h3 id="HashMap-的实现原理？"><a href="#HashMap-的实现原理？" class="headerlink" title="HashMap 的实现原理？"></a>HashMap 的实现原理？</h3><h4 id="JDK7和JDK8中HashMap实现的差别"><a href="#JDK7和JDK8中HashMap实现的差别" class="headerlink" title="JDK7和JDK8中HashMap实现的差别"></a>JDK7和JDK8中HashMap实现的差别</h4><ul>
-<li>1.7采用的是数组+链表，1.8采用的是数组+链表/红黑树</li>
-<li>1.7扩容时需要重新计算哈希值和索引位置，1.8不需要重新计算哈希值，巧妙的采用和扩容后容量进行&amp;操作来计算新的索引位置</li>
-<li>1.7是采用表头插入法插入链表，1.8采用是尾部插入法</li>
-<li>1.7中采用表头插入法，在扩容时会改变链表中元素顺序，以至于在并发场景下会导致链表成环问题，在1.8中采用的尾部插入法，在扩容时不会改变链表中元素顺序，所以就没有该问题</li>
-</ul>
-<h4 id="HashMap组成"><a href="#HashMap组成" class="headerlink" title="HashMap组成?"></a>HashMap组成?</h4><ul>
-<li>hashMap使用数组+链表的方式来存储数据，数组元素为Entry组成的链表，当链表长度大于8的时候，JDK1.8会将链表转成红黑树</li>
-</ul>
-<h4 id="Hash冲突如何解决"><a href="#Hash冲突如何解决" class="headerlink" title="Hash冲突如何解决?"></a>Hash冲突如何解决?</h4><ul>
-<li>当两个不同的key进行hash后取得的下标相同时，就会将这两个key-value放到对应的数组下标中的链表中</li>
-</ul>
-<h4 id="HashMap是否可以使用LinkedList代替数组进行实现，如果是的话为什么不用"><a href="#HashMap是否可以使用LinkedList代替数组进行实现，如果是的话为什么不用" class="headerlink" title="HashMap是否可以使用LinkedList代替数组进行实现，如果是的话为什么不用?"></a>HashMap是否可以使用LinkedList代替数组进行实现，如果是的话为什么不用?</h4><ul>
-<li>使用LinkedList替换数组实现HashMap是否可行，然后为什么不会用：当然可行</li>
-<li>数组的查找效率比LinkedList高，LinkedList是使用链表实现的</li>
-<li>ArrayList底层也是使用数组实现，但是由于扩容机制问题，不利于HashMap的取模运算，HashMap中的数组扩容时2倍扩容，ArrayList是1.5倍扩容</li>
-</ul>
-<h4 id="HashMap查找key的位置"><a href="#HashMap查找key的位置" class="headerlink" title="HashMap查找key的位置"></a>HashMap查找key的位置</h4><ul>
-<li>首先对key进行hashCode，同时使用HashMap对应的数组长度进行取余等操作找到对应的数组下标之后，再在这个下标对应的链表中查找</li>
-</ul>
-<h4 id="HashMap扩容"><a href="#HashMap扩容" class="headerlink" title="HashMap扩容"></a>HashMap扩容</h4><ul>
-<li>创建一个2倍容量的数组，将原数组的元素散列后放到新数组中</li>
-</ul>
-<h3 id="HashSet实现原理？"><a href="#HashSet实现原理？" class="headerlink" title="HashSet实现原理？"></a>HashSet实现原理？</h3><ul>
-<li>HashSet使用HashMap来实现，HashSet的元素都是保存在HashMap的key上，value是一个统一的static final对象</li>
-</ul>
-<h3 id="ArrayList-和-LinkedList-的区别是什么？"><a href="#ArrayList-和-LinkedList-的区别是什么？" class="headerlink" title="ArrayList 和 LinkedList 的区别是什么？"></a>ArrayList 和 LinkedList 的区别是什么？</h3><ul>
-<li>都是list接口的实现类</li>
-<li>ArrayList基于数组实现，LinkedList基于链表实现</li>
-<li>ArrayList相对更适合快速访问元素，LinkedList相对更适合快速插入删除元素</li>
-</ul>
-<h3 id="如何实现数组和-List-之间的转换？"><a href="#如何实现数组和-List-之间的转换？" class="headerlink" title="如何实现数组和 List 之间的转换？"></a>如何实现数组和 List 之间的转换？</h3><ul>
-<li>list转数组：<ul>
-<li>循环一个个放</li>
-<li>toArray方法</li>
-</ul>
-</li>
-<li>数组转list：<ul>
-<li>循环一个个放</li>
-<li>asList方法</li>
-</ul>
-</li>
-</ul>
-<h3 id="ArrayList-和-Vector-的区别是什么？"><a href="#ArrayList-和-Vector-的区别是什么？" class="headerlink" title="ArrayList 和 Vector 的区别是什么？"></a>ArrayList 和 Vector 的区别是什么？</h3><ul>
-<li>Vector是同步版的ArrayList，是线程安全的</li>
-<li>Vector扩容时是当前的2倍，ArrayList扩容时是当前的1.5倍</li>
-</ul>
-<h3 id="Array-和-ArrayList-有何区别？"><a href="#Array-和-ArrayList-有何区别？" class="headerlink" title="Array 和 ArrayList 有何区别？"></a>Array 和 ArrayList 有何区别？</h3><ul>
-<li>ArrayList基于Array实现</li>
-<li>ArrayList是动态的，Array是静态</li>
-<li>ArrayList相当于是可变Array</li>
-<li>ArrayList不能存储基本数据类型，Array都可以</li>
-<li>Array中元素类型相同，ArrayList可以不同</li>
-</ul>
-<h3 id="在-Queue-中-poll-和-remove-有什么区别？"><a href="#在-Queue-中-poll-和-remove-有什么区别？" class="headerlink" title="在 Queue 中 poll()和 remove()有什么区别？"></a>在 Queue 中 poll()和 remove()有什么区别？</h3><ul>
-<li>相同：都是从删除头部元素并返回该元素</li>
-<li>不同：队列为空时，remove()会抛出NoSuchElementException异常，poll()会返回null</li>
-</ul>
-<h3 id="哪些集合类是线程安全的？"><a href="#哪些集合类是线程安全的？" class="headerlink" title="哪些集合类是线程安全的？"></a>哪些集合类是线程安全的？</h3><ul>
-<li>Vector</li>
-<li>Stack</li>
-<li>Hashtable</li>
-<li>java.util.concurrent包下的类，ArrayBlockingQueue、ConcurrentHashMap、ConcurrentLinkedQueue、ConcurrentLinkedDeque</li>
-</ul>
-<h3 id="迭代器-Iterator-是什么？"><a href="#迭代器-Iterator-是什么？" class="headerlink" title="迭代器 Iterator 是什么？"></a>迭代器 Iterator 是什么？</h3><ul>
-<li>定义了访问集合的方法，可以迭代HashSet、ArrayList等集合</li>
-<li>具有next、hasNext、remove等功能</li>
-<li>迭代器是一种设计模式</li>
-<li>remove会抛异常</li>
-</ul>
-<h3 id="Iterator-和-ListIterator-有什么区别？"><a href="#Iterator-和-ListIterator-有什么区别？" class="headerlink" title="Iterator 和 ListIterator 有什么区别？"></a>Iterator 和 ListIterator 有什么区别？</h3><ul>
-<li>Iterator可以遍历set和list，ListIterator只能遍历list</li>
-<li>ListIterator可以双向遍历list，Iterator只能单向</li>
-<li>Iterator可以读、删，ListIterator可以读、删、增</li>
-<li>Iterator无法获取集合中的索引，ListIterator可以获取集合中的索引</li>
-</ul>
-<h3 id="怎么确保一个集合不能被修改？"><a href="#怎么确保一个集合不能被修改？" class="headerlink" title="怎么确保一个集合不能被修改？"></a>怎么确保一个集合不能被修改？</h3><ul>
-<li>使用Collections类提供的方法即可<ul>
-<li>Collections.unmodifiableList(List)</li>
-<li>Collections.unmodifiableSet(Set)</li>
-</ul>
-</li>
-</ul>
-<h2 id="容器有哪些类"><a href="#容器有哪些类" class="headerlink" title="容器有哪些类"></a>容器有哪些类</h2><ul>
+        <h2 id="容器有哪些类"><a href="#容器有哪些类" class="headerlink" title="容器有哪些类"></a>容器有哪些类</h2><ul>
 <li>Collection：元素是独立对象<ul>
 <li>List：有序集合，元素可重复<ul>
 <li>ArrayList：数组实现，可动态修改</li>
@@ -922,6 +768,11 @@
 <td>允许</td>
 <td>不允许</td>
 </tr>
+<tr>
+<td>官方建议</td>
+<td>继续支持</td>
+<td>官方已经淘汰，建议使用ConcurrentHashMap替换</td>
+</tr>
 </tbody></table>
 <h2 id="HashMap、TreeMap区别"><a href="#HashMap、TreeMap区别" class="headerlink" title="HashMap、TreeMap区别"></a>HashMap、TreeMap区别</h2><table>
 <thead>
@@ -943,15 +794,174 @@
 </tr>
 <tr>
 <td>线程安全</td>
-<td>都是非线线程安全</td>
+<td>非同步</td>
 <td></td>
 </tr>
 </tbody></table>
+<h2 id="HashMap实现原理"><a href="#HashMap实现原理" class="headerlink" title="HashMap实现原理"></a>HashMap实现原理</h2><ul>
+<li>数据结构：数组，数组元素是链表或者红黑树</li>
+<li>元素变化：当链表节点超过8个时，链表会转换成红黑树</li>
+</ul>
+<h2 id="HashSet实现原理"><a href="#HashSet实现原理" class="headerlink" title="HashSet实现原理"></a>HashSet实现原理</h2><ul>
+<li>数据机构：使用HashMap实现</li>
+<li>数据存储位置：元素保存到HashMap的key里面，HashMap的value统一写死成PRESENT</li>
+</ul>
+<h2 id="ArrayList、LinkedList区别"><a href="#ArrayList、LinkedList区别" class="headerlink" title="ArrayList、LinkedList区别"></a>ArrayList、LinkedList区别</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>ArrayList</th>
+<th>LinkedList</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>相同点</td>
+<td>都是List接口的具体实现</td>
+<td></td>
+</tr>
+<tr>
+<td>实现原理</td>
+<td>使用数组实现</td>
+<td>使用双向链表实现</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>适合随机访问元素，ArrayList随机访问元素O(1), LinkedList随机访问元素O(n)</td>
+<td>适合频繁插入、删除，LinkedList可以直接插入删除，不需要内存的巨大调整</td>
+</tr>
+<tr>
+<td>内存占用</td>
+<td>较小，元素只存储元素</td>
+<td>每个元素除了元素本身内容以外，还保存上一个节点和下一个节点的引用</td>
+</tr>
+</tbody></table>
+<h2 id="数组与List转换"><a href="#数组与List转换" class="headerlink" title="数组与List转换"></a>数组与List转换</h2><ul>
+<li>数组转List：Arrays.asList</li>
+<li>List转数组：ArrayList.toArray</li>
+</ul>
+<h2 id="ArrayList、Vector区别"><a href="#ArrayList、Vector区别" class="headerlink" title="ArrayList、Vector区别"></a>ArrayList、Vector区别</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>ArrayList</th>
+<th>Vector</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>同步非同步</td>
+<td>非同步</td>
+<td>同步</td>
+</tr>
+<tr>
+<td>拓展倍数</td>
+<td>拓展为原来1.5倍</td>
+<td>拓展为原来的2倍</td>
+</tr>
+<tr>
+<td>二者关系</td>
+<td>Vector是ArrayList的同步版本</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="Array、ArrayList区别"><a href="#Array、ArrayList区别" class="headerlink" title="Array、ArrayList区别"></a>Array、ArrayList区别</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>Array</th>
+<th>ArrayList</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>简介</td>
+<td>java提供的一种基本数据结构</td>
+<td>基于Array实现的可变Array</td>
+</tr>
+<tr>
+<td>实现</td>
+<td>Java提供的一种最基本的数据结构</td>
+<td>基于Array实现</td>
+</tr>
+<tr>
+<td>是否可变</td>
+<td>不可变</td>
+<td>可变</td>
+</tr>
+<tr>
+<td>是否可以存储基本数据类型</td>
+<td>可以</td>
+<td>不可以，只能保存对象</td>
+</tr>
+<tr>
+<td>是否可以存放不同类型数据</td>
+<td>不可以</td>
+<td>可以</td>
+</tr>
+</tbody></table>
+<h2 id="Queue中pull-和remove-区别"><a href="#Queue中pull-和remove-区别" class="headerlink" title="Queue中pull()和remove()区别"></a>Queue中pull()和remove()区别</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>pull()</th>
+<th>remove()</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>作用</td>
+<td>删除头部元素并返回</td>
+<td></td>
+</tr>
+<tr>
+<td>区别</td>
+<td>Queue为空时返回null</td>
+<td>Queue为空时抛出NoSuchElementsException</td>
+</tr>
+</tbody></table>
+<h2 id="哪些集合类是线程安全的"><a href="#哪些集合类是线程安全的" class="headerlink" title="哪些集合类是线程安全的"></a>哪些集合类是线程安全的</h2><ul>
+<li>Vector、Stack</li>
+<li>Hashtable</li>
+<li>java.util.concurrent包下的类，ArrayBlockingQueue、ConcurrentHashMap、ConcurrentLinkedQueue、ConcurrentLinkedDeque</li>
+</ul>
+<h2 id="迭代器Iterator是什么"><a href="#迭代器Iterator是什么" class="headerlink" title="迭代器Iterator是什么"></a>迭代器Iterator是什么</h2><p>一个专门描述以遍历集合为主要功能的类</p>
+<h2 id="Iterator怎么使用，特点"><a href="#Iterator怎么使用，特点" class="headerlink" title="Iterator怎么使用，特点"></a>Iterator怎么使用，特点</h2><ul>
+<li>next()：获取下一个元素</li>
+<li>hasNext(): 判断是否有下一个元素</li>
+<li>remove(): 删除元素</li>
+</ul>
+<h2 id="Iterator和ListIterator区别"><a href="#Iterator和ListIterator区别" class="headerlink" title="Iterator和ListIterator区别"></a>Iterator和ListIterator区别</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>Iterator</th>
+<th>ListIterator</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>可以遍历的集合</td>
+<td>List、Set</td>
+<td>List</td>
+</tr>
+<tr>
+<td>遍历方向</td>
+<td>单向</td>
+<td>双向</td>
+</tr>
+<tr>
+<td>集合操作功能</td>
+<td>读、删</td>
+<td>读、删、增</td>
+</tr>
+<tr>
+<td>索引读取能力</td>
+<td>不能读取集合索引</td>
+<td>可以读取集合索引</td>
+</tr>
+</tbody></table>
+<h2 id="怎么确保一个集合不能被修改？"><a href="#怎么确保一个集合不能被修改？" class="headerlink" title="怎么确保一个集合不能被修改？"></a>怎么确保一个集合不能被修改？</h2><p>使用Collections的方法unmodifiableList和unmodifiableSet</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/12/06/Q&A/Java/%E5%AE%B9%E5%99%A8/" data-id="cl3rkrjeq0045u1d4hln87vcx" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/12/06/Q&A/Java/%E5%AE%B9%E5%99%A8/" data-id="cl3skuk2b00458vd48fs4g7dt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1010,7 +1020,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/25/Q&A/Java/%E6%8E%A5%E5%8F%A3/" data-id="cl3rkrjet004du1d4gvyc4fxo" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/11/25/Q&A/Java/%E6%8E%A5%E5%8F%A3/" data-id="cl3skuk2e004d8vd4flk4cbyv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1052,7 +1062,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/25/Q&A/Java/%E9%87%8D%E5%86%99%E3%80%81%E9%87%8D%E8%BD%BD/" data-id="cl3rkrjex004lu1d4g8r7546m" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/11/25/Q&A/Java/%E9%87%8D%E5%86%99%E3%80%81%E9%87%8D%E8%BD%BD/" data-id="cl3skuk2g004l8vd43pnefn01" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1099,7 +1109,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/Math%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/" data-id="cl3rkrjed0031u1d41z4bflu8" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/Math%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/" data-id="cl3skuk2000318vd4buen7cg0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1246,7 +1256,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/String%E3%80%81StringBuffer%E3%80%81StringBuilder/" data-id="cl3rkrjel003mu1d44hqe20wo" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/String%E3%80%81StringBuffer%E3%80%81StringBuilder/" data-id="cl3skuk27003m8vd4csrb4eze" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1312,7 +1322,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/%E5%8F%8C%E7%AD%89%E5%8F%B7%E3%80%81equals%E3%80%81hashCode%E5%8C%BA%E5%88%AB/" data-id="cl3rkrjeo003wu1d43ty512wm" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/%E5%8F%8C%E7%AD%89%E5%8F%B7%E3%80%81equals%E3%80%81hashCode%E5%8C%BA%E5%88%AB/" data-id="cl3skuk29003w8vd4gx94ch5g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1369,7 +1379,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/JDK%E3%80%81JRE%E3%80%81JVM/" data-id="cl3rkrje9002pu1d41bt49fh6" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/JDK%E3%80%81JRE%E3%80%81JVM/" data-id="cl3skuk1x002p8vd43uuagesf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1453,7 +1463,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E3%80%81%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/" data-id="cl3rkrjey004nu1d4cqlo42sr" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E3%80%81%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/" data-id="cl3skuk2y00768vd408orf621" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1501,7 +1511,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/15/dataStructure/%E6%A0%88/" data-id="cl3rkrjdu001uu1d49lvehjal" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/11/15/dataStructure/%E6%A0%88/" data-id="cl3skuk1p001r8vd49vuq7m9f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
