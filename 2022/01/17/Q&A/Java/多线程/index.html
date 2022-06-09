@@ -15,7 +15,7 @@
 <meta property="og:description" content="并行和并发有什么区别？并发： 在操作系统中，一个时间段内在同一个处理机上处于开始到结束之间的多个任务之间的状态，window的时间片分时调度即并发，实际是串行，但是多个任务在不停地切换，每个任务运行一小会，以实现多个任务的同时运行即并发  并行： 互不抢占资源的两个任务同时运行时，即并行  区别： 并发实际上是串行 并发需要共享运算资源，并行不需要 单cpu可以实现并发，但不能实现并行 并行是真正">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-01-17T12:40:20.000Z">
-<meta property="article:modified_time" content="2022-05-19T13:07:45.553Z">
+<meta property="article:modified_time" content="2022-06-09T09:03:52.615Z">
 <meta property="article:author" content="帝王之心">
 <meta property="article:tag" content="Q&amp;A">
 <meta name="twitter:card" content="summary">
@@ -634,11 +634,176 @@
 <li>原理：基于unsafe类提供的硬件级别的原子操作实现的</li>
 <li>核心原理：即CAS操作，比如有个变量num（比如此时值为1），首先执行操作的开始会先将num的值复制一份为numCopy（值也是1）用于一会的对比，然后将num放到运算单元中进行计算，此时不会改变内存中num的值，当计算完成后得到numTmp（比如执行了加1操作，此时numTmp为2），将复制的值即numCopy与内存中现有的num的值进行比较，如果numCopy与num相等，则将numTmp复制给num，不想等就放弃赋值，意思就是防止num在执行本次操作过程中被别人改过</li>
 </ul>
+<hr>
+<h2 id="并行、并发区别"><a href="#并行、并发区别" class="headerlink" title="并行、并发区别"></a>并行、并发区别</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>并行</th>
+<th>并发</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>简介</td>
+<td>同时运行，特制多个事件同时执行</td>
+<td>同时发生，特制多个事件在某一时间段内同时发生（执行）</td>
+</tr>
+<tr>
+<td>是否一定同时运行</td>
+<td>一定</td>
+<td>一定不</td>
+</tr>
+<tr>
+<td>占用核心</td>
+<td>有几个事件就占用几颗核心</td>
+<td>小于事件总数</td>
+</tr>
+<tr>
+<td>特点</td>
+<td>倾向于让处理器所有核心都发挥作用</td>
+<td>倾向于压榨单颗核心的全部运算性能</td>
+</tr>
+</tbody></table>
+<h2 id="线程、进程区别"><a href="#线程、进程区别" class="headerlink" title="线程、进程区别"></a>线程、进程区别</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>线程</th>
+<th>进程</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>简介</td>
+<td>cpu调度和分派的基本单位，进程的子任务</td>
+<td>系统调度和分派的基本单位，是对程序的封装</td>
+</tr>
+<tr>
+<td>归属</td>
+<td>一个进程可以包含多个线程</td>
+<td>一个线程只能属于一个进程</td>
+</tr>
+<tr>
+<td>内存</td>
+<td>线程使用系统给进程分配的内存</td>
+<td>有独立的内存单元</td>
+</tr>
+<tr>
+<td>开销</td>
+<td>线程创建开销相对较小</td>
+<td>进程创建开销相对较大</td>
+</tr>
+<tr>
+<td>通信</td>
+<td>线程可以使用所有进程间通信的方式，还包括信号量等手段</td>
+<td>各种网络通讯协议都可以；读写同一个文件；共享内存等</td>
+</tr>
+<tr>
+<td>异常影响</td>
+<td>会导致进程及内部线程死掉</td>
+<td>会导致内部线程死掉，但对其他进程没影响</td>
+</tr>
+</tbody></table>
+<h2 id="守护进程是什么？"><a href="#守护进程是什么？" class="headerlink" title="守护进程是什么？"></a>守护进程是什么？</h2><p>服务其他进程的一个进程</p>
+<h2 id="创建线程方式"><a href="#创建线程方式" class="headerlink" title="创建线程方式"></a>创建线程方式</h2><ul>
+<li>继承Thread创建线程类</li>
+<li>实现Runable接口创建线程类</li>
+<li>通过Callable的Future创建线程</li>
+</ul>
+<h2 id="Runable、Callable区别"><a href="#Runable、Callable区别" class="headerlink" title="Runable、Callable区别"></a>Runable、Callable区别</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>Runable</th>
+<th>Callable</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>返回值区别</td>
+<td>void，无返回值</td>
+<td>泛型，用来异步获取运行结果</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>只能抛出运行时异常</td>
+<td>call方法允许抛出异常</td>
+</tr>
+</tbody></table>
+<h2 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h2><table>
+<thead>
+<tr>
+<th>状态</th>
+<th>声明周期范围</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>创建状态</td>
+<td>生成线程对象-调用start方法之前</td>
+<td></td>
+</tr>
+<tr>
+<td>就绪状态</td>
+<td>调用start方法、等待或者睡眠中恢复时</td>
+<td></td>
+</tr>
+<tr>
+<td>运行状态</td>
+<td>运行run函数中的代码</td>
+<td></td>
+</tr>
+<tr>
+<td>阻塞状态</td>
+<td>线程正在运行的时候暂停，sleep、wait等都可以</td>
+<td></td>
+</tr>
+<tr>
+<td>死亡状态</td>
+<td>run执行结束，或者stop</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="sleep-、wait-区别"><a href="#sleep-、wait-区别" class="headerlink" title="sleep()、wait()区别"></a>sleep()、wait()区别</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>sleep</th>
+<th>wait</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>所属类</td>
+<td>Thread类的静态方法</td>
+<td>Object类的对象方法</td>
+</tr>
+<tr>
+<td>区别</td>
+<td>不会释放锁，所以会继续占用锁定的资源</td>
+<td>会进入线程等待池中，会释放锁，所以会释放锁定的资源</td>
+</tr>
+</tbody></table>
+<h2 id="notify-、notifyAll-区别"><a href="#notify-、notifyAll-区别" class="headerlink" title="notify()、notifyAll()区别"></a>notify()、notifyAll()区别</h2><p>notify随机从线程等待池中唤醒一个wait线程，然后将其放入锁池；notifyAll唤醒线程等待池中的全部线程，将这些线程全部放入锁池中</p>
+<h2 id="run-、start-区别"><a href="#run-、start-区别" class="headerlink" title="run()、start()区别"></a>run()、start()区别</h2><p>start是让线程进入就绪状态，即一种可以执行run方法的状态，run方法即线程需要执行的事件内容</p>
+<h2 id="创建线程池方式"><a href="#创建线程池方式" class="headerlink" title="创建线程池方式"></a>创建线程池方式</h2><table>
+<thead>
+<tr>
+<th>创建方式</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>使用Executors工厂类提供的方法</td>
+<td>newFixedThreadPool(int nThreads):创建固定线程数的线程池，超出需求就进入队列等待<br/>newCachedThreadPool:可缓存线程池，线程数不够会创建新线程<br/>newScheduledThreadPool(int corePoolSize):创建一个固定线程数的可周期或定时执行任务的线程池<br/>newSingleThreadExecutor():创建一个单线程的可按指定顺序执行任务的线程池</td>
+</tr>
+<tr>
+<td>使用ThreadPoolExector自定义线程池</td>
+<td>可自定义核心线程数、最大线程数、存活时间等</td>
+</tr>
+</tbody></table>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/01/17/Q&A/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" data-id="cl3skuk2a00418vd40gbq3rj4" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/01/17/Q&A/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" data-id="cl46sodk600431dd44mtd9obo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
