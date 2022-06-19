@@ -15,7 +15,7 @@
 <meta property="og:description" content="并行、并发区别    并行 并发    简介 同时运行，特制多个事件同时执行 同时发生，特制多个事件在某一时间段内同时发生（执行）   是否一定同时运行 一定 一定不   占用核心 有几个事件就占用几颗核心 小于事件总数   特点 倾向于让处理器所有核心都发挥作用 倾向于压榨单颗核心的全部运算性能   线程、进程区别    线程 进程    简介 cpu调度和分派的基本单位，进程的子任务 系统调度">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-01-17T12:40:20.000Z">
-<meta property="article:modified_time" content="2022-06-12T09:36:50.275Z">
+<meta property="article:modified_time" content="2022-06-19T06:29:53.097Z">
 <meta property="article:author" content="帝王之心">
 <meta property="article:tag" content="Q&amp;A">
 <meta name="twitter:card" content="summary">
@@ -353,7 +353,30 @@
 <td>程序按照代码顺序执行</td>
 </tr>
 </tbody></table>
-<h2 id="多线程线程锁升级原理"><a href="#多线程线程锁升级原理" class="headerlink" title="多线程线程锁升级原理"></a>多线程线程锁升级原理</h2><p>|锁级别|存在情况|<br>|—|—|—-|<br>|无锁|没有线程申请锁|<br>|偏向锁|只有一个线程申请锁|<br>|轻量级锁|有多个线程竞争锁且获取锁时间较短|<br>|重量级锁|有多个线程竞争锁且获取锁时间较长|</p>
+<h2 id="多线程线程锁升级原理"><a href="#多线程线程锁升级原理" class="headerlink" title="多线程线程锁升级原理"></a>多线程线程锁升级原理</h2><table>
+<thead>
+<tr>
+<th>锁级别</th>
+<th>存在情况</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>无锁</td>
+<td>没有线程申请锁</td>
+</tr>
+<tr>
+<td>偏向锁</td>
+<td>只有一个线程申请锁</td>
+</tr>
+<tr>
+<td>轻量级锁</td>
+<td>有多个线程竞争锁且获取锁时间较短</td>
+</tr>
+<tr>
+<td>重量级锁</td>
+<td>有多个线程竞争锁且获取锁时间较长</td>
+</tr>
+</tbody></table>
 <h2 id="什么是死锁？"><a href="#什么是死锁？" class="headerlink" title="什么是死锁？"></a>什么是死锁？</h2><p>多个线程进入互相等待彼此释放锁，而彼此又不释放锁的状态，即死锁</p>
 <h2 id="防止死锁"><a href="#防止死锁" class="headerlink" title="防止死锁"></a>防止死锁</h2><p>1、按合适顺序获取锁<br>2、设置获取锁有限等待时间</p>
 <h2 id="ThreadLocal-是什么？使用场景？"><a href="#ThreadLocal-是什么？使用场景？" class="headerlink" title="ThreadLocal 是什么？使用场景？"></a>ThreadLocal 是什么？使用场景？</h2><table>
@@ -460,7 +483,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/01/17/Q&A/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" data-id="cl4dld188004404d49rg1gz7a" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/01/17/Q&A/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" data-id="cl4l1let00045nid4aps93a67" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
