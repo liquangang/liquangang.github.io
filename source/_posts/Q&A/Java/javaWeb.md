@@ -119,3 +119,46 @@ categories:
   * 阻止不明外域访问，比如验证请求地址等策略
   * 关键操作添加验证码
   * 增加token、cookie校验策略
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------
+
+## JSP、servlet区别
+||JSP|servlet|
+|---|---|---|
+|简介|一种动态网页技术标准|一种网络服务技术标准|
+|核心区别|偏向view层的交互|偏向逻辑层操作|
+|实现区别|本质上就是servlet，编译时会转化成servlet，本质上是对servlet的简化|java类|
+|其他区别|有内置对象|全是java类，无内置对象|
+
+## JSP、Servlet、Tomcat、Structs、Apache、Nginx、正向代理、反向代理是什么
+|技术|简介|意义|
+|---|---|---|
+|Servlet|Java官方出品的一套JAVA HTTP web server 规范、工具|指定HTTP WEB SERVER规范、降低程序员非业务层代码工作量|
+|JSP|java web server, 本质是servlet, 集合了html，更适合动态网页网络应用服务|在需要进行网页交互的网络应用中提供解决方案|
+|Tomcat|集合了servlet、jsp、java websocket的java web server，同时提供可视化配置功能|提供更强大、易用的java web server解决方案|
+|Structs|基于servlet，增加model、view、controller层的一套java web server解决方案|提供一套规范化的MVC设计模式的java web server 解决方案|
+|Apache|一个HTTP web server解决方案|Apache官方提供的一套http web server解决方案|
+|Nginx|http web server解决方案，适合高并发场景|适合高并发场景的http web server解决方案|
+|正向代理、反向代理|正向代理就是client被代理，反向代理就是server被代理|
+
+## JSP有哪些内置对象，作用是什么
+|对象|作用|
+|---|---|
+|request|client请求信息|
+|response|server响应信息|
+|pageContent|页面上下文|
+|session|clent与server之间的会话|
+|application|server声明周期|
+|out|server给client传输内容的输出流|
+|config|初始化时，jsp引擎向jsp页面传递的信息|
+|page|jsp页面本身|
+|exception|页面异常对象|
