@@ -272,3 +272,41 @@ categories:
 |隐式的bean发现机制和自动装配|XML中配置依赖关系，同时代码中需要实现相关的setter、getter方法接口|
 |xml中显示配置|1、default<br/>2、no<br/>3、byType<br/>4、byName<br/>5、constructor|
 |java代码中配置|@Autowired|
+
+## spring事务的实现方式
+|||
+|---|---|
+|事务定义|一组操作，这些操作作为一个整体，要么全都执行成功，要么全都执行失败|
+|实现方式|1、手动编码实现，手动调用beginTransaction()、commit()、rollback()等方法<br/>2、通过@transcationnal实现|
+
+## 说一下spring事务隔离
+|||
+|---|---|
+|事务隔离意义|解决事务同时执行过程中出现的脏读、幻读、不可重复读问题|
+|多个事务同时执行会出现的问题|1、脏读：一个事务可以读取到另一个事务未提交的数据<br/>2、一个事务由于另一个事务同时执行insert操作造成多次查询结果不一致问题<br/>3、不可重复读：一个事务多次查询到的同一条数据由于另一个事务的update操作导致不一致|
+|事务隔离特性|1、原子性<br/>2、一致性<br/>3、隔离性<br/>4、持久性|
+
+## spring mvc执行流程
+1、前端发起请求，DispatcherServlet收到请求
+2、DispatcherServlet向HandlerMapping请求获得HandlerExecutionChan(包含处理器信息)
+3、DispatcherServlet使用HandlerExecutionChan向HandleAdapter发请求
+4、HandlerAdapter向Handler发请求
+5、Handler响应请求，生成ModelAndView，返回给DispatcherServlet
+6、DispatcherServlet使用ModelAndView向ViewResolve发请求，ViewResolve返回view
+7、DispatcherServlet将view渲染成最终的视图并完成对前端的响应
+
+## spring mvc有哪些组件
+|组件|简介|
+|---|---|
+|DispatcherServlet|中央控制器，串整个流程|
+|Controller|处理器，具体处理请求的部分|
+|HandlerMapping|映射处理器，让DispatcherServlet找到属于自己的Controller|
+|ModelAndView|Controller处理结果|
+|ViewResolver|视图解析器，解析ModelAndView|
+|Interceptors|拦截器，负责拦截配置好的请求|
+
+## @RequestMapping作用
+一个用来处理请求的注解，参数可配置请求地址、请求方法、请求参数等
+
+## @Autowired作用
+注入依赖
