@@ -310,3 +310,35 @@ categories:
 
 ## @Autowired作用
 注入依赖
+
+## 什么是spring boot
+一个为了简化spring应用的配置及开发过程的框架
+
+## 为什么要使用spring boot
+1、配置简单
+2、依然基于spring构建应用，学习成本低
+3、可以独立构建应用，不需要依赖web应用容器
+4、内置tomcat，不需要jar包，即可在tomcat中运行
+5、提供maven极简配置以及各种可视化监控功能
+6、给spring cloud提供支持，降低微服务构建难度
+7、spring boot可以整合各种框架
+8、社区活跃
+
+## spring boot的核心配置文件是什么
+1、application.yml
+2、bootstrap.properties
+
+## spring boot有哪几种配置文件，区别是什么
+||application.yml|bootstrap.properties|
+|---|---|---|
+|加载方式|从classpath中读取|
+|加载顺序|先加载bootstrap.properties(系统配置)，再加载application.yml(应用配置)|
+|文件内容格式|key：value|key=value|
+|配置内容范围|应用配置|系统配置|
+
+## spring boot有哪些方式可以实现热部署
+1、模板热部署
+2、debug
+3、spring-boot-devtools
+4、spring loaded
+5、JRebal
