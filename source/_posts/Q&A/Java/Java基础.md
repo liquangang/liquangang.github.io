@@ -5,12 +5,12 @@ tags: Q&A
 categories:
 - [Q&A, Q&A-java]
 ---
-## JDK、JRE区别
-||JDK|JRE|
-|---|---|---|
-|全称|Java Developer Kit：Java开发工具包|Java Runtime Environment：Java运行时环境|
-|作用|提供Java开发环境，开发工具，用于开发java程序|提供java运行环境，用于运行java程序|
-|联系|JDK包含JRE|
+## JDK、JRE、JVM区别
+||JDK|JRE|JVM|
+|---|---|---|---|
+|全称|Java Developer Kit：Java开发工具包|Java Runtime Environment：Java运行时环境|Java Virtual Machine: java虚拟机|
+|作用|提供Java开发环境，开发工具，用于开发java程序|提供java运行环境，用于运行java程序|用于解释执行java代码|
+|联系|JDK=JRE+开发工具|JRE=JVM+Java se标准库||
 
 ## == 和 equals 区别
 ||==|equals|
