@@ -381,3 +381,7 @@ categories:
 24. Zookeeper 宕机如何处理？
 25. 说下四种类型的数据节点 Znode？
 26. Zookeeper 和 Dubbo 的关系？
+
+
+
+# 一轮复习不熟悉题目集合
