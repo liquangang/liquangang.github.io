@@ -15,7 +15,7 @@
 <meta property="og:description" content="解释下什么是面向对象？面向对象和面向过程的区别？        什么是面向对象 把现实中需要解决的问题，抽象成类的属性和行为的一种编程思想   面向过程、面向对象区别 都是编程思想，面向过程是直接编写解决问题的所有流程细节，面向对象是将问题抽象成类的属性或行为，然后调用对象的属性或行为来解决问题   面向对象三大特性，分别解释下        继承 子类拥有父类的非private属性与行为，继承实">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-05-19T12:24:10.000Z">
-<meta property="article:modified_time" content="2022-09-24T08:03:59.121Z">
+<meta property="article:modified_time" content="2022-09-24T08:19:16.501Z">
 <meta property="article:author" content="帝王之心">
 <meta property="article:tag" content="Q&amp;A">
 <meta name="twitter:card" content="summary">
@@ -228,6 +228,54 @@
 <tr>
 <td>实例变量</td>
 <td>绑定到实例对象上，无特殊修饰词，使用方式实例对象名.实例变量名</td>
+</tr>
+</tbody></table>
+<h2 id="short-s1-1；s1-s1-1；有什么错？那么-short-s1-1-s1-1；呢？有没有错误？"><a href="#short-s1-1；s1-s1-1；有什么错？那么-short-s1-1-s1-1；呢？有没有错误？" class="headerlink" title="short s1 = 1；s1 = s1 + 1；有什么错？那么 short s1 = 1; s1 += 1；呢？有没有错误？"></a>short s1 = 1；s1 = s1 + 1；有什么错？那么 short s1 = 1; s1 += 1；呢？有没有错误？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>short s1 = 1；s1 = s1 + 1；有什么错？</td>
+<td>1默认是int，没有强转</td>
+</tr>
+<tr>
+<td>short s1 = 1; s1 += 1；呢？有没有错误？</td>
+<td>自带强转，不报错</td>
+</tr>
+</tbody></table>
+<h2 id="Integer-和-int-的区别？"><a href="#Integer-和-int-的区别？" class="headerlink" title="Integer 和 int 的区别？"></a>Integer 和 int 的区别？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Integer</td>
+<td>是int包装类，需要new才能使用，是一个引用类型，默认值null</td>
+</tr>
+<tr>
+<td>int</td>
+<td>基本数据类型，默认值0</td>
+</tr>
+</tbody></table>
+<h2 id="装箱和拆箱的区别"><a href="#装箱和拆箱的区别" class="headerlink" title="装箱和拆箱的区别"></a>装箱和拆箱的区别</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>拆箱</td>
+<td>把引用类型转成值类型，比如Integer-&gt;int</td>
+</tr>
+<tr>
+<td>装箱</td>
+<td>把值类型转成引用类型，比如int-&gt;Integer</td>
 </tr>
 </tbody></table>
 <h2 id="和-equals-区别"><a href="#和-equals-区别" class="headerlink" title="== 和 equals 区别"></a>== 和 equals 区别</h2><table>
@@ -534,7 +582,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/19/Q&A/Java/Java%E5%9F%BA%E7%A1%80/" data-id="cl8fmlz6b006bn7d412sw3tpo" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/19/Q&A/Java/Java%E5%9F%BA%E7%A1%80/" data-id="cl8fn5np90061otd4comp1p7f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
