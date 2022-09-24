@@ -7,15 +7,15 @@
   
   <title>Redis | 静</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Redis是什么？有哪些使用场景Redis简介是一个数据库是一个开源的数据库是一个使用标准C语言编写的数据库是一个使用标准C语言编写的key-value型数据库是一个支持网络、可基于内存、可持久化、提供多种语言API的使用标准c语言编写的key-value型数据库 Redis使用场景1、数据库高并发读写2、海量数据读写3、对拓展性要求高的数据 Redis有哪些功能？1、数据缓存2、分布式锁3、数据">
+  <meta name="description" content="Redis是什么，有哪些使用场景        是什么 一个开源的、用c语言编写的、支持网络、可基于内存也可持久化的日志型、支持多种语言API的key-value数据库   使用场景 1、数据库高并发读写2、海量数据读写3、多拓展性要求高的数据   redis有哪些功能1、数据缓存2、分布式锁3、数据持久化4、支持事务5、支持消息队列 redis和memoryCache区别    Redis me">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis">
 <meta property="og:url" content="https://liquangang.github.io/2022/05/13/Q&A/Java/Redis/index.html">
 <meta property="og:site_name" content="静">
-<meta property="og:description" content="Redis是什么？有哪些使用场景Redis简介是一个数据库是一个开源的数据库是一个使用标准C语言编写的数据库是一个使用标准C语言编写的key-value型数据库是一个支持网络、可基于内存、可持久化、提供多种语言API的使用标准c语言编写的key-value型数据库 Redis使用场景1、数据库高并发读写2、海量数据读写3、对拓展性要求高的数据 Redis有哪些功能？1、数据缓存2、分布式锁3、数据">
+<meta property="og:description" content="Redis是什么，有哪些使用场景        是什么 一个开源的、用c语言编写的、支持网络、可基于内存也可持久化的日志型、支持多种语言API的key-value数据库   使用场景 1、数据库高并发读写2、海量数据读写3、多拓展性要求高的数据   redis有哪些功能1、数据缓存2、分布式锁3、数据持久化4、支持事务5、支持消息队列 redis和memoryCache区别    Redis me">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-05-13T08:40:28.000Z">
-<meta property="article:modified_time" content="2022-05-19T13:07:45.546Z">
+<meta property="article:modified_time" content="2022-09-24T07:09:44.298Z">
 <meta property="article:author" content="帝王之心">
 <meta property="article:tag" content="Q&amp;A">
 <meta name="twitter:card" content="summary">
@@ -111,21 +111,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Redis是什么？有哪些使用场景"><a href="#Redis是什么？有哪些使用场景" class="headerlink" title="Redis是什么？有哪些使用场景"></a>Redis是什么？有哪些使用场景</h2><h3 id="Redis简介"><a href="#Redis简介" class="headerlink" title="Redis简介"></a>Redis简介</h3><p>是一个数据库<br>是一个开源的数据库<br>是一个使用标准C语言编写的数据库<br>是一个使用标准C语言编写的key-value型数据库<br>是一个支持网络、可基于内存、可持久化、提供多种语言API的使用标准c语言编写的key-value型数据库</p>
-<h3 id="Redis使用场景"><a href="#Redis使用场景" class="headerlink" title="Redis使用场景"></a>Redis使用场景</h3><p>1、数据库高并发读写<br>2、海量数据读写<br>3、对拓展性要求高的数据</p>
-<h2 id="Redis有哪些功能？"><a href="#Redis有哪些功能？" class="headerlink" title="Redis有哪些功能？"></a>Redis有哪些功能？</h2><p>1、数据缓存<br>2、分布式锁<br>3、数据持久化<br>4、事务<br>5、消息队列</p>
-<h2 id="Redis和memecache有什么区别？"><a href="#Redis和memecache有什么区别？" class="headerlink" title="Redis和memecache有什么区别？"></a>Redis和memecache有什么区别？</h2><table>
+        <h2 id="Redis是什么，有哪些使用场景"><a href="#Redis是什么，有哪些使用场景" class="headerlink" title="Redis是什么，有哪些使用场景"></a>Redis是什么，有哪些使用场景</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>是什么</td>
+<td>一个开源的、用c语言编写的、支持网络、可基于内存也可持久化的日志型、支持多种语言API的key-value数据库</td>
+</tr>
+<tr>
+<td>使用场景</td>
+<td>1、数据库高并发读写<br/>2、海量数据读写<br/>3、多拓展性要求高的数据</td>
+</tr>
+</tbody></table>
+<h2 id="redis有哪些功能"><a href="#redis有哪些功能" class="headerlink" title="redis有哪些功能"></a>redis有哪些功能</h2><p>1、数据缓存<br>2、分布式锁<br>3、数据持久化<br>4、支持事务<br>5、支持消息队列</p>
+<h2 id="redis和memoryCache区别"><a href="#redis和memoryCache区别" class="headerlink" title="redis和memoryCache区别"></a>redis和memoryCache区别</h2><table>
 <thead>
 <tr>
 <th></th>
 <th>Redis</th>
-<th>Memecache</th>
+<th>memoryCache</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>支持数据类型</td>
-<td>支持多种</td>
-<td>只支持简单的字符串</td>
+<td>存储内容区别</td>
+<td>key-value</td>
+<td>简单字符串</td>
 </tr>
 <tr>
 <td>速度</td>
@@ -133,47 +147,51 @@
 <td>慢</td>
 </tr>
 <tr>
-<td>持久化</td>
+<td>是否可以持久化</td>
 <td>可以</td>
-<td>不行</td>
+<td>不可以</td>
 </tr>
 </tbody></table>
-<h2 id="Redis为什么是单线程？"><a href="#Redis为什么是单线程？" class="headerlink" title="Redis为什么是单线程？"></a>Redis为什么是单线程？</h2><p>redis侧重于数据的读写，不侧重数据处理，所以更加依赖内存、硬盘、网络带宽，redis采用单线程方案能实现每秒几十万的并发，所以就采用了单线程方案</p>
-<h2 id="什么是缓存穿透？怎么解决？"><a href="#什么是缓存穿透？怎么解决？" class="headerlink" title="什么是缓存穿透？怎么解决？"></a>什么是缓存穿透？怎么解决？</h2><h3 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h3><p>redis中没有数据A，数据库中也没有数据A，所以在redis中查询数据A时，由于找不到就会到数据库中查询，数据库中也没有，所以每次都会穿透redis去数据库查询，该现象即缓存穿透</p>
-<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>将数据库中的空结果也进行缓存，且设置该空结果的过期时间设置的短一些</p>
-<h2 id="Redis支持的数据类型有哪些"><a href="#Redis支持的数据类型有哪些" class="headerlink" title="Redis支持的数据类型有哪些?"></a>Redis支持的数据类型有哪些?</h2><ul>
-<li>string</li>
-<li>list</li>
-<li>hash</li>
-<li>set</li>
-<li>zset</li>
-</ul>
-<h2 id="Redis支持的java客户端有哪些"><a href="#Redis支持的java客户端有哪些" class="headerlink" title="Redis支持的java客户端有哪些"></a>Redis支持的java客户端有哪些</h2><ul>
-<li>Redisson（官方推荐）</li>
-<li>Jedis</li>
-<li>lettuce</li>
-</ul>
-<h2 id="Jedis和Redisson区别"><a href="#Jedis和Redisson区别" class="headerlink" title="Jedis和Redisson区别"></a>Jedis和Redisson区别</h2><table>
+<h2 id="redis为什么时单线程"><a href="#redis为什么时单线程" class="headerlink" title="redis为什么时单线程"></a>redis为什么时单线程</h2><p>redis性能瓶颈在于内存读写速度、网络带宽等，单线程即可实现每秒几十万请求，所以不需要使用多线程</p>
+<h2 id="什么是缓存穿透，如何解决"><a href="#什么是缓存穿透，如何解决" class="headerlink" title="什么是缓存穿透，如何解决"></a>什么是缓存穿透，如何解决</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>缓存穿透</td>
+<td>redis和数据库中均没有某数据，每次查询redis是，都需要查询数据库，此时即出现缓存穿透</td>
+</tr>
+<tr>
+<td>解决方案</td>
+<td>将空结果也进行缓存，并设置较短的过期时间</td>
+</tr>
+</tbody></table>
+<h2 id="redis支持的数据类型有哪些"><a href="#redis支持的数据类型有哪些" class="headerlink" title="redis支持的数据类型有哪些"></a>redis支持的数据类型有哪些</h2><p>1、string<br>2、list<br>3、hash<br>4、set<br>5、zset（有序集合）</p>
+<h2 id="redis支持的java客户端有哪些"><a href="#redis支持的java客户端有哪些" class="headerlink" title="redis支持的java客户端有哪些"></a>redis支持的java客户端有哪些</h2><p>1、Redission（官方推荐）<br>2、Jedis<br>3、lettuce</p>
+<h2 id="Jedis、Redission区别"><a href="#Jedis、Redission区别" class="headerlink" title="Jedis、Redission区别"></a>Jedis、Redission区别</h2><table>
 <thead>
 <tr>
 <th></th>
 <th>Jedis</th>
-<th>Redisson</th>
+<th>Redission</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>特点</td>
 <td>功能全面</td>
-<td>功能简单，实现了分布式和可拓展特性，设计目的是使redis的使用与业务逻辑进行分离，使使用者更关注在业务逻辑的处理</td>
+<td>功能简单，支持分布式、可拓展，目的是使redis使用与业务分离，使程序员集中在业务逻辑处理上</td>
 </tr>
 <tr>
 <td>功能丰富度</td>
-<td>全面的Redis命令支持</td>
-<td>功能较为简单，不支持字符串操作，不支持排序、事务、管道、分区</td>
+<td>全面支持所有redis命令</td>
+<td>功能简单，不支持字符串操作、排序、事务、管道、分区</td>
 </tr>
 </tbody></table>
-<h2 id="怎么保证缓存和数据库数据的一致性？"><a href="#怎么保证缓存和数据库数据的一致性？" class="headerlink" title="怎么保证缓存和数据库数据的一致性？"></a>怎么保证缓存和数据库数据的一致性？</h2><p>1、合理设置缓存过期时间<br>2、写库操作要同步更新缓存，可使用事务来保证二者数据一致性</p>
-<h2 id="Redis持久化方式？"><a href="#Redis持久化方式？" class="headerlink" title="Redis持久化方式？"></a>Redis持久化方式？</h2><table>
+<h2 id="怎么保证缓存数据库的一致性"><a href="#怎么保证缓存数据库的一致性" class="headerlink" title="怎么保证缓存数据库的一致性"></a>怎么保证缓存数据库的一致性</h2><p>1、合适设置过期时间<br>2、写库操作同步redis</p>
+<h2 id="redis持久化方式"><a href="#redis持久化方式" class="headerlink" title="redis持久化方式"></a>redis持久化方式</h2><table>
 <thead>
 <tr>
 <th>持久化方式</th>
@@ -181,18 +199,18 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>RDB（Redis Database）</td>
-<td>指定的时间间隔内对数据进行快照存储</td>
+<td>RDB</td>
+<td>定时存储数据快照</td>
 </tr>
 <tr>
-<td>AOP（Append Only File）</td>
-<td>每一个写操作都通过write函数写入到文件</td>
+<td>AOP</td>
+<td>写操作通过write函数进行持久化</td>
 </tr>
 </tbody></table>
-<h2 id="Redis怎么实现分布式锁？"><a href="#Redis怎么实现分布式锁？" class="headerlink" title="Redis怎么实现分布式锁？"></a>Redis怎么实现分布式锁？</h2><p>使用setnx(set if not exists)指令占有锁，只允许被一个程序占有锁，使用完之后调用del释放锁</p>
-<h2 id="Redis分布式锁有什么缺陷？"><a href="#Redis分布式锁有什么缺陷？" class="headerlink" title="Redis分布式锁有什么缺陷？"></a>Redis分布式锁有什么缺陷？</h2><p>Redis锁不能解决超时问题，分布式锁有一个超时时间，在超时时间内，程序未完成处理的化，就会出问题</p>
-<h2 id="Redis如何做内存优化？"><a href="#Redis如何做内存优化？" class="headerlink" title="Redis如何做内存优化？"></a>Redis如何做内存优化？</h2><p>尽量使用散列表（hash），散列表使用的内存少</p>
-<h2 id="Redis淘汰策略？"><a href="#Redis淘汰策略？" class="headerlink" title="Redis淘汰策略？"></a>Redis淘汰策略？</h2><table>
+<h2 id="redis如何实现分布式锁"><a href="#redis如何实现分布式锁" class="headerlink" title="redis如何实现分布式锁"></a>redis如何实现分布式锁</h2><p>使用setnx占有锁，且只允许一个程序占有，使用完调用del释放锁</p>
+<h2 id="redis分布式锁缺陷"><a href="#redis分布式锁缺陷" class="headerlink" title="redis分布式锁缺陷"></a>redis分布式锁缺陷</h2><p>redis锁不能解决超时问题，超时时间内未处理完成会出问题</p>
+<h2 id="redis如何做内存优化"><a href="#redis如何做内存优化" class="headerlink" title="redis如何做内存优化"></a>redis如何做内存优化</h2><p>1、尽量使用hash<br>2、使用尽量少的key</p>
+<h2 id="redis淘汰策略"><a href="#redis淘汰策略" class="headerlink" title="redis淘汰策略"></a>redis淘汰策略</h2><table>
 <thead>
 <tr>
 <th>策略</th>
@@ -201,50 +219,50 @@
 </thead>
 <tbody><tr>
 <td>volatile-lru</td>
-<td>从已设置过期时间的数据集中挑选最近最少使用的数据淘汰</td>
+<td>已设置过期时间的数据集中的最近最少使用数据淘汰</td>
 </tr>
 <tr>
 <td>volatile-ttl</td>
-<td>从已设置过期时间的数据集中挑选将要过期的数据淘汰</td>
+<td>已设置过期时间的数据集中将要过期的数据淘汰</td>
 </tr>
 <tr>
 <td>volatile-random</td>
-<td>从已设置过期时间的数据集中挑选任意数据淘汰</td>
+<td>已设置过期时间的数据集中的任意数据淘汰</td>
 </tr>
 <tr>
 <td>allkeys-lru</td>
-<td>从数据集中挑选最近最少使用的数据淘汰</td>
+<td>数据集中最近最少使用的淘汰</td>
 </tr>
 <tr>
 <td>allkeys-random</td>
-<td>从数据集中挑选任意数据集淘汰</td>
+<td>数据集中任意数据淘汰</td>
 </tr>
 <tr>
 <td>no-enviction</td>
-<td>禁止淘汰（驱逐）数据</td>
+<td>禁止驱逐数据</td>
 </tr>
 </tbody></table>
-<h2 id="Redis常见的性能问题有哪些？该如何解决"><a href="#Redis常见的性能问题有哪些？该如何解决" class="headerlink" title="Redis常见的性能问题有哪些？该如何解决?"></a>Redis常见的性能问题有哪些？该如何解决?</h2><table>
+<h2 id="redis常见性能问题？如何解决"><a href="#redis常见性能问题？如何解决" class="headerlink" title="redis常见性能问题？如何解决"></a>redis常见性能问题？如何解决</h2><table>
 <thead>
 <tr>
-<th>性能问题</th>
+<th>问题</th>
 <th>解决方案</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>主服务器写大内存快照，会阻塞Redis主线程工作，出现间断性暂停服务</td>
-<td>主服务器最好不要写内存快照</td>
+<td>主服务写大内存快照如果需要较多时间时，会阻塞其他工作</td>
+<td>避免写大内存快照</td>
 </tr>
 <tr>
-<td>主从复制性能问题</td>
-<td>为了主从复制的速度和稳定性，主从节点最好在同一个局域网内</td>
+<td>redis中从复制性能问题</td>
+<td>最好在同一局域网内</td>
 </tr>
 </tbody></table>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/13/Q&A/Java/Redis/" data-id="cl4qypj3s003lzxd4d2tcayg2" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/13/Q&A/Java/Redis/" data-id="cl8fktjww0056o0d48kq458y9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -283,7 +301,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/">Q&A</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/codeStyle/">codeStyle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">mac使用技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BD%BF%E7%94%A8/">区块链使用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%BA%94%E7%94%A8/">工具应用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E8%84%9A%E6%9C%AC/">工具脚本</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%84%E4%BB%B6/">组件</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/">Q&A</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/Q-A-algorithm/">Q&A-algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/codeStyle/">codeStyle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">mac使用技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BD%BF%E7%94%A8/">区块链使用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%BA%94%E7%94%A8/">工具应用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E8%84%9A%E6%9C%AC/">工具脚本</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%84%E4%BB%B6/">组件</a></li></ul>
     </div>
   </div>
 
@@ -303,7 +321,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Q-A/" style="font-size: 16.67px;">Q&A</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 10px;">区块链</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13.33px;">博客搭建</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">电脑使用技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 20px;">编程</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">脚本工具</a>
+      <a href="/tags/Q-A/" style="font-size: 20px;">Q&A</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 10px;">区块链</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13.33px;">博客搭建</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">电脑使用技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 16.67px;">编程</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">脚本工具</a>
     </div>
   </div>
 
@@ -312,7 +330,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li></ul>
     </div>
   </div>
 
@@ -325,23 +343,23 @@
       <ul>
         
           <li>
-            <a href="/2022/06/14/module/MySql/">MySql</a>
+            <a href="/2022/08/30/Q&A/algorithm/%E7%88%AC%E6%A5%BC%E6%A2%AF/">爬楼梯</a>
           </li>
         
           <li>
-            <a href="/2022/05/19/Q&A/Java/JavaQAList/">JavaQAList</a>
+            <a href="/2022/08/30/Q&A/algorithm/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0/">斐波那契数</a>
           </li>
         
           <li>
-            <a href="/2022/05/19/Q&A/Java/Java%E5%9F%BA%E7%A1%80/">Java基础</a>
+            <a href="/2022/08/29/Q&A/algorithm/%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/">岛屿数量</a>
           </li>
         
           <li>
-            <a href="/2022/05/13/Q&A/Java/Redis/">Redis</a>
+            <a href="/2022/08/29/Q&A/algorithm/%E5%9B%BE%E5%83%8F%E6%B8%B2%E6%9F%93/">图像渲染</a>
           </li>
         
           <li>
-            <a href="/2022/05/11/Q&A/Java/MySql/">MySql</a>
+            <a href="/2022/08/26/Q&A/algorithm/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/">二叉搜索树的最近公共祖先</a>
           </li>
         
       </ul>

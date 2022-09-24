@@ -7,15 +7,15 @@
   
   <title>设计模式 | 静</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="说一下你熟悉的设计模式？参考文章 参考文章  设计模式介绍创建型模式   设计模式名称 简介 优点 缺点 应用场景    抽象工厂模式 创建一系列对象时，无需指定具体类，工厂方法模式的改良 同一工厂生产的产品互相匹配；避免与某一具体产品的耦合；符合单一职责原则，代码易于维护；符合开闭原则，增加新产品变体时无需修改代码 需要编写的类较多，代码复杂度较高 同一类对象，但是表现不同时，比如同一个butt">
+  <meta name="description" content="说几个熟悉的设计模式   设计模式 简介 优点 缺点 使用场景    单例模式 在应用的生命周期中，一个类有且仅有一个实例 全局访问方便 容易造成耦合度高，多线程环境容易出现问题 需要全局访问的变量   观察者模式 当一个对象变化时，观察该对象的对象会收到通知 新订阅对象不会影响被订阅对象 通知是随机顺序，无先后 当某个对象有一个状态需要被监听时   工厂模式 父类提供实例化方法，子类决定实例化类">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式">
 <meta property="og:url" content="https://liquangang.github.io/2022/04/14/Q&A/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="静">
-<meta property="og:description" content="说一下你熟悉的设计模式？参考文章 参考文章  设计模式介绍创建型模式   设计模式名称 简介 优点 缺点 应用场景    抽象工厂模式 创建一系列对象时，无需指定具体类，工厂方法模式的改良 同一工厂生产的产品互相匹配；避免与某一具体产品的耦合；符合单一职责原则，代码易于维护；符合开闭原则，增加新产品变体时无需修改代码 需要编写的类较多，代码复杂度较高 同一类对象，但是表现不同时，比如同一个butt">
+<meta property="og:description" content="说几个熟悉的设计模式   设计模式 简介 优点 缺点 使用场景    单例模式 在应用的生命周期中，一个类有且仅有一个实例 全局访问方便 容易造成耦合度高，多线程环境容易出现问题 需要全局访问的变量   观察者模式 当一个对象变化时，观察该对象的对象会收到通知 新订阅对象不会影响被订阅对象 通知是随机顺序，无先后 当某个对象有一个状态需要被监听时   工厂模式 父类提供实例化方法，子类决定实例化类">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-14T08:46:21.000Z">
-<meta property="article:modified_time" content="2022-05-19T13:07:45.555Z">
+<meta property="article:modified_time" content="2022-09-24T07:09:44.302Z">
 <meta property="article:author" content="帝王之心">
 <meta property="article:tag" content="Q&amp;A">
 <meta name="twitter:card" content="summary">
@@ -111,207 +111,78 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="说一下你熟悉的设计模式？"><a href="#说一下你熟悉的设计模式？" class="headerlink" title="说一下你熟悉的设计模式？"></a>说一下你熟悉的设计模式？</h2><h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://refactoringguru.cn/design-patterns/java">参考文章</a></li>
-</ul>
-<h3 id="设计模式介绍"><a href="#设计模式介绍" class="headerlink" title="设计模式介绍"></a>设计模式介绍</h3><h4 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a>创建型模式</h4><table>
+        <h2 id="说几个熟悉的设计模式"><a href="#说几个熟悉的设计模式" class="headerlink" title="说几个熟悉的设计模式"></a>说几个熟悉的设计模式</h2><table>
 <thead>
 <tr>
-<th>设计模式名称</th>
+<th>设计模式</th>
 <th>简介</th>
 <th>优点</th>
 <th>缺点</th>
-<th>应用场景</th>
+<th>使用场景</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>抽象工厂模式</td>
-<td>创建一系列对象时，无需指定具体类，工厂方法模式的改良</td>
-<td>同一工厂生产的产品互相匹配；避免与某一具体产品的耦合；符合单一职责原则，代码易于维护；符合开闭原则，增加新产品变体时无需修改代码</td>
-<td>需要编写的类较多，代码复杂度较高</td>
-<td>同一类对象，但是表现不同时，比如同一个button，在不同系统上不一样</td>
-</tr>
-<tr>
-<td>生成器模式</td>
-<td>能够分步骤创建对象，该模式允许使用相同代码创建不同类型和形式的对象，是工厂方法模式的改良</td>
-<td>可以分布创建对象，可以暂缓创建或者递归创建；生成不同对象也可以复用部分创建代码；符合单一职责原则，可以从业务逻辑中抽离创建部分</td>
-<td>需要创建多个类，代码复杂度提升</td>
-<td>适合构造具有众多参数的复杂对象，避免构造函数重叠</td>
-</tr>
-<tr>
-<td>工厂方法模式</td>
-<td>父类中提供创建对象方法，子类决定实例化对象类型</td>
-<td>降低耦合；单一职责原则，只负责创建；开闭原则，拓展新产品容易</td>
-<td>代码复杂度提高</td>
-<td>无法预知对象具体类型及其依赖关系时；给他人提供拓展能力；复用现有对象节省资源</td>
-</tr>
-<tr>
-<td>原型模式</td>
-<td>复制已有对象，而无需使代码依赖他们所属的类</td>
-<td>耦合度低；可以克隆预生成模型，避免反复初始化；更方便生成复杂对象；可以处理复杂对象的不同配置</td>
-<td>如果有循环引用的话，会比较麻烦</td>
-<td>复制对象，但代码独立于被复制对象所属类；提供一堆原型，方便其他逻辑进行克隆时</td>
-</tr>
-<tr>
 <td>单例模式</td>
-<td>一个类只有一个实例</td>
-<td>一个类只有一个实例：全局访问方便；仅初始化创建一次</td>
-<td>违反了单一职责原则；可能会导致不同部分耦合度较大；多线程环境容易出现问题</td>
-<td>某个类只需要一个可用实例即可；控制全局变量</td>
-</tr>
-</tbody></table>
-<h4 id="结构型模式"><a href="#结构型模式" class="headerlink" title="结构型模式"></a>结构型模式</h4><table>
-<thead>
-<tr>
-<th>设计模式名称</th>
-<th>简介</th>
-<th>优点</th>
-<th>缺点</th>
-<th>应用场景</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>适配器模式</td>
-<td>使接口不兼容的对象能够互相协作，实现方式就是在中间做一层转化</td>
-<td>单一职责原则，中间层与其他部分没有耦合；开闭原则，不影响其他适配器、两头的逻辑</td>
-<td>代码复杂度增加</td>
-<td>接口不兼容时</td>
-</tr>
-<tr>
-<td>桥接模式</td>
-<td>将一个大类或一系列紧密相关的类拆分成抽象和实现两个层次，从而实现分别使用</td>
-<td>开闭原则，新增部分对原有没有影响；单一职责原则，抽象部分负责定义功能，实现部分负责功能实现</td>
-<td>不适合高内聚的类，使用该模式会使其更加复杂</td>
-<td>拆分功能复杂的类；拓展类功能；运行时切换不同实现方法</td>
-</tr>
-<tr>
-<td>组合模式</td>
-<td>使用该模式可以将对象组合成树状结构，该方式就是定义一个功能接口，然后希望具备这些功能的就实现一下</td>
-<td>利用多态和递归可以方便的使用复杂树结构；开闭原则，无需更改已有代码</td>
-<td>对于功能差异较大额类，实现某些接口难度较高</td>
-<td>希望不同类型的类，有相同功能</td>
-</tr>
-<tr>
-<td>装饰模式</td>
-<td>允许通过将对象放入包含行为的特殊封装对象中来为原始对象提供新功能，由接口、原始类、装饰基类、装饰实现类</td>
-<td>无需创建子类即可扩充功能；可以在运行时添加删除对象功能；单一职责原则，每个装饰类可以只实现一小部分功能</td>
-<td>代码复杂度提升</td>
-<td>无需修改某个类即可为其增加功能；替代继承方式给对象增加功能</td>
-</tr>
-<tr>
-<td>外观模式</td>
-<td>能为复杂模块提供简单接口</td>
-<td>让自己的代码独立于复杂子系统</td>
-<td>耦合度提高</td>
-<td>需要使用复杂模块的一个简单功能；需要将子系统组织成多层结构</td>
-</tr>
-<tr>
-<td>享元模式</td>
-<td>共享多个对象的所共有的相同状态，让内存中可以载入更多对象，即众多对象引用了众多相同对象</td>
-<td>节约内存</td>
-<td>代码复杂度高</td>
-<td>程序需要大量对象且内存吃紧</td>
-</tr>
-<tr>
-<td>代理模式</td>
-<td>提供对象的替代品，通过代理对对象进行控制访问处理</td>
-<td>开闭原则，原始代码无需修改；原始代码运行无影响</td>
-<td>代码复杂度提升</td>
-<td>虚拟代理、保护代理、远程代理、日志代理、缓存代理等</td>
-</tr>
-</tbody></table>
-<h4 id="行为模式"><a href="#行为模式" class="headerlink" title="行为模式"></a>行为模式</h4><table>
-<thead>
-<tr>
-<th>设计模式名称</th>
-<th>简介</th>
-<th>优点</th>
-<th>缺点</th>
-<th>应用场景</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>责任链模式</td>
-<td>允许将请求沿着处理者链进行发送，每个处理者都可以处理或者发送给下一个处理者</td>
-<td>可以控制处理顺序； <br />单一这则原则，每个处理者的工作内容可以隔离以解耦；<br />开闭原则，新的处理者不影响已有处理者</td>
-<td>部分请求可能未被处理</td>
-<td>程序需要使用不同方式处理不同类型的请求，并且不知道这些请求的顺序时；<br />当一个事务需要多个处理者时；所需处理者和顺序在运行时会改变时</td>
-</tr>
-<tr>
-<td>迭代器模式</td>
-<td>能够在不知道集合底层数据结构（列表、栈、树）的情况下，对集合进行遍历</td>
-<td>单一职责原则，迭代类与其他业务代码没有没有耦合；<br />开闭原则，新增集合和迭代器时，不需要更改已有代码；<br />可以方便的控制遍历状态</td>
-<td>不适合简单遍历；<br />对于某些特殊集合，简单遍历会比迭代器遍历效率更高</td>
-<td>当需要隐藏集合复杂性或者保证安全性时；<br />需要减少重复遍历代码时；<br />希望遍历不同的甚至无法预知的数据结构时</td>
-</tr>
-<tr>
-<td>备忘录模式</td>
-<td>允许在不暴露对象细节的情况下保存和回复对象状态</td>
-<td>在不破坏对象封装的前提下，创建对象快照；<br />原发器状态记录维护的好的话，可以简化原发器代码</td>
-<td>备忘录多会消耗更多内存；<br />负责人必须跟踪完整的原发器生命周期才能正确销毁弃用的备忘录；<br />大部分动态编程语言（PHP、Python等）不能保证备忘录状态不被修改</td>
-<td>当需要创建对象状态快照来回复对象之前的状态时；<br />当访问对象会导致封装被突破时</td>
-</tr>
-<tr>
-<td>状态模式</td>
-<td>对象内部状态变化时能改变其行为，看上去就像是对象所属类发生变化一样</td>
-<td>单一职责原则，特定状态的代码在特定类中；<br />开闭原则，新增状态不影响已有状态；<br />可以消除臃肿的条件语句</td>
-<td>不适合状态机比较少的情况</td>
-<td>对象在不同状态下有不同行为，同时状态多且频繁切换；<br />当相似状态和机遇条件的状态机转换中存在许多重复代码时</td>
-</tr>
-<tr>
-<td>模板方法模式</td>
-<td>超类中定义算法框架，子类在框架下可以重写算法的特定步骤</td>
-<td>允许重写算法的某个部分；<br />可以将重复的算法步骤整合到超类中</td>
-<td>维护困难；<br />如果子类抑制父类默认步骤，会违反里式替换原则（子类可拓展父类功能，但不能替换父类原有功能）</td>
-<td>只调整算法的某个特定步骤时；<br />多个算法只有细微之处不一样时</td>
-</tr>
-<tr>
-<td>命令模式</td>
-<td>可以将请求装换为一个包含请求信息的独立对象·，然后利用该对象可以实现各种操作</td>
-<td>单一职责原则，解耦触发和执行的代码；<br />开闭原则，不修改客户端代码的情况下创建新的命令；<br />可以实现操作的撤销、恢复、延迟执行、组合等需求</td>
-<td>代码复杂度增加</td>
-<td>通过操作来参数化对象；<br />将操作进行队列化管理、远程执行等擦搜做时；<br />实现操作回滚功能</td>
-</tr>
-<tr>
-<td>中介者模式</td>
-<td>使用中介者将对象之间的合作进行管理</td>
-<td>单一职责原则，可以将耦合关系集中到中介者当中；<br />开闭原则，无需更改组建即可增加新中中介者；<br />减轻耦合；<br />更方便的复用组件</td>
-<td>随着中介者内部逻辑的增多，可能会变得难以管理且功能过多</td>
-<td>当一些对象与其他对象紧密结合以至难以修改时；<br />当某个对象由于与其他对象耦合度过高导致无法复用时；<br />替代一些仅具备简单功能的子类</td>
+<td>在应用的生命周期中，一个类有且仅有一个实例</td>
+<td>全局访问方便</td>
+<td>容易造成耦合度高，多线程环境容易出现问题</td>
+<td>需要全局访问的变量</td>
 </tr>
 <tr>
 <td>观察者模式</td>
-<td>定义一种订阅机制，当被订阅的内容发生变化时，会通知订阅该内容的对象</td>
-<td>开闭原则，新订阅类不影响被订阅类；<br />在运行时建立对象之间的联系</td>
-<td>订阅者通知顺序时随机的</td>
-<td>当一个对象的某些行为需要收到监控时；<br />当某些逻辑需要依赖某个对象的一些内容的变化时</td>
+<td>当一个对象变化时，观察该对象的对象会收到通知</td>
+<td>新订阅对象不会影响被订阅对象</td>
+<td>通知是随机顺序，无先后</td>
+<td>当某个对象有一个状态需要被监听时</td>
 </tr>
 <tr>
-<td>策略模式</td>
-<td>定义一系列算法，并将其放入独立的类中，以使算法的对象可以相互替换</td>
-<td>可以在运行时切换算法；<br />可以将算法的实现与使用剥离开；<br />可以使用组合代替继承；<br />开闭原则，新增策略不需要修改原有策略</td>
-<td>不适合算法不变的情况；<br />代码复杂度提升</td>
-<td>类中有多个算法变体，并能够在运行时切换算法时；<br />有许多尽在执行某些行为时略有不同的相似类时；<br />算法在上下文的实现中不失特别重要，可以使用该模式剥离业务逻辑与算法；<br />当类中使用了复杂的条件运算符以在同一算法的不同变体中切换时</td>
+<td>工厂模式</td>
+<td>父类提供实例化方法，子类决定实例化类型</td>
+<td>代码复用度高，增加新类型简单</td>
+<td>代码复杂度高</td>
+<td>不清楚需要创建的对象类型时，需要复用部分对象类型时</td>
 </tr>
 <tr>
-<td>访问者模式</td>
-<td>将算法与访问者隔离开</td>
-<td>开闭原则，不影响已有行为；<br />单一职责原则，可以将同一行为的不用版本放到同一个类中；<br />访问者对象可以在访问时可以收集一些有用的信息</td>
-<td>每次在元素层次中添加或者移除时一个类时，都需要更新所有访问者；<br />访问者可能无法访问对象的私有变量、方法</td>
-<td>对一个复杂对象结构的所有元素进行访问时；<br />清理辅助行为的业务逻辑；<br />当某个行为仅在类层次结构中有意义，在其他类中没有意义时</td>
+<td>代理模式</td>
+<td>提供对象替代品，通过代理实现对对象的访问控制</td>
+<td>被代理对象无需任何修改</td>
+<td>代码复杂度有提升</td>
+<td>在不修改对象的前提下，对其功能增加功能</td>
 </tr>
 </tbody></table>
-<h2 id="简单工厂和抽象工厂有什么区别？"><a href="#简单工厂和抽象工厂有什么区别？" class="headerlink" title="简单工厂和抽象工厂有什么区别？"></a>简单工厂和抽象工厂有什么区别？</h2><h3 id="三种模式介绍："><a href="#三种模式介绍：" class="headerlink" title="三种模式介绍："></a>三种模式介绍：</h3><ul>
-<li>工厂模式；有实体类、创建对应实体的工厂类（一个实体类对应一个工厂类）组成，当增加新实体时，需要增加新的实体类和新的该实体类对应的工厂类即可</li>
-<li>简单工厂模式：由实体类和一个工厂类组成，当新增实体类时，需要增加一个实体类，并且在唯一的工厂类里面进行修改，增加新实体的创建逻辑</li>
-<li>抽象工厂模式：将一个产品进行更细致的划分，将该产品的共同点抽象成一个类，然后其细分特点单独实现实体类，且实现该实体类对应的工厂类<h3 id="三者特点"><a href="#三者特点" class="headerlink" title="三者特点"></a>三者特点</h3></li>
-<li>常用简单工厂模式，工厂模式代码量较大，抽象工厂模式适合业务复杂、较大的情况</li>
-</ul>
+<h2 id="简单工厂、抽象工厂区别"><a href="#简单工厂、抽象工厂区别" class="headerlink" title="简单工厂、抽象工厂区别"></a>简单工厂、抽象工厂区别</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>工厂模式</th>
+<th>简单工厂模式</th>
+<th>抽象工厂模式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>简介</td>
+<td>由工厂类、实体类构成，增加新实体时，需要增加新的实体类和新的工厂类</td>
+<td>由工厂类、实体类组成，增加新实体时，需要增加一个新实体类，并在唯一工厂类里面增加新实体创建逻辑即可</td>
+<td>由工厂类、抽象类、实体类构成，增加新实体时需要根据情况增加三者，可能抽象类不需要新增</td>
+</tr>
+<tr>
+<td>使用场景</td>
+<td>适合简单和稍微复杂场景</td>
+<td>适合简单场景</td>
+<td>适合复杂场景</td>
+</tr>
+<tr>
+<td>特点</td>
+<td>比较均衡</td>
+<td>偏向简单，实现简单，使用简单</td>
+<td>细节更丰富，划分更细致，适合更复杂的情况</td>
+</tr>
+</tbody></table>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/14/Q&A/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-id="cl4qypj41004ozxd47qs9bm32" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/04/14/Q&A/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-id="cl8fktjxs009to0d44bjqh0tu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -350,7 +221,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/">Q&A</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/codeStyle/">codeStyle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">mac使用技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BD%BF%E7%94%A8/">区块链使用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%BA%94%E7%94%A8/">工具应用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E8%84%9A%E6%9C%AC/">工具脚本</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%84%E4%BB%B6/">组件</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/">Q&A</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/Q-A-algorithm/">Q&A-algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/codeStyle/">codeStyle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">mac使用技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BD%BF%E7%94%A8/">区块链使用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%BA%94%E7%94%A8/">工具应用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E8%84%9A%E6%9C%AC/">工具脚本</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%84%E4%BB%B6/">组件</a></li></ul>
     </div>
   </div>
 
@@ -370,7 +241,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Q-A/" style="font-size: 16.67px;">Q&A</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 10px;">区块链</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13.33px;">博客搭建</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">电脑使用技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 20px;">编程</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">脚本工具</a>
+      <a href="/tags/Q-A/" style="font-size: 20px;">Q&A</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 10px;">区块链</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13.33px;">博客搭建</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">电脑使用技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 16.67px;">编程</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">脚本工具</a>
     </div>
   </div>
 
@@ -379,7 +250,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li></ul>
     </div>
   </div>
 
@@ -392,23 +263,23 @@
       <ul>
         
           <li>
-            <a href="/2022/06/14/module/MySql/">MySql</a>
+            <a href="/2022/08/30/Q&A/algorithm/%E7%88%AC%E6%A5%BC%E6%A2%AF/">爬楼梯</a>
           </li>
         
           <li>
-            <a href="/2022/05/19/Q&A/Java/JavaQAList/">JavaQAList</a>
+            <a href="/2022/08/30/Q&A/algorithm/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0/">斐波那契数</a>
           </li>
         
           <li>
-            <a href="/2022/05/19/Q&A/Java/Java%E5%9F%BA%E7%A1%80/">Java基础</a>
+            <a href="/2022/08/29/Q&A/algorithm/%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/">岛屿数量</a>
           </li>
         
           <li>
-            <a href="/2022/05/13/Q&A/Java/Redis/">Redis</a>
+            <a href="/2022/08/29/Q&A/algorithm/%E5%9B%BE%E5%83%8F%E6%B8%B2%E6%9F%93/">图像渲染</a>
           </li>
         
           <li>
-            <a href="/2022/05/11/Q&A/Java/MySql/">MySql</a>
+            <a href="/2022/08/26/Q&A/algorithm/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/">二叉搜索树的最近公共祖先</a>
           </li>
         
       </ul>

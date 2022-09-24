@@ -7,15 +7,15 @@
   
   <title>MyBatis | 静</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="mybatis 中 #{}和 ${}的区别是什么？    #{} ${}    作用 预处理 字符串替换   处理流程 Mybatis会先将#{}替换成？，然后调用PreparedStatement中的set方法来赋值 将${}替换成变量的值   特点 可以有效防止sql注入，提高系统安全性    mybatis 有几种分页方式？1、数组分页2、sql分页3、拦截器分页4、RowBounds分页">
+  <meta name="description" content="Mybatis中#{}、${}区别    #{} ${}    作用 预处理 字符串替换   内部流程 先将#{}替换成？，然后调用PreparedStatement的set方法复制 将${}替换成变量的值   特点 防止sql注入，提升系统安全性    MyBatis有几种分页方式1、数组分页2、sql分页3、拦截器分页4、RowBounds分页 Mybatis逻辑分页、物理分页区别    逻辑">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MyBatis">
 <meta property="og:url" content="https://liquangang.github.io/2022/04/27/Q&A/Java/MyBatis/index.html">
 <meta property="og:site_name" content="静">
-<meta property="og:description" content="mybatis 中 #{}和 ${}的区别是什么？    #{} ${}    作用 预处理 字符串替换   处理流程 Mybatis会先将#{}替换成？，然后调用PreparedStatement中的set方法来赋值 将${}替换成变量的值   特点 可以有效防止sql注入，提高系统安全性    mybatis 有几种分页方式？1、数组分页2、sql分页3、拦截器分页4、RowBounds分页">
+<meta property="og:description" content="Mybatis中#{}、${}区别    #{} ${}    作用 预处理 字符串替换   内部流程 先将#{}替换成？，然后调用PreparedStatement的set方法复制 将${}替换成变量的值   特点 防止sql注入，提升系统安全性    MyBatis有几种分页方式1、数组分页2、sql分页3、拦截器分页4、RowBounds分页 Mybatis逻辑分页、物理分页区别    逻辑">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-27T07:25:07.000Z">
-<meta property="article:modified_time" content="2022-05-19T13:07:45.542Z">
+<meta property="article:modified_time" content="2022-09-24T07:09:44.297Z">
 <meta property="article:author" content="帝王之心">
 <meta property="article:tag" content="Q&amp;A">
 <meta name="twitter:card" content="summary">
@@ -111,7 +111,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="mybatis-中-和-的区别是什么？"><a href="#mybatis-中-和-的区别是什么？" class="headerlink" title="mybatis 中 #{}和 ${}的区别是什么？"></a>mybatis 中 #{}和 ${}的区别是什么？</h2><table>
+        <h2 id="Mybatis中-、-区别"><a href="#Mybatis中-、-区别" class="headerlink" title="Mybatis中#{}、${}区别"></a>Mybatis中#{}、${}区别</h2><table>
 <thead>
 <tr>
 <th></th>
@@ -125,18 +125,18 @@
 <td>字符串替换</td>
 </tr>
 <tr>
-<td>处理流程</td>
-<td>Mybatis会先将#{}替换成？，然后调用PreparedStatement中的set方法来赋值</td>
+<td>内部流程</td>
+<td>先将#{}替换成？，然后调用PreparedStatement的set方法复制</td>
 <td>将${}替换成变量的值</td>
 </tr>
 <tr>
 <td>特点</td>
-<td>可以有效防止sql注入，提高系统安全性</td>
+<td>防止sql注入，提升系统安全性</td>
 <td></td>
 </tr>
 </tbody></table>
-<h2 id="mybatis-有几种分页方式？"><a href="#mybatis-有几种分页方式？" class="headerlink" title="mybatis 有几种分页方式？"></a>mybatis 有几种分页方式？</h2><p>1、数组分页<br>2、sql分页<br>3、拦截器分页<br>4、RowBounds分页</p>
-<h2 id="mybatis-逻辑分页和物理分页的区别是什么？"><a href="#mybatis-逻辑分页和物理分页的区别是什么？" class="headerlink" title="mybatis 逻辑分页和物理分页的区别是什么？"></a>mybatis 逻辑分页和物理分页的区别是什么？</h2><table>
+<h2 id="MyBatis有几种分页方式"><a href="#MyBatis有几种分页方式" class="headerlink" title="MyBatis有几种分页方式"></a>MyBatis有几种分页方式</h2><p>1、数组分页<br>2、sql分页<br>3、拦截器分页<br>4、RowBounds分页</p>
+<h2 id="Mybatis逻辑分页、物理分页区别"><a href="#Mybatis逻辑分页、物理分页区别" class="headerlink" title="Mybatis逻辑分页、物理分页区别"></a>Mybatis逻辑分页、物理分页区别</h2><table>
 <thead>
 <tr>
 <th></th>
@@ -145,42 +145,57 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>实现位置</td>
-<td>主要靠代码来分页，从表中读取全量数据，用代码分页，依赖于代码实现</td>
-<td>直接使用可以分页的sql语句完成，依赖于sql语句实现</td>
+<td>实现</td>
+<td>全量读取，代码分页</td>
+<td>sql语句包含读取和分页操作</td>
 </tr>
 <tr>
-<td>访问数据库次数</td>
-<td>访问一次即可完成分页</td>
-<td>没获取一页数据都需要访问数据库</td>
+<td>访问次数</td>
+<td>读取一次即可获得所有分页</td>
+<td>获取每页数据都需要读取数据库</td>
 </tr>
 <tr>
 <td>资源占用</td>
-<td>内存占用大</td>
+<td>内存压力大</td>
 <td>数据库压力大</td>
 </tr>
 <tr>
 <td>速度</td>
-<td>不一定谁快</td>
+<td>伯仲之间</td>
 <td></td>
 </tr>
 <tr>
 <td>实时性</td>
-<td>只读取一次，读取之后的变化无法提现</td>
-<td>实时读取一页，实时性高</td>
+<td>较差，只读取一次</td>
+<td>实时读取，实时性高</td>
 </tr>
 <tr>
 <td>如何选择</td>
-<td>逻辑分页速度上优势，但是物理分页在其他方面的优势更明显，建议物理分页</td>
+<td>默认建议使用物理分页，如果需要一次性获取所有分页，可以使用逻辑分页</td>
 <td></td>
 </tr>
 </tbody></table>
-<h2 id="mybatis-是否支持延迟加载？延迟加载的原理是什么？"><a href="#mybatis-是否支持延迟加载？延迟加载的原理是什么？" class="headerlink" title="mybatis 是否支持延迟加载？延迟加载的原理是什么？"></a>mybatis 是否支持延迟加载？延迟加载的原理是什么？</h2><ul>
-<li>仅支持association对象（查询结果中包含一对一类型，比如人员包含身份证信息这种）和collection对象（查询结果中包含一对多类型，比如人员的房子这个，一个人可能有多套房子）</li>
-<li>打开方式：在配置文件中配置lazyLoadingEnabled=true|false</li>
-<li>懒加载原理：在get方法中判断对象为空时，去构造</li>
-</ul>
-<h2 id="说一下-mybatis-的一级缓存和二级缓存？"><a href="#说一下-mybatis-的一级缓存和二级缓存？" class="headerlink" title="说一下 mybatis 的一级缓存和二级缓存？"></a>说一下 mybatis 的一级缓存和二级缓存？</h2><table>
+<h2 id="Mybatis是否支持延迟加载，延迟加载原理是什么"><a href="#Mybatis是否支持延迟加载，延迟加载原理是什么" class="headerlink" title="Mybatis是否支持延迟加载，延迟加载原理是什么"></a>Mybatis是否支持延迟加载，延迟加载原理是什么</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>是否支持</td>
+<td>部分支持，仅支持association对象（一对一，比如人员身份信息）和collection对象（一对多，人员拥有的房产）</td>
+</tr>
+<tr>
+<td>打开懒加载功能</td>
+<td>配置文件中配置即可</td>
+</tr>
+<tr>
+<td>懒加载原理</td>
+<td>get时判断对象为null，就创建对象</td>
+</tr>
+</tbody></table>
+<h2 id="Mybatis的一级、二级缓存"><a href="#Mybatis的一级、二级缓存" class="headerlink" title="Mybatis的一级、二级缓存"></a>Mybatis的一级、二级缓存</h2><table>
 <thead>
 <tr>
 <th></th>
@@ -189,46 +204,46 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>简介</td>
-<td>基于PerpetualCache的HashMap本地缓存</td>
-<td>基于PerpetualCache的HashMap实现，也可以使用外部存储资源，比如Ehcache，redis</td>
+<td>实现</td>
+<td>基于hashmap</td>
+<td>基于hashmap，也可以使用其他存储源，比如redis</td>
 </tr>
 <tr>
-<td>存储作用域</td>
-<td>作用域session，当session flush或者close之后，该session中的cache就会清空</td>
-<td>Mapper（namSpace）</td>
+<td>作用域</td>
+<td>session</td>
+<td>Mapper（nameSpace）</td>
 </tr>
 <tr>
-<td>默认状态</td>
-<td>默认代开</td>
-<td>默认不打开</td>
+<td>默认是否开启</td>
+<td>默认开启</td>
+<td>默认不开启，使用二级缓存的属性类需要实现序列化接口</td>
 </tr>
 </tbody></table>
-<h2 id="mybatis-和-hibernate-的区别有哪些？"><a href="#mybatis-和-hibernate-的区别有哪些？" class="headerlink" title="mybatis 和 hibernate 的区别有哪些？"></a>mybatis 和 hibernate 的区别有哪些？</h2><table>
+<h2 id="Mybatis、hibernate区别"><a href="#Mybatis、hibernate区别" class="headerlink" title="Mybatis、hibernate区别"></a>Mybatis、hibernate区别</h2><table>
 <thead>
 <tr>
 <th></th>
-<th>mybatis</th>
-<th>Hibernate</th>
+<th>Mybatis</th>
+<th>hibernate</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>相同点</td>
-<td>都是ORM（对象关系映射）框架</td>
+<td>都是ORM框架</td>
 <td></td>
 </tr>
 <tr>
-<td>是否需要开发者编写sql语句</td>
+<td>是否需要开发者编写sql</td>
 <td>需要，半自动框架</td>
 <td>不需要，全自动框架</td>
 </tr>
 <tr>
 <td>适合场景</td>
-<td>直接编写原生sql，灵活度高，可以更好的控制sql执行性能，适合对关系数据库模型要求不高、需求变化频繁的软件开发</td>
-<td>Hibernate对象/关系映射能力强，数据库无关性好，对于关系模型要求高的软件，可以使用Hibernate，可以节省很多代码，提高效率</td>
+<td>适合关系数据模型较弱，场景灵活程度高，需求变动大，频繁更改sql的场景</td>
+<td>适合关系数据模型强，数据库无关性好的场景</td>
 </tr>
 </tbody></table>
-<h2 id="mybatis-有哪些执行器（Executor）？"><a href="#mybatis-有哪些执行器（Executor）？" class="headerlink" title="mybatis 有哪些执行器（Executor）？"></a>mybatis 有哪些执行器（Executor）？</h2><table>
+<h2 id="Mybatis有哪些执行器"><a href="#Mybatis有哪些执行器" class="headerlink" title="Mybatis有哪些执行器"></a>Mybatis有哪些执行器</h2><table>
 <thead>
 <tr>
 <th>执行器</th>
@@ -237,49 +252,19 @@
 </thead>
 <tbody><tr>
 <td>SimpleExecutor</td>
-<td>每执行一次update或者select，就产生一个statement对象，用完立即销毁</td>
+<td>每执行一次update、select，就生成一个statement，用完销毁</td>
 </tr>
 <tr>
 <td>ReuseExecutor</td>
-<td>有一个重复使用Map，key时sql，value是可以重复使用的statement，存在就使用，不存在才会创建</td>
+<td>会重复使用statement，会将statement保存到map中，key是sql语句，不存在就创建statement</td>
 </tr>
 <tr>
 <td>BatchExecutor</td>
-<td>会缓存多个statement对象，然后统一执行，批处理不支持select，原因是JDBC不支持批处理select</td>
+<td>缓存多个statement，并统一执行，不支持select，因为jdbc不支持批处理select</td>
 </tr>
 </tbody></table>
-<h2 id="mybatis-分页插件的实现原理是什么"><a href="#mybatis-分页插件的实现原理是什么" class="headerlink" title="mybatis 分页插件的实现原理是什么"></a>mybatis 分页插件的实现原理是什么</h2><ul>
-<li>简介：使用mybatis提供的插件接口，通过自定义插件实现分页</li>
-<li>具体流程：在插件的拦截方法内拦截sql，对sql进行修改，根据dialect添加对应的物理分页参数和物理分页语句</li>
-</ul>
-<h2 id="mybatis-如何编写一个自定义插件？"><a href="#mybatis-如何编写一个自定义插件？" class="headerlink" title="mybatis 如何编写一个自定义插件？"></a>mybatis 如何编写一个自定义插件？</h2><h3 id="自定义原理"><a href="#自定义原理" class="headerlink" title="自定义原理"></a>自定义原理</h3><p>通过对mybatis的四大对象拦截来实现</p>
-<h3 id="Mybatis的四大对象介绍"><a href="#Mybatis的四大对象介绍" class="headerlink" title="Mybatis的四大对象介绍"></a>Mybatis的四大对象介绍</h3><table>
-<thead>
-<tr>
-<th>对象名称</th>
-<th>流程</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Executor</td>
-<td>执行器，主要是log记录</td>
-</tr>
-<tr>
-<td>StatementHandler</td>
-<td>sql语法构建</td>
-</tr>
-<tr>
-<td>ParameterHandler</td>
-<td>参数处理</td>
-</tr>
-<tr>
-<td>ResultSetHandler</td>
-<td>结果集处理</td>
-</tr>
-</tbody></table>
-<h3 id="具体实现过程"><a href="#具体实现过程" class="headerlink" title="具体实现过程"></a>具体实现过程</h3><h4 id="需要实现Mybatis的Interceptor接口"><a href="#需要实现Mybatis的Interceptor接口" class="headerlink" title="需要实现Mybatis的Interceptor接口"></a>需要实现Mybatis的Interceptor接口</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public interface Interceptor &#123;</span><br><span class="line">    Object intercept(Invocation invocation) throws Throwable; // 拦截器具体处理逻辑方法</span><br><span class="line">    Object plugin(Object target); // 根据签名signatureMap生成动态代理对象</span><br><span class="line">    void setProperties(Properties properties); // 设置Properties属性</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="一个-Interceptor可以配置多个-Signature，-Signature内部参数含义如下："><a href="#一个-Interceptor可以配置多个-Signature，-Signature内部参数含义如下：" class="headerlink" title="一个@Interceptor可以配置多个@Signature，@Signature内部参数含义如下："></a>一个@Interceptor可以配置多个@Signature，@Signature内部参数含义如下：</h4><table>
+<h2 id="Mybatis分页插件实现原理"><a href="#Mybatis分页插件实现原理" class="headerlink" title="Mybatis分页插件实现原理"></a>Mybatis分页插件实现原理</h2><p>通过自定义插件实现分页，具体是在拦截到sql语句后，添加分页语句实现</p>
+<h2 id="如何编写一个自定义插件"><a href="#如何编写一个自定义插件" class="headerlink" title="如何编写一个自定义插件"></a>如何编写一个自定义插件</h2><h3 id="一个-Interceptor可以配置多个-Signature，-Signature内部参数含义如下："><a href="#一个-Interceptor可以配置多个-Signature，-Signature内部参数含义如下：" class="headerlink" title="一个@Interceptor可以配置多个@Signature，@Signature内部参数含义如下："></a>一个@Interceptor可以配置多个@Signature，@Signature内部参数含义如下：</h3><table>
 <thead>
 <tr>
 <th>参数名称</th>
@@ -299,12 +284,12 @@
 <td>表示方法参数</td>
 </tr>
 </tbody></table>
-<h4 id="代码演示："><a href="#代码演示：" class="headerlink" title="代码演示："></a>代码演示：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">@Intercepts(&#123;@Signature(</span><br><span class="line">  type= Executor.class,</span><br><span class="line">  method = &quot;update&quot;,</span><br><span class="line">  args = &#123;MappedStatement.class,Object.class&#125;)&#125;)</span><br><span class="line">public class ExamplePlugin implements Interceptor &#123;</span><br><span class="line">  public Object intercept(Invocation invocation) throws Throwable &#123;</span><br><span class="line">  Object target = invocation.getTarget(); //被代理对象</span><br><span class="line">  Method method = invocation.getMethod(); //代理方法</span><br><span class="line">  Object[] args = invocation.getArgs(); //方法参数</span><br><span class="line">  // do something ...... 方法拦截前执行代码块</span><br><span class="line">  Object result = invocation.proceed();</span><br><span class="line">  // do something .......方法拦截后执行代码块</span><br><span class="line">  return result;</span><br><span class="line">  &#125;</span><br><span class="line">  public Object plugin(Object target) &#123;</span><br><span class="line">    return Plugin.wrap(target, this);</span><br><span class="line">  &#125;</span><br><span class="line">  public void setProperties(Properties properties) &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码演示："><a href="#代码演示：" class="headerlink" title="代码演示："></a>代码演示：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">@Intercepts(&#123;@Signature(</span><br><span class="line">  type= Executor.class,</span><br><span class="line">  method = &quot;update&quot;,</span><br><span class="line">  args = &#123;MappedStatement.class,Object.class&#125;)&#125;)</span><br><span class="line">public class ExamplePlugin implements Interceptor &#123;</span><br><span class="line"></span><br><span class="line">  // 拦截器具体处理逻辑方法</span><br><span class="line">  public Object intercept(Invocation invocation) throws Throwable &#123;</span><br><span class="line">  Object target = invocation.getTarget(); //被代理对象</span><br><span class="line">  Method method = invocation.getMethod(); //代理方法</span><br><span class="line">  Object[] args = invocation.getArgs(); //方法参数</span><br><span class="line">  // do something ...... 方法拦截前执行代码块</span><br><span class="line">  Object result = invocation.proceed();</span><br><span class="line">  // do something .......方法拦截后执行代码块</span><br><span class="line">  return result;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 根据签名signatureMap生成动态代理对象</span><br><span class="line">  public Object plugin(Object target) &#123;</span><br><span class="line">    return Plugin.wrap(target, this);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 设置Properties属性</span><br><span class="line">  public void setProperties(Properties properties) &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/27/Q&A/Java/MyBatis/" data-id="cl4qypj3q003bzxd4f4ue0tcm" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/04/27/Q&A/Java/MyBatis/" data-id="cl8fktjwu004yo0d412tj2ia4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -343,7 +328,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/">Q&A</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/codeStyle/">codeStyle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">mac使用技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BD%BF%E7%94%A8/">区块链使用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%BA%94%E7%94%A8/">工具应用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E8%84%9A%E6%9C%AC/">工具脚本</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%84%E4%BB%B6/">组件</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/">Q&A</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/Q-A-algorithm/">Q&A-algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/codeStyle/">codeStyle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">mac使用技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BD%BF%E7%94%A8/">区块链使用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%BA%94%E7%94%A8/">工具应用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E8%84%9A%E6%9C%AC/">工具脚本</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%84%E4%BB%B6/">组件</a></li></ul>
     </div>
   </div>
 
@@ -363,7 +348,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Q-A/" style="font-size: 16.67px;">Q&A</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 10px;">区块链</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13.33px;">博客搭建</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">电脑使用技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 20px;">编程</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">脚本工具</a>
+      <a href="/tags/Q-A/" style="font-size: 20px;">Q&A</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 10px;">区块链</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13.33px;">博客搭建</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">电脑使用技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 16.67px;">编程</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">脚本工具</a>
     </div>
   </div>
 
@@ -372,7 +357,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li></ul>
     </div>
   </div>
 
@@ -385,23 +370,23 @@
       <ul>
         
           <li>
-            <a href="/2022/06/14/module/MySql/">MySql</a>
+            <a href="/2022/08/30/Q&A/algorithm/%E7%88%AC%E6%A5%BC%E6%A2%AF/">爬楼梯</a>
           </li>
         
           <li>
-            <a href="/2022/05/19/Q&A/Java/JavaQAList/">JavaQAList</a>
+            <a href="/2022/08/30/Q&A/algorithm/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0/">斐波那契数</a>
           </li>
         
           <li>
-            <a href="/2022/05/19/Q&A/Java/Java%E5%9F%BA%E7%A1%80/">Java基础</a>
+            <a href="/2022/08/29/Q&A/algorithm/%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/">岛屿数量</a>
           </li>
         
           <li>
-            <a href="/2022/05/13/Q&A/Java/Redis/">Redis</a>
+            <a href="/2022/08/29/Q&A/algorithm/%E5%9B%BE%E5%83%8F%E6%B8%B2%E6%9F%93/">图像渲染</a>
           </li>
         
           <li>
-            <a href="/2022/05/11/Q&A/Java/MySql/">MySql</a>
+            <a href="/2022/08/26/Q&A/algorithm/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/">二叉搜索树的最近公共祖先</a>
           </li>
         
       </ul>

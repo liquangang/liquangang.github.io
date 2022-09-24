@@ -85,14 +85,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Q&amp;A/Java/Spring" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Q&amp;A/algorithm/最长回文串" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/04/18/Q&A/Java/Spring/" class="article-date">
-  <time datetime="2022-04-18T11:31:33.000Z" itemprop="datePublished">2022-04-18</time>
+    <a href="/2022/08/22/Q&A/algorithm/%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2/" class="article-date">
+  <time datetime="2022-08-22T12:11:04.000Z" itemprop="datePublished">2022-08-22</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
+    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-algorithm/">Q&A-algorithm</a>
   </div>
 
   </div>
@@ -103,7 +103,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/18/Q&A/Java/Spring/">Spring</a>
+      <a class="article-title" href="/2022/08/22/Q&A/algorithm/%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2/">最长回文串</a>
     </h1>
   
 
@@ -111,442 +111,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="为什么要使用-spring？"><a href="#为什么要使用-spring？" class="headerlink" title="为什么要使用 spring？"></a>为什么要使用 spring？</h2><h3 id="一句话概括"><a href="#一句话概括" class="headerlink" title="一句话概括"></a>一句话概括</h3><ul>
-<li>省去很多非业务层代码的研发工作，提高javaweb应用开发效率<h3 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h3></li>
-<li>基于POJO的轻量级和最小侵入式编程；POJO（Plain Ordinary Java Object）即简单Java对象，spring竭力避免污染你的代码，尽量解除我们的代码与spring之间的耦合。具备非侵入式变成的思想，耦合低，代码污染小</li>
-<li>通过依赖注入和面向接口编程实现松耦合：降低模块内部不同类之间的依赖，当在某一个类当中使用其他类时，通过spring来管理对象的创建于销毁，spring提供了一种组建内部不同类低耦合协作的一种方式</li>
-<li>基于切面和管理进行声明式编程：对于日志管理等通用模块，采用面向切面的方式，使其他模块在编程时完全不需要了解这些部分的相关逻辑与代码</li>
-<li>通过切面和模板减少样板式代码：面向切面编程消除了大量的重复代码，比如调用初始化等等</li>
-</ul>
-<h2 id="解释一下什么是-aop？"><a href="#解释一下什么是-aop？" class="headerlink" title="解释一下什么是 aop？"></a>解释一下什么是 aop？</h2><ul>
-<li>AOP（Accept Oriented Programming）即面向切面编程，把编程看成是多个切面的实现，比如安全检查、日志打印、实际业务处理等，通过对方法进行拦截，按照需要的顺序，放入不同的切面代码</li>
-<li>OOP（Object Oriented Programming）即面向对象编程，把编程看成是多个对象之间的交互，主要功能是继承、封装、多态</li>
-<li>Java实现AOP的方式：<ul>
-<li>编译器：编译器把切面代码编译进字节码</li>
-<li>类加载器：在目标类被装在到JVM时，通过一个特殊的类加载器，对目标类的字节码重新“增强”</li>
-<li>运行期：基于JVM的动态代理实现，Spring就是使用该方式实现的切面编程</li>
-</ul>
-</li>
-</ul>
-<h2 id="解释一下什么是-ioc？"><a href="#解释一下什么是-ioc？" class="headerlink" title="解释一下什么是 ioc？"></a>解释一下什么是 ioc？</h2><ul>
-<li>IOC（Inversion of Control）即控制反转，又称DI（Dependency Injection）即依赖注入，目的是将组件的创建&amp;配置与组建的使用分离，spring当中使用极为广泛</li>
-</ul>
-<h2 id="spring-有哪些主要模块？"><a href="#spring-有哪些主要模块？" class="headerlink" title="spring 有哪些主要模块？"></a>spring 有哪些主要模块？</h2><h3 id="什么是Spring-bean"><a href="#什么是Spring-bean" class="headerlink" title="什么是Spring bean"></a>什么是Spring bean</h3><ul>
-<li>bean时spring程序构成的基础之一，是被spring实例化、组装并由spring管理的java对象</li>
-<li>默认情况下，spring中的bean都是以单利形式存在的</li>
-</ul>
-<h3 id="spring中的主要模块"><a href="#spring中的主要模块" class="headerlink" title="spring中的主要模块"></a>spring中的主要模块</h3><table>
-<thead>
-<tr>
-<th>模块名称</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Spring Core</td>
-<td>框架基础部分，提供IOC功能实现和bean的创建、配置</td>
-</tr>
-<tr>
-<td>Spring AOP</td>
-<td>提供面向切面功能</td>
-</tr>
-<tr>
-<td>Spring Context</td>
-<td>是一个配置文件，向Spring框架提供上下文信息；<br />提供各种企业服务，比如JNDI、电子邮件、国际化、校验、调度等功能；<br />提供框架式bean访问方式，其他程序可以通过Context访问Spring的bean资源</td>
-</tr>
-<tr>
-<td>Spring DAO</td>
-<td>提供数据库相关的各种功能，对JDBC进行二次封装</td>
-</tr>
-<tr>
-<td>Spring ORM（Object Relation Mapper）</td>
-<td>Spring对多个ORM框架进行了封装，达成一致的编程风格，方便维护</td>
-</tr>
-<tr>
-<td>Spring Web</td>
-<td>Web层使用的Web框架式可选的，可以使用Spring的MVC，也可以使用Struts、Servlet等，该模块主要作用是管理web框架，方便使用web框架</td>
-</tr>
-<tr>
-<td>Spring MVC</td>
-<td>Spring提供的一个MVC方式实现的web应用服务器</td>
-</tr>
-</tbody></table>
-<h2 id="spring-常用的注入方式有哪些？"><a href="#spring-常用的注入方式有哪些？" class="headerlink" title="spring 常用的注入方式有哪些？"></a>spring 常用的注入方式有哪些？</h2><h3 id="相关名词解释"><a href="#相关名词解释" class="headerlink" title="相关名词解释"></a>相关名词解释</h3><ul>
-<li>DI（Dependency Injection）即依赖注入：当Spring创建被调用者的实例时，会自动将其注入调用者的实例中，这个就是依赖注入</li>
-<li>IOC（Inversion of Control）即控制反转：当一个java实例需要调用另一个java实例，且使用Spring框架的情况下，被调用者不再需要调用者来创建和配置，而是由Spring来完成，这就是控制反转<h3 id="三种依赖注入方式"><a href="#三种依赖注入方式" class="headerlink" title="三种依赖注入方式"></a>三种依赖注入方式</h3></li>
-<li>setter注入：Spring会自行实现一个set+首字母大写+变变量名的方法，然后用反射调用该方法实现依赖注入</li>
-<li>构造方法注入：通过在配置文件中标记好依赖关系，然后通过调用构造方法进行依赖注入</li>
-<li>注解注入：Autowire，内部由三个constructor、byName、byType组成</li>
-</ul>
-<h2 id="spring-中的-bean-是线程安全的吗？"><a href="#spring-中的-bean-是线程安全的吗？" class="headerlink" title="spring 中的 bean 是线程安全的吗？"></a>spring 中的 bean 是线程安全的吗？</h2><ul>
-<li>结论：不安全</li>
-</ul>
-<h2 id="spring-支持几种-bean-的作用域？"><a href="#spring-支持几种-bean-的作用域？" class="headerlink" title="spring 支持几种 bean 的作用域？"></a>spring 支持几种 bean 的作用域？</h2><ul>
-<li>singleton：单例，默认作用域，有线程安全问题，不过spring中大多是无状态单例bean，也是线程安全的，对于有状态的，可以使用ThreadLcal来解决线程安全问题</li>
-<li>prototype：原型，每次创建一个对象，线程之间没有共享，所以安全</li>
-<li>request: 请求，每次http请求一个对象，参考单例bean</li>
-<li>session：会话，每一个会话共享一个实例，不同会话使用不同实例，参考单例bean</li>
-<li>global-session：全局会话，所有会话共享一个实例，参考单例bean</li>
-</ul>
-<h2 id="spring-自动装配-bean-有哪些方式？"><a href="#spring-自动装配-bean-有哪些方式？" class="headerlink" title="spring 自动装配 bean 有哪些方式？"></a>spring 自动装配 bean 有哪些方式？</h2><h3 id="自动装备定义"><a href="#自动装备定义" class="headerlink" title="自动装备定义"></a>自动装备定义</h3><ul>
-<li>Spring IOC容易将创建和配置好的bean赋值到需要调用这些bean的调用者</li>
-</ul>
-<h3 id="自动装备方式"><a href="#自动装备方式" class="headerlink" title="自动装备方式"></a>自动装备方式</h3><ul>
-<li>default：默认方式，与no相同</li>
-<li>no：不自动装配，会根据ref参数完成装配</li>
-<li>byName：根据名称进行装配</li>
-<li>byType：根据类型进行装配</li>
-<li>constructor：根据构造函数进行装配</li>
-</ul>
-<h2 id="spring-事务实现方式有哪些？"><a href="#spring-事务实现方式有哪些？" class="headerlink" title="spring 事务实现方式有哪些？"></a>spring 事务实现方式有哪些？</h2><h3 id="什么是事务"><a href="#什么是事务" class="headerlink" title="什么是事务"></a>什么是事务</h3><ul>
-<li>事务即一组需要执行的操作，这些操作作为一个整体，要么全都成功，要么全都失败</li>
-<li>特性：原子性（Atomiciy）、一致性（Consistency）、隔离性（Isolation）、持久性（Durability），简称ACID</li>
-</ul>
-<h3 id="Spring事务实现方式"><a href="#Spring事务实现方式" class="headerlink" title="Spring事务实现方式"></a>Spring事务实现方式</h3><ul>
-<li>声明式事务：<ul>
-<li>基于XML配置文件的方式</li>
-<li>基于注解（@Transaction）的方式</li>
-</ul>
-</li>
-<li>手动编码实现事务</li>
-</ul>
-<h2 id="说一下-spring-的事务隔离？"><a href="#说一下-spring-的事务隔离？" class="headerlink" title="说一下 spring 的事务隔离？"></a>说一下 spring 的事务隔离？</h2><h3 id="事务隔离特性"><a href="#事务隔离特性" class="headerlink" title="事务隔离特性"></a>事务隔离特性</h3><table>
-<thead>
-<tr>
-<th>特性</th>
-<th>特性描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>原子性</td>
-<td>强调事务的不可分割</td>
-</tr>
-<tr>
-<td>一致性</td>
-<td>事务执行前后数据的完整性保持一致</td>
-</tr>
-<tr>
-<td>隔离性</td>
-<td>一个事务的执行不应受到其他事务的影响</td>
-</tr>
-<tr>
-<td>持久性</td>
-<td>事务执行结束，数据就持久化到数据库里</td>
-</tr>
-</tbody></table>
-<h3 id="事务隔离为了解决的问题"><a href="#事务隔离为了解决的问题" class="headerlink" title="事务隔离为了解决的问题"></a>事务隔离为了解决的问题</h3><table>
-<thead>
-<tr>
-<th>要解决的问题</th>
-<th>问题描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>脏读</td>
-<td>表示一个事务能读取到另一个未提交的事务中的数据</td>
-</tr>
-<tr>
-<td>幻读</td>
-<td>一个事务由于另一个事务insert数据造成多次查询数据不一致</td>
-</tr>
-<tr>
-<td>不可重复读</td>
-<td>一个事务由于另一个事务update导致多次查到的记录不一致</td>
-</tr>
-</tbody></table>
-<h3 id="spring事务隔离级别"><a href="#spring事务隔离级别" class="headerlink" title="spring事务隔离级别"></a>spring事务隔离级别</h3><table>
-<thead>
-<tr>
-<th>级别</th>
-<th>级别描述</th>
-<th>能否避免脏读</th>
-<th>能否避免幻读</th>
-<th>能否避免不可重复读</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>DEFAULT，默认</td>
-<td>使用数据默认的隔离级别，mysql默认可重复读，oracle默认已提交读</td>
-<td>mysql能，oracle能</td>
-<td>mysql否，oracle否</td>
-<td>mysql能，oracle否</td>
-</tr>
-<tr>
-<td>READ UNCOMMITED 即未提交读</td>
-<td>三种问题都有可能发生</td>
-<td>否</td>
-<td>否</td>
-<td>否</td>
-</tr>
-<tr>
-<td>READ COMMITED， 即已提交读</td>
-<td>能避免脏读，但是不可重复读和幻读依然有可能发生</td>
-<td>能</td>
-<td>否</td>
-<td>否</td>
-</tr>
-<tr>
-<td>REPEATABLE READ， 即可重复读</td>
-<td>可以避免脏读和不可重复读，但是幻读依然可以发生</td>
-<td>能</td>
-<td>否</td>
-<td>能</td>
-</tr>
-<tr>
-<td>SERIALIZABLE, 即串行化</td>
-<td>避免所有问题</td>
-<td>能</td>
-<td>能</td>
-<td>能</td>
-</tr>
-</tbody></table>
-<h2 id="spring-mvc-有哪些组件？"><a href="#spring-mvc-有哪些组件？" class="headerlink" title="spring mvc 有哪些组件？"></a>spring mvc 有哪些组件？</h2><h3 id="核心部分："><a href="#核心部分：" class="headerlink" title="核心部分："></a>核心部分：</h3><table>
-<thead>
-<tr>
-<th>组成部分</th>
-<th>作用</th>
-<th>对应类</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Model</td>
-<td>业务模型：处理业务请求</td>
-<td>Handler</td>
-</tr>
-<tr>
-<td>View</td>
-<td>视图：渲染视图</td>
-<td>实现类、jsp等</td>
-</tr>
-<tr>
-<td>Controller</td>
-<td>前段控制器：接收请求，响应结果</td>
-<td>DispatcherServlet</td>
-</tr>
-</tbody></table>
-<h3 id="三大组件："><a href="#三大组件：" class="headerlink" title="三大组件："></a>三大组件：</h3><table>
-<thead>
-<tr>
-<th>组件名称</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>HandlerMapping（处理器映射器）</td>
-<td>将URL和处理器进行映射，可以根据URL找到对应的处理器</td>
-</tr>
-<tr>
-<td>HandlerAdapter（处理器适配器）</td>
-<td>适配并执行响应的处理器</td>
-</tr>
-<tr>
-<td>ViewResolver（视图解析器）</td>
-<td>根据视图名称，解析成一个视图对象</td>
-</tr>
-</tbody></table>
-<h2 id="说一下-spring-mvc-运行流程？"><a href="#说一下-spring-mvc-运行流程？" class="headerlink" title="说一下 spring mvc 运行流程？"></a>说一下 spring mvc 运行流程？</h2><ul>
-<li>前端发出请求，DispatcherServlet收到请求</li>
-<li>DispatcherServlet向HandlerMapping请求，获取到HandlerExecutionChan，该对象存储着处理器信息</li>
-<li>DispatcherServlet使用HandlerExecutionChan向HandlerAdapter请求，让其适配处理器并让处理器完成请求处理</li>
-<li>HandlerAdapter适配处理器，并告诉Handler完成请求处理</li>
-<li>Handler处理完成后，返回ModelAndView给HandlerAdapter，然后返回给DispatcherServlet</li>
-<li>DispatcherServlet使用ModelAndView向ViewResolve请求解析视图，ViewResolve返回视图对象</li>
-<li>DispatcherServlet使用视图对象向View请求其完成渲染，View将渲染好的视图返回给DispatcherServlet</li>
-<li>DispatcherServlet将响应返回给前端</li>
-</ul>
-<h2 id="RequestMapping-的作用是什么？"><a href="#RequestMapping-的作用是什么？" class="headerlink" title="@RequestMapping 的作用是什么？"></a>@RequestMapping 的作用是什么？</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
-<li>作用：用来处理请求的映射</li>
-<li>修饰对象：类、方法</li>
-<li>特点：在类上使用时，表示所配置内容为该类中所有接口的父路径</li>
-</ul>
-<h3 id="包含属性"><a href="#包含属性" class="headerlink" title="包含属性"></a>包含属性</h3><ul>
-<li>value：指定请求地址</li>
-<li>method：指定请求类型，post或者get等</li>
-<li>consumes：指定请求内容处理类型（Content-Type）</li>
-<li>produces：指定返回的内容类型，请求方指定返回数据类型，返回数据类型与此项配置值相同时，参会返回成功</li>
-<li>params：指定请求地址中包含的参数</li>
-<li>headers：指定request中必须包含某些指定的header值，才允许请求</li>
-</ul>
-<h2 id="Autowired-的作用是什么？"><a href="#Autowired-的作用是什么？" class="headerlink" title="@Autowired 的作用是什么？"></a>@Autowired 的作用是什么？</h2><ul>
-<li>作用：完成IOC或者ID的自动装配流程</li>
-<li>修饰对象：类成员变量、方法、构造函数</li>
-</ul>
-<h1 id="Soring-boot"><a href="#Soring-boot" class="headerlink" title="Soring boot"></a>Soring boot</h1><h2 id="什么是spring-boot？"><a href="#什么是spring-boot？" class="headerlink" title="什么是spring boot？"></a>什么是spring boot？</h2><table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>是什么</td>
-<td>一个框架</td>
-</tr>
-<tr>
-<td>诞生目的</td>
-<td>简化新spring应用的搭建以及开发过程</td>
-</tr>
-<tr>
-<td>特点</td>
-<td>使用了特定方式配置，使开发人员不再需要定义样板化的配置</td>
-</tr>
-</tbody></table>
-<h2 id="为什么要用-spring-boot？或者说使用spring-boot的优势"><a href="#为什么要用-spring-boot？或者说使用spring-boot的优势" class="headerlink" title="为什么要用 spring boot？或者说使用spring boot的优势"></a>为什么要用 spring boot？或者说使用spring boot的优势</h2><ul>
-<li>简化配置，不需要太多的xml配置文件</li>
-<li>基于spring进行构建，是开发者快速入门，门槛低</li>
-<li>spring boot可以独立创建应用，不需要依赖各种web应用容器</li>
-<li>内置tomcat，不需要打成jar包，可以直接在tomcat中运行</li>
-<li>提供maven极简配置，以及可视化的各种监控功能</li>
-<li>为微服务spring cloud提供了基础，是微服务构建变得很简单</li>
-<li>spring boot可以整合各种各样的框架，并可以很好地集成</li>
-<li>活跃的社区论坛，以及丰富的开发文档</li>
-</ul>
-<h2 id="spring-boot-核心配置文件是什么？"><a href="#spring-boot-核心配置文件是什么？" class="headerlink" title="spring boot 核心配置文件是什么？"></a>spring boot 核心配置文件是什么？</h2><ul>
-<li>application.yml</li>
-<li>bootstrap.properties</li>
-</ul>
-<h2 id="spring-boot-配置文件有哪几种类型？它们有什么区别？"><a href="#spring-boot-配置文件有哪几种类型？它们有什么区别？" class="headerlink" title="spring boot 配置文件有哪几种类型？它们有什么区别？"></a>spring boot 配置文件有哪几种类型？它们有什么区别？</h2><table>
-<thead>
-<tr>
-<th></th>
-<th>application.yml</th>
-<th>bootstrap.properties</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>加载方式</td>
-<td>spring boot自动从classpath中加载</td>
-<td>spring boot会自动从classspath中加载</td>
-</tr>
-<tr>
-<td>文件内容格式</td>
-<td>key：value</td>
-<td>key=value</td>
-</tr>
-<tr>
-<td>加载顺序</td>
-<td>整体文件加载后于bootstrap，内部配置项加载也有先后顺序</td>
-<td>先于application</td>
-</tr>
-<tr>
-<td>可配置项功能</td>
-<td>应用级别，是当前应用的配置文件</td>
-<td>系统级别，用来加载外部配置，比如配置中心的配置信息</td>
-</tr>
-</tbody></table>
-<h2 id="spring-boot-有哪些方式可以实现热部署？"><a href="#spring-boot-有哪些方式可以实现热部署？" class="headerlink" title="spring boot 有哪些方式可以实现热部署？"></a>spring boot 有哪些方式可以实现热部署？</h2><ul>
-<li>模板热部署</li>
-<li>使用调试模式debug实现热部署</li>
-<li>spring-boot-devtools</li>
-<li>spring loaded</li>
-<li>JRebel<table>
-<thead>
-<tr>
-<th>热部署方式</th>
-<th>部署方式</th>
-<th>特点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>模板热部署</td>
-<td>在application或者bootstrap中关闭模板引擎的缓存即可</td>
-<td></td>
-</tr>
-<tr>
-<td>debug模式</td>
-<td>运行时使用debug模式即可</td>
-<td>1、最简单快速；<br/>2、无法对配置文件、方法名称改变、在增加类及方法进行热部署，使用范围有限</td>
-</tr>
-<tr>
-<td>spring-boot-devtools</td>
-<td>在spring boot中添加依赖即可实现，在pom.xml添加spring-boot-devtools依赖</td>
-<td>1、作用范围广；<br/>2、使用重启策略实现，相当于手动帮你点了手动重启；<br/>3、默认关闭模板缓存</td>
-</tr>
-<tr>
-<td>Spring Loaded</td>
-<td>在run configuration中配置</td>
-<td>1、与debug类似，作用范围有限；<br/>2、不依赖debug模式，正常情况下即可生效</td>
-</tr>
-<tr>
-<td>JRebel</td>
-<td>通过插件安装支持</td>
-<td>1、收费；<br/>2、最好的java热部署工具</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<h2 id="jpa-和-hibernate-有什么区别？"><a href="#jpa-和-hibernate-有什么区别？" class="headerlink" title="jpa 和 hibernate 有什么区别？"></a>jpa 和 hibernate 有什么区别？</h2><table>
-<thead>
-<tr>
-<th></th>
-<th>JPA</th>
-<th>Hibernate</th>
-<th>Spring Data Jpa</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>简介</td>
-<td>全称Java Persistence API，是一套ORM（对象关系映射）规范，可以理解为是一套接口</td>
-<td>是JPA的一种实现</td>
-<td>是对JPA和Hibernate进行了二次封装，将Spring与JPA进行更好的结合</td>
-</tr>
-</tbody></table>
-<h1 id="Spring-cloud"><a href="#Spring-cloud" class="headerlink" title="Spring cloud"></a>Spring cloud</h1><h2 id="什么是-spring-cloud？"><a href="#什么是-spring-cloud？" class="headerlink" title="什么是 spring cloud？"></a>什么是 spring cloud？</h2><table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>简介</td>
-<td>一系列框架的有序集合，提供了分布式系统开发的一站式解决方案</td>
-</tr>
-<tr>
-<td>诞生目的</td>
-<td>为开发者提供一套简单易懂、易部署、易维护的分布式系统开发工具包</td>
-</tr>
-<tr>
-<td>特点</td>
-<td>1、基于spring boot；<br/>2、没有重复造轮子，将各家成熟的、经得住考验的各种框架结合</td>
-</tr>
-</tbody></table>
-<h2 id="spring-cloud-断路器的作用是什么？"><a href="#spring-cloud-断路器的作用是什么？" class="headerlink" title="spring cloud 断路器的作用是什么？"></a>spring cloud 断路器的作用是什么？</h2><ul>
-<li>当某个服务单元发生故障后，通过断路器的监控，向调用方返回一个错误响应，而不是长时间的等待，避免线程因服务故障长时间占用资源不释放，避免故障蔓延</li>
-</ul>
-<h2 id="spring-cloud-的核心组件有哪些？"><a href="#spring-cloud-的核心组件有哪些？" class="headerlink" title="spring cloud 的核心组件有哪些？"></a>spring cloud 的核心组件有哪些？</h2><table>
-<thead>
-<tr>
-<th>组件</th>
-<th>简介</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Eureka</td>
-<td>微服务注册管理中心</td>
-</tr>
-<tr>
-<td>Ribbon</td>
-<td>客户端负载均衡</td>
-</tr>
-<tr>
-<td>Hystrix</td>
-<td>断路器，用来处理服务故障</td>
-</tr>
-<tr>
-<td>Fegin</td>
-<td>用于简化微服务之间的调用</td>
-</tr>
-<tr>
-<td>Zuul</td>
-<td>网关，一系列的过滤器</td>
-</tr>
-</tbody></table>
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个包含大写字母和小写字母的字符串 s ，返回 通过这些字母构造成的 最长的回文串 。</p>
+<p>在构造过程中，请注意 区分大小写 。比如 “Aa” 不能当做一个回文字符串。</p>
+<p> </p>
+<p>示例 1:<br>输入:s = “abccccdd”<br>输出:7<br>解释:<br>我们可以构造的最长的回文串是”dccaccd”, 它的长度是 7。</p>
+<p>示例 2:<br>输入:s = “a”<br>输入:1</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public void testlongestPalindrome() &#123;</span><br><span class="line">    log.info(&quot;&#123;&#125;&quot;, longestPalindrome(&quot;abccccdd&quot;));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public int longestPalindrome(String s) &#123;</span><br><span class="line">    int[] count = new int[128];</span><br><span class="line">    for (int i = 0; i &lt; s.length(); i++) &#123;</span><br><span class="line">        char c = s.charAt(i);</span><br><span class="line">        count[c]++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    int nums = 0;</span><br><span class="line">    for (int num :</span><br><span class="line">            count) &#123;</span><br><span class="line">        nums += num / 2 * 2;</span><br><span class="line">        if (num % 2 == 1 &amp;&amp; nums % 2 == 0) &#123;</span><br><span class="line">            nums++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return nums;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/18/Q&A/Java/Spring/" data-id="cl4qypj3t003pzxd42yf0dph5" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/08/22/Q&A/algorithm/%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2/" data-id="cl8fktjwk003zo0d46vgtc73q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -558,14 +133,14 @@
 
 
   
-    <article id="post-Q&amp;A/Java/设计模式" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Q&amp;A/algorithm/买卖股票的最佳时机" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/04/14/Q&A/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="article-date">
-  <time datetime="2022-04-14T08:46:21.000Z" itemprop="datePublished">2022-04-14</time>
+    <a href="/2022/08/22/Q&A/algorithm/%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/" class="article-date">
+  <time datetime="2022-08-22T12:09:29.000Z" itemprop="datePublished">2022-08-22</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
+    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-algorithm/">Q&A-algorithm</a>
   </div>
 
   </div>
@@ -576,7 +151,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/14/Q&A/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+      <a class="article-title" href="/2022/08/22/Q&A/algorithm/%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/">买卖股票的最佳时机</a>
     </h1>
   
 
@@ -584,207 +159,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="说一下你熟悉的设计模式？"><a href="#说一下你熟悉的设计模式？" class="headerlink" title="说一下你熟悉的设计模式？"></a>说一下你熟悉的设计模式？</h2><h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://refactoringguru.cn/design-patterns/java">参考文章</a></li>
-</ul>
-<h3 id="设计模式介绍"><a href="#设计模式介绍" class="headerlink" title="设计模式介绍"></a>设计模式介绍</h3><h4 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a>创建型模式</h4><table>
-<thead>
-<tr>
-<th>设计模式名称</th>
-<th>简介</th>
-<th>优点</th>
-<th>缺点</th>
-<th>应用场景</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>抽象工厂模式</td>
-<td>创建一系列对象时，无需指定具体类，工厂方法模式的改良</td>
-<td>同一工厂生产的产品互相匹配；避免与某一具体产品的耦合；符合单一职责原则，代码易于维护；符合开闭原则，增加新产品变体时无需修改代码</td>
-<td>需要编写的类较多，代码复杂度较高</td>
-<td>同一类对象，但是表现不同时，比如同一个button，在不同系统上不一样</td>
-</tr>
-<tr>
-<td>生成器模式</td>
-<td>能够分步骤创建对象，该模式允许使用相同代码创建不同类型和形式的对象，是工厂方法模式的改良</td>
-<td>可以分布创建对象，可以暂缓创建或者递归创建；生成不同对象也可以复用部分创建代码；符合单一职责原则，可以从业务逻辑中抽离创建部分</td>
-<td>需要创建多个类，代码复杂度提升</td>
-<td>适合构造具有众多参数的复杂对象，避免构造函数重叠</td>
-</tr>
-<tr>
-<td>工厂方法模式</td>
-<td>父类中提供创建对象方法，子类决定实例化对象类型</td>
-<td>降低耦合；单一职责原则，只负责创建；开闭原则，拓展新产品容易</td>
-<td>代码复杂度提高</td>
-<td>无法预知对象具体类型及其依赖关系时；给他人提供拓展能力；复用现有对象节省资源</td>
-</tr>
-<tr>
-<td>原型模式</td>
-<td>复制已有对象，而无需使代码依赖他们所属的类</td>
-<td>耦合度低；可以克隆预生成模型，避免反复初始化；更方便生成复杂对象；可以处理复杂对象的不同配置</td>
-<td>如果有循环引用的话，会比较麻烦</td>
-<td>复制对象，但代码独立于被复制对象所属类；提供一堆原型，方便其他逻辑进行克隆时</td>
-</tr>
-<tr>
-<td>单例模式</td>
-<td>一个类只有一个实例</td>
-<td>一个类只有一个实例：全局访问方便；仅初始化创建一次</td>
-<td>违反了单一职责原则；可能会导致不同部分耦合度较大；多线程环境容易出现问题</td>
-<td>某个类只需要一个可用实例即可；控制全局变量</td>
-</tr>
-</tbody></table>
-<h4 id="结构型模式"><a href="#结构型模式" class="headerlink" title="结构型模式"></a>结构型模式</h4><table>
-<thead>
-<tr>
-<th>设计模式名称</th>
-<th>简介</th>
-<th>优点</th>
-<th>缺点</th>
-<th>应用场景</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>适配器模式</td>
-<td>使接口不兼容的对象能够互相协作，实现方式就是在中间做一层转化</td>
-<td>单一职责原则，中间层与其他部分没有耦合；开闭原则，不影响其他适配器、两头的逻辑</td>
-<td>代码复杂度增加</td>
-<td>接口不兼容时</td>
-</tr>
-<tr>
-<td>桥接模式</td>
-<td>将一个大类或一系列紧密相关的类拆分成抽象和实现两个层次，从而实现分别使用</td>
-<td>开闭原则，新增部分对原有没有影响；单一职责原则，抽象部分负责定义功能，实现部分负责功能实现</td>
-<td>不适合高内聚的类，使用该模式会使其更加复杂</td>
-<td>拆分功能复杂的类；拓展类功能；运行时切换不同实现方法</td>
-</tr>
-<tr>
-<td>组合模式</td>
-<td>使用该模式可以将对象组合成树状结构，该方式就是定义一个功能接口，然后希望具备这些功能的就实现一下</td>
-<td>利用多态和递归可以方便的使用复杂树结构；开闭原则，无需更改已有代码</td>
-<td>对于功能差异较大额类，实现某些接口难度较高</td>
-<td>希望不同类型的类，有相同功能</td>
-</tr>
-<tr>
-<td>装饰模式</td>
-<td>允许通过将对象放入包含行为的特殊封装对象中来为原始对象提供新功能，由接口、原始类、装饰基类、装饰实现类</td>
-<td>无需创建子类即可扩充功能；可以在运行时添加删除对象功能；单一职责原则，每个装饰类可以只实现一小部分功能</td>
-<td>代码复杂度提升</td>
-<td>无需修改某个类即可为其增加功能；替代继承方式给对象增加功能</td>
-</tr>
-<tr>
-<td>外观模式</td>
-<td>能为复杂模块提供简单接口</td>
-<td>让自己的代码独立于复杂子系统</td>
-<td>耦合度提高</td>
-<td>需要使用复杂模块的一个简单功能；需要将子系统组织成多层结构</td>
-</tr>
-<tr>
-<td>享元模式</td>
-<td>共享多个对象的所共有的相同状态，让内存中可以载入更多对象，即众多对象引用了众多相同对象</td>
-<td>节约内存</td>
-<td>代码复杂度高</td>
-<td>程序需要大量对象且内存吃紧</td>
-</tr>
-<tr>
-<td>代理模式</td>
-<td>提供对象的替代品，通过代理对对象进行控制访问处理</td>
-<td>开闭原则，原始代码无需修改；原始代码运行无影响</td>
-<td>代码复杂度提升</td>
-<td>虚拟代理、保护代理、远程代理、日志代理、缓存代理等</td>
-</tr>
-</tbody></table>
-<h4 id="行为模式"><a href="#行为模式" class="headerlink" title="行为模式"></a>行为模式</h4><table>
-<thead>
-<tr>
-<th>设计模式名称</th>
-<th>简介</th>
-<th>优点</th>
-<th>缺点</th>
-<th>应用场景</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>责任链模式</td>
-<td>允许将请求沿着处理者链进行发送，每个处理者都可以处理或者发送给下一个处理者</td>
-<td>可以控制处理顺序； <br />单一这则原则，每个处理者的工作内容可以隔离以解耦；<br />开闭原则，新的处理者不影响已有处理者</td>
-<td>部分请求可能未被处理</td>
-<td>程序需要使用不同方式处理不同类型的请求，并且不知道这些请求的顺序时；<br />当一个事务需要多个处理者时；所需处理者和顺序在运行时会改变时</td>
-</tr>
-<tr>
-<td>迭代器模式</td>
-<td>能够在不知道集合底层数据结构（列表、栈、树）的情况下，对集合进行遍历</td>
-<td>单一职责原则，迭代类与其他业务代码没有没有耦合；<br />开闭原则，新增集合和迭代器时，不需要更改已有代码；<br />可以方便的控制遍历状态</td>
-<td>不适合简单遍历；<br />对于某些特殊集合，简单遍历会比迭代器遍历效率更高</td>
-<td>当需要隐藏集合复杂性或者保证安全性时；<br />需要减少重复遍历代码时；<br />希望遍历不同的甚至无法预知的数据结构时</td>
-</tr>
-<tr>
-<td>备忘录模式</td>
-<td>允许在不暴露对象细节的情况下保存和回复对象状态</td>
-<td>在不破坏对象封装的前提下，创建对象快照；<br />原发器状态记录维护的好的话，可以简化原发器代码</td>
-<td>备忘录多会消耗更多内存；<br />负责人必须跟踪完整的原发器生命周期才能正确销毁弃用的备忘录；<br />大部分动态编程语言（PHP、Python等）不能保证备忘录状态不被修改</td>
-<td>当需要创建对象状态快照来回复对象之前的状态时；<br />当访问对象会导致封装被突破时</td>
-</tr>
-<tr>
-<td>状态模式</td>
-<td>对象内部状态变化时能改变其行为，看上去就像是对象所属类发生变化一样</td>
-<td>单一职责原则，特定状态的代码在特定类中；<br />开闭原则，新增状态不影响已有状态；<br />可以消除臃肿的条件语句</td>
-<td>不适合状态机比较少的情况</td>
-<td>对象在不同状态下有不同行为，同时状态多且频繁切换；<br />当相似状态和机遇条件的状态机转换中存在许多重复代码时</td>
-</tr>
-<tr>
-<td>模板方法模式</td>
-<td>超类中定义算法框架，子类在框架下可以重写算法的特定步骤</td>
-<td>允许重写算法的某个部分；<br />可以将重复的算法步骤整合到超类中</td>
-<td>维护困难；<br />如果子类抑制父类默认步骤，会违反里式替换原则（子类可拓展父类功能，但不能替换父类原有功能）</td>
-<td>只调整算法的某个特定步骤时；<br />多个算法只有细微之处不一样时</td>
-</tr>
-<tr>
-<td>命令模式</td>
-<td>可以将请求装换为一个包含请求信息的独立对象·，然后利用该对象可以实现各种操作</td>
-<td>单一职责原则，解耦触发和执行的代码；<br />开闭原则，不修改客户端代码的情况下创建新的命令；<br />可以实现操作的撤销、恢复、延迟执行、组合等需求</td>
-<td>代码复杂度增加</td>
-<td>通过操作来参数化对象；<br />将操作进行队列化管理、远程执行等擦搜做时；<br />实现操作回滚功能</td>
-</tr>
-<tr>
-<td>中介者模式</td>
-<td>使用中介者将对象之间的合作进行管理</td>
-<td>单一职责原则，可以将耦合关系集中到中介者当中；<br />开闭原则，无需更改组建即可增加新中中介者；<br />减轻耦合；<br />更方便的复用组件</td>
-<td>随着中介者内部逻辑的增多，可能会变得难以管理且功能过多</td>
-<td>当一些对象与其他对象紧密结合以至难以修改时；<br />当某个对象由于与其他对象耦合度过高导致无法复用时；<br />替代一些仅具备简单功能的子类</td>
-</tr>
-<tr>
-<td>观察者模式</td>
-<td>定义一种订阅机制，当被订阅的内容发生变化时，会通知订阅该内容的对象</td>
-<td>开闭原则，新订阅类不影响被订阅类；<br />在运行时建立对象之间的联系</td>
-<td>订阅者通知顺序时随机的</td>
-<td>当一个对象的某些行为需要收到监控时；<br />当某些逻辑需要依赖某个对象的一些内容的变化时</td>
-</tr>
-<tr>
-<td>策略模式</td>
-<td>定义一系列算法，并将其放入独立的类中，以使算法的对象可以相互替换</td>
-<td>可以在运行时切换算法；<br />可以将算法的实现与使用剥离开；<br />可以使用组合代替继承；<br />开闭原则，新增策略不需要修改原有策略</td>
-<td>不适合算法不变的情况；<br />代码复杂度提升</td>
-<td>类中有多个算法变体，并能够在运行时切换算法时；<br />有许多尽在执行某些行为时略有不同的相似类时；<br />算法在上下文的实现中不失特别重要，可以使用该模式剥离业务逻辑与算法；<br />当类中使用了复杂的条件运算符以在同一算法的不同变体中切换时</td>
-</tr>
-<tr>
-<td>访问者模式</td>
-<td>将算法与访问者隔离开</td>
-<td>开闭原则，不影响已有行为；<br />单一职责原则，可以将同一行为的不用版本放到同一个类中；<br />访问者对象可以在访问时可以收集一些有用的信息</td>
-<td>每次在元素层次中添加或者移除时一个类时，都需要更新所有访问者；<br />访问者可能无法访问对象的私有变量、方法</td>
-<td>对一个复杂对象结构的所有元素进行访问时；<br />清理辅助行为的业务逻辑；<br />当某个行为仅在类层次结构中有意义，在其他类中没有意义时</td>
-</tr>
-</tbody></table>
-<h2 id="简单工厂和抽象工厂有什么区别？"><a href="#简单工厂和抽象工厂有什么区别？" class="headerlink" title="简单工厂和抽象工厂有什么区别？"></a>简单工厂和抽象工厂有什么区别？</h2><h3 id="三种模式介绍："><a href="#三种模式介绍：" class="headerlink" title="三种模式介绍："></a>三种模式介绍：</h3><ul>
-<li>工厂模式；有实体类、创建对应实体的工厂类（一个实体类对应一个工厂类）组成，当增加新实体时，需要增加新的实体类和新的该实体类对应的工厂类即可</li>
-<li>简单工厂模式：由实体类和一个工厂类组成，当新增实体类时，需要增加一个实体类，并且在唯一的工厂类里面进行修改，增加新实体的创建逻辑</li>
-<li>抽象工厂模式：将一个产品进行更细致的划分，将该产品的共同点抽象成一个类，然后其细分特点单独实现实体类，且实现该实体类对应的工厂类<h3 id="三者特点"><a href="#三者特点" class="headerlink" title="三者特点"></a>三者特点</h3></li>
-<li>常用简单工厂模式，工厂模式代码量较大，抽象工厂模式适合业务复杂、较大的情况</li>
-</ul>
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。</p>
+<p>你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。</p>
+<p>返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0 。</p>
+<p> </p>
+<p>示例 1：<br>输入：[7,1,5,3,6,4]<br>输出：5<br>解释：在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。<br>     注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票。</p>
+<p>示例 2：<br>输入：prices = [7,6,4,3,1]<br>输出：0<br>解释：在这种情况下, 没有交易完成, 所以最大利润为 0。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">    @Test</span><br><span class="line">    public void testmaxProfit() &#123;</span><br><span class="line">        int[] prices = &#123;7,1,5,3,6,4&#125;;</span><br><span class="line">        log.info(&quot;&#123;&#125;&quot;, maxProfit(prices));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int maxProfit(int[] prices) &#123;</span><br><span class="line">//        int maxProfit = 0;</span><br><span class="line">//        for (int i = 0; i &lt; prices.length - 1; i++) &#123;</span><br><span class="line">//            int currentPrice = prices[i];</span><br><span class="line">//            for (int j = 1; j &lt; prices.length; j++) &#123;</span><br><span class="line">//                int nextPrice = prices[j];</span><br><span class="line">//                int profit = nextPrice - currentPrice;</span><br><span class="line">//                if (profit &gt; maxProfit) &#123;</span><br><span class="line">//                    maxProfit = profit;</span><br><span class="line">//                &#125;</span><br><span class="line">//            &#125;</span><br><span class="line">//        &#125;</span><br><span class="line">//        return maxProfit;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    if (null == prices || prices.length == 0) &#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    int maxProfit = 0;</span><br><span class="line">    int minPrice = prices[0];</span><br><span class="line">    for (int i = 0; i &lt; prices.length; i++) &#123;</span><br><span class="line">        int price = prices[i];</span><br><span class="line">        if (price &lt; minPrice) &#123;</span><br><span class="line">            minPrice = price;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        int profit = price - minPrice;</span><br><span class="line">        if (profit &gt; maxProfit) &#123;</span><br><span class="line">            maxProfit = profit;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return maxProfit;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/14/Q&A/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-id="cl4qypj41004ozxd47qs9bm32" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/08/22/Q&A/algorithm/%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/" data-id="cl8fktjw9002wo0d4bz7x3nkb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -796,14 +182,14 @@
 
 
   
-    <article id="post-Q&amp;A/Java/网络" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Q&amp;A/algorithm/环形链表-II" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/04/12/Q&A/Java/%E7%BD%91%E7%BB%9C/" class="article-date">
-  <time datetime="2022-04-12T11:43:00.000Z" itemprop="datePublished">2022-04-12</time>
+    <a href="/2022/08/19/Q&A/algorithm/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8-II/" class="article-date">
+  <time datetime="2022-08-19T07:12:17.000Z" itemprop="datePublished">2022-08-19</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
+    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-algorithm/">Q&A-algorithm</a>
   </div>
 
   </div>
@@ -814,7 +200,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/12/Q&A/Java/%E7%BD%91%E7%BB%9C/">网络</a>
+      <a class="article-title" href="/2022/08/19/Q&A/algorithm/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8-II/">环形链表 II</a>
     </h1>
   
 
@@ -822,393 +208,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="常见的http响应码"><a href="#常见的http响应码" class="headerlink" title="常见的http响应码"></a>常见的http响应码</h3><ul>
-<li><p>分类：</p>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>取值范围</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>信息响应</td>
-<td>100-199</td>
-</tr>
-<tr>
-<td>成功响应</td>
-<td>200-299</td>
-</tr>
-<tr>
-<td>重定向</td>
-<td>300-399</td>
-</tr>
-<tr>
-<td>客户端错误</td>
-<td>400-499</td>
-</tr>
-<tr>
-<td>服务器错误</td>
-<td>500-599</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>常见http状态码：</p>
-<table>
-<thead>
-<tr>
-<th>取值</th>
-<th>英文名称</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>100</td>
-<td>Continue</td>
-<td>表示当前内容可行，可以继续执行请求</td>
-</tr>
-<tr>
-<td>101</td>
-<td>Switching protocol</td>
-<td>响应客户端Upgrade，表示服务端正在切换协议</td>
-</tr>
-<tr>
-<td>102</td>
-<td>Processing</td>
-<td>表示服务端已经收到病正在处理请求，但没有响应可用</td>
-</tr>
-<tr>
-<td>103</td>
-<td>Early Hints</td>
-<td>用于与link链接头一起使用，以允许用户代理在服务器准备响应阶段开始预加载preloading资源</td>
-</tr>
-<tr>
-<td>200</td>
-<td>OK</td>
-<td>请求成功，一般用于GET和POST请求</td>
-</tr>
-<tr>
-<td>201</td>
-<td>Created</td>
-<td>请求成功，并因此创建资源成功，通常应用于post、put请求</td>
-</tr>
-<tr>
-<td>202</td>
-<td>Accepted</td>
-<td>请求已收到，还未响应，没有结果。意味着不会有一个异步响应回复请求，可能会有另外的进程或者服务去处理该请求，通常用于批处理或者转发请求给其他进程或服务处理</td>
-</tr>
-<tr>
-<td>203</td>
-<td>Non-Authoritative_Informatioin</td>
-<td>服务器已经成功处理请求，但返回的实体头部元信息不是在原始服务器上有效的确定集合，而是来自本地或第三方的拷贝。当前信息可能是原始版本的子集或者超集。即代理服务器对原始数组做了修改之后返回的状态码</td>
-</tr>
-<tr>
-<td>204</td>
-<td>No_Content</td>
-<td>即成功响应，但是客户端当前状态不需要更新，比如put请求中进行资源更新，资源在服务端更新完成，但是客户端不需要更新页面的情况</td>
-</tr>
-<tr>
-<td>205</td>
-<td>Reset_Content</td>
-<td>告诉客户端重置文档视图，比如清空表单内容、重置canvas状态或者刷新用户界面</td>
-</tr>
-<tr>
-<td>206</td>
-<td>Partial Content</td>
-<td>请求某一部分资源，比如服务器成功响应了get请求，响应报文中包含由Content-Range制定范围内的内容</td>
-</tr>
-<tr>
-<td>301</td>
-<td>Moved_Permanently</td>
-<td>永久性重定向。请求的资源已经被永久移动到新的URI，返回的信息包括新的URI，浏览器会自动定向到新的URI，今后任何新的请求都应使用新的URI请求</td>
-</tr>
-<tr>
-<td>302</td>
-<td>Found</td>
-<td>临时性重定向</td>
-</tr>
-<tr>
-<td>303</td>
-<td>See Other</td>
-<td>查看其他地址。与302类似，使用GET请求查看</td>
-</tr>
-<tr>
-<td>304</td>
-<td>Not Modified</td>
-<td>未修改，所请求的资源未修改，服务器返回此状态码时，不会返回任何资源，客户端会缓存访问过的资源，通过提供一个头信息指出客户端希望只返回在制定日期修改后的资源，即该状态码时服务端对客户端有缓存且该缓存有效时的一种返回</td>
-</tr>
-<tr>
-<td>307</td>
-<td>Temporary_Redirect</td>
-<td>临时重定向，与302类似，使用get请求重定向，会按照浏览器标准，不会从post变成get（302会），即使用同样的请求方法和请求内容向新的URI发起请求，为了区分开302</td>
-</tr>
-<tr>
-<td>400</td>
-<td>Bad_Request</td>
-<td>客户端报文中存在语法错误，服务端无法理解，浏览器会像200一样处理该状态码</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized</td>
-<td>请求要求用户的身份认证，通过http认证（BASIC认证，DIGEST认证）的认证信息，若之前进行过一次请求，则表示用户认证失败</td>
-</tr>
-<tr>
-<td>402</td>
-<td>Payment_Required</td>
-<td>保留，将来使用</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden</td>
-<td>服务器理解客户端的请求，但是拒绝处理该请求</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not_Found</td>
-<td>服务端无法根据客户端请求找到资源</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal_Server_Error</td>
-<td>服务器内部错误，无法完成请求</td>
-</tr>
-<tr>
-<td>501</td>
-<td>Not_Implemented</td>
-<td>服务器不支持请求的功能，无法完成请求</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service_Unavailable</td>
-<td>由于超载或系统维护，服务器暂时无法响应客户端请求</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<h3 id="http-响应码-301-和-302-代表的是什么？有什么区别？"><a href="#http-响应码-301-和-302-代表的是什么？有什么区别？" class="headerlink" title="http|响应码 301 和 302 代表的是什么？有什么区别？"></a>http|响应码 301 和 302 代表的是什么？有什么区别？</h3><ul>
-<li>定义：301代表永久性重定向，302代表临时重定向</li>
-<li>区别：301应该永久替换使用新的URI，302需要继续使用原有URI</li>
-</ul>
-<h3 id="forward-和-redirect-的区别？"><a href="#forward-和-redirect-的区别？" class="headerlink" title="forward 和 redirect 的区别？"></a>forward 和 redirect 的区别？</h3><table>
-<thead>
-<tr>
-<th></th>
-<th>forward</th>
-<th>redirect</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>简介</td>
-<td>转发，服务端转发给另外的服务，服务端直接请求新的URL</td>
-<td>重定向，即客户端访问新的URL</td>
-</tr>
-<tr>
-<td>重新发请求对象</td>
-<td>服务端</td>
-<td>客户端</td>
-</tr>
-<tr>
-<td>浏览器区别</td>
-<td>浏览器地址无变化，浏览器不知道新的URL，此时是正向代理，浏览器啥也不知道，以为是正常的</td>
-<td>浏览器会显示新的URL</td>
-</tr>
-<tr>
-<td>请求次数</td>
-<td>转发对于客户端来说只有一次请求</td>
-<td>重定向需要客户端发两次请求</td>
-</tr>
-</tbody></table>
-<h3 id="简述-tcp-和-udp的区别？"><a href="#简述-tcp-和-udp的区别？" class="headerlink" title="简述 tcp 和 udp的区别？"></a>简述 tcp 和 udp的区别？</h3><table>
-<thead>
-<tr>
-<th></th>
-<th>tcp</th>
-<th>udp</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>简介</td>
-<td>tcp（Transmission Control Protocol）是面向连接的、可靠的字节流传输通信协议</td>
-<td>udp（User Datagram Protocol）是一种无需连接就可以发送数据包的无连接传输协议</td>
-</tr>
-<tr>
-<td>优点</td>
-<td>可靠性高</td>
-<td>速度快，操作简单，资源占用少</td>
-</tr>
-<tr>
-<td>缺点</td>
-<td>资源占用高、速度慢、操作复杂</td>
-<td>不可靠</td>
-</tr>
-<tr>
-<td>特点</td>
-<td>注重可靠性，管发也尽量保证让对方收到</td>
-<td>注重简单和速度，不注重可靠性，只管发，不管收</td>
-</tr>
-</tbody></table>
-<h3 id="tcp-为什么要三次握手，两次不行吗？为什么？"><a href="#tcp-为什么要三次握手，两次不行吗？为什么？" class="headerlink" title="tcp 为什么要三次握手，两次不行吗？为什么？"></a>tcp 为什么要三次握手，两次不行吗？为什么？</h3><ul>
-<li>两次不行，两次无法确定两端同时具备发送和接受数据的能力</li>
-<li>三次握手的目的：<ul>
-<li>client发送数据给server：client证明自己具备发送数据能力</li>
-<li>server发送数据给client：server证明自己具备接收和发送数据能力</li>
-<li>client发送数据给server：client证明自己具备接收数据能力</li>
-</ul>
-</li>
-<li>四次挥手目的：<ul>
-<li>client告诉server要关闭连接</li>
-<li>server告诉client自己知道了，并等待数据传输完成</li>
-<li>server主动告诉client，可以关闭了</li>
-<li>client告诉server知道了，过一会就关闭</li>
-</ul>
-</li>
-</ul>
-<h3 id="说一下-tcp-粘包是怎么产生的？"><a href="#说一下-tcp-粘包是怎么产生的？" class="headerlink" title="说一下 tcp 粘包是怎么产生的？"></a>说一下 tcp 粘包是怎么产生的？</h3><ul>
-<li>粘包定义：tcp在传输数据时会将数据拆分成多个数据报依次发送，当接收方收到之后解析完数据包之后的数据跟发送法发出的原始数据不一致的问题，解析的时候出现的数据包首尾连到一起导致的解析出错的问题，有可能消息解析出来后多了其他请求的消息的内容或者本身请求消息内容混乱</li>
-<li>产生原因：<ul>
-<li>发送方原因：TCP默认使用Nagle算法（作用是减少网络中数据段数量），Nagle的两种策略（收到确认发送下一个；收集多个数据段，收到确认后一起发出），Nagle会导致粘包问题，即一起发出的时候</li>
-<li>接收方原因：没有即使从缓存中读取数据段</li>
-</ul>
-</li>
-<li>产生的根本原因：消息边界的不确定</li>
-<li>解决方法：<ul>
-<li>加入特殊标志，标志消息头尾</li>
-<li>加入消息长度信息</li>
-</ul>
-</li>
-<li>UDP是直接发送完整消息，太长分片，所以不会有粘包问题</li>
-</ul>
-<h3 id="OSI-的七层模型都有哪些？"><a href="#OSI-的七层模型都有哪些？" class="headerlink" title="OSI 的七层模型都有哪些？"></a>OSI 的七层模型都有哪些？</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39521554/article/details/79894501">参考文章</a></li>
-<li>OSI（Open System Interconnect），即开放式系统互联</li>
-<li>七层模型介绍：<table>
-<thead>
-<tr>
-<th>层级</th>
-<th>功能</th>
-<th>TCP/IP四层概念模型</th>
-<th>对应协议</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>应用层</td>
-<td>为应用软件提供接口，以实现与另一应用的通信</td>
-<td>应用层</td>
-<td>HTTP、FTP、DHCP</td>
-</tr>
-<tr>
-<td>表示层</td>
-<td>数据格式转化、数据加密</td>
-<td>应用层</td>
-<td>LPP、XDP、NBSSN</td>
-</tr>
-<tr>
-<td>会话层</td>
-<td>建立、管理、维护会话</td>
-<td>应用层</td>
-<td>SSL、TLS、RPC</td>
-</tr>
-<tr>
-<td>传输层</td>
-<td>建立、管理、维护端到端的连接</td>
-<td>传输层</td>
-<td>TCP、UDP</td>
-</tr>
-<tr>
-<td>网络层</td>
-<td>IP选址及路由选择</td>
-<td>网络层</td>
-<td>IP、ICMP、IGMP</td>
-</tr>
-<tr>
-<td>数据链路层</td>
-<td>提供网络成与物理层之间的通信</td>
-<td>数据链路层</td>
-<td>PPTP、L2TP、RARP</td>
-</tr>
-<tr>
-<td>物理层</td>
-<td>比特流传输，即各种实体设备，网线、路由器、交换机等</td>
-<td>数据链路层</td>
-<td>IEEE 802.2</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<h3 id="get-和-post-请求有哪些区别？"><a href="#get-和-post-请求有哪些区别？" class="headerlink" title="get 和 post 请求有哪些区别？"></a>get 和 post 请求有哪些区别？</h3><ul>
-<li>综述：两个本质上没有差别，由于浏览器与服务器的限制，导致产生了差别，不携带参数的时候几乎一样<table>
-<thead>
-<tr>
-<th></th>
-<th>get</th>
-<th>post</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>定义</td>
-<td>http的一种请求方法，用于请求一个制定资源</td>
-<td>http的一种请求方法，用于将实体提交到制定的资源</td>
-</tr>
-<tr>
-<td>参数位置</td>
-<td>http本身无限制，约定放在URL中，其实也可以有body</td>
-<td>http本身无限制，约定放在body中，也可以放到URL中</td>
-</tr>
-<tr>
-<td>参数长度</td>
-<td>http本身无限制，浏览器会限制URL整个长度在2K左右</td>
-<td>body理论上无限制，取决于浏览器限制</td>
-</tr>
-<tr>
-<td>安全</td>
-<td>较差，参数地址栏可见</td>
-<td>较好，参数在body中，实际仅使用HTTP时都不安全，需要使用加解密才更安全</td>
-</tr>
-<tr>
-<td>数据包</td>
-<td>一个数据包</td>
-<td>可能是两个数据包，也可能是一个，看浏览器</td>
-</tr>
-<tr>
-<td>编码方式</td>
-<td>只能进行URL编码</td>
-<td>支持多种编码</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<h3 id="如何实现跨域？"><a href="#如何实现跨域？" class="headerlink" title="如何实现跨域？"></a>如何实现跨域？</h3><ul>
-<li>跨域：浏览器为了保证安全（比如防止XSS、CSRF攻击等），会限制仅能请求同一个域名地址下的服务</li>
-<li>如何实现：<ul>
-<li>JSONP：需要浏览器和服务都支持，</li>
-<li>CORS：需要浏览器和服务都支持</li>
-<li>postMessage</li>
-<li>Websocket</li>
-<li>Node中间件代理（两次跨域）</li>
-<li>nginx反向代理（正反向代理如何判断，一方不知道另一方的存在，比如VPN，就是服务器不知道真实客户端的存在，就是正向代理，Nginx让客户端不知道真实服务器的存在，就是反向代理）</li>
-<li>window.name + iframe</li>
-<li>location.hash + iframe</li>
-<li>document.domain + iframe</li>
-</ul>
-</li>
-</ul>
-<h3 id="说一下-JSONP-实现原理？"><a href="#说一下-JSONP-实现原理？" class="headerlink" title="说一下 JSONP 实现原理？"></a>说一下 JSONP 实现原理？</h3><ul>
-<li>利用在&lt;script&gt;的漏洞，本质支持跨域，然后用回调接收json进行处理</li>
-</ul>
-<h3 id="浏览器输入链接请求的详细过程"><a href="#浏览器输入链接请求的详细过程" class="headerlink" title="浏览器输入链接请求的详细过程"></a>浏览器输入链接请求的详细过程</h3><ul>
-<li>URL输入</li>
-<li>DNS解析</li>
-<li>建立TCP连接</li>
-<li>发送HTTP请求</li>
-<li>服务器响应请求</li>
-<li>浏览器解析渲染页面</li>
-<li>HTTP请求结束，断开TCP连接</li>
-</ul>
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个链表的头节点  head ，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。</p>
+<p>如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。如果 pos 是 -1，则在该链表中没有环。注意：pos 不作为参数进行传递，仅仅是为了标识链表的实际情况。</p>
+<p>不允许修改 链表。</p>
+<p> </p>
+<p>示例 1：<br>输入：head = [3,2,0,-4], pos = 1<br>输出：返回索引为 1 的链表节点<br>解释：链表中有一个环，其尾部连接到第二个节点。</p>
+<p>示例 2：<br>输入：head = [1,2], pos = 0<br>输出：返回索引为 0 的链表节点<br>解释：链表中有一个环，其尾部连接到第一个节点。</p>
+<p>示例 3：<br>输入：head = [1], pos = -1<br>输出：返回 null<br>解释：链表中没有环。
+ </p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public ListNode detectCycle(ListNode head) &#123;</span><br><span class="line">    ArrayList&lt;ListNode&gt; nodeArr = new ArrayList();</span><br><span class="line">    while (head != null) &#123;</span><br><span class="line">        nodeArr.add(head);</span><br><span class="line">        for (ListNode node:</span><br><span class="line">             nodeArr) &#123;</span><br><span class="line">            if (head.next == node) &#123;</span><br><span class="line">                return node;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        head = head.next;</span><br><span class="line">    &#125;</span><br><span class="line">    return null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/12/Q&A/Java/%E7%BD%91%E7%BB%9C/" data-id="cl4qypj40004lzxd40lmb5l3o" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/08/19/Q&A/algorithm/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8-II/" data-id="cl8fktjwl0045o0d49xj8bnki" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1220,14 +233,14 @@
 
 
   
-    <article id="post-Q&amp;A/Java/异常" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Q&amp;A/algorithm/链表的中间结点" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/04/06/Q&A/Java/%E5%BC%82%E5%B8%B8/" class="article-date">
-  <time datetime="2022-04-06T14:39:41.000Z" itemprop="datePublished">2022-04-06</time>
+    <a href="/2022/08/19/Q&A/algorithm/%E9%93%BE%E8%A1%A8%E7%9A%84%E4%B8%AD%E9%97%B4%E7%BB%93%E7%82%B9/" class="article-date">
+  <time datetime="2022-08-19T07:10:12.000Z" itemprop="datePublished">2022-08-19</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
+    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-algorithm/">Q&A-algorithm</a>
   </div>
 
   </div>
@@ -1238,7 +251,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/06/Q&A/Java/%E5%BC%82%E5%B8%B8/">异常</a>
+      <a class="article-title" href="/2022/08/19/Q&A/algorithm/%E9%93%BE%E8%A1%A8%E7%9A%84%E4%B8%AD%E9%97%B4%E7%BB%93%E7%82%B9/">链表的中间结点</a>
     </h1>
   
 
@@ -1246,161 +259,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="系统抛异常的方式"><a href="#系统抛异常的方式" class="headerlink" title="系统抛异常的方式"></a>系统抛异常的方式</h3><ul>
-<li>throw</li>
-<li>throws</li>
-<li>系统自动抛异常</li>
-</ul>
-<h3 id="throw-与-throws-的区别"><a href="#throw-与-throws-的区别" class="headerlink" title="throw 与 throws 的区别"></a>throw 与 throws 的区别</h3><table>
-<thead>
-<tr>
-<th></th>
-<th>throw</th>
-<th>throws</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>作用</td>
-<td>表示当前代码块抛出的一个异常</td>
-<td>表示当前方法可能抛出的一个或多个异常，声明要抛出的异常类型｜</td>
-</tr>
-<tr>
-<td>使用位置</td>
-<td>方法中</td>
-<td>方法名中</td>
-</tr>
-<tr>
-<td>处理位置</td>
-<td>方法中、调用该方法的方法中</td>
-<td>调用该方法的方法中</td>
-</tr>
-<tr>
-<td>特点</td>
-<td>执行到这一行，就是一定有异常，表示一定</td>
-<td>不一定真的产生这些异常，表达可能行</td>
-</tr>
-</tbody></table>
-<h3 id="final、finally、finalize-有什么区别？"><a href="#final、finally、finalize-有什么区别？" class="headerlink" title="final、finally、finalize 有什么区别？"></a>final、finally、finalize 有什么区别？</h3><table>
-<thead>
-<tr>
-<th></th>
-<th>final</th>
-<th>finally</th>
-<th>finalize</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>作用</td>
-<td>使修饰内容不发生变化，使被修饰的内容只读</td>
-<td>配合try、catch完成异常处理的一部分流程，表示该部分最后且一定会执行，即使catch中return了，经常用来释放资源</td>
-<td>是object的方法之一，作用是协助gcc释放资源</td>
-</tr>
-<tr>
-<td>修饰内容</td>
-<td>修饰变量、方法、类</td>
-<td>无</td>
-<td>无</td>
-</tr>
-<tr>
-<td>修饰内容特点</td>
-<td>被修饰内容不可变，类不能被继承、方法不能被重写，变量内容不能变（变量值不变或者引用不变）</td>
-<td>无</td>
-<td>无</td>
-</tr>
-</tbody></table>
-<h3 id="try-catch-finally-中哪个部分可以省略？"><a href="#try-catch-finally-中哪个部分可以省略？" class="headerlink" title="try-catch-finally 中哪个部分可以省略？"></a>try-catch-finally 中哪个部分可以省略？</h3><ul>
-<li>catch和finally都可以省略，但是不能同时省略</li>
-</ul>
-<h3 id="try-catch-finally-中，如果-catch-中-return-了，finally-还会执行吗？"><a href="#try-catch-finally-中，如果-catch-中-return-了，finally-还会执行吗？" class="headerlink" title="try-catch-finally 中，如果 catch 中 return 了，finally 还会执行吗？"></a>try-catch-finally 中，如果 catch 中 return 了，finally 还会执行吗？</h3><ul>
-<li>return之前会先执行finally，具体执行情况如下<ul>
-<li>finally中有return：此处会覆盖try与catch中的返回值</li>
-<li>finally中没有return：<ul>
-<li>返回值是基本数据类型：由于返回值已经存储在栈中了，所以finally中的改变是无效的</li>
-<li>返回值是引用类型：finally中对引用的操作会生效</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>不会执行的情况： <ul>
-<li>没有进入try</li>
-<li>强制退出程序</li>
-<li>守护线程被终止</li>
-</ul>
-</li>
-</ul>
-<h3 id="常见的异常类有哪些？"><a href="#常见的异常类有哪些？" class="headerlink" title="常见的异常类有哪些？"></a>常见的异常类有哪些？</h3><table>
-<thead>
-<tr>
-<th>异常名称</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>NullPointerException</td>
-<td>空指针</td>
-</tr>
-<tr>
-<td>SQLException</td>
-<td>数据库访问异常</td>
-</tr>
-<tr>
-<td>IndexOutOfBoundsException</td>
-<td>数组越界</td>
-</tr>
-<tr>
-<td>NumberFormatException</td>
-<td>字符串转数值类型异常</td>
-</tr>
-<tr>
-<td>FileNotFoundException</td>
-<td>打开文件失败</td>
-</tr>
-<tr>
-<td>IOException</td>
-<td>I/O异常</td>
-</tr>
-<tr>
-<td>ClassCastException</td>
-<td>强制类型转换异常</td>
-</tr>
-<tr>
-<td>ArrayStoreException</td>
-<td>向数组中存入错误类型对象时的异常</td>
-</tr>
-<tr>
-<td>IllegalArgumentException</td>
-<td>无效参数</td>
-</tr>
-<tr>
-<td>ArithmeticException</td>
-<td>运算异常</td>
-</tr>
-<tr>
-<td>NegativeArraySizeException</td>
-<td>创建长度为负的数组异常</td>
-</tr>
-<tr>
-<td>NoSuchMethodException</td>
-<td>找不到方法</td>
-</tr>
-<tr>
-<td>SecurityException</td>
-<td>存在安全侵犯</td>
-</tr>
-<tr>
-<td>UnsupportedOperationException</td>
-<td>不支持的操作</td>
-</tr>
-<tr>
-<td>RuntimeException</td>
-<td>运行时异常父类</td>
-</tr>
-</tbody></table>
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个头结点为 head 的非空单链表，返回链表的中间结点。</p>
+<p>如果有两个中间结点，则返回第二个中间结点。</p>
+<p> </p>
+<p>示例 1：</p>
+<p>输入：[1,2,3,4,5]<br>输出：此列表中的结点 3 (序列化形式：[3,4,5])<br>返回的结点值为 3 。 (测评系统对该结点序列化表述是 [3,4,5])。<br>注意，我们返回了一个 ListNode 类型的对象 ans，这样：<br>ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及 ans.next.next.next = NULL.</p>
+<p>示例 2：</p>
+<p>输入：[1,2,3,4,5,6]<br>输出：此列表中的结点 4 (序列化形式：[4,5,6])<br>由于该列表有两个中间结点，值分别为 3 和 4，我们返回第二个结点。
+ </p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public ListNode middleNode(ListNode head) &#123;</span><br><span class="line">    ArrayList nodeArr = new ArrayList();</span><br><span class="line">    while (head != null) &#123;</span><br><span class="line">        nodeArr.add(head);</span><br><span class="line">        head = head.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return (ListNode) nodeArr.get(nodeArr.size() / 2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/04/06/Q&A/Java/%E5%BC%82%E5%B8%B8/" data-id="cl4qypj3z004fzxd4djtk3tfe" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/08/19/Q&A/algorithm/%E9%93%BE%E8%A1%A8%E7%9A%84%E4%B8%AD%E9%97%B4%E7%BB%93%E7%82%B9/" data-id="cl8fktjwn004do0d4gubw97v1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1412,14 +284,14 @@
 
 
   
-    <article id="post-Q&amp;A/Java/javaWeb" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Q&amp;A/algorithm/反转链表" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/03/28/Q&A/Java/javaWeb/" class="article-date">
-  <time datetime="2022-03-28T08:25:19.000Z" itemprop="datePublished">2022-03-28</time>
+    <a href="/2022/08/18/Q&A/algorithm/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" class="article-date">
+  <time datetime="2022-08-18T11:59:51.000Z" itemprop="datePublished">2022-08-18</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
+    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-algorithm/">Q&A-algorithm</a>
   </div>
 
   </div>
@@ -1430,7 +302,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/28/Q&A/Java/javaWeb/">javaWeb</a>
+      <a class="article-title" href="/2022/08/18/Q&A/algorithm/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">反转链表</a>
     </h1>
   
 
@@ -1438,275 +310,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="servlet是什么？"><a href="#servlet是什么？" class="headerlink" title="servlet是什么？"></a>servlet是什么？</h3><ul>
-<li>是一个java web应用服务器，servlet就是一个java官方封装好的HTTP应用服务器功能集合（也可以说规范，比如实现了识别http请求，复用TCP连接等底层操作），即是一个Java官方提供的HTTP服务器功能集合或者规范，方便我们基于此进行应用服务的开发，将精力集中在业务层的编码中即可</li>
-<li>诞生的原因或者目的：方便开发者快速开发java web服务，为java web服务提供一套规范</li>
-</ul>
-<h3 id="jsp是什么？"><a href="#jsp是什么？" class="headerlink" title="jsp是什么？"></a>jsp是什么？</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1252599548343744/1266262958498784">参考文章</a></li>
-<li>是一个java web应用服务器，全称Java server Pages</li>
-<li>样子是一个html文件，然后里面内嵌着java代码，用来实现动态网页的开发，这种方式更适合前后端融合的形式，一个人编写比较方便</li>
-<li>用来开发动态网页应用的一种方式，静态网页之中包含java代码，以实现动态响应能力</li>
-<li>实际运行时会被编译成servlet，本质是servlet的另一种形式</li>
-</ul>
-<h3 id="Tomcat是什么？"><a href="#Tomcat是什么？" class="headerlink" title="Tomcat是什么？"></a>Tomcat是什么？</h3><ul>
-<li>Tomcat是集合了Servlet、JSP、Java WebSocket等多种网络服务功能的一个更大的java web 服务器，并且还具有可视化配置页面等功能</li>
-</ul>
-<h3 id="struts是什么"><a href="#struts是什么" class="headerlink" title="struts是什么"></a>struts是什么</h3><ul>
-<li>即struts web，是一个开源框架，对java servlet API进行了拓展，增加了model、view、controller层，提高java web应用开发效率</li>
-</ul>
-<h3 id="Apache是什么？"><a href="#Apache是什么？" class="headerlink" title="Apache是什么？"></a>Apache是什么？</h3><ul>
-<li>是一个web服务功能集合，全称Apache HTTP Server，只支持HTTP服务</li>
-</ul>
-<h3 id="Nginx是什么？"><a href="#Nginx是什么？" class="headerlink" title="Nginx是什么？"></a>Nginx是什么？</h3><ul>
-<li>一款轻量级web服务器，跟Apache核心功能类似，都是HTTP服务器，特点是更适合高并发场景等</li>
-</ul>
-<h3 id="正向代理、反向代理"><a href="#正向代理、反向代理" class="headerlink" title="正向代理、反向代理"></a>正向代理、反向代理</h3><ul>
-<li>正向代理：VPN即正向代理，即代理会真的替代客户端发请求，而非转发，此时客户端的请求是被整整替代的，所以正向代理，代理的是客户端</li>
-<li>反向代理：即代理只是转发请求，并没有代理客户端发请求，然后服务器响应，此时服务器被代理</li>
-<li>总结：正向代理，即客户端被代理的情况，反向代理是服务端被代理的情况</li>
-</ul>
-<h3 id="jsp-和-servlet-有什么区别？"><a href="#jsp-和-servlet-有什么区别？" class="headerlink" title="jsp 和 servlet 有什么区别？"></a>jsp 和 servlet 有什么区别？</h3><table>
-<thead>
-<tr>
-<th></th>
-<th>jsp</th>
-<th>servlet</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>本质</td>
-<td>jsp本质就是servlet，是servlet的一种简易实现方式，或者说是servlet的拓展，JVM只能识别java代码，是web服务器将jsp代码编译成java代码</td>
-<td>servlet是java官方提供你的一套http服务器功能集合，或者说一种http服务器规范，方便开发者快速开发应用服务，将精力集中在业务上</td>
-</tr>
-<tr>
-<td>适用场景</td>
-<td>jsp是在HTML中包含了java代码，所以本身包含可视化页面，更容易实现动态网页应用</td>
-<td>servlet内部更多地是各种逻辑层，没有可视化相关的内容，更适合做逻辑层、控制层等</td>
-</tr>
-<tr>
-<td>特点</td>
-<td>jsp侧重于可视化部分</td>
-<td>servlet侧重于逻辑控制部分</td>
-</tr>
-<tr>
-<td>诞生目的</td>
-<td>简化servlet的使用，使servlet跟HTML更好的结合起来，更好的实现java web应用</td>
-<td>为开发者提供java web应用服务开发的规范或者工具，提高开发者效率</td>
-</tr>
-</tbody></table>
-<h3 id="jsp-有哪些内置对象？作用分别是什么？"><a href="#jsp-有哪些内置对象？作用分别是什么？" class="headerlink" title="jsp 有哪些内置对象？作用分别是什么？"></a>jsp 有哪些内置对象？作用分别是什么？</h3><table>
-<thead>
-<tr>
-<th>jsp内置对象名称</th>
-<th>对应servlet类</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>request</td>
-<td>javax.servlet.http.HttpServletRequest</td>
-<td>client请求信息，http协议头信息、cookie、请求参数等</td>
-</tr>
-<tr>
-<td>response</td>
-<td>javax.servlet.http.HttpServletResponse</td>
-<td>server响应client请求，返回信息</td>
-</tr>
-<tr>
-<td>pageContent</td>
-<td>javax.servlet.jsp.PageContext</td>
-<td>页面上下文</td>
-</tr>
-<tr>
-<td>session</td>
-<td>javax.servlet.http.HttpSession</td>
-<td>client与server之间的会话</td>
-</tr>
-<tr>
-<td>application</td>
-<td>javax.servlet.ServletContext</td>
-<td>获取服务端应用生命周期信息</td>
-</tr>
-<tr>
-<td>out</td>
-<td>javax.servlet.jsp.JspWriter</td>
-<td>server给client传输内容的输出流</td>
-</tr>
-<tr>
-<td>config</td>
-<td>javax.servlet.ServletConfig</td>
-<td>初始化是，jsp引擎向jsp页面传递的信息</td>
-</tr>
-<tr>
-<td>page</td>
-<td>java.lang.Object</td>
-<td>指向jsp页面本身</td>
-</tr>
-<tr>
-<td>exception</td>
-<td>java.lang.Throwable</td>
-<td>页面异常对象</td>
-</tr>
-</tbody></table>
-<h3 id="说一下-jsp-的-4-种作用域？"><a href="#说一下-jsp-的-4-种作用域？" class="headerlink" title="说一下 jsp 的 4 种作用域？"></a>说一下 jsp 的 4 种作用域？</h3><ul>
-<li>作用域：即信息共享范围，类似于public、private这种</li>
-<li>四种作用域介绍：<table>
-<thead>
-<tr>
-<th>作用域范围</th>
-<th>信息传递类</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>application：即服务启动到停止的时间</td>
-<td>ServletContext</td>
-</tr>
-<tr>
-<td>session：http会话开始到结束的时间</td>
-<td>session</td>
-</tr>
-<tr>
-<td>request：http请求到结束的时间</td>
-<td>request</td>
-</tr>
-<tr>
-<td>page：当前页面打开到关闭的时间</td>
-<td>pageContext</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<h3 id="session-和-cookie-有什么区别？"><a href="#session-和-cookie-有什么区别？" class="headerlink" title="session 和 cookie 有什么区别？"></a>session 和 cookie 有什么区别？</h3><table>
-<thead>
-<tr>
-<th></th>
-<th>cookie</th>
-<th>session</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>简介</td>
-<td>是放在client上给server端做相关逻辑使用的，server会在response中返给client，server可以对cookie进行读写，比如可以使用cookie来保存用户信息，以便于server端校验用户信息</td>
-<td>是放在server上，可以用来跟cookie的搭配做一些比如用户信息校验的逻辑</td>
-</tr>
-<tr>
-<td>存放位置</td>
-<td>client</td>
-<td>server</td>
-</tr>
-<tr>
-<td>容易</td>
-<td>较小</td>
-<td>较大</td>
-</tr>
-<tr>
-<td>安全性</td>
-<td>较差</td>
-<td>较强</td>
-</tr>
-</tbody></table>
-<h3 id="说一下-session-的工作原理？"><a href="#说一下-session-的工作原理？" class="headerlink" title="说一下 session 的工作原理？"></a>说一下 session 的工作原理？</h3><ul>
-<li>简要说明：用户注册之后生成session，然后保存到内存或者硬盘中，供cookie过来之后的校验</li>
-<li>举例：比如用户登录校验这种，用户登录成功后，server将待seesionId的cookie返回给client，当client发起新的请求时，将cookie发送给server，然后server使用cookie和seesion进行用户登录校验，比如可以匹配一下seesionId这种方式验证</li>
-</ul>
-<h3 id="如果客户端禁止-cookie-能实现-session-还能用吗？"><a href="#如果客户端禁止-cookie-能实现-session-还能用吗？" class="headerlink" title="如果客户端禁止 cookie 能实现 session 还能用吗？"></a>如果客户端禁止 cookie 能实现 session 还能用吗？</h3><ul>
-<li>当然能用，cookie只是一个保存信息的数据结构而已，我们可以自己设计另一个跟cookie功能一致的东西，办法很多，根据场景选择即可，比如此时client只保存一个sessionid给server做用户登录校验即可</li>
-</ul>
-<h3 id="spring-mvc-和-struts-的区别是什么？"><a href="#spring-mvc-和-struts-的区别是什么？" class="headerlink" title="spring mvc 和 struts 的区别是什么？"></a>spring mvc 和 struts 的区别是什么？</h3><table>
-<thead>
-<tr>
-<th></th>
-<th>spring mvc</th>
-<th>struts</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>简介</td>
-<td>spring MVC是一个web开发框架，本质上相当于servlet，方便开发者更高效的开发web应用</td>
-<td>是一个web开发框架，基于servlet与MVC设计模式实现</td>
-</tr>
-<tr>
-<td>机制</td>
-<td>spring mvc的入口是servlet</td>
-<td>入口是filter</td>
-</tr>
-<tr>
-<td>性能</td>
-<td>较好，基于方法设计，粒度更细</td>
-<td>较差，基于类设计，每收到一个请求，都会实例一个action</td>
-</tr>
-<tr>
-<td>参数传递</td>
-<td>形参传递，方法之间是独立的</td>
-<td>可以使用属性接收参数</td>
-</tr>
-<tr>
-<td>设计思想</td>
-<td>在servlet上进行拓展，AOP</td>
-<td>OOP</td>
-</tr>
-<tr>
-<td>开发效率</td>
-<td>高</td>
-<td>低</td>
-</tr>
-<tr>
-<td>配置量</td>
-<td>接近0</td>
-<td>较多</td>
-</tr>
-<tr>
-<td>拦截器实现机制</td>
-<td>AOP方式，方法级别拦截</td>
-<td>自己的interceptor机制，类级别拦截</td>
-</tr>
-<tr>
-<td>Ajax支持</td>
-<td>继承了Ajax，使用@ResponseBody即可实现</td>
-<td>拦截器中继承了Ajax，在action中处理时必须安装插件或者写代码集成进去，使用较为不方便</td>
-</tr>
-<tr>
-<td>验证机制</td>
-<td>支持JSR303（一种参数校验规范），处理简单</td>
-<td>繁琐</td>
-</tr>
-</tbody></table>
-<h3 id="如何避免-sql-注入？"><a href="#如何避免-sql-注入？" class="headerlink" title="如何避免 sql 注入？"></a>如何避免 sql 注入？</h3><ul>
-<li>定义：输入数据中包含非法sql语句，且此sql语句被非法执行</li>
-<li>避免策略：<ul>
-<li>过滤输入内容，校验字符串</li>
-<li>参数化查询</li>
-<li>安全测试、安全审计（CR）</li>
-<li>避免使用动态sql</li>
-<li>数据库重要数据加密</li>
-<li>数据库权限控制</li>
-<li>避免数据库直接跟用户产生交互</li>
-</ul>
-</li>
-</ul>
-<h3 id="什么是-XSS-攻击，如何避免？"><a href="#什么是-XSS-攻击，如何避免？" class="headerlink" title="什么是 XSS 攻击，如何避免？"></a>什么是 XSS 攻击，如何避免？</h3><ul>
-<li>定义：又称CSS，全称Cross Site Script（跨站脚本攻击），即输入一段HTML来攻击应用</li>
-<li>避免策略：<ul>
-<li>对输入、输出进行过滤、转义处理</li>
-<li>对HTML标签、CSS属性复制的地方进行校验</li>
-</ul>
-</li>
-</ul>
-<h3 id="什么是-CSRF-攻击，如何避免？"><a href="#什么是-CSRF-攻击，如何避免？" class="headerlink" title="什么是 CSRF 攻击，如何避免？"></a>什么是 CSRF 攻击，如何避免？</h3><ul>
-<li>定义：全称Cross Site Request Forgery（跨站请求伪造），即攻击者盗用身份，发送恶意请求</li>
-<li>避免策略：<ul>
-<li>阻止不明外域访问，比如验证请求地址等策略</li>
-<li>关键操作添加验证码</li>
-<li>增加token、cookie校验策略</li>
-</ul>
-</li>
-</ul>
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class ListNode &#123;</span><br><span class="line">    int val;</span><br><span class="line">    ListNode next;</span><br><span class="line">    ListNode() &#123;&#125;</span><br><span class="line">    ListNode(int val) &#123; this.val = val; &#125;</span><br><span class="line">    ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">  @Test</span><br><span class="line">  public void testreverseList() &#123;</span><br><span class="line">      ListNode list22 = new ListNode(4, null);</span><br><span class="line">      ListNode list21 = new ListNode(3, list22);</span><br><span class="line">      ListNode list20 = new ListNode(1, list21);</span><br><span class="line">      log.info(&quot;&#123;&#125;&quot;, reverseList(list20));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public ListNode reverseList(ListNode head) &#123;</span><br><span class="line">      ListNode resultNode = null;</span><br><span class="line">      ListNode currentNode = head;</span><br><span class="line">      while (currentNode != null) &#123;</span><br><span class="line">          ListNode next = currentNode.next;</span><br><span class="line">          currentNode.next = resultNode;</span><br><span class="line">          resultNode = currentNode;</span><br><span class="line">          currentNode = next;</span><br><span class="line">      &#125;</span><br><span class="line">      return resultNode;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/03/28/Q&A/Java/javaWeb/" data-id="cl4qypj3v003yzxd48197cvb7" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/08/18/Q&A/algorithm/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" data-id="cl8fktjwe003co0d47euc3b1y" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1718,14 +328,14 @@
 
 
   
-    <article id="post-Q&amp;A/Java/对象拷贝" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Q&amp;A/algorithm/合并两个有序链表" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/03/25/Q&A/Java/%E5%AF%B9%E8%B1%A1%E6%8B%B7%E8%B4%9D/" class="article-date">
-  <time datetime="2022-03-25T08:28:18.000Z" itemprop="datePublished">2022-03-25</time>
+    <a href="/2022/08/18/Q&A/algorithm/%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/" class="article-date">
+  <time datetime="2022-08-18T11:58:39.000Z" itemprop="datePublished">2022-08-18</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
+    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-algorithm/">Q&A-algorithm</a>
   </div>
 
   </div>
@@ -1736,7 +346,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/25/Q&A/Java/%E5%AF%B9%E8%B1%A1%E6%8B%B7%E8%B4%9D/">对象拷贝</a>
+      <a class="article-title" href="/2022/08/18/Q&A/algorithm/%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/">合并两个有序链表</a>
     </h1>
   
 
@@ -1744,33 +354,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="为什么要使用拷贝"><a href="#为什么要使用拷贝" class="headerlink" title="为什么要使用拷贝"></a>为什么要使用拷贝</h2><p>想要基于某个对象当前状态进行操作，但又不想改变该对象状态的情况</p>
-<h2 id="如何实现克隆"><a href="#如何实现克隆" class="headerlink" title="如何实现克隆"></a>如何实现克隆</h2><p>1、实现Cloneable接口并重写Object类中的clone方法，并将clone方法设置成public<br>2、实现Seializable接口<br>3、json序列化、反序列化</p>
-<h2 id="深拷贝、浅拷贝区别"><a href="#深拷贝、浅拷贝区别" class="headerlink" title="深拷贝、浅拷贝区别"></a>深拷贝、浅拷贝区别</h2><table>
-<thead>
-<tr>
-<th></th>
-<th>深拷贝</th>
-<th>浅拷贝</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>简介</td>
-<td>将对象的引用和内部属性全部拷贝</td>
-<td>仅创建一个新的引用，该引用指向与原引用相同的对象</td>
-</tr>
-<tr>
-<td>区别概述</td>
-<td>深拷贝会拷贝对象的所有内容，即深拷贝会闯将新对象，浅拷贝只创建一个新的引用，不创建新对象</td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="如何解决多层拷贝问题"><a href="#如何解决多层拷贝问题" class="headerlink" title="如何解决多层拷贝问题"></a>如何解决多层拷贝问题</h2><p>使用序列化、反序列化方式</p>
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"> public class ListNode &#123;</span><br><span class="line">    int val;</span><br><span class="line">    ListNode next;</span><br><span class="line">    ListNode() &#123;&#125;</span><br><span class="line">    ListNode(int val) &#123; this.val = val; &#125;</span><br><span class="line">    ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">  @Test</span><br><span class="line">  public void testmergeTwoLists() &#123;</span><br><span class="line">      ListNode list12 = new ListNode(4, null);</span><br><span class="line">      ListNode list11 = new ListNode(2, list12);</span><br><span class="line">      ListNode list10 = new ListNode(1, list11);</span><br><span class="line"></span><br><span class="line">      ListNode list22 = new ListNode(4, null);</span><br><span class="line">      ListNode list21 = new ListNode(3, list22);</span><br><span class="line">      ListNode list20 = new ListNode(1, list21);</span><br><span class="line">      log.info(&quot;&#123;&#125;&quot;, mergeTwoLists(list10, list20));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public ListNode mergeTwoLists(ListNode list1, ListNode list2) &#123;</span><br><span class="line">      if (list1 == null) &#123;</span><br><span class="line">          return list2;</span><br><span class="line">      &#125; else if (list2 == null) &#123;</span><br><span class="line">          return list1;</span><br><span class="line">      &#125; else if (list1.val &lt; list2.val) &#123;</span><br><span class="line">          list1.next = mergeTwoLists(list1.next, list2);</span><br><span class="line">          return list1;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">          list2.next = mergeTwoLists(list1, list2.next);</span><br><span class="line">          return list2;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/03/25/Q&A/Java/%E5%AF%B9%E8%B1%A1%E6%8B%B7%E8%B4%9D/" data-id="cl4qypj3y004dzxd4d2beh9yj" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/08/18/Q&A/algorithm/%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/" data-id="cl8fktjwf003go0d4duzvc2mo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1782,14 +372,14 @@
 
 
   
-    <article id="post-Q&amp;A/Java/反射" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Q&amp;A/algorithm/判断子序列" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/03/24/Q&A/Java/%E5%8F%8D%E5%B0%84/" class="article-date">
-  <time datetime="2022-03-24T11:17:28.000Z" itemprop="datePublished">2022-03-24</time>
+    <a href="/2022/08/17/Q&A/algorithm/%E5%88%A4%E6%96%AD%E5%AD%90%E5%BA%8F%E5%88%97/" class="article-date">
+  <time datetime="2022-08-17T09:36:10.000Z" itemprop="datePublished">2022-08-17</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
+    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-algorithm/">Q&A-algorithm</a>
   </div>
 
   </div>
@@ -1800,7 +390,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/24/Q&A/Java/%E5%8F%8D%E5%B0%84/">反射</a>
+      <a class="article-title" href="/2022/08/17/Q&A/algorithm/%E5%88%A4%E6%96%AD%E5%AD%90%E5%BA%8F%E5%88%97/">判断子序列</a>
     </h1>
   
 
@@ -1808,77 +398,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="什么是反射"><a href="#什么是反射" class="headerlink" title="什么是反射"></a>什么是反射</h2><table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>反射定义</td>
-<td>运行时程序可以拿到对象的所有信息</td>
-</tr>
-<tr>
-<td>Java反射应用</td>
-<td>运行时，对对象一无所知情况下，调用对象属性、方法</td>
-</tr>
-</tbody></table>
-<h2 id="什么是java序列化？什么情况下需要序列化？"><a href="#什么是java序列化？什么情况下需要序列化？" class="headerlink" title="什么是java序列化？什么情况下需要序列化？"></a>什么是java序列化？什么情况下需要序列化？</h2><table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>序列化定义</td>
-<td>对象转换成字节流过程</td>
-</tr>
-<tr>
-<td>序列化使用场景</td>
-<td>1、持久化对象<br/>2、在网络中传输对象</td>
-</tr>
-</tbody></table>
-<h2 id="动态代理是什么？使用场景"><a href="#动态代理是什么？使用场景" class="headerlink" title="动态代理是什么？使用场景"></a>动态代理是什么？使用场景</h2><table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>代理作用</td>
-<td>在已有行为前后增加额外操作</td>
-</tr>
-<tr>
-<td>代理类</td>
-<td>代理类按照委托类实现一些既定接口</td>
-</tr>
-<tr>
-<td>静态代理、动态代理区别</td>
-<td>1、程序员编写内容不同，静态代理需要编写代理类，动态代理不需要编写代理类，但是需要编写代理方法执行前后的操作内容，即InvocationHandler<br/>2、内部实现不同，静态代理的代理对象就是程序员定义的代理类的实例，动态代理是代理接口的实例，静态代理对象调用方法时是直接调用到代理方法，然后再调用被代理对象中的方法，而动态代理是先转发给handler方法，然后再handler方法中使用反射调用被代理方法<br/>3、两种方式代码可维护性、可复用程度不同，静态代理比较简单，但可复用程度不高，动态代理同一个handler可以实现代理多个被代理方法，可复用程度高</td>
-</tr>
-<tr>
-<td>静态代理定义</td>
-<td>编译期即确定代理类，所以需要提前由程序员编写好代理类</td>
-</tr>
-<tr>
-<td>动态代理定义</td>
-<td>运行时确定代理类，程序员只需要编写好被代理方法执行前后的操作即可，即不需要编写代理类</td>
-</tr>
-<tr>
-<td>使用场景</td>
-<td>各种三方库、日志模块等较多采用该技术实现</td>
-</tr>
-</tbody></table>
-<h2 id="动态代理如何实现"><a href="#动态代理如何实现" class="headerlink" title="动态代理如何实现"></a>动态代理如何实现</h2><h3 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h3><p>1、定义委托类、委托方法、动态代理类的新增操作（即InvocationHandler）<br>2、构造委托对象，构造新增操作对象，构造代理对象并关联委托对象和新增操作对象，然后使用代理对象调用委托方法</p>
-<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line">import org.junit.jupiter.api.Test;</span><br><span class="line"></span><br><span class="line">import java.lang.reflect.InvocationHandler;</span><br><span class="line">import java.lang.reflect.Method;</span><br><span class="line">import java.lang.reflect.Proxy;</span><br><span class="line"></span><br><span class="line">public class MyTest &#123;</span><br><span class="line"></span><br><span class="line">    /** * 创建Person接口</span><br><span class="line">    * @author Gonjan</span><br><span class="line">    */</span><br><span class="line">    public interface Person &#123;</span><br><span class="line">       //上交班费</span><br><span class="line">       void giveMoney();</span><br><span class="line">       void getSchool();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public class Student implements Person &#123;</span><br><span class="line">       private String name;</span><br><span class="line">       public Student(String name) &#123;</span><br><span class="line">           this.name = name;</span><br><span class="line">       &#125;</span><br><span class="line">       @Override</span><br><span class="line">       public void giveMoney() &#123;</span><br><span class="line">           System.out.println(name + &quot;上交班费50元&quot;);</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       @Override</span><br><span class="line">       public void getSchool() &#123;</span><br><span class="line">           System.out.println(name + &quot;是北大的&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">    * 静态代理类实现</span><br><span class="line">    */</span><br><span class="line">    public class StudentProxy implements Person &#123;</span><br><span class="line">       private Student student;</span><br><span class="line"></span><br><span class="line">       public StudentProxy(Student student) &#123;</span><br><span class="line">           this.student = student;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       @Override</span><br><span class="line">       public void giveMoney() &#123;</span><br><span class="line">           System.out.println(&quot;我是在被代理方法执行前的部分&quot;);</span><br><span class="line">           this.student.giveMoney();</span><br><span class="line">           System.out.println(&quot;我是在被代理方法执行后的部分&quot;);</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       @Override</span><br><span class="line">       public void getSchool() &#123;</span><br><span class="line">           System.out.println(&quot;我是在被代理方法执行前的部分&quot;);</span><br><span class="line">           this.student.getSchool();</span><br><span class="line">           System.out.println(&quot;我是在被代理方法执行后的部分&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void testStaticProxy() &#123;</span><br><span class="line">       Student student = new Student(&quot;小明&quot;);</span><br><span class="line">       StudentProxy studentProxy = new StudentProxy(student);</span><br><span class="line">       studentProxy.getSchool();</span><br><span class="line">       studentProxy.giveMoney();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">    * 动态代理</span><br><span class="line">    */</span><br><span class="line">    public class StuInvocationHandler&lt;T&gt; implements InvocationHandler &#123;</span><br><span class="line">       //invocationHandler持有的被代理对象</span><br><span class="line">       T target;</span><br><span class="line"></span><br><span class="line">       public StuInvocationHandler(T target) &#123;</span><br><span class="line">           this.target = target;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       /**</span><br><span class="line">        * proxy:代表动态代理对象</span><br><span class="line">        * method：代表正在执行的方法</span><br><span class="line">        * args：代表调用目标方法时传入的实参</span><br><span class="line">        */</span><br><span class="line">       @Override</span><br><span class="line">       public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;</span><br><span class="line">           System.out.println(&quot;代理执行&quot; + method.getName() + &quot;方法&quot;);</span><br><span class="line">           //代理过程中插入监测方法,计算该方法耗时</span><br><span class="line">           System.out.println(&quot;我是在被代理方法执行前的部分&quot;);</span><br><span class="line">           Object result = method.invoke(target, args);</span><br><span class="line">           System.out.println(&quot;我是在被代理方法执行后的部分&quot;);</span><br><span class="line">           return result;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void testMyCode() &#123;</span><br><span class="line">       //创建一个实例对象，这个对象是委托对象</span><br><span class="line">       Person zhangsan = new Student(&quot;张三&quot;);</span><br><span class="line">       //创建一个与代理对象相关联的InvocationHandler</span><br><span class="line">       InvocationHandler stuHandler = new StuInvocationHandler&lt;Person&gt;(zhangsan);</span><br><span class="line">       //创建一个代理对象stuProxy来代理zhangsan，代理对象的每个执行方法都会替换执行Invocation中的invoke方法</span><br><span class="line">       Person stuProxy = (Person) Proxy.newProxyInstance(Person.class.getClassLoader(),</span><br><span class="line">               new Class&lt;?&gt;[]&#123;Person.class&#125;, stuHandler);</span><br><span class="line">       //代理执行上交班费的方法</span><br><span class="line">       stuProxy.giveMoney();</span><br><span class="line">       stuProxy.getSchool();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定字符串 s 和 t ，判断 s 是否为 t 的子序列。</p>
+<p>字符串的一个子序列是原始字符串删除一些（也可以不删除）字符而不改变剩余字符相对位置形成的新字符串。（例如，”ace”是”abcde”的一个子序列，而”aec”不是）。</p>
+<p>进阶：</p>
+<p>如果有大量输入的 S，称作 S1, S2, … , Sk 其中 k &gt;= 10亿，你需要依次检查它们是否为 T 的子序列。在这种情况下，你会怎样改变代码？</p>
+<p>致谢：</p>
+<p>特别感谢 @pbrother 添加此问题并且创建所有测试用例。</p>
+<p> </p>
+<p>示例 1：</p>
+<p>输入：s = “abc”, t = “ahbgdc”<br>输出：true</p>
+<p>示例 2：</p>
+<p>输入：s = “axc”, t = “ahbgdc”<br>输出：false</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public void testisSubsequence() &#123;</span><br><span class="line">    log.info(&quot;&#123;&#125;&quot;, isSubsequence(&quot;b&quot;, &quot;abc&quot;));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public boolean isSubsequence(String s, String t) &#123;</span><br><span class="line"></span><br><span class="line">    int i = 0;</span><br><span class="line">    int j = 0;</span><br><span class="line">    while (i &lt; s.length() &amp;&amp; j &lt; t.length()) &#123;</span><br><span class="line">        if (s.charAt(i) == t.charAt(j)) &#123;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return i == s.length();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/03/24/Q&A/Java/%E5%8F%8D%E5%B0%84/" data-id="cl4qypj3w0044zxd4f91w7mz1" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/08/17/Q&A/algorithm/%E5%88%A4%E6%96%AD%E5%AD%90%E5%BA%8F%E5%88%97/" data-id="cl8fktjwd0039o0d41g22bi72" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1890,14 +426,14 @@
 
 
   
-    <article id="post-toolApplication/git指南" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Q&amp;A/algorithm/同构字符串" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/03/11/toolApplication/git%E6%8C%87%E5%8D%97/" class="article-date">
-  <time datetime="2022-03-11T03:50:59.000Z" itemprop="datePublished">2022-03-11</time>
+    <a href="/2022/08/17/Q&A/algorithm/%E5%90%8C%E6%9E%84%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="article-date">
+  <time datetime="2022-08-17T09:34:16.000Z" itemprop="datePublished">2022-08-17</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%BA%94%E7%94%A8/">工具应用</a>
+    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-algorithm/">Q&A-algorithm</a>
   </div>
 
   </div>
@@ -1908,7 +444,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/11/toolApplication/git%E6%8C%87%E5%8D%97/">git指南</a>
+      <a class="article-title" href="/2022/08/17/Q&A/algorithm/%E5%90%8C%E6%9E%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">同构字符串</a>
     </h1>
   
 
@@ -1916,57 +452,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><h4 id="常用流程"><a href="#常用流程" class="headerlink" title="常用流程"></a>常用流程</h4><ul>
-<li>git pull</li>
-<li>git add .; git add [filename]</li>
-<li>git commit -m “”; git commit –amend</li>
-<li>git push</li>
-<li>git status: 查看本次修改</li>
-</ul>
-<h4 id="stash"><a href="#stash" class="headerlink" title="stash"></a>stash</h4><ul>
-<li>git stash</li>
-<li>git stash save “我是暂存名称”</li>
-<li>git stash pop</li>
-<li>git stash list</li>
-<li>git stash clear</li>
-<li>git stash drop [stashId]: 删除某个暂存</li>
-<li>git stash apply [stashId]: 使用某个暂存</li>
-</ul>
-<h4 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h4><ul>
-<li>git reset –soft 想撤回到的commit：撤回commit</li>
-<li>git log: 查看commit 记录</li>
-</ul>
-<h4 id="dif"><a href="#dif" class="headerlink" title="dif"></a>dif</h4><ul>
-<li>git diff</li>
-</ul>
-<h3 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h3><ul>
-<li>git branch -D [branchId]: 删除本地分支</li>
-<li>git checkout -b 分支名：切换，如没有，就新建然后切换</li>
-<li></li>
-</ul>
-<h3 id="checkout"><a href="#checkout" class="headerlink" title="checkout"></a>checkout</h3><ul>
-<li> git checkout -b device_3-1-3_BRANCH origin/device_3-1-3_BRANCH: 拉取远程分支</li>
-</ul>
-<h3 id="取消追踪某些文件"><a href="#取消追踪某些文件" class="headerlink" title="取消追踪某些文件"></a>取消追踪某些文件</h3><ul>
-<li>git rm -rf –cached 文件名或者文件夹</li>
-<li>.gitignore里面去掉，本地没有的在.git同级目录下创建即可，然后把需要取消追踪的文件或者文件夹写进去</li>
-<li>add/commit/push</li>
-</ul>
-<h3 id="确定追踪某些文件"><a href="#确定追踪某些文件" class="headerlink" title="确定追踪某些文件"></a>确定追踪某些文件</h3><ul>
-<li>git rm -rf –cached 文件或者文件夹</li>
-<li>add/commit/push</li>
-</ul>
-<h3 id="取消文件修改"><a href="#取消文件修改" class="headerlink" title="取消文件修改"></a>取消文件修改</h3><ul>
-<li>注意需要在add钱使用：git checkout 文件名</li>
-</ul>
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定两个字符串 s 和 t ，判断它们是否是同构的。</p>
+<p>如果 s 中的字符可以按某种映射关系替换得到 t ，那么这两个字符串是同构的。</p>
+<p>每个出现的字符都应当映射到另一个字符，同时不改变字符的顺序。不同字符不能映射到同一个字符上，相同字符只能映射到同一个字符上，字符可以映射到自己本身。</p>
+<p> </p>
+<p>示例 1:</p>
+<p>输入：s = “egg”, t = “add”<br>输出：true</p>
+<p>示例 2：</p>
+<p>输入：s = “foo”, t = “bar”<br>输出：false</p>
+<p>示例 3：</p>
+<p>输入：s = “paper”, t = “title”<br>输出：true</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public void testisIsomorphic() &#123;</span><br><span class="line">    log.info(&quot;&#123;&#125;&quot;, isIsomorphic(&quot;egg&quot;, &quot;add&quot;));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public boolean isIsomorphic(String s, String t) &#123;</span><br><span class="line">    Map&lt;Character, Character&gt; s2t = new HashMap&lt;&gt;();</span><br><span class="line">    Map&lt;Character, Character&gt; t2s = new HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    for (int i = 0; i &lt; s.length(); i++) &#123;</span><br><span class="line">        Character schar = s.charAt(i);</span><br><span class="line">        Character tchar = t.charAt(i);</span><br><span class="line">        if ((s2t.containsKey(schar) &amp;&amp; s2t.get(schar) != tchar) ||</span><br><span class="line">                (t2s.containsKey(tchar) &amp;&amp; t2s.get(tchar) != schar)) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        s2t.put(schar, tchar);</span><br><span class="line">        t2s.put(tchar, schar);</span><br><span class="line">    &#125;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/03/11/toolApplication/git%E6%8C%87%E5%8D%97/" data-id="cl4qypj3g002bzxd462nh6s11" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/08/17/Q&A/algorithm/%E5%90%8C%E6%9E%84%E5%AD%97%E7%AC%A6%E4%B8%B2/" data-id="cl8fktjwg003jo0d4f5vnck8v" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
 
     </footer>
   </div>
@@ -1975,14 +479,14 @@
 
 
   
-    <article id="post-toolScript/上传图书到kindle" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Q&amp;A/algorithm/寻找数组的中心下标" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/02/17/toolScript/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E4%B9%A6%E5%88%B0kindle/" class="article-date">
-  <time datetime="2022-02-17T08:28:59.000Z" itemprop="datePublished">2022-02-17</time>
+    <a href="/2022/08/16/Q&A/algorithm/%E5%AF%BB%E6%89%BE%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E5%BF%83%E4%B8%8B%E6%A0%87/" class="article-date">
+  <time datetime="2022-08-16T08:02:53.000Z" itemprop="datePublished">2022-08-16</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%B7%A5%E5%85%B7%E8%84%9A%E6%9C%AC/">工具脚本</a>
+    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-algorithm/">Q&A-algorithm</a>
   </div>
 
   </div>
@@ -1993,7 +497,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/17/toolScript/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E4%B9%A6%E5%88%B0kindle/">上传图书到kindle</a>
+      <a class="article-title" href="/2022/08/16/Q&A/algorithm/%E5%AF%BB%E6%89%BE%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E5%BF%83%E4%B8%8B%E6%A0%87/">寻找数组的中心下标</a>
     </h1>
   
 
@@ -2001,20 +505,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="配置以及获取相关信息"><a href="#配置以及获取相关信息" class="headerlink" title="配置以及获取相关信息"></a>配置以及获取相关信息</h3><ul>
-<li>登录<a target="_blank" rel="noopener" href="https://www.amazon.cn/gp/digital/fiona/manage?ref_=hp_ss_qs_v3_dv_dc#/home/settings/payment">该页面</a>，然后在“个人文档设置”部分，增加自己使用发送电子书的邮箱到“”已认可的发件人电子邮箱列表”，该部分邮箱即为下文脚本中的发送邮箱</li>
-<li>获取要发送到的邮箱，该邮箱跟上面的添加邮箱在同一个页面上，在“〖发送至Kindle〗电子邮箱”部分，该部分邮箱即为下文脚本中的接收邮箱</li>
-<li>到发送邮箱里面开启SMTP服务器，此处我使用的是163，该部分请自行百度</li>
-</ul>
-<h3 id="示例脚本"><a href="#示例脚本" class="headerlink" title="示例脚本"></a>示例脚本</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">import os</span><br><span class="line">import smtplib  # 导入PyEmail</span><br><span class="line"># 发送字符串的邮件</span><br><span class="line">from email import encoders</span><br><span class="line">from email.mime.application import MIMEApplication</span><br><span class="line">from email.mime.base import MIMEBase</span><br><span class="line">from email.mime.text import MIMEText</span><br><span class="line"># 需要 MIMEMultipart 类</span><br><span class="line">from email.mime.multipart import MIMEMultipart</span><br><span class="line"></span><br><span class="line">SENDER = &quot;fasongyouxiang@163.com&quot; # 发送邮箱</span><br><span class="line">RECEIVE = &quot;jiehsouyouxiang1@kindle.cn;jiehsouyouxiang2@kindle.cn&quot; # 接收邮箱，多个用分号隔开</span><br><span class="line">PASSWORD = &quot;youxiangmima&quot; #邮箱密码</span><br><span class="line">SERVER = &quot;smtp.163.com&quot; # smtp服务地址</span><br><span class="line">SERVER_PORT = 994 # smtp服务器端口</span><br><span class="line"></span><br><span class="line"># 邮件构建</span><br><span class="line"></span><br><span class="line">def send(file_path):</span><br><span class="line"></span><br><span class="line">    print(&quot;开始发送：&quot;, file_path)</span><br><span class="line">    message = MIMEMultipart()</span><br><span class="line">    message[&#x27;From&#x27;] = SENDER  # 发送方</span><br><span class="line">    message[&#x27;To&#x27;] = RECEIVE  # 接收方</span><br><span class="line"></span><br><span class="line">    # 构建邮件附件</span><br><span class="line">    part = MIMEApplication(open(file_path, &#x27;rb&#x27;).read())</span><br><span class="line">    part.add_header(&#x27;Content-Disposition&#x27;, &#x27;attachment&#x27;, filename=get_last_filename(file_path))</span><br><span class="line">    message.attach(part)</span><br><span class="line"></span><br><span class="line">    smtp = smtplib.SMTP_SSL(SERVER, SERVER_PORT)  # 实例化smtp服务器</span><br><span class="line">    smtp.login(SENDER, PASSWORD)  # 发件人登录</span><br><span class="line">    smtp.sendmail(SENDER, [RECEIVE], message.as_string())  # as_string 对 message 的消息进行了封装</span><br><span class="line">    smtp.close()</span><br><span class="line">    print(&quot;发送邮件成功：&quot;, file_path)</span><br><span class="line"></span><br><span class="line">def get_last_filename(filename):</span><br><span class="line">    return filename[filename.rindex(&#x27;/&#x27;) + 1: len(filename)]</span><br><span class="line"></span><br><span class="line">def send_to_kindle():</span><br><span class="line">    dir = os.walk(r&quot;./ebook&quot;)</span><br><span class="line">    for path, dir_list, file_list in dir:</span><br><span class="line">        for file_name in file_list:</span><br><span class="line">            if &quot;DS_Store&quot; not in file_name:</span><br><span class="line">                send(&quot;./ebook/&quot; + file_name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__==&#x27;__main__&#x27;:</span><br><span class="line">    send_to_kindle()</span><br></pre></td></tr></table></figure>
+        <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>给你一个整数数组 nums ，请计算数组的 中心下标 。</p>
+<p>数组 中心下标 是数组的一个下标，其左侧所有元素相加的和等于右侧所有元素相加的和。</p>
+<p>如果中心下标位于数组最左端，那么左侧数之和视为 0 ，因为在下标的左侧不存在元素。这一点对于中心下标位于数组最右端同样适用。</p>
+<p>如果数组有多个中心下标，应该返回 最靠近左边 的那一个。如果数组不存在中心下标，返回 -1 。</p>
+<p> </p>
+<p>示例 1：</p>
+<p>输入：nums = [1, 7, 3, 6, 5, 6]<br>输出：3<br>解释：<br>中心下标是 3 。<br>左侧数之和 sum = nums[0] + nums[1] + nums[2] = 1 + 7 + 3 = 11 ，<br>右侧数之和 sum = nums[4] + nums[5] = 5 + 6 = 11 ，二者相等。</p>
+<p>示例 2：</p>
+<p>输入：nums = [1, 2, 3]<br>输出：-1<br>解释：<br>数组中不存在满足此条件的中心下标。</p>
+<p>示例 3：</p>
+<p>输入：nums = [2, 1, -1]<br>输出：0<br>解释：<br>中心下标是 0 。<br>左侧数之和 sum = 0 ，（下标 0 左侧不存在元素），<br>右侧数之和 sum = nums[1] + nums[2] = 1 + -1 = 0 。
+ </p>
+<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public void testPivotIndex() &#123;</span><br><span class="line">    int[] nums = &#123;1, 7, 3, 6, 5, 6&#125;;</span><br><span class="line">    log.info(&quot;&#123;&#125;&quot;, pivotIndex(nums));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public int pivotIndex(int[] nums) &#123;</span><br><span class="line"></span><br><span class="line">    int total = 0;</span><br><span class="line">    for (int num :</span><br><span class="line">            nums) &#123;</span><br><span class="line">        total += num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    int left = 0;</span><br><span class="line">    for (int i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">        if (total == 2 * left + nums[i]) &#123;</span><br><span class="line">            return i;</span><br><span class="line">        &#125;</span><br><span class="line">        left += nums[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/02/17/toolScript/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E4%B9%A6%E5%88%B0kindle/" data-id="cl4qypj3k002pzxd45b5iacn4" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/08/16/Q&A/algorithm/%E5%AF%BB%E6%89%BE%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E5%BF%83%E4%B8%8B%E6%A0%87/" data-id="cl8fktjwi003qo0d45ebhcpw8" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" rel="tag">脚本工具</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
 
     </footer>
   </div>
@@ -2023,14 +534,14 @@
 
 
   
-    <article id="post-blockchain/数字货币私钥保存方案设计" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Q&amp;A/algorithm/一维数组的动态和" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/02/08/blockchain/%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E7%A7%81%E9%92%A5%E4%BF%9D%E5%AD%98%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1/" class="article-date">
-  <time datetime="2022-02-08T08:25:55.000Z" itemprop="datePublished">2022-02-08</time>
+    <a href="/2022/08/16/Q&A/algorithm/%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E5%8A%A8%E6%80%81%E5%92%8C/" class="article-date">
+  <time datetime="2022-08-16T07:20:23.000Z" itemprop="datePublished">2022-08-16</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BD%BF%E7%94%A8/">区块链使用</a>
+    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-algorithm/">Q&A-algorithm</a>
   </div>
 
   </div>
@@ -2041,7 +552,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/08/blockchain/%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E7%A7%81%E9%92%A5%E4%BF%9D%E5%AD%98%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1/">数字货币私钥保存方案设计</a>
+      <a class="article-title" href="/2022/08/16/Q&A/algorithm/%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E5%8A%A8%E6%80%81%E5%92%8C/">一维数组的动态和</a>
     </h1>
   
 
@@ -2049,19 +560,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="方案设计描述（此处只讨论保存到互联网中）"><a href="#方案设计描述（此处只讨论保存到互联网中）" class="headerlink" title="方案设计描述（此处只讨论保存到互联网中）"></a>方案设计描述（此处只讨论保存到互联网中）</h3><ul>
-<li>保存私钥：<br>1、使用RSA方案对钱包私钥进行加密获得钱包私钥密文<br>2、将RSA私钥和钱包私钥密文对应的文件压缩成zip文件，并设置密码<br>3、然后将RSA私钥和钱包私钥密文分别保存到不用的地方</li>
-<li>获取私钥：<br>1、找到RSA私钥和钱包私钥密文<br>2、找到解zip密码，解压获得两个文件<br>3、将解密后的文件地址复制到代码中，运行获得明文</li>
-</ul>
-<h3 id="RSA加解密示例代码"><a href="#RSA加解密示例代码" class="headerlink" title="RSA加解密示例代码"></a>RSA加解密示例代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br></pre></td><td class="code"><pre><span class="line">from binascii import b2a_hex, a2b_hex</span><br><span class="line"></span><br><span class="line">import rsa as rsa</span><br><span class="line">from Crypto.Cipher import AES</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">AES加密部分</span><br><span class="line">使用AES ECB模式，16位AES_KEY</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">class AESUtil(object):</span><br><span class="line">    AES_KEY = &quot;XewGlSGidrB+REgf&quot;</span><br><span class="line"></span><br><span class="line">    def add_to_16(self, text):</span><br><span class="line">        if len(text.encode(&#x27;utf-8&#x27;)) % 16:</span><br><span class="line">            add = 16 - (len(text.encode(&#x27;utf-8&#x27;)) % 16)</span><br><span class="line">        else:</span><br><span class="line">            add = 0</span><br><span class="line">        text = text + (&#x27;\0&#x27; * add)</span><br><span class="line">        return text.encode(&#x27;utf-8&#x27;)</span><br><span class="line"></span><br><span class="line">    # 加密函数</span><br><span class="line">    def encrypt(self, text, aes_key):</span><br><span class="line"></span><br><span class="line">        cryptos = AES.new(aes_key.encode(&#x27;utf-8&#x27;), AES.MODE_ECB)</span><br><span class="line">        cipher_text = cryptos.encrypt(self.add_to_16(text))</span><br><span class="line">        # 因为AES加密后的字符串不一定是ascii字符集的，输出保存可能存在问题，所以这里转为16进制字符串</span><br><span class="line">        return b2a_hex(cipher_text)</span><br><span class="line"></span><br><span class="line">    # 解密后，去掉补足的空格用strip() 去掉</span><br><span class="line">    def decrypt(self, text, aes_key):</span><br><span class="line">        cryptos = AES.new(aes_key.encode(&#x27;utf-8&#x27;), AES.MODE_ECB)</span><br><span class="line">        plain_text = cryptos.decrypt(a2b_hex(text))</span><br><span class="line">        return bytes.decode(plain_text).rstrip(&#x27;\0&#x27;)</span><br><span class="line"></span><br><span class="line">    # 生成随机密钥</span><br><span class="line">    def get_random_aes_key(self, n=16):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        获取密钥 n 密钥长度</span><br><span class="line">        :return:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        c_length = int(n)</span><br><span class="line">        source = &#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&#x27;</span><br><span class="line">        length = len(source) - 1</span><br><span class="line">        result = &#x27;&#x27;</span><br><span class="line">        for i in range(c_length):</span><br><span class="line">            import random</span><br><span class="line">            result += source[random.randint(0, length)]</span><br><span class="line">        return result</span><br><span class="line"></span><br><span class="line">def test_aes():</span><br><span class="line">    print(&quot;aes加解密测试&quot;)</span><br><span class="line">    aesUtil = AESUtil()</span><br><span class="line">    aes_key = aesUtil.get_random_aes_key()</span><br><span class="line">    print(&quot;随机aeskey&quot;, aes_key)</span><br><span class="line">    encrypt_text = aesUtil.encrypt(&quot;aes加解密测试&quot;, aes_key)</span><br><span class="line">    print(&quot;aes加密：&quot;, encrypt_text)</span><br><span class="line">    decrypt_text = aesUtil.decrypt(encrypt_text, aes_key)</span><br><span class="line">    print(&quot;aes解密：&quot;, decrypt_text)</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">RSA加密部分</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">PUBLIC_KEY_PATH = &#x27;./rsa_public_key.pem&#x27;  # 公钥</span><br><span class="line">PRIVATE_KEY_PATH = &#x27;./rsa_private_key.pem&#x27;  # 私钥</span><br><span class="line"></span><br><span class="line">class RSAUtil(object):</span><br><span class="line"></span><br><span class="line">    def create_rsa_pri_pub_key(self):</span><br><span class="line">        (public_key, private_key) = rsa.newkeys(1024)</span><br><span class="line">        public_key = public_key.save_pkcs1()</span><br><span class="line">        private_key = private_key.save_pkcs1()</span><br><span class="line">        return (public_key, private_key)</span><br><span class="line"></span><br><span class="line">    def encrypt(self, public_key, text):</span><br><span class="line">        return rsa.encrypt(text.encode(&#x27;utf8&#x27;), public_key)</span><br><span class="line"></span><br><span class="line">    def decrypt(self, private_key, text):</span><br><span class="line">        return rsa.decrypt(text, private_key).decode()</span><br><span class="line"></span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    传入多个path，将加密数据保存到对应path，并保存秘钥到对应path</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    def encrypt_save_text_with_path(self, text, private_key_path, text_path):</span><br><span class="line">        (public_key, private_key) = self.create_rsa_pri_pub_key()</span><br><span class="line">        with open(private_key_path, &quot;wb&quot;) as f:</span><br><span class="line">            f.write(private_key)</span><br><span class="line"></span><br><span class="line">        tmp_rsa_public_key_path = &quot;./rsa_public.pem&quot;</span><br><span class="line">        with open(tmp_rsa_public_key_path, &quot;wb&quot;) as f:</span><br><span class="line">            f.write(public_key)</span><br><span class="line"></span><br><span class="line">        public_key = rsa.PublicKey.load_pkcs1(open(tmp_rsa_public_key_path).read())</span><br><span class="line"></span><br><span class="line">        encrypt_text = self.encrypt(public_key, text)</span><br><span class="line"></span><br><span class="line">        with open(text_path, &quot;wb&quot;) as f:</span><br><span class="line">            f.write(encrypt_text)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    传入多个path，将加密数据解密获得明文</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    def decrypt_text_with_path(self, private_key_path, text_path):</span><br><span class="line">        private_key = rsa.PrivateKey.load_pkcs1(open(private_key_path).read())</span><br><span class="line"></span><br><span class="line">        with open(text_path, &quot;rb&quot;) as f:</span><br><span class="line">            encrypt_text = f.read()</span><br><span class="line"></span><br><span class="line">        return self.decrypt(private_key, encrypt_text)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">rsa+aes</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">class RSAAESUtil(object):</span><br><span class="line"></span><br><span class="line">    def get_rsa_aes_key(self):</span><br><span class="line">        aes_util = AESUtil()</span><br><span class="line">        rsa_util = RSAUtil()</span><br><span class="line"></span><br><span class="line">        aes_key = aes_util.get_random_aes_key()</span><br><span class="line">        (rsa_public_key, rsa_private_key) = rsa_util.get_rsa_pub_pri_key(PUBLIC_KEY_PATH, PRIVATE_KEY_PATH)</span><br><span class="line">        return (aes_key, rsa_public_key, rsa_private_key)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    def encrypt(self, text, aes_key, rsa_public_key):</span><br><span class="line">        aes_util = AESUtil()</span><br><span class="line">        rsa_util = RSAUtil()</span><br><span class="line"></span><br><span class="line">        # 加密</span><br><span class="line">        encrypt_text = aes_util.encrypt(text, aes_key)</span><br><span class="line">        encrypt_aes_key = rsa_util.encrypt(rsa_public_key, aes_key)</span><br><span class="line">        return (encrypt_text, encrypt_aes_key)</span><br><span class="line"></span><br><span class="line">    def decrypty(self, rsa_private_key, encrypt_text, encrypt_aes_key):</span><br><span class="line">        aes_util = AESUtil()</span><br><span class="line">        rsa_util = RSAUtil()</span><br><span class="line">        aes_key = rsa_util.decrypt(rsa_private_key, encrypt_aes_key)</span><br><span class="line">        return aes_util.decrypt(encrypt_text, aes_key)</span><br><span class="line"></span><br><span class="line">def test_rsa_aes():</span><br><span class="line">    print(&quot;rsa_aes加解密测试&quot;)</span><br><span class="line">    rsa_aes_util = RSAAESUtil()</span><br><span class="line"></span><br><span class="line">    # 生成秘钥</span><br><span class="line">    (aes_key, rsa_public_key, rsa_private_key) = rsa_aes_util.get_rsa_aes_key()</span><br><span class="line"></span><br><span class="line">    # 加密</span><br><span class="line">    (encrypt_text, encrypt_aes_key) = rsa_aes_util.encrypt(&quot;rsa_aes加解密测试&quot;, aes_key, rsa_public_key)</span><br><span class="line">    print(&quot;rsa_aes加密：&quot;, encrypt_text)</span><br><span class="line">    print(&quot;rsa_aes加密后的aes_key&quot;, encrypt_aes_key)</span><br><span class="line"></span><br><span class="line">    # 解密</span><br><span class="line">    decrypt_text = rsa_aes_util.decrypty(rsa_private_key, encrypt_text, encrypt_aes_key)</span><br><span class="line">    print(&quot;rsa_aes解密：&quot;, decrypt_text)</span><br><span class="line"></span><br><span class="line">BTC_RSA_PRIVATE_KEY_PATH = &quot;./btc_rsa_private_key.pem&quot;</span><br><span class="line">BTC_RSA_PUBLIC_KEY_PATH = &quot;./btc_rsa_public_key.pem&quot;</span><br><span class="line"></span><br><span class="line">ETH_RSA_PRIVATE_KEY_PATH = &quot;./eth_rsa_private_key.pem&quot;</span><br><span class="line">ETH_RSA_PUBLIC_KEY_PATH = &quot;./eth_rsa_public_key.pem&quot;</span><br><span class="line"></span><br><span class="line">BTC_ENCRYPT_TEXT_PATH = &quot;./btc_encrypt_text.txt&quot;</span><br><span class="line">ETH_ENCRYPT_TEXT_PATH = &quot;./eth_encrypt_text.txt&quot;</span><br><span class="line"></span><br><span class="line">def test_rsa_solution():</span><br><span class="line">    rsa_util = RSAUtil()</span><br><span class="line"></span><br><span class="line">    btc_text = &quot;我是比特币私钥&quot;</span><br><span class="line">    eth_text = &quot;我是以太坊私钥&quot;</span><br><span class="line"></span><br><span class="line">    rsa_util.encrypt_save_text_with_path(btc_text, BTC_RSA_PRIVATE_KEY_PATH, BTC_ENCRYPT_TEXT_PATH)</span><br><span class="line">    print(rsa_util.decrypt_text_with_path(BTC_RSA_PRIVATE_KEY_PATH, BTC_ENCRYPT_TEXT_PATH))</span><br><span class="line"></span><br><span class="line">    rsa_util.encrypt_save_text_with_path(eth_text, ETH_RSA_PRIVATE_KEY_PATH, ETH_ENCRYPT_TEXT_PATH)</span><br><span class="line">    print(rsa_util.decrypt_text_with_path(ETH_RSA_PRIVATE_KEY_PATH, ETH_ENCRYPT_TEXT_PATH))</span><br><span class="line"></span><br><span class="line">def get_key(private_key_path, encrypt_text_path):</span><br><span class="line">    rsa_util = RSAUtil()</span><br><span class="line">    print(rsa_util.decrypt_text_with_path(private_key_path, encrypt_text_path))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    test_rsa_solution()</span><br><span class="line">    get_key(BTC_RSA_PRIVATE_KEY_PATH, BTC_ENCRYPT_TEXT_PATH)</span><br></pre></td></tr></table></figure>
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给你一个数组 nums 。数组「动态和」的计算公式为：runningSum[i] = sum(nums[0]…nums[i]) 。</p>
+<p>请返回 nums 的动态和。</p>
+<p> </p>
+<h3 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h3><p>输入：nums = [1,2,3,4]<br>输出：[1,3,6,10]<br>解释：动态和计算过程为 [1, 1+2, 1+2+3, 1+2+3+4] 。</p>
+<h3 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h3><p>输入：nums = [1,1,1,1,1]<br>输出：[1,2,3,4,5]<br>解释：动态和计算过程为 [1, 1+1, 1+1+1, 1+1+1+1, 1+1+1+1+1] 。</p>
+<h3 id="示例-3："><a href="#示例-3：" class="headerlink" title="示例 3："></a>示例 3：</h3><p>输入：nums = [3,1,2,10,1]<br>输出：[3,4,6,16,17]</p>
+<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line"> public void testSum() &#123;</span><br><span class="line">     int[] nums = &#123;1,1,1,1,1&#125;;</span><br><span class="line">     int[] numResult = runningSum(nums);</span><br><span class="line">     log.info(&quot;&#123;&#125;&quot;, numResult);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> public int[] runningSum(int[] nums) &#123;</span><br><span class="line">      for (int i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">          if (i &gt; 0) &#123;</span><br><span class="line">              nums[i] += nums[i - 1];</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      return nums;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/02/08/blockchain/%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E7%A7%81%E9%92%A5%E4%BF%9D%E5%AD%98%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1/" data-id="cl4qypj3b001ozxd4ehw2ahab" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/08/16/Q&A/algorithm/%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E5%8A%A8%E6%80%81%E5%92%8C/" data-id="cl8fktjw9002to0d4gaxk5rtg" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
 
     </footer>
   </div>
@@ -2074,7 +587,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -2085,7 +598,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/">Q&A</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/codeStyle/">codeStyle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">mac使用技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BD%BF%E7%94%A8/">区块链使用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%BA%94%E7%94%A8/">工具应用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E8%84%9A%E6%9C%AC/">工具脚本</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%84%E4%BB%B6/">组件</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/">Q&A</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/Q-A-algorithm/">Q&A-algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/codeStyle/">codeStyle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">mac使用技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BD%BF%E7%94%A8/">区块链使用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%BA%94%E7%94%A8/">工具应用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E8%84%9A%E6%9C%AC/">工具脚本</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%84%E4%BB%B6/">组件</a></li></ul>
     </div>
   </div>
 
@@ -2105,7 +618,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Q-A/" style="font-size: 16.67px;">Q&A</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 10px;">区块链</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13.33px;">博客搭建</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">电脑使用技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 20px;">编程</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">脚本工具</a>
+      <a href="/tags/Q-A/" style="font-size: 20px;">Q&A</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 10px;">区块链</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13.33px;">博客搭建</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">电脑使用技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 16.67px;">编程</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">脚本工具</a>
     </div>
   </div>
 
@@ -2114,7 +627,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li></ul>
     </div>
   </div>
 
@@ -2127,23 +640,23 @@
       <ul>
         
           <li>
-            <a href="/2022/06/14/module/MySql/">MySql</a>
+            <a href="/2022/08/30/Q&A/algorithm/%E7%88%AC%E6%A5%BC%E6%A2%AF/">爬楼梯</a>
           </li>
         
           <li>
-            <a href="/2022/05/19/Q&A/Java/JavaQAList/">JavaQAList</a>
+            <a href="/2022/08/30/Q&A/algorithm/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0/">斐波那契数</a>
           </li>
         
           <li>
-            <a href="/2022/05/19/Q&A/Java/Java%E5%9F%BA%E7%A1%80/">Java基础</a>
+            <a href="/2022/08/29/Q&A/algorithm/%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/">岛屿数量</a>
           </li>
         
           <li>
-            <a href="/2022/05/13/Q&A/Java/Redis/">Redis</a>
+            <a href="/2022/08/29/Q&A/algorithm/%E5%9B%BE%E5%83%8F%E6%B8%B2%E6%9F%93/">图像渲染</a>
           </li>
         
           <li>
-            <a href="/2022/05/11/Q&A/Java/MySql/">MySql</a>
+            <a href="/2022/08/26/Q&A/algorithm/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/">二叉搜索树的最近公共祖先</a>
           </li>
         
       </ul>

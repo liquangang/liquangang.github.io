@@ -7,15 +7,15 @@
   
   <title>Zookeeper | 静</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="zookeeper 是什么？一个分布式的、开源的分布式应用程序协调服务，是google chubby的开源实现，是hadoop和hbase的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等 zookeeper都有哪些功能？   功能点 功能介绍    集群管理 监控集群节点状态、运行请求等   主节点选举 即主节点挂掉之后从备用节点开始新">
+  <meta name="description" content="zookeeper是什么一个分布式、开源的分布式应用程序协调服务，具有配置维护、域名服务、分布式同步、组服务等 zookeeper有哪些功能   功能 简介    集群管理 监控节点状态、运行请求等   主节点选举 主节点挂掉之后会执行新主选举   分布式锁 zookeeper提供两种锁：独占锁、共享锁，独占锁一个线程完全占有资源，共享锁读写互斥，读可多线程，写单线程独享   命名服务 给节点起名">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Zookeeper">
 <meta property="og:url" content="https://liquangang.github.io/2022/05/10/Q&A/Java/Zookeeper/index.html">
 <meta property="og:site_name" content="静">
-<meta property="og:description" content="zookeeper 是什么？一个分布式的、开源的分布式应用程序协调服务，是google chubby的开源实现，是hadoop和hbase的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等 zookeeper都有哪些功能？   功能点 功能介绍    集群管理 监控集群节点状态、运行请求等   主节点选举 即主节点挂掉之后从备用节点开始新">
+<meta property="og:description" content="zookeeper是什么一个分布式、开源的分布式应用程序协调服务，具有配置维护、域名服务、分布式同步、组服务等 zookeeper有哪些功能   功能 简介    集群管理 监控节点状态、运行请求等   主节点选举 主节点挂掉之后会执行新主选举   分布式锁 zookeeper提供两种锁：独占锁、共享锁，独占锁一个线程完全占有资源，共享锁读写互斥，读可多线程，写单线程独享   命名服务 给节点起名">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-05-10T10:07:28.000Z">
-<meta property="article:modified_time" content="2022-05-19T13:07:45.549Z">
+<meta property="article:modified_time" content="2022-09-24T07:09:44.299Z">
 <meta property="article:author" content="帝王之心">
 <meta property="article:tag" content="Q&amp;A">
 <meta name="twitter:card" content="summary">
@@ -111,75 +111,41 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="zookeeper-是什么？"><a href="#zookeeper-是什么？" class="headerlink" title="zookeeper 是什么？"></a>zookeeper 是什么？</h2><p>一个分布式的、开源的分布式应用程序协调服务，是google chubby的开源实现，是hadoop和hbase的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等</p>
-<h2 id="zookeeper都有哪些功能？"><a href="#zookeeper都有哪些功能？" class="headerlink" title="zookeeper都有哪些功能？"></a>zookeeper都有哪些功能？</h2><table>
+        <h2 id="zookeeper是什么"><a href="#zookeeper是什么" class="headerlink" title="zookeeper是什么"></a>zookeeper是什么</h2><p>一个分布式、开源的分布式应用程序协调服务，具有配置维护、域名服务、分布式同步、组服务等</p>
+<h2 id="zookeeper有哪些功能"><a href="#zookeeper有哪些功能" class="headerlink" title="zookeeper有哪些功能"></a>zookeeper有哪些功能</h2><table>
 <thead>
 <tr>
-<th>功能点</th>
-<th>功能介绍</th>
+<th>功能</th>
+<th>简介</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>集群管理</td>
-<td>监控集群节点状态、运行请求等</td>
+<td>监控节点状态、运行请求等</td>
 </tr>
 <tr>
 <td>主节点选举</td>
-<td>即主节点挂掉之后从备用节点开始新一轮主节点的选举，使用zookeeper可以协助完成该过程</td>
+<td>主节点挂掉之后会执行新主选举</td>
 </tr>
 <tr>
 <td>分布式锁</td>
-<td>zookeeper提供两种锁：<br/>1、独占锁：只有一个线程使用资源<br/>2、共享锁：多个线程可读，一个线程可写</td>
+<td>zookeeper提供两种锁：独占锁、共享锁，独占锁一个线程完全占有资源，共享锁读写互斥，读可多线程，写单线程独享</td>
 </tr>
 <tr>
 <td>命名服务</td>
-<td>客户端根据命名服务中制定的名字可以更方便的获取资源、服务地址、提供者等信息</td>
+<td>给节点起名字，其他节点可以通过节点名称对其进行访问</td>
 </tr>
 </tbody></table>
-<h2 id="zookeeper-有几种部署模式？"><a href="#zookeeper-有几种部署模式？" class="headerlink" title="zookeeper 有几种部署模式？"></a>zookeeper 有几种部署模式？</h2><table>
-<thead>
-<tr>
-<th>部署模式</th>
-<th>简介</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>单机部署</td>
-<td>一台机器上机器上运行</td>
-</tr>
-<tr>
-<td>集群部署</td>
-<td>多台机器上运行</td>
-</tr>
-<tr>
-<td>伪集群部署</td>
-<td>一台机器上部署多个实例运行</td>
-</tr>
-</tbody></table>
-<h2 id="zookeeper-怎么保证主从节点的状态同步？"><a href="#zookeeper-怎么保证主从节点的状态同步？" class="headerlink" title="zookeeper 怎么保证主从节点的状态同步？"></a>zookeeper 怎么保证主从节点的状态同步？</h2><h3 id="通过原子广播机制实现实现节点间的状态同步，该机制依赖zab协议。"><a href="#通过原子广播机制实现实现节点间的状态同步，该机制依赖zab协议。" class="headerlink" title="通过原子广播机制实现实现节点间的状态同步，该机制依赖zab协议。"></a>通过<strong>原子广播机制</strong>实现实现节点间的状态同步，该机制依赖zab协议。</h3><h3 id="zab协议两种模式介绍"><a href="#zab协议两种模式介绍" class="headerlink" title="zab协议两种模式介绍"></a>zab协议两种模式介绍</h3><table>
-<thead>
-<tr>
-<th>模式</th>
-<th>简介</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>恢复（选主）模式</td>
-<td>当主节点崩溃时，会进入该模式，首先重新选出主节点，然后其他节点会与新主节点完成同步</td>
-</tr>
-<tr>
-<td>广播（同步）模式</td>
-<td>即主节点发生变化时，向其他节点广播以完成同步</td>
-</tr>
-</tbody></table>
-<h2 id="集群中为什么要有主节点？"><a href="#集群中为什么要有主节点？" class="headerlink" title="集群中为什么要有主节点？"></a>集群中为什么要有主节点？</h2><p>在分布式环境中，有些业务只需要一个节点完成处理，其他节点共享该处理结果即可，这样可以减少运算资源消耗，提升效率，所以就需要设置一个主节点实现该需求</p>
-<h2 id="集群中有-3-台服务器，其中一个节点宕机，这个时候-zookeeper-还可以使用吗？"><a href="#集群中有-3-台服务器，其中一个节点宕机，这个时候-zookeeper-还可以使用吗？" class="headerlink" title="集群中有 3 台服务器，其中一个节点宕机，这个时候 zookeeper 还可以使用吗？"></a>集群中有 3 台服务器，其中一个节点宕机，这个时候 zookeeper 还可以使用吗？</h2><p>可以继续使用，奇数个节点的集群只要没超过一半节点宕机就可以继续正常对外提供服务</p>
-<h2 id="说一下-zookeeper-的通知机制？"><a href="#说一下-zookeeper-的通知机制？" class="headerlink" title="说一下 zookeeper 的通知机制？"></a>说一下 zookeeper 的通知机制？</h2><p>客户端会对znode建立一个watcher事件，当znode发生变化时，这些客户端会受到zookeeper的通知，然后就可以根据该通知进行相关业务处理</p>
+<h2 id="zookeeper有几种部署方式"><a href="#zookeeper有几种部署方式" class="headerlink" title="zookeeper有几种部署方式"></a>zookeeper有几种部署方式</h2><p>1、单机部署<br>2、集群部署<br>3、伪集群部署：一台机器上启动多个zookeeper实例</p>
+<h2 id="zookeeper如何保证主从节点同步状态"><a href="#zookeeper如何保证主从节点同步状态" class="headerlink" title="zookeeper如何保证主从节点同步状态"></a>zookeeper如何保证主从节点同步状态</h2><p>依靠原子广播机制，该机制依赖zab协议，zab协议包含两种模式：恢复模式、广播模式，恢复模式在服务启动与领导者崩溃时使用，广播模式在服务都正常时使用</p>
+<h2 id="急群众为什么要有主节点"><a href="#急群众为什么要有主节点" class="headerlink" title="急群众为什么要有主节点"></a>急群众为什么要有主节点</h2><p>部分业务仅需要一个服务节点执行即可，其他节点共享该结果即可，这样可以减少计算资源浪费，提升计算资源效率</p>
+<h2 id="集群中有三个服务器节点，有一个节点宕机，zookeeper还可以继续使用吗"><a href="#集群中有三个服务器节点，有一个节点宕机，zookeeper还可以继续使用吗" class="headerlink" title="集群中有三个服务器节点，有一个节点宕机，zookeeper还可以继续使用吗"></a>集群中有三个服务器节点，有一个节点宕机，zookeeper还可以继续使用吗</h2><p>可以接续使用，单数数量的服务节点在少于一半节点宕机的情况下可以继续使用</p>
+<h2 id="说一下zookeeper的通知机制"><a href="#说一下zookeeper的通知机制" class="headerlink" title="说一下zookeeper的通知机制"></a>说一下zookeeper的通知机制</h2><p>客户端可以在节点上设置watcher，当节点有变化时，zookeeper就会通知客户端</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/10/Q&A/Java/Zookeeper/" data-id="cl4qypj3u003vzxd49d3dhsny" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/10/Q&A/Java/Zookeeper/" data-id="cl8fktjwy005do0d4eo683ani" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -218,7 +184,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/">Q&A</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/codeStyle/">codeStyle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">mac使用技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BD%BF%E7%94%A8/">区块链使用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%BA%94%E7%94%A8/">工具应用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E8%84%9A%E6%9C%AC/">工具脚本</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%84%E4%BB%B6/">组件</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/">Q&A</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/Q-A-algorithm/">Q&A-algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/codeStyle/">codeStyle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">mac使用技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BD%BF%E7%94%A8/">区块链使用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%BA%94%E7%94%A8/">工具应用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E8%84%9A%E6%9C%AC/">工具脚本</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%84%E4%BB%B6/">组件</a></li></ul>
     </div>
   </div>
 
@@ -238,7 +204,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Q-A/" style="font-size: 16.67px;">Q&A</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 10px;">区块链</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13.33px;">博客搭建</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">电脑使用技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 20px;">编程</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">脚本工具</a>
+      <a href="/tags/Q-A/" style="font-size: 20px;">Q&A</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 10px;">区块链</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13.33px;">博客搭建</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">电脑使用技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 16.67px;">编程</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">脚本工具</a>
     </div>
   </div>
 
@@ -247,7 +213,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li></ul>
     </div>
   </div>
 
@@ -260,23 +226,23 @@
       <ul>
         
           <li>
-            <a href="/2022/06/14/module/MySql/">MySql</a>
+            <a href="/2022/08/30/Q&A/algorithm/%E7%88%AC%E6%A5%BC%E6%A2%AF/">爬楼梯</a>
           </li>
         
           <li>
-            <a href="/2022/05/19/Q&A/Java/JavaQAList/">JavaQAList</a>
+            <a href="/2022/08/30/Q&A/algorithm/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0/">斐波那契数</a>
           </li>
         
           <li>
-            <a href="/2022/05/19/Q&A/Java/Java%E5%9F%BA%E7%A1%80/">Java基础</a>
+            <a href="/2022/08/29/Q&A/algorithm/%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/">岛屿数量</a>
           </li>
         
           <li>
-            <a href="/2022/05/13/Q&A/Java/Redis/">Redis</a>
+            <a href="/2022/08/29/Q&A/algorithm/%E5%9B%BE%E5%83%8F%E6%B8%B2%E6%9F%93/">图像渲染</a>
           </li>
         
           <li>
-            <a href="/2022/05/11/Q&A/Java/MySql/">MySql</a>
+            <a href="/2022/08/26/Q&A/algorithm/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/">二叉搜索树的最近公共祖先</a>
           </li>
         
       </ul>
