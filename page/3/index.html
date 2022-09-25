@@ -118,7 +118,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/08/11/Q&A/algorithm/%E9%87%8D%E6%96%B0%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/" data-id="cl8fn5np4005iotd4ac79f4iq" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/08/11/Q&A/algorithm/%E9%87%8D%E6%96%B0%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/" data-id="cl8h98bl5007uzjd49szzfq6i" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -459,7 +459,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/08/10/Q&A/Java/JVM/" data-id="cl8fn5np8005uotd4bbuegmfd" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/08/10/Q&A/Java/JVM/" data-id="cl8h98bjv002xzjd451e8bfv4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -502,7 +502,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/06/14/module/MySql/" data-id="cl8fn5no40023otd4dolqgjmj" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/06/14/module/MySql/" data-id="cl8h98bjr002hzjd4dzip3pmk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
@@ -921,7 +921,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/19/Q&A/Java/JavaQAList/" data-id="cl8fn5np8005xotd4gpvhfj6n" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/19/Q&A/Java/JavaQAList/" data-id="cl8h98bju002qzjd4f3m47oz7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1126,6 +1126,42 @@
 <td>把值类型转成引用类型，比如int-&gt;Integer</td>
 </tr>
 </tbody></table>
+<h2 id="switch-语句能否作用在-byte-上，能否作用在-long-上，能否作用在-String-上？"><a href="#switch-语句能否作用在-byte-上，能否作用在-long-上，能否作用在-String-上？" class="headerlink" title="switch 语句能否作用在 byte 上，能否作用在 long 上，能否作用在 String 上？"></a>switch 语句能否作用在 byte 上，能否作用在 long 上，能否作用在 String 上？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>回答</td>
+<td>byte、string可以，long不可以</td>
+</tr>
+<tr>
+<td>原理</td>
+<td>能强转成int的以及string可以，其他不可以</td>
+</tr>
+</tbody></table>
+<h2 id="final、finally、finalize-的区别"><a href="#final、finally、finalize-的区别" class="headerlink" title="final、finally、finalize 的区别"></a>final、finally、finalize 的区别</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>final</td>
+<td>被修饰对象不变，修饰值类型，值不变，修饰引用，引用地址不变</td>
+</tr>
+<tr>
+<td>finally</td>
+<td>异常处理语句的一部分</td>
+</tr>
+<tr>
+<td>finalize</td>
+<td>对象销毁前的回调</td>
+</tr>
+</tbody></table>
 <h2 id="和-equals-区别"><a href="#和-equals-区别" class="headerlink" title="== 和 equals 区别"></a>== 和 equals 区别</h2><table>
 <thead>
 <tr>
@@ -1150,7 +1186,185 @@
 <td></td>
 </tr>
 </tbody></table>
-<h2 id="hashcode相等，equals一定为true吗"><a href="#hashcode相等，equals一定为true吗" class="headerlink" title="hashcode相等，equals一定为true吗"></a>hashcode相等，equals一定为true吗</h2><p>不一定，不同字符串的hashcode存在相等情况，但equals是false</p>
+<h2 id="hashcode相等，equals一定为true吗"><a href="#hashcode相等，equals一定为true吗" class="headerlink" title="hashcode相等，equals一定为true吗"></a>hashcode相等，equals一定为true吗</h2><p>不一定，不同字符串的hashcode存在相等情况，但equals是false，哈希算法决定，存在不同值的hash值相等的可能性</p>
+<h2 id="为什么重写-equals-就一定要重写-hashCode-方法？"><a href="#为什么重写-equals-就一定要重写-hashCode-方法？" class="headerlink" title="为什么重写 equals() 就一定要重写 hashCode() 方法？"></a>为什么重写 equals() 就一定要重写 hashCode() 方法？</h2><p>Object规范决定的，对于同时会使用这两个方法的类，就必须要进行同时重写，比如hashMap等类，如果重写了equals，没有重写hashcode的话，会出现两个不equals的对象的hashcode相等，导致对象无法存入hashmap的现象发生</p>
+<h2 id="amp-和-amp-amp-的区别？"><a href="#amp-和-amp-amp-的区别？" class="headerlink" title="&amp; 和 &amp;&amp; 的区别？"></a>&amp; 和 &amp;&amp; 的区别？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;</td>
+<td>按位与，非短路运算符，两边都计算结果，最终确定结果</td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>逻辑与，短路运算符，左侧能给出最终结果的话，就不执行右侧计算</td>
+</tr>
+</tbody></table>
+<h2 id="Java-中的参数传递时传值呢？还是传引用？"><a href="#Java-中的参数传递时传值呢？还是传引用？" class="headerlink" title="Java 中的参数传递时传值呢？还是传引用？"></a>Java 中的参数传递时传值呢？还是传引用？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>答案</td>
+<td>值传递</td>
+</tr>
+<tr>
+<td>原理</td>
+<td>拷贝一份参数在内存中的值传递过去，基本数据类型就是它的值的拷贝，引用类型就是内存中的地址的拷贝</td>
+</tr>
+</tbody></table>
+<h2 id="如何实现对象的克隆？"><a href="#如何实现对象的克隆？" class="headerlink" title="如何实现对象的克隆？"></a>如何实现对象的克隆？</h2><p>1、clone方法<br>2、序列化反序列化</p>
+<h2 id="深克隆和浅克隆的区别？"><a href="#深克隆和浅克隆的区别？" class="headerlink" title="深克隆和浅克隆的区别？"></a>深克隆和浅克隆的区别？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>浅拷贝</td>
+<td>只拷贝一个引用</td>
+</tr>
+<tr>
+<td>深拷贝</td>
+<td>拷贝一个引用以及内存中的全部数据</td>
+</tr>
+</tbody></table>
+<h2 id="什么是-Java-的序列化，如何实现-Java-的序列化？什么情况下需要序列化？"><a href="#什么是-Java-的序列化，如何实现-Java-的序列化？什么情况下需要序列化？" class="headerlink" title="什么是 Java 的序列化，如何实现 Java 的序列化？什么情况下需要序列化？"></a>什么是 Java 的序列化，如何实现 Java 的序列化？什么情况下需要序列化？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>什么是java序列化</td>
+<td>内存中的对象转换成字节流的过程</td>
+</tr>
+<tr>
+<td>如何实现序列化</td>
+<td>实现序列化接口</td>
+</tr>
+<tr>
+<td>序列化用途</td>
+<td>1、持久化内存中的对象<br/>2、内存中的对象在网络中传输</td>
+</tr>
+</tbody></table>
+<h2 id="Java-的泛型是如何工作的-什么是类型擦除"><a href="#Java-的泛型是如何工作的-什么是类型擦除" class="headerlink" title="Java 的泛型是如何工作的 ? 什么是类型擦除 ?"></a>Java 的泛型是如何工作的 ? 什么是类型擦除 ?</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>泛型如何工作</td>
+<td>泛型是一种参数化类型，包含泛型类、泛型方法、泛型接口，类型擦除即编译期将变量类型擦除，保证编译通过，运行时确定类型</td>
+</tr>
+<tr>
+<td>泛型目的</td>
+<td>提高代码重用度</td>
+</tr>
+</tbody></table>
+<h2 id="什么是泛型中的限定通配符和非限定通配符"><a href="#什么是泛型中的限定通配符和非限定通配符" class="headerlink" title="什么是泛型中的限定通配符和非限定通配符 ?"></a>什么是泛型中的限定通配符和非限定通配符 ?</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>这俩是什么玩意</td>
+<td>描述泛型类型限制</td>
+</tr>
+<tr>
+<td>限定通配符</td>
+<td><T>：必须是T</td>
+</tr>
+<tr>
+<td>非限定通配符</td>
+<td>&lt;? extens T&gt;：T或T的子类<br/>&lt;? super T&gt;：T或T的父类</td>
+</tr>
+</tbody></table>
+<h2 id="Java-中的反射是什么意思？有哪些应用场景？"><a href="#Java-中的反射是什么意思？有哪些应用场景？" class="headerlink" title="Java 中的反射是什么意思？有哪些应用场景？"></a>Java 中的反射是什么意思？有哪些应用场景？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>反射定义</td>
+<td>运行时获取对象信息的一种方式</td>
+</tr>
+<tr>
+<td>应用</td>
+<td>运行时获取对象信息，比如Spring中的ioc能力、mvc模块，jdbc与mysql建立链接等，总之就是另一种使用类功能的方式</td>
+</tr>
+</tbody></table>
+<h2 id="反射的优缺点？"><a href="#反射的优缺点？" class="headerlink" title="反射的优缺点？"></a>反射的优缺点？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>优点</td>
+<td>增加灵活性、拓展性，降低耦合，方便编写各种框架</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>1、性能较差<br/>2、可读性较差<br/>3、可能存在安全问题</td>
+</tr>
+</tbody></table>
+<h2 id="Java-中的动态代理是什么？有哪些应用？"><a href="#Java-中的动态代理是什么？有哪些应用？" class="headerlink" title="Java 中的动态代理是什么？有哪些应用？"></a>Java 中的动态代理是什么？有哪些应用？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>代理</td>
+<td>在不改动已有代码情况下，在其前后增加功能</td>
+</tr>
+<tr>
+<td>动态代理</td>
+<td>不需要提前编写代理类，运行时确定代理类的一种形式</td>
+</tr>
+<tr>
+<td>应用</td>
+<td>AOP、注解、事务、日志等框架</td>
+</tr>
+</tbody></table>
+<h2 id="实现动态代理"><a href="#实现动态代理" class="headerlink" title="实现动态代理"></a>实现动态代理</h2><p>1、定义委托类、委托方法、Invocationhandler<br>2、构造委托对象，构造Invocationhandler对象并绑定委托对象，构造代理对象并绑定Invocationhandler，使用代理对象调用委托方法即可</p>
+<h2 id="static-关键字的作用？"><a href="#static-关键字的作用？" class="headerlink" title="static 关键字的作用？"></a>static 关键字的作用？</h2><p>被修饰对象在编译期即可确定，被修饰对象只能使用类对象调用</p>
+<h2 id="super-关键字的作用？"><a href="#super-关键字的作用？" class="headerlink" title="super 关键字的作用？"></a>super 关键字的作用？</h2><p>用于在子类中使用父类功能</p>
+<h2 id="字节和字符的区别？"><a href="#字节和字符的区别？" class="headerlink" title="字节和字符的区别？"></a>字节和字符的区别？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>字节</td>
+<td>存储单位，1字节=8位</td>
+</tr>
+<tr>
+<td>字符</td>
+<td>描述信息的符号</td>
+</tr>
+</tbody></table>
+<h2 id="String-为什么要设计为不可变类？"><a href="#String-为什么要设计为不可变类？" class="headerlink" title="String 为什么要设计为不可变类？"></a>String 为什么要设计为不可变类？</h2><p>1、线程安全<br>2、符合常量池设计<br>3、hashcode保持唯一</p>
 <h2 id="final作用"><a href="#final作用" class="headerlink" title="final作用"></a>final作用</h2><table>
 <thead>
 <tr>
@@ -1175,9 +1389,7 @@
 <td>必须初始化，之后不能修改，基本数据类型会变成常量，引用类型引用不能变，但引用对象属性可以变</td>
 </tr>
 </tbody></table>
-<h2 id="Math-round-1-5-结果"><a href="#Math-round-1-5-结果" class="headerlink" title="Math.round(-1.5) 结果"></a>Math.round(-1.5) 结果</h2><ul>
-<li>Math.round()作用是四舍五入取整，所以结果-1</li>
-</ul>
+<h2 id="Math-round-1-5-结果"><a href="#Math-round-1-5-结果" class="headerlink" title="Math.round(-1.5) 结果"></a>Math.round(-1.5) 结果</h2><p>Math.round()作用是四舍五入取整，所以结果-1</p>
 <h2 id="String属于基础数据类型吗？"><a href="#String属于基础数据类型吗？" class="headerlink" title="String属于基础数据类型吗？"></a>String属于基础数据类型吗？</h2><p>不属于，string是引用类型，是对象，基础数据类型是byte、boolean、char、short、int、long、float、double</p>
 <h2 id="java中操作字符串的类，它们的区别"><a href="#java中操作字符串的类，它们的区别" class="headerlink" title="java中操作字符串的类，它们的区别"></a>java中操作字符串的类，它们的区别</h2><table>
 <thead>
@@ -1214,6 +1426,8 @@
 </tr>
 </tbody></table>
 <h2 id="String-str-“i”-和String-str-new-String-“i”-一样吗？"><a href="#String-str-“i”-和String-str-new-String-“i”-一样吗？" class="headerlink" title="String str = “i” 和String str = new String(“i”) 一样吗？"></a>String str = “i” 和String str = new String(“i”) 一样吗？</h2><p>不一样，String str = “i” str指向的是常量池中的某块内存，String str = new String(“i”) 中的str指向的堆内存的某块区域</p>
+<h2 id="String-字符串修改实现的原理？"><a href="#String-字符串修改实现的原理？" class="headerlink" title="String 字符串修改实现的原理？"></a>String 字符串修改实现的原理？</h2><p>引用指向新字符串</p>
+<h2 id="final-修饰-StringBuffer-后还可以-append-吗？"><a href="#final-修饰-StringBuffer-后还可以-append-吗？" class="headerlink" title="final 修饰 StringBuffer 后还可以 append 吗？"></a>final 修饰 StringBuffer 后还可以 append 吗？</h2><p>可以，final的是引用，引用指向的内容随便改</p>
 <h2 id="字符串反转"><a href="#字符串反转" class="headerlink" title="字符串反转"></a>字符串反转</h2><p>1、倒序遍历向另一个字符串中写<br>2、使用StringBuffer和StringBuilder中的reverse方法</p>
 <h2 id="String类常用方法"><a href="#String类常用方法" class="headerlink" title="String类常用方法"></a>String类常用方法</h2><table>
 <thead>
@@ -1367,7 +1581,7 @@
 <td>如果子类的不想当抽象类，就必须实现全部抽象方法</td>
 </tr>
 </tbody></table>
-<h2 id="java中IO流分几种"><a href="#java中IO流分几种" class="headerlink" title="java中IO流分几种"></a>java中IO流分几种</h2><table>
+<h2 id="Java-中的-IO-流的分类？说出几个你熟悉的实现类？"><a href="#Java-中的-IO-流的分类？说出几个你熟悉的实现类？" class="headerlink" title="Java 中的 IO 流的分类？说出几个你熟悉的实现类？"></a>Java 中的 IO 流的分类？说出几个你熟悉的实现类？</h2><table>
 <thead>
 <tr>
 <th>分类标准</th>
@@ -1376,15 +1590,31 @@
 </thead>
 <tbody><tr>
 <td>按流向分</td>
-<td>输入流、输出流</td>
+<td>输入流（InputStream）、输出流（OutputStream）</td>
 </tr>
 <tr>
 <td>按类型分</td>
-<td>字节流、字符流</td>
+<td>字节流（InputStream、OutputStream）、字符流（Reader、Writer）</td>
 </tr>
 <tr>
 <td>按功能分</td>
-<td>缓冲流、打印流、序列化流、转换流</td>
+<td>缓冲流（BufferInputStream、BufferOutputStream）、打印流（PrintStream）、转换流（InputStreamReader、OutputStreamWriter）</td>
+</tr>
+</tbody></table>
+<h2 id="字节流和字符流有什么区别？"><a href="#字节流和字符流有什么区别？" class="headerlink" title="字节流和字符流有什么区别？"></a>字节流和字符流有什么区别？</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>字节流</td>
+<td>不需要缓冲区，读写单位是一个字节</td>
+</tr>
+<tr>
+<td>字符流</td>
+<td>需要缓冲区，读写单位是一个unicode码</td>
 </tr>
 </tbody></table>
 <h2 id="BIO、NIO、AIO-有什么区别？"><a href="#BIO、NIO、AIO-有什么区别？" class="headerlink" title="BIO、NIO、AIO 有什么区别？"></a>BIO、NIO、AIO 有什么区别？</h2><table>
@@ -1398,8 +1628,8 @@
 </thead>
 <tbody><tr>
 <td>全称</td>
-<td>Block IO同步阻塞式IO</td>
-<td>New IO同步非阻塞式IO</td>
+<td>Block IO，同步阻塞式IO</td>
+<td>New IO，同步非阻塞式IO</td>
 <td>Asynchronous IO，NIO升级版，异步非阻塞IO</td>
 </tr>
 <tr>
@@ -1430,7 +1660,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/19/Q&A/Java/Java%E5%9F%BA%E7%A1%80/" data-id="cl8fn5np90061otd4comp1p7f" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/19/Q&A/Java/Java%E5%9F%BA%E7%A1%80/" data-id="cl8h98bju002tzjd44rgv7rpy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1619,7 +1849,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/13/Q&A/Java/Redis/" data-id="cl8fn5npe006lotd4fsoj139l" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/13/Q&A/Java/Redis/" data-id="cl8h98bk2003jzjd4f41yd0yj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1930,7 +2160,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/11/Q&A/Java/MySql/" data-id="cl8fn5npd006fotd40agfh0ff" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/11/Q&A/Java/MySql/" data-id="cl8h98bjz003czjd4hese4ysu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -2002,7 +2232,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/10/Q&A/Java/Zookeeper/" data-id="cl8fn5npg006uotd43i6z0tau" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/10/Q&A/Java/Zookeeper/" data-id="cl8h98bk5003wzjd49x1ue5ru" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -2079,7 +2309,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/09/Q&A/Java/Kafka/" data-id="cl8fn5npa0064otd4eatqdka1" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/09/Q&A/Java/Kafka/" data-id="cl8h98bjw002zzjd40af98eqb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -2237,7 +2467,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/05/06/Q&A/Java/RabbitMQ/" data-id="cl8fn5npd006iotd44avn964n" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/05/06/Q&A/Java/RabbitMQ/" data-id="cl8h98bk0003gzjd4b02pedoa" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>

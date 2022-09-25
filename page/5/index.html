@@ -85,101 +85,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-toolScript/上传图书到kindle" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/02/17/toolScript/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E4%B9%A6%E5%88%B0kindle/" class="article-date">
-  <time datetime="2022-02-17T08:28:59.000Z" itemprop="datePublished">2022-02-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%B7%A5%E5%85%B7%E8%84%9A%E6%9C%AC/">工具脚本</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/17/toolScript/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E4%B9%A6%E5%88%B0kindle/">上传图书到kindle</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="配置以及获取相关信息"><a href="#配置以及获取相关信息" class="headerlink" title="配置以及获取相关信息"></a>配置以及获取相关信息</h3><ul>
-<li>登录<a target="_blank" rel="noopener" href="https://www.amazon.cn/gp/digital/fiona/manage?ref_=hp_ss_qs_v3_dv_dc#/home/settings/payment">该页面</a>，然后在“个人文档设置”部分，增加自己使用发送电子书的邮箱到“”已认可的发件人电子邮箱列表”，该部分邮箱即为下文脚本中的发送邮箱</li>
-<li>获取要发送到的邮箱，该邮箱跟上面的添加邮箱在同一个页面上，在“〖发送至Kindle〗电子邮箱”部分，该部分邮箱即为下文脚本中的接收邮箱</li>
-<li>到发送邮箱里面开启SMTP服务器，此处我使用的是163，该部分请自行百度</li>
-</ul>
-<h3 id="示例脚本"><a href="#示例脚本" class="headerlink" title="示例脚本"></a>示例脚本</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">import os</span><br><span class="line">import smtplib  # 导入PyEmail</span><br><span class="line"># 发送字符串的邮件</span><br><span class="line">from email import encoders</span><br><span class="line">from email.mime.application import MIMEApplication</span><br><span class="line">from email.mime.base import MIMEBase</span><br><span class="line">from email.mime.text import MIMEText</span><br><span class="line"># 需要 MIMEMultipart 类</span><br><span class="line">from email.mime.multipart import MIMEMultipart</span><br><span class="line"></span><br><span class="line">SENDER = &quot;fasongyouxiang@163.com&quot; # 发送邮箱</span><br><span class="line">RECEIVE = &quot;jiehsouyouxiang1@kindle.cn;jiehsouyouxiang2@kindle.cn&quot; # 接收邮箱，多个用分号隔开</span><br><span class="line">PASSWORD = &quot;youxiangmima&quot; #邮箱密码</span><br><span class="line">SERVER = &quot;smtp.163.com&quot; # smtp服务地址</span><br><span class="line">SERVER_PORT = 994 # smtp服务器端口</span><br><span class="line"></span><br><span class="line"># 邮件构建</span><br><span class="line"></span><br><span class="line">def send(file_path):</span><br><span class="line"></span><br><span class="line">    print(&quot;开始发送：&quot;, file_path)</span><br><span class="line">    message = MIMEMultipart()</span><br><span class="line">    message[&#x27;From&#x27;] = SENDER  # 发送方</span><br><span class="line">    message[&#x27;To&#x27;] = RECEIVE  # 接收方</span><br><span class="line"></span><br><span class="line">    # 构建邮件附件</span><br><span class="line">    part = MIMEApplication(open(file_path, &#x27;rb&#x27;).read())</span><br><span class="line">    part.add_header(&#x27;Content-Disposition&#x27;, &#x27;attachment&#x27;, filename=get_last_filename(file_path))</span><br><span class="line">    message.attach(part)</span><br><span class="line"></span><br><span class="line">    smtp = smtplib.SMTP_SSL(SERVER, SERVER_PORT)  # 实例化smtp服务器</span><br><span class="line">    smtp.login(SENDER, PASSWORD)  # 发件人登录</span><br><span class="line">    smtp.sendmail(SENDER, [RECEIVE], message.as_string())  # as_string 对 message 的消息进行了封装</span><br><span class="line">    smtp.close()</span><br><span class="line">    print(&quot;发送邮件成功：&quot;, file_path)</span><br><span class="line"></span><br><span class="line">def get_last_filename(filename):</span><br><span class="line">    return filename[filename.rindex(&#x27;/&#x27;) + 1: len(filename)]</span><br><span class="line"></span><br><span class="line">def send_to_kindle():</span><br><span class="line">    dir = os.walk(r&quot;./ebook&quot;)</span><br><span class="line">    for path, dir_list, file_list in dir:</span><br><span class="line">        for file_name in file_list:</span><br><span class="line">            if &quot;DS_Store&quot; not in file_name:</span><br><span class="line">                send(&quot;./ebook/&quot; + file_name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__==&#x27;__main__&#x27;:</span><br><span class="line">    send_to_kindle()</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/02/17/toolScript/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E4%B9%A6%E5%88%B0kindle/" data-id="cl8fn5no50027otd461pydhrs" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7/" rel="tag">脚本工具</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-blockchain/数字货币私钥保存方案设计" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/02/08/blockchain/%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E7%A7%81%E9%92%A5%E4%BF%9D%E5%AD%98%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1/" class="article-date">
-  <time datetime="2022-02-08T08:25:55.000Z" itemprop="datePublished">2022-02-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BD%BF%E7%94%A8/">区块链使用</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/08/blockchain/%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E7%A7%81%E9%92%A5%E4%BF%9D%E5%AD%98%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1/">数字货币私钥保存方案设计</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="方案设计描述（此处只讨论保存到互联网中）"><a href="#方案设计描述（此处只讨论保存到互联网中）" class="headerlink" title="方案设计描述（此处只讨论保存到互联网中）"></a>方案设计描述（此处只讨论保存到互联网中）</h3><ul>
-<li>保存私钥：<br>1、使用RSA方案对钱包私钥进行加密获得钱包私钥密文<br>2、将RSA私钥和钱包私钥密文对应的文件压缩成zip文件，并设置密码<br>3、然后将RSA私钥和钱包私钥密文分别保存到不用的地方</li>
-<li>获取私钥：<br>1、找到RSA私钥和钱包私钥密文<br>2、找到解zip密码，解压获得两个文件<br>3、将解密后的文件地址复制到代码中，运行获得明文</li>
-</ul>
-<h3 id="RSA加解密示例代码"><a href="#RSA加解密示例代码" class="headerlink" title="RSA加解密示例代码"></a>RSA加解密示例代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br></pre></td><td class="code"><pre><span class="line">from binascii import b2a_hex, a2b_hex</span><br><span class="line"></span><br><span class="line">import rsa as rsa</span><br><span class="line">from Crypto.Cipher import AES</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">AES加密部分</span><br><span class="line">使用AES ECB模式，16位AES_KEY</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">class AESUtil(object):</span><br><span class="line">    AES_KEY = &quot;XewGlSGidrB+REgf&quot;</span><br><span class="line"></span><br><span class="line">    def add_to_16(self, text):</span><br><span class="line">        if len(text.encode(&#x27;utf-8&#x27;)) % 16:</span><br><span class="line">            add = 16 - (len(text.encode(&#x27;utf-8&#x27;)) % 16)</span><br><span class="line">        else:</span><br><span class="line">            add = 0</span><br><span class="line">        text = text + (&#x27;\0&#x27; * add)</span><br><span class="line">        return text.encode(&#x27;utf-8&#x27;)</span><br><span class="line"></span><br><span class="line">    # 加密函数</span><br><span class="line">    def encrypt(self, text, aes_key):</span><br><span class="line"></span><br><span class="line">        cryptos = AES.new(aes_key.encode(&#x27;utf-8&#x27;), AES.MODE_ECB)</span><br><span class="line">        cipher_text = cryptos.encrypt(self.add_to_16(text))</span><br><span class="line">        # 因为AES加密后的字符串不一定是ascii字符集的，输出保存可能存在问题，所以这里转为16进制字符串</span><br><span class="line">        return b2a_hex(cipher_text)</span><br><span class="line"></span><br><span class="line">    # 解密后，去掉补足的空格用strip() 去掉</span><br><span class="line">    def decrypt(self, text, aes_key):</span><br><span class="line">        cryptos = AES.new(aes_key.encode(&#x27;utf-8&#x27;), AES.MODE_ECB)</span><br><span class="line">        plain_text = cryptos.decrypt(a2b_hex(text))</span><br><span class="line">        return bytes.decode(plain_text).rstrip(&#x27;\0&#x27;)</span><br><span class="line"></span><br><span class="line">    # 生成随机密钥</span><br><span class="line">    def get_random_aes_key(self, n=16):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        获取密钥 n 密钥长度</span><br><span class="line">        :return:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        c_length = int(n)</span><br><span class="line">        source = &#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&#x27;</span><br><span class="line">        length = len(source) - 1</span><br><span class="line">        result = &#x27;&#x27;</span><br><span class="line">        for i in range(c_length):</span><br><span class="line">            import random</span><br><span class="line">            result += source[random.randint(0, length)]</span><br><span class="line">        return result</span><br><span class="line"></span><br><span class="line">def test_aes():</span><br><span class="line">    print(&quot;aes加解密测试&quot;)</span><br><span class="line">    aesUtil = AESUtil()</span><br><span class="line">    aes_key = aesUtil.get_random_aes_key()</span><br><span class="line">    print(&quot;随机aeskey&quot;, aes_key)</span><br><span class="line">    encrypt_text = aesUtil.encrypt(&quot;aes加解密测试&quot;, aes_key)</span><br><span class="line">    print(&quot;aes加密：&quot;, encrypt_text)</span><br><span class="line">    decrypt_text = aesUtil.decrypt(encrypt_text, aes_key)</span><br><span class="line">    print(&quot;aes解密：&quot;, decrypt_text)</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">RSA加密部分</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">PUBLIC_KEY_PATH = &#x27;./rsa_public_key.pem&#x27;  # 公钥</span><br><span class="line">PRIVATE_KEY_PATH = &#x27;./rsa_private_key.pem&#x27;  # 私钥</span><br><span class="line"></span><br><span class="line">class RSAUtil(object):</span><br><span class="line"></span><br><span class="line">    def create_rsa_pri_pub_key(self):</span><br><span class="line">        (public_key, private_key) = rsa.newkeys(1024)</span><br><span class="line">        public_key = public_key.save_pkcs1()</span><br><span class="line">        private_key = private_key.save_pkcs1()</span><br><span class="line">        return (public_key, private_key)</span><br><span class="line"></span><br><span class="line">    def encrypt(self, public_key, text):</span><br><span class="line">        return rsa.encrypt(text.encode(&#x27;utf8&#x27;), public_key)</span><br><span class="line"></span><br><span class="line">    def decrypt(self, private_key, text):</span><br><span class="line">        return rsa.decrypt(text, private_key).decode()</span><br><span class="line"></span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    传入多个path，将加密数据保存到对应path，并保存秘钥到对应path</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    def encrypt_save_text_with_path(self, text, private_key_path, text_path):</span><br><span class="line">        (public_key, private_key) = self.create_rsa_pri_pub_key()</span><br><span class="line">        with open(private_key_path, &quot;wb&quot;) as f:</span><br><span class="line">            f.write(private_key)</span><br><span class="line"></span><br><span class="line">        tmp_rsa_public_key_path = &quot;./rsa_public.pem&quot;</span><br><span class="line">        with open(tmp_rsa_public_key_path, &quot;wb&quot;) as f:</span><br><span class="line">            f.write(public_key)</span><br><span class="line"></span><br><span class="line">        public_key = rsa.PublicKey.load_pkcs1(open(tmp_rsa_public_key_path).read())</span><br><span class="line"></span><br><span class="line">        encrypt_text = self.encrypt(public_key, text)</span><br><span class="line"></span><br><span class="line">        with open(text_path, &quot;wb&quot;) as f:</span><br><span class="line">            f.write(encrypt_text)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    传入多个path，将加密数据解密获得明文</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    def decrypt_text_with_path(self, private_key_path, text_path):</span><br><span class="line">        private_key = rsa.PrivateKey.load_pkcs1(open(private_key_path).read())</span><br><span class="line"></span><br><span class="line">        with open(text_path, &quot;rb&quot;) as f:</span><br><span class="line">            encrypt_text = f.read()</span><br><span class="line"></span><br><span class="line">        return self.decrypt(private_key, encrypt_text)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">rsa+aes</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">class RSAAESUtil(object):</span><br><span class="line"></span><br><span class="line">    def get_rsa_aes_key(self):</span><br><span class="line">        aes_util = AESUtil()</span><br><span class="line">        rsa_util = RSAUtil()</span><br><span class="line"></span><br><span class="line">        aes_key = aes_util.get_random_aes_key()</span><br><span class="line">        (rsa_public_key, rsa_private_key) = rsa_util.get_rsa_pub_pri_key(PUBLIC_KEY_PATH, PRIVATE_KEY_PATH)</span><br><span class="line">        return (aes_key, rsa_public_key, rsa_private_key)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    def encrypt(self, text, aes_key, rsa_public_key):</span><br><span class="line">        aes_util = AESUtil()</span><br><span class="line">        rsa_util = RSAUtil()</span><br><span class="line"></span><br><span class="line">        # 加密</span><br><span class="line">        encrypt_text = aes_util.encrypt(text, aes_key)</span><br><span class="line">        encrypt_aes_key = rsa_util.encrypt(rsa_public_key, aes_key)</span><br><span class="line">        return (encrypt_text, encrypt_aes_key)</span><br><span class="line"></span><br><span class="line">    def decrypty(self, rsa_private_key, encrypt_text, encrypt_aes_key):</span><br><span class="line">        aes_util = AESUtil()</span><br><span class="line">        rsa_util = RSAUtil()</span><br><span class="line">        aes_key = rsa_util.decrypt(rsa_private_key, encrypt_aes_key)</span><br><span class="line">        return aes_util.decrypt(encrypt_text, aes_key)</span><br><span class="line"></span><br><span class="line">def test_rsa_aes():</span><br><span class="line">    print(&quot;rsa_aes加解密测试&quot;)</span><br><span class="line">    rsa_aes_util = RSAAESUtil()</span><br><span class="line"></span><br><span class="line">    # 生成秘钥</span><br><span class="line">    (aes_key, rsa_public_key, rsa_private_key) = rsa_aes_util.get_rsa_aes_key()</span><br><span class="line"></span><br><span class="line">    # 加密</span><br><span class="line">    (encrypt_text, encrypt_aes_key) = rsa_aes_util.encrypt(&quot;rsa_aes加解密测试&quot;, aes_key, rsa_public_key)</span><br><span class="line">    print(&quot;rsa_aes加密：&quot;, encrypt_text)</span><br><span class="line">    print(&quot;rsa_aes加密后的aes_key&quot;, encrypt_aes_key)</span><br><span class="line"></span><br><span class="line">    # 解密</span><br><span class="line">    decrypt_text = rsa_aes_util.decrypty(rsa_private_key, encrypt_text, encrypt_aes_key)</span><br><span class="line">    print(&quot;rsa_aes解密：&quot;, decrypt_text)</span><br><span class="line"></span><br><span class="line">BTC_RSA_PRIVATE_KEY_PATH = &quot;./btc_rsa_private_key.pem&quot;</span><br><span class="line">BTC_RSA_PUBLIC_KEY_PATH = &quot;./btc_rsa_public_key.pem&quot;</span><br><span class="line"></span><br><span class="line">ETH_RSA_PRIVATE_KEY_PATH = &quot;./eth_rsa_private_key.pem&quot;</span><br><span class="line">ETH_RSA_PUBLIC_KEY_PATH = &quot;./eth_rsa_public_key.pem&quot;</span><br><span class="line"></span><br><span class="line">BTC_ENCRYPT_TEXT_PATH = &quot;./btc_encrypt_text.txt&quot;</span><br><span class="line">ETH_ENCRYPT_TEXT_PATH = &quot;./eth_encrypt_text.txt&quot;</span><br><span class="line"></span><br><span class="line">def test_rsa_solution():</span><br><span class="line">    rsa_util = RSAUtil()</span><br><span class="line"></span><br><span class="line">    btc_text = &quot;我是比特币私钥&quot;</span><br><span class="line">    eth_text = &quot;我是以太坊私钥&quot;</span><br><span class="line"></span><br><span class="line">    rsa_util.encrypt_save_text_with_path(btc_text, BTC_RSA_PRIVATE_KEY_PATH, BTC_ENCRYPT_TEXT_PATH)</span><br><span class="line">    print(rsa_util.decrypt_text_with_path(BTC_RSA_PRIVATE_KEY_PATH, BTC_ENCRYPT_TEXT_PATH))</span><br><span class="line"></span><br><span class="line">    rsa_util.encrypt_save_text_with_path(eth_text, ETH_RSA_PRIVATE_KEY_PATH, ETH_ENCRYPT_TEXT_PATH)</span><br><span class="line">    print(rsa_util.decrypt_text_with_path(ETH_RSA_PRIVATE_KEY_PATH, ETH_ENCRYPT_TEXT_PATH))</span><br><span class="line"></span><br><span class="line">def get_key(private_key_path, encrypt_text_path):</span><br><span class="line">    rsa_util = RSAUtil()</span><br><span class="line">    print(rsa_util.decrypt_text_with_path(private_key_path, encrypt_text_path))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    test_rsa_solution()</span><br><span class="line">    get_key(BTC_RSA_PRIVATE_KEY_PATH, BTC_ENCRYPT_TEXT_PATH)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/02/08/blockchain/%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E7%A7%81%E9%92%A5%E4%BF%9D%E5%AD%98%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1/" data-id="cl8fn5nnx001gotd4669lh036" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-toolApplication/PyCharm指南" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2022/01/30/toolApplication/PyCharm%E6%8C%87%E5%8D%97/" class="article-date">
@@ -221,7 +126,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/01/30/toolApplication/PyCharm%E6%8C%87%E5%8D%97/" data-id="cl8fn5no8002kotd44p4x64yg" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/01/30/toolApplication/PyCharm%E6%8C%87%E5%8D%97/" data-id="cl8h98bjp0027zjd4b51j12fe" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
@@ -631,7 +536,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2022/01/17/Q&A/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" data-id="cl8fn5npi0076otd4469s9m45" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2022/01/17/Q&A/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" data-id="cl8h98bk6003yzjd4fmgl5cn9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -954,7 +859,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/12/06/Q&A/Java/%E5%AE%B9%E5%99%A8/" data-id="cl8fn5npj0079otd47yxw965v" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/12/06/Q&A/Java/%E5%AE%B9%E5%99%A8/" data-id="cl8h98bko005zzjd4dcoteaoa" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1013,49 +918,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/25/Q&A/Java/%E6%8E%A5%E5%8F%A3/" data-id="cl8fn5npl007iotd4hyzf2rts" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Q&amp;A/Java/重写、重载" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/11/25/Q&A/Java/%E9%87%8D%E5%86%99%E3%80%81%E9%87%8D%E8%BD%BD/" class="article-date">
-  <time datetime="2021-11-25T07:17:59.000Z" itemprop="datePublished">2021-11-25</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/25/Q&A/Java/%E9%87%8D%E5%86%99%E3%80%81%E9%87%8D%E8%BD%BD/">重写、重载</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="重写：子类重写父类方法，壳不变，瓤变"><a href="#重写：子类重写父类方法，壳不变，瓤变" class="headerlink" title="重写：子类重写父类方法，壳不变，瓤变"></a>重写：子类重写父类方法，壳不变，瓤变</h2><h2 id="重载：同一个类中方法名一样，返回值、参数不一样"><a href="#重载：同一个类中方法名一样，返回值、参数不一样" class="headerlink" title="重载：同一个类中方法名一样，返回值、参数不一样"></a>重载：同一个类中方法名一样，返回值、参数不一样</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/25/Q&A/Java/%E9%87%8D%E5%86%99%E3%80%81%E9%87%8D%E8%BD%BD/" data-id="cl8fn5npn007rotd4b9jfgsmk" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/11/25/Q&A/Java/%E6%8E%A5%E5%8F%A3/" data-id="cl8h98bkq0062zjd4hchq2tlu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1102,7 +965,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/Math%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/" data-id="cl8fn5npb0068otd4di836jxx" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/Math%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/" data-id="cl8h98bjx0034zjd4h41l9xpa" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1249,7 +1112,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/String%E3%80%81StringBuffer%E3%80%81StringBuilder/" data-id="cl8fn5npf006rotd4ces22cva" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/String%E3%80%81StringBuffer%E3%80%81StringBuilder/" data-id="cl8h98bk4003qzjd42dyq725z" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
@@ -1261,14 +1124,14 @@
 
 
   
-    <article id="post-Q&amp;A/Java/双等号、equals、hashCode区别" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-dataStructure/栈" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2021/11/22/Q&A/Java/%E5%8F%8C%E7%AD%89%E5%8F%B7%E3%80%81equals%E3%80%81hashCode%E5%8C%BA%E5%88%AB/" class="article-date">
-  <time datetime="2021-11-22T14:47:01.000Z" itemprop="datePublished">2021-11-22</time>
+    <a href="/2021/11/15/dataStructure/%E6%A0%88/" class="article-date">
+  <time datetime="2021-11-15T02:16:31.000Z" itemprop="datePublished">2021-11-15</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Q-A/">Q&A</a>►<a class="article-category-link" href="/categories/Q-A/Q-A-java/">Q&A-java</a>
+    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
   </div>
 
   </div>
@@ -1279,7 +1142,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/22/Q&A/Java/%E5%8F%8C%E7%AD%89%E5%8F%B7%E3%80%81equals%E3%80%81hashCode%E5%8C%BA%E5%88%AB/">双等号、equals、hashCode区别</a>
+      <a class="article-title" href="/2021/11/15/dataStructure/%E6%A0%88/">栈</a>
     </h1>
   
 
@@ -1287,38 +1150,170 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/5a7f5f786b75">参考文章1</a></li>
+        <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
+<li>一种特殊线性表</li>
 </ul>
-<h2 id="：判断的是两个变量对应的内存中的值是否相等"><a href="#：判断的是两个变量对应的内存中的值是否相等" class="headerlink" title="==：判断的是两个变量对应的内存中的值是否相等"></a>==：判断的是两个变量对应的内存中的值是否相等</h2><ul>
-<li>基本数据类型比较值</li>
-<li>引用类型比较内存地址</li>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>只允许在表尾删除、插入</li>
 </ul>
-<h2 id="equals：不重写时与”-”功能一致，其在Object方法列表中，可重写该方法"><a href="#equals：不重写时与”-”功能一致，其在Object方法列表中，可重写该方法" class="headerlink" title="equals：不重写时与”==”功能一致，其在Object方法列表中，可重写该方法"></a>equals：不重写时与”==”功能一致，其在Object方法列表中，可重写该方法</h2><ul>
-<li>特点：<ul>
-<li>重写需要遵循java对该方法重写的规范（对称性、反射性、类推性、一致性、非空性）</li>
-<li>未重写时与”==”功能一致</li>
-<li>当某个类要在散列表中使用时，重写该方法的同时必须重写hashCode方法，否则该方法无效</li>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line"># -*- coding: UTF-8 -*-</span><br><span class="line"></span><br><span class="line">class StackTest(object):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.items = []</span><br><span class="line"></span><br><span class="line">    def is_empty(self):</span><br><span class="line">        return self.items == []</span><br><span class="line"></span><br><span class="line">    def push(self, item):</span><br><span class="line">        self.items.append(item)</span><br><span class="line"></span><br><span class="line">    def pop(self):</span><br><span class="line">        self.items.pop();</span><br><span class="line"></span><br><span class="line">    def peek(self):</span><br><span class="line">        return self.items[len(self.items) - 1]</span><br><span class="line"></span><br><span class="line">    def size(self):</span><br><span class="line">        return len(self.items)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def reverseArrayItem(array):</span><br><span class="line">    stackTest = StackTest()</span><br><span class="line"></span><br><span class="line">    for item in array:</span><br><span class="line">        stackTest.push(item)</span><br><span class="line"></span><br><span class="line">    while stackTest.size() &gt; 0:</span><br><span class="line">        print(stackTest.peek())</span><br><span class="line">        stackTest.pop()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    tmpArray = [1, 2, 3]</span><br><span class="line">    reverseArrayItem(tmpArray)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2021/11/15/dataStructure/%E6%A0%88/" data-id="cl8h98bjk001ozjd47v7n5vcl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-dataStructure/队列" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/11/14/dataStructure/%E9%98%9F%E5%88%97/" class="article-date">
+  <time datetime="2021-11-14T14:07:48.000Z" itemprop="datePublished">2021-11-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/14/dataStructure/%E9%98%9F%E5%88%97/">队列</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
+<li>一种特殊线性表</li>
 </ul>
-</li>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>只允许表头删除，表尾插入</li>
 </ul>
-<h2 id="HashCode：获取哈希码（散列码，为了提升散列表查找性能），该哈希码作用是确定该对象在哈希表中索引位置"><a href="#HashCode：获取哈希码（散列码，为了提升散列表查找性能），该哈希码作用是确定该对象在哈希表中索引位置" class="headerlink" title="HashCode：获取哈希码（散列码，为了提升散列表查找性能），该哈希码作用是确定该对象在哈希表中索引位置"></a>HashCode：获取哈希码（散列码，为了提升散列表查找性能），该哈希码作用是确定该对象在哈希表中索引位置</h2><ul>
-<li>特点：<ul>
-<li>该方法在Object的方法，所以所有类都继承该方法</li>
-<li>该方法只在该对象被散列表（例如HashMap、HaskTable、HashSet）所使用时，才会使用到该方法，其他情况下没用</li>
-<li>该方法可以通过重写进行自定义</li>
-<li>当同时使用到该方法和equals时，hashcode相等，但equals不一定相等，但equals相等，hashcode一定相等</li>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line"># -*- coding: UTF-8 -*-</span><br><span class="line"></span><br><span class="line">class Queue:</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.items = []</span><br><span class="line"></span><br><span class="line">    def enqueue(self, item):</span><br><span class="line">        self.items.append(item)</span><br><span class="line"></span><br><span class="line">    def peek(self):</span><br><span class="line">        item = self.items[0]</span><br><span class="line">        self.dequeue()</span><br><span class="line">        return item</span><br><span class="line"></span><br><span class="line">    def dequeue(self):</span><br><span class="line">        return self.items.pop(0)</span><br><span class="line"></span><br><span class="line">    def empty(self):</span><br><span class="line">        return self.size() == 0</span><br><span class="line"></span><br><span class="line">    def size(self):</span><br><span class="line">        return len(self.items)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def sendMessage(array):</span><br><span class="line">    messageQueue = Queue()</span><br><span class="line"></span><br><span class="line">    for item in array:</span><br><span class="line">        messageQueue.enqueue(item)</span><br><span class="line"></span><br><span class="line">    while messageQueue.empty() is False:</span><br><span class="line">        print(&quot;发送&quot; + messageQueue.peek())</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    array = [&quot;消息1&quot;, &quot;消息2&quot;, &quot;消息3&quot;]</span><br><span class="line">    sendMessage(array)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2021/11/14/dataStructure/%E9%98%9F%E5%88%97/" data-id="cl8h98bjl001rzjd4emao33vg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/多态" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/11/04/Java/%E5%A4%9A%E6%80%81/" class="article-date">
+  <time datetime="2021-11-03T17:30:39.000Z" itemprop="datePublished">2021-11-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/04/Java/%E5%A4%9A%E6%80%81/">多态</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="多态前提"><a href="#多态前提" class="headerlink" title="多态前提"></a>多态前提</h3><ul>
+<li>有继承或实现关系</li>
+<li>有方法重写</li>
+<li>有父类引用指向子类对象</li>
 </ul>
-</li>
+<h3 id="多态访问成员变量、成员方法特点"><a href="#多态访问成员变量、成员方法特点" class="headerlink" title="多态访问成员变量、成员方法特点"></a>多态访问成员变量、成员方法特点</h3><ul>
+<li>只能访问声明类型内有的成员变量和成员方法，比如Person p = new Student(); 此时p只能调用Person中有的成员变量和成员方法</li>
+</ul>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><ul>
+<li>优点：可以动态的调用子类重写方法</li>
+<li>缺点：不能使用子类特有变量、方法</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liquangang.github.io/2021/11/22/Q&A/Java/%E5%8F%8C%E7%AD%89%E5%8F%B7%E3%80%81equals%E3%80%81hashCode%E5%8C%BA%E5%88%AB/" data-id="cl8fn5nph0070otd45aouespk" class="article-share-link">Share</a>
+      <a data-url="https://liquangang.github.io/2021/11/04/Java/%E5%A4%9A%E6%80%81/" data-id="cl8h98bj9000pzjd4d7xzecgm" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-A/" rel="tag">Q&A</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java/java-package" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/10/21/Java/java-package/" class="article-date">
+  <time datetime="2021-10-21T12:06:46.000Z" itemprop="datePublished">2021-10-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/10/21/Java/java-package/">java-package</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h3><ul>
+<li>示例：package:com.liquangang</li>
+</ul>
+<h3 id="单独执行文件中无包名文件"><a href="#单独执行文件中无包名文件" class="headerlink" title="单独执行文件中无包名文件"></a>单独执行文件中无包名文件</h3><ul>
+<li>示例：java com.liquangang.HelloWorld</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liquangang.github.io/2021/10/21/Java/java-package/" data-id="cl8h98bj6000gzjd484l63p4v" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
 
     </footer>
   </div>
